@@ -67,7 +67,7 @@ function newPaste() {
 }
 
 function addMessage(message) {
-	let msg = $(`<li>${message || "Unknown error occurred.."}</li>`);
+	let msg = $(`<li>${message}</li>`);
 	messages.prepend(msg);
 
 	setTimeout(function () {
