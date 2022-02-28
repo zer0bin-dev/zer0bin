@@ -4,7 +4,7 @@ body {
 }
 
 body {
-	background-color: #002b36;
+	background-color: #191724;
 	margin: 0;
 }
 
@@ -111,7 +111,7 @@ textarea {
 }
 
 #messages li {
-	background-color: rgba(37, 86, 98, 0.8);
+	background-color: rgba(31, 29, 46, 0.8);
 	font-family: monospace;
 	color: white;
 	padding: 7px;
