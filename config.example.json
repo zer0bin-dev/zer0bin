@@ -1,4 +1,8 @@
 {
+	"server": {
+		"backend_host": "localhost",
+		"backend_port": 8000
+	},
 	"pastes": {
 		"character_limit": 40000,
 		"days_til_expiration": 7

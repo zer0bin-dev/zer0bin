@@ -136,9 +136,14 @@ async fn main() -> io::Result<()> {
         .await
         .expect("Failed to connect to database");
 
+    let address = format!(
+        "{}:{}",
+        config.server.backend_host, config.server.backend_port
+    );
+
     let state = AppState { config, pool };
 
-    println!("🚀 zer0bin is running");
+    println!("🚀 zer0bin is running on {}", address);
 
     HttpServer::new(move || {
         let cors = Cors::default()
@@ -153,7 +158,7 @@ async fn main() -> io::Result<()> {
             .app_data(Data::new(state.clone()))
             .service(web::scope("/p").service(get_paste).service(new_paste))
     })
-    .bind("localhost:8000")?
+    .bind(address)?
     .run()
     .await
 }
