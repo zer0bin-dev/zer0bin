@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zer0b.in</title>
+
+    <link href="styles.css" rel="stylesheet" />
+
+    <script
+      src="https://kit.fontawesome.com/87d6c5dd5a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/solarized-dark.min.css"
+      integrity="sha512-kBHeOXtsKtA97/1O3ebZzWRIwiWEOmdrylPrOo3D2+pGhq1m+1CroSOVErIlsqn1xmYowKfQNVDhsczIzeLpmg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"
+      integrity="sha512-IaaKO80nPNs5j+VLxd42eK/7sYuXQmr+fyywCNA0e+C6gtQnuCXNtORe9xR4LqGPz5U9VpH+ff41wKs/ZmC3iA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <ul id="messages"></ul>
+
+    <div class="wrapper">
+      <div class="line-numbers"></div>
+
+      <!-- We only show this if they are viewing a paste-->
+      <pre
+        id="code-view-pre"
+        style="display: none"
+      ><code id="code-view"></code></pre>
+
+      <!-- We only show the textarea if they are creating a new paste-->
+      <textarea
+        spellcheck="false"
+        autofocus
+        name="value"
+        id="text-area"
+        style="display: none"
+      ></textarea>
+    </div>
+    <div class="button-wrapper">
+      <a href="/" class="logo">zer0b.in</a>
+      <div class="buttons">
+        <button id="save-button" class="btn">
+          <i class="fas fa-save fa-xl"></i>
+        </button>
+        <button id="new-button" class="btn">
+          <i class="fas fa-file-medical fa-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

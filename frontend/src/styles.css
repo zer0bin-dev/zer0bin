@@ -1,0 +1,118 @@
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background-color: #002b36;
+	margin: 0;
+}
+
+pre {
+	margin: 0;
+}
+
+.wrapper {
+	display: flex;
+	padding: 1rem 0.5rem;
+	font-size: 1rem;
+	height: calc(100% - 2rem);
+}
+
+.line-numbers {
+	color: #7d7d7d;
+	font-family: monospace;
+	text-align: end;
+	user-select: none;
+	font-size: 15px;
+}
+
+#code-view {
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 15px;
+}
+
+textarea {
+	background-color: transparent;
+	resize: none;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	padding-left: 1rem;
+	margin: 0;
+	border: none;
+	outline: none;
+	color: white;
+	font-size: 15px;
+}
+
+.button-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 1rem;
+	background-color: #00222b;
+	z-index: 1000;
+}
+
+.buttons {
+	display: flex;
+}
+
+.buttons > * + * {
+	margin-left: 0.25rem;
+}
+
+.btn {
+	cursor: pointer;
+	background: none;
+	color: #8fbcc8;
+	font-size: 1rem;
+	border: none;
+	transition: background-color 200ms ease-in-out;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.btn:hover {
+	color: white;
+}
+
+.btn:disabled,
+.btn[disabled] {
+	color: #255662;
+}
+
+.logo {
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	color: #8fbcc8;
+	width: 100%;
+	font-family: monospace;
+	display: inline-block;
+}
+
+.logo:hover {
+	color: white;
+}
+
+#messages {
+	position: absolute;
+	top: 0;
+	right: 168px;
+	z-index: 1000;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 400px;
+}
+
+#messages li {
+	background-color: rgba(37, 86, 98, 0.8);
+	font-family: monospace;
+	color: white;
+	padding: 7px;
+}

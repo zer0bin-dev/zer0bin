@@ -1,0 +1,21 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0"
+serde_json = "1.0"
+
+actix-rt = "2.6.0"
+actix-web = "4.0.0-rc.1"
+actix-cors = "0.6.0"
+
+sqlx = { version = "0.5", features = ["runtime-tokio-rustls", "postgres", "chrono"] }
+
+chrono = { version = "0.4.19", features = ["serde"] }
+
+nanoid = "0.4.0"
+
