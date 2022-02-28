@@ -63,6 +63,8 @@ async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Re
                 });
             }
             _ => {
+                eprintln!("Error occurred while getting paste: {:?}", e);
+
                 return HttpResponse::InternalServerError().json(ApiResponse {
                     success: false,
                     data: ApiError {
@@ -116,7 +118,8 @@ async fn new_paste(state: web::Data<AppState>, data: web::Json<PartialPaste>) ->
             });
         }
         Err(e) => {
-            println!("{}", e);
+            eprintln!("Error occurred while creating paste: {:?}", e);
+
             return HttpResponse::InternalServerError().json(ApiResponse {
                 success: false,
                 data: ApiError {
