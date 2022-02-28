@@ -138,7 +138,7 @@ async fn main() -> io::Result<()> {
 
     let state = AppState { config, pool };
 
-    println!("🚀 zer0bin starting");
+    println!("🚀 zer0bin is running");
 
     HttpServer::new(move || {
         let cors = Cors::default()

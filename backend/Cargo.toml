@@ -19,3 +19,11 @@ chrono = { version = "0.4.19", features = ["serde"] }
 
 nanoid = "0.4.0"
 
+[profile.release]
+codegen-units = 1
+debug = false
+incremental = false
+lto = true
+opt-level = 3
+panic = "abort"
+debug-assertions = false

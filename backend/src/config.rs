@@ -4,8 +4,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Config {
+    pub server: ServerConfig,
     pub pastes: PastesConfig,
     pub databases: DatabasesConfig,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct ServerConfig {
+    pub backend_port: u16,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
