@@ -138,6 +138,8 @@ async fn main() -> io::Result<()> {
 
     let state = AppState { config, pool };
 
+    println!("🚀 zer0bin starting");
+
     HttpServer::new(move || {
         let cors = Cors::default()
             .allow_any_header()
