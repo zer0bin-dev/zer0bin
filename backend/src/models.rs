@@ -7,7 +7,7 @@ pub struct Paste {
     pub id: String,
     pub content: String,
     pub views: i64,
-    pub expires_at: NaiveDateTime,
+    pub expires_at: Option<NaiveDateTime>,
 }
 
 #[derive(Deserialize)]
@@ -32,7 +32,7 @@ pub struct GetPasteResponse {
     pub id: String,
     pub content: String,
     pub views: i64,
-    pub expires_at: NaiveDateTime,
+    pub expires_at: Option<NaiveDateTime>,
 }
 
 #[derive(Serialize)]

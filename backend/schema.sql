@@ -2,13 +2,13 @@ CREATE TABLE IF NOT EXISTS pastes (
     "id" TEXT PRIMARY KEY,
     "content" TEXT NOT NULL,
     "views" BIGINT DEFAULT 0,
-    "expires_at" TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    "expires_at" TIMESTAMP WITHOUT TIME ZONE,
     "created_at" TIMESTAMP WITHOUT TIME ZONE DEFAULT(NOW() AT TIME ZONE 'utc')
 );
 
 CREATE OR REPLACE FUNCTION deleteExpiredPastes() RETURNS trigger AS $pastes_expire$
     BEGIN
-        DELETE FROM pastes WHERE "expires_at"  < now() AT TIME ZONE 'utc';
+        DELETE FROM pastes WHERE "expires_at" IS NOT NULL AND "expires_at" < now() AT TIME ZONE 'utc';
         RETURN NEW;
     END;
 $pastes_expire$ LANGUAGE plpgsql;

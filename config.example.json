@@ -1,0 +1,9 @@
+{
+	"pastes": {
+		"character_limit": 40000,
+		"days_til_expiration": 7
+	},
+	"databases": {
+		"postgres_uri": "postgres://postgres:postgres@localhost:5432/zer0bin"
+	}
+}

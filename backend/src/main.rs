@@ -11,7 +11,7 @@ use actix_web::{
 };
 use config::Config;
 
-use chrono::Duration;
+use chrono::{Duration, NaiveDateTime};
 use models::{ApiError, ApiResponse, GetPasteResponse, NewPasteResponse, PartialPaste, Paste};
 use nanoid::nanoid;
 use sqlx::{postgres::PgPoolOptions, types::chrono::Utc, PgPool};
@@ -88,7 +88,14 @@ async fn new_paste(state: web::Data<AppState>, data: web::Json<PartialPaste>) ->
     }
 
     let id = nanoid!(10);
-    let expires_at = Utc::now() + Duration::days(state.config.pastes.days_til_expiration);
+
+    let expires_at;
+
+    if state.config.pastes.days_til_expiration == -1 {
+        expires_at = None;
+    } else {
+        expires_at = Some(Utc::now() + Duration::days(state.config.pastes.days_til_expiration));
+    }
 
     let res =
         sqlx::query(r#"INSERT INTO pastes("id", "content", "expires_at") VALUES ($1, $2, $3)"#)
@@ -109,6 +116,7 @@ async fn new_paste(state: web::Data<AppState>, data: web::Json<PartialPaste>) ->
             });
         }
         Err(e) => {
+            println!("{}", e);
             return HttpResponse::InternalServerError().json(ApiResponse {
                 success: false,
                 data: ApiError {
