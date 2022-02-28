@@ -1,4 +1,3 @@
-//var lineNumbers, editor, codeView, apiUrl, saveButton;
 let lineNumbers = $(".line-numbers");
 let editor = $("#text-area");
 let codeViewPre = $("#code-view-pre");
@@ -8,7 +7,7 @@ let messages = $("#messages");
 let saveButton = $("#save-button");
 let newButton = $("#new-button");
 
-let apiUrl = "http://localhost:8000";
+let apiUrl = "http://127.0.0.1:8000";
 
 function postPaste(content, callback) {
 	var data = {

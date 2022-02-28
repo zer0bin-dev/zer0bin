@@ -1,6 +1,6 @@
 {
 	"server": {
-		"backend_host": "localhost",
+		"backend_host": "127.0.0.1",
 		"backend_port": 8000
 	},
 	"pastes": {

@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>zer0bin</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>zer0bin</title>
 
-    <link href="css/style.min.css" rel="stylesheet" />
-    <link href="css/rosepine.min.css" rel="stylesheet" />
+		<link href="css/style.min.css" rel="stylesheet" />
+		<link href="css/rosepine.min.css" rel="stylesheet" />
 
-    <script src="js/fontawesome.min.js"></script>
-    <script src="js/highlight.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    
-    <script> hljs.highlightAll(); </script>
-  </head>
+		<script src="js/fontawesome.min.js"></script>
+		<script src="js/highlight.min.js"></script>
+		<script src="js/jquery.min.js"></script>
 
-  <body>
-    <ul id="messages"></ul>
+		<script>
+			hljs.highlightAll();
+		</script>
+	</head>
 
-    <div class="wrapper">
-      <div class="line-numbers"></div>
+	<body>
+		<ul id="messages"></ul>
 
-      <!-- We only show this if they are viewing a paste-->
-      <pre
-        id="code-view-pre"
-        style="display: none"
-      ><code id="code-view"></code></pre>
+		<div class="wrapper">
+			<div class="line-numbers"></div>
 
-      <!-- We only show the textarea if they are creating a new paste-->
-      <textarea
-        spellcheck="false"
-        autofocus
-        name="value"
-        id="text-area"
-        style="display: none"
-      ></textarea>
-    </div>
-    <div class="button-wrapper">
-      <a href="/" class="logo">zer0bin</a>
-      <div class="buttons">
-        <button id="save-button" class="btn">
-          <i class="fas fa-save fa-xl"></i>
-        </button>
-        <button id="new-button" class="btn">
-          <i class="fas fa-file-medical fa-2xl"></i>
-        </button>
-      </div>
-    </div>
+			<!-- We only show this if they are viewing a paste-->
+			<pre
+				id="code-view-pre"
+				style="display: none"
+			><code id="code-view"></code></pre>
 
-    <script src="./index.js"></script>
-  </body>
+			<!-- We only show the textarea if they are creating a new paste-->
+			<textarea
+				spellcheck="false"
+				autofocus
+				name="value"
+				id="text-area"
+				style="display: none"
+			></textarea>
+		</div>
+		<div class="button-wrapper">
+			<a href="/" class="logo">zer0bin</a>
+			<div class="buttons">
+				<button id="save-button" class="btn">
+					<i class="fas fa-save fa-xl"></i>
+				</button>
+				<button id="new-button" class="btn">
+					<i class="fas fa-file-medical fa-2xl"></i>
+				</button>
+			</div>
+		</div>
+
+		<script src="js/index.min.js"></script>
+	</body>
 </html>
