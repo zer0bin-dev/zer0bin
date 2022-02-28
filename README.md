@@ -8,6 +8,7 @@
 # API
 
 [**GET**] `/p/:id` - Get a paste
+
 [**POST**] `/p/n` - Post a new paste
 
 # License
