@@ -20,7 +20,7 @@ pre {
 }
 
 .line-numbers {
-	color: #7d7d7d;
+	color: #908caa;
 	font-family: monospace;
 	text-align: end;
 	user-select: none;
@@ -52,7 +52,7 @@ textarea {
 	top: 0;
 	right: 0;
 	padding: 1rem;
-	background-color: #00222b;
+	background-color: #1f1d2e;
 	z-index: 1000;
 }
 
@@ -67,7 +67,7 @@ textarea {
 .btn {
 	cursor: pointer;
 	background: none;
-	color: #8fbcc8;
+	color: #9ccfd8;
 	font-size: 1rem;
 	border: none;
 	transition: background-color 200ms ease-in-out;
@@ -81,7 +81,7 @@ textarea {
 
 .btn:disabled,
 .btn[disabled] {
-	color: #255662;
+	color: #6e6a86;
 }
 
 .logo {
