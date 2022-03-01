@@ -4,6 +4,7 @@
 	</h1>
     just a place to paste
     <br>
+	<br>
     <img src="./frontend/zero.png" />
     <p align="center">
 	<a href="https://github.com/domterion/zer0bin/stargazers">
