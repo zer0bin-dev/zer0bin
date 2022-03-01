@@ -20,10 +20,10 @@ MIT
 # Public instances
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
 
-| Website | Country | Ratelimits | Expiration |
+| Website | Country | Ratelimits | Expiration | Version |
 |-|-|-|-|
-| zer0b.in (not up yet) | ? | N/A | 7 days |
-| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸 | N/A | ∞ days |
+| zer0b.in (not up yet) | ? | N/A | 7 days | non-existant |
+| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸 | N/A | ∞ days | v0.0.1 |
 
 # Instructions
 ### Requirements
