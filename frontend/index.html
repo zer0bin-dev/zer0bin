@@ -33,15 +33,6 @@
 <body>
     <ul id="messages"></ul>
 
-    <div class="wrapper">
-        <div class="line-numbers"></div>
-
-        <!-- We only show this if they are viewing a paste-->
-        <pre id="code-view-pre" style="display: none"><code id="code-view"></code></pre>
-
-        <!-- We only show the textarea if they are creating a new paste-->
-        <textarea spellcheck="false" autofocus name="value" id="text-area" style="display: none"></textarea>
-    </div>
     <div class="button-wrapper">
         <a href="/" class="logo">zer0bin</a>
         <div class="buttons">
@@ -57,6 +48,11 @@
                 </button>
             </a>
         </div>
+    </div>
+    <div class="wrapper">
+        <div class="line-numbers"></div>
+        <pre id="code-view-pre" style="display: none"><code id="code-view"></code></pre>
+        <textarea spellcheck="false" autofocus name="value" id="text-area" style="display: none"></textarea>
     </div>
 
     <script src="js/index.min.js"></script>
