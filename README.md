@@ -1,6 +1,6 @@
 <div align="center">
-    <h1>zer0b.in</h1>
-    zer0b.in, or zer0, is a hastebin like service
+    <h1>zer0bin</h1>
+    zer0b.in, just a place to paste
     <br>
     <img src="./frontend/zero.png" />
     <br>
