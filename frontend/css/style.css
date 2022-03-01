@@ -93,10 +93,22 @@ textarea {
     width: 100%;
     font-family: monospace;
     display: inline-block;
+    background: linear-gradient(to right,
+            #eb6f92,
+            #c9b065,
+            #ebbcba,
+            #31748f,
+            #9ccfd8,
+            #c4a7e7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow 120s linear infinite;
+    background-size: 400% 100%;
 }
 
 .logo:hover {
-    color: #fff;
+    animation: rainbow 3s ease infinite !important;
 }
 
 #messages {
@@ -115,4 +127,16 @@ textarea {
     font-family: monospace;
     color: #fff;
     padding: 7px;
+}
+
+@keyframes rainbow {
+
+    0%,
+    100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
 }
