@@ -17,6 +17,13 @@
 
 MIT
 
+# Public instances
+
+| Website | Country | Ratelimits | Expiration |
+|-|-|-|-|
+| zer0b.in (not up yet) | ? | N/A | 7 days |
+| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸 | N/A | ∞ days |
+
 # Instructions
 ### Requirements
 
