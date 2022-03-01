@@ -127,7 +127,7 @@ $(document).ready(function() {
             newPaste();
         } else {
             let content = res["data"]["content"];
-            viewPaste(hljs.highlightAuto(content).value);
+            viewPaste(content);
             saveButton.prop("disabled", true);
         }
     });
