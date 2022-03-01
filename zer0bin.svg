@@ -6,21 +6,19 @@
 h1 {
 	background: linear-gradient(
 		to right,
-		#c96565,
+		#eb6f92,
 		#c9b065,
-		#8cba5d,
-		#65b87a,
-		#60b5a8,
-		#658fc9,
-		#8665c9,
-		#c965c1
+		#ebbcba,
+		#31748f,
+		#9ccfd8,
+		#c4a7e7
 	);
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
 	animation: rainbow 5s ease infinite;
 	background-size: 400% 100%;
-	font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+	font-family: "Cartograph CF", monospace;
 	font-weight: 500;
 	text-align: center;
 }
