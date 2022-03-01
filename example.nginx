@@ -1,4 +1,5 @@
 # replace example.tld with your domain
+# replace /location/to with the location
 
 server {
     #listen 80 is default
@@ -10,7 +11,7 @@ server {
     add_header Access-Control-Allow-Origin *;
     listen 80;
     server_name example.tld www.example.tld;
-    root /home/the1calc/zer0bin/frontend;
+    root /location/to/zer0bin/frontend;
     index index.html;
     location ^~ /.well-known/ {
         alias /var/www/.well-known/;
@@ -28,7 +29,7 @@ server {
     add_header Access-Control-Allow-Origin *;
     listen 443 ssl;
     server_name example.tld www.example.tld;
-    root /home/the1calc/zer0bin/frontend;
+    root /location/to/zer0bin/frontend;
     index index.html;
     location ^~ /.well-known/ {
         alias /var/www/.well-known/;
