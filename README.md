@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./frontend/zero.png" />
+    <img src="./frontend/zero.png" height="110px"/>
 	<h1>
     	<img src="zer0bin.svg" height="100"/>
 	</h1>
