@@ -54,6 +54,16 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 9. `cargo build --release`
 10. `./target/release/backend`, preferably in a `tmux` session or with `& disown`
 
+### Configuration
+
+| Key                        | Values                                     | Description                                                                    |
+| -------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------ |
+| server.backend_host        | 127.0.0.1 or 0.0.0.0                       | The host to run the backend on                                                 |
+| server.backend_port        | Any open port                              | The port to run the backend on                                                 |
+| pastes.character_limit     | Any number up to 2^64 - 1                  | The amount of characters allowed in a single paste                             |
+| pastes.days_til_expiration | Any number up to 9223372036854775807 or -1 | The days till a paste is to expire. If set to -1 then pastes will never expire |
+| databases.postgres_uri     | PostreSQl Connection URI                   | The URI to use when connecting to a PostgreSQL database                        |
+
 # License
 
 MIT
