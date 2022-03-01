@@ -1,9 +1,16 @@
 <div align="center">
     <h1>zer0bin</h1>
-    <a href="https://stepbro.voring.me">zer0b.in</a>, just a place to paste
+    just a place to paste
     <br>
     <img src="./frontend/zero.png" />
-    <br>
+    <p align="center">
+	<a href="https://github.com/catppuccin/catppuccin/stargazers">
+		<img alt="Stargazers" src="https://img.shields.io/github/stars/domterion/zer0bin?style=for-the-badge&logo=starship&color=c4a7e7&logoColor=f6c177&labelColor=12101F"></a>
+	<a href="https://github.com/catppuccin/catppuccin/releases/latest">
+		<img alt="Releases" src="https://img.shields.io/github/release/domterion/zer0bin?style=for-the-badge&logo=github&color=31748f&logoColor=ebbcba&labelColor=12101F"/></a>
+	<a href="https://github.com/catppuccin/catppuccin/issues">
+		<img alt="Issues" src="https://img.shields.io/github/issues/domterion/zer0bin?style=for-the-badge&logo=gitbook&color=9ccfd8&logoColor=eb6f92&labelColor=12101F"></a>
+</p>
     <br>
 </div>
 
