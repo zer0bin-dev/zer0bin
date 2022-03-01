@@ -10,119 +10,118 @@ let newButton = $("#new-button");
 let apiUrl = "http://127.0.0.1:8000";
 
 function postPaste(content, callback) {
-	var data = {
-		content,
-	};
+    var data = {
+        content,
+    };
 
-	$.ajax({
-		type: "POST",
-		url: `${apiUrl}/p/n`,
-		data: JSON.stringify(data),
-		dataType: "json",
-		contentType: "application/json",
-		success: function (res) {
-			callback(null, res);
-		},
-		error: function (xhr) {
-			callback(
-				JSON.parse(
-					xhr.responseText ||
-						`{"data": { "message": "An unkown error occured!" } }`
-				)
-			);
-		},
-	});
+    $.ajax({
+        type: "POST",
+        url: `${apiUrl}/p/n`,
+        data: JSON.stringify(data),
+        dataType: "json",
+        contentType: "application/json",
+        success: function(res) {
+            callback(null, res);
+        },
+        error: function(xhr) {
+            callback(
+                JSON.parse(
+                    xhr.responseText ||
+                    `{"data": { "message": "An unkown error occured!" } }`
+                )
+            );
+        },
+    });
 }
 
 function getPaste(id, callback) {
-	$.ajax({
-		type: "GET",
-		url: `${apiUrl}/p/${id}`,
-		contentType: "application/json",
-		success: function (res) {
-			callback(null, res);
-		},
-		error: function (xhr) {
-			callback(
-				JSON.parse(
-					xhr.responseText ||
-						`{"data": { "message": "Unknown error occurred.." } }`
-				)
-			);
-		},
-	});
+    $.ajax({
+        type: "GET",
+        url: `${apiUrl}/p/${id}`,
+        contentType: "application/json",
+        success: function(res) {
+            callback(null, res);
+        },
+        error: function(xhr) {
+            callback(
+                JSON.parse(
+                    xhr.responseText ||
+                    `{"data": { "message": "Unknown error occurred.." } }`
+                )
+            );
+        },
+    });
 }
 
 function newPaste() {
-	lineNumbers.html("<div>&gt;</div>");
+    lineNumbers.html("<div>&gt;</div>");
 
-	saveButton.prop("disabled", false);
-	newButton.prop("disabled", true);
+    saveButton.prop("disabled", false);
+    newButton.prop("disabled", true);
 
-	editor.val("");
+    editor.val("");
 
-	editor.show();
-	codeViewPre.hide();
+    editor.show();
+    codeViewPre.hide();
 }
 
 function addMessage(message) {
-	let msg = $(`<li>${message}</li>`);
-	messages.prepend(msg);
+    let msg = $(`<li>${message}</li>`);
+    messages.prepend(msg);
 
-	setTimeout(function () {
-		msg.slideUp("fast", function () {
-			$(this).remove();
-		});
-	}, 3000);
+    setTimeout(function() {
+        msg.slideUp("fast", function() {
+            $(this).remove();
+        });
+    }, 3000);
 }
 
 function viewPaste(content) {
-	lineNumbers.html("");
-	for (let i = 1; i <= content.split("\n").length; i++) {
-		lineNumbers.append(`<div>${i}</div>`);
-	}
-
-	codeView.html(content);
-
-	editor.hide();
-	codeViewPre.show();
+    lineNumbers.html("");
+    for (let i = 1; i <= content.split("\n").length; i++) {
+        lineNumbers.append(`<div>${i}</div>`);
+    }
+    content.replace(/((http:|https:)[^\s]+[\w])/g, '<a href="$1" target="_blank">$1</a>');
+    codeView.html(content);
+    editor.hide();
+    codeViewPre.show();
 }
 
-saveButton.click(function () {
-	if (editor.val() === "") {
-		return;
-	}
+saveButton.click(function() {
+    if (editor.val() === "") {
+        return;
+    }
 
-	postPaste(editor.val(), function (err, res) {
-		if (err) {
-			addMessage(err["data"]["message"]);
-		} else {
-			window.location.href = `/?id=${res["data"]["id"]}`;
-		}
-	});
+    postPaste(editor.val(), function(err, res) {
+        if (err) {
+            addMessage(err["data"]["message"]);
+        } else {
+            window.location.href = `/?id=${res["data"]["id"]}`;
+        }
+    });
 });
 
-newButton.click(function () {
-	window.location.href = "/";
+newButton.click(function() {
+    window.location.href = "/";
 });
 
-$(document).ready(function () {
-	let id = new URLSearchParams(window.location.search).get("id");
+$(document).ready(function() {
+    let id = new URLSearchParams(window.location.search).get("id");
 
-	if (id == null) {
-		newPaste();
-		return;
-	}
+    if (id == null) {
+        newPaste();
+        return;
+    }
 
-	getPaste(id, function (err, res) {
-		if (err) {
-			newPaste();
-		} else {
-			let content = res["data"]["content"];
+    getPaste(id, function(err, res) {
+        if (err) {
+            newPaste();
+        } else {
+            let content = res["data"]["content"];
 
-			viewPaste(hljs.highlightAuto(content).value);
+            viewPaste(hljs.highlightAuto(content).value);
 
-			saveButton.prop("disabled", true);
-		}
-	});
+            saveButton.prop("disabled", true);
+        }
+    });
 });
