@@ -33,6 +33,8 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 - Nginx >= 1.18.0
 - \*nix OS
 
+### Steps
+
 1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
 2. `cp config.example.json config.json` and edit as appropriate
 3. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
