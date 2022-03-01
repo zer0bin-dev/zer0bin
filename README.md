@@ -31,6 +31,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 - Rust >= 1.58.0
 - Postgresql >= 12.0
 - Nginx >= 1.18.0
+- \*nix OS
 
 1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
 2. `cp config.example.json config.json` and edit as appropriate
