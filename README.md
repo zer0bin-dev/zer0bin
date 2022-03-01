@@ -1,11 +1,11 @@
 <div align="center">
+    <img src="./frontend/zero.png" />
 	<h1>
     	<img src="zer0bin.svg" height="100"/>
 	</h1>
     just a place to paste
     <br>
 	<br>
-    <img src="./frontend/zero.png" />
     <p align="center">
 	<a href="https://github.com/domterion/zer0bin/stargazers">
 		<img alt="Stargazers" src="https://img.shields.io/github/stars/domterion/zer0bin?style=for-the-badge&logo=starship&color=c4a7e7&logoColor=f6c177&labelColor=12101F"></a>
