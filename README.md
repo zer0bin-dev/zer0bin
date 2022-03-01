@@ -28,11 +28,7 @@ MIT
 2. `cp config.example.json config.json` and edit as appropriate
 3. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
 4. `psql -d postgres`
-5. 
-```
-CREATE DATABSE zer0bin;
-\c zer0bin
-```
+5. `CREATE DATABSE zer0bin;` and `\c zer0bin`
 6. Paste contents of `schema.sql`
 7. `\q`
 8. `cd backend`
