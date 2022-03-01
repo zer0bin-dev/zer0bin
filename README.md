@@ -23,6 +23,8 @@
 
 **POST** /p/n - Post a new paste
 
+**GET** /s - Get stats about the zer0bin instance
+
 # Public instances
 
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!

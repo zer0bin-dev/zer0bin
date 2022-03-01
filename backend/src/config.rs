@@ -28,7 +28,5 @@ pub struct DatabasesConfig {
 
 pub fn load(path: PathBuf) -> Config {
     let file = File::open(path).expect("Failed to load config");
-    let config = serde_json::from_reader(file).unwrap();
-
-    config
+    serde_json::from_reader(file).unwrap()
 }

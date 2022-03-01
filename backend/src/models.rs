@@ -36,6 +36,11 @@ pub struct GetPasteResponse {
 }
 
 #[derive(Serialize)]
+pub struct GetStatsResponse {
+    pub count: i64
+}
+
+#[derive(Serialize)]
 pub struct ApiError {
     pub message: String,
 }

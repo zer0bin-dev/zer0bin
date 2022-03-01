@@ -11,15 +11,50 @@ use actix_web::{
 };
 use config::Config;
 
-use chrono::{Duration, NaiveDateTime};
-use models::{ApiError, ApiResponse, GetPasteResponse, NewPasteResponse, PartialPaste, Paste};
+use chrono::Duration;
+use models::{
+    ApiError, ApiResponse, GetPasteResponse, GetStatsResponse, NewPasteResponse, PartialPaste,
+    Paste,
+};
 use nanoid::nanoid;
-use sqlx::{postgres::PgPoolOptions, types::chrono::Utc, PgPool};
+use sqlx::{
+    postgres::{PgPoolOptions, PgRow},
+    types::chrono::Utc,
+    PgPool, Row,
+};
 
 #[derive(Clone)]
 struct AppState {
     config: Config,
     pool: PgPool,
+}
+
+#[get("/s")]
+async fn get_stats(state: web::Data<AppState>) -> impl Responder {
+    // TODO: Maybe there's a less hacky way to do this..?
+    let count: Result<i64, sqlx::Error> = sqlx::query(r#"SELECT COUNT(*) FROM pastes"#)
+        .try_map(|row: PgRow| row.try_get::<i64, _>("count"))
+        .fetch_one(&state.pool)
+        .await;
+
+    if let Err(e) = count {
+        eprintln!("Error occurred while retrieving paste count: {:?}", e);
+
+        return HttpResponse::InternalServerError().json(ApiResponse {
+            success: false,
+            data: ApiError {
+                message: "Error occurred while retrieving paste count, please try again."
+                    .to_string(),
+            },
+        });
+    }
+
+    HttpResponse::Ok().json(ApiResponse {
+        success: true,
+        data: GetStatsResponse {
+            count: count.unwrap(),
+        },
+    })
 }
 
 #[get("/{id}")]
@@ -43,7 +78,7 @@ async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Re
                 // we should probably handle this but eh
             };
 
-            return HttpResponse::Ok().json(ApiResponse {
+            HttpResponse::Ok().json(ApiResponse {
                 success: true,
                 data: GetPasteResponse {
                     id: p.id,
@@ -51,7 +86,7 @@ async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Re
                     views: p.views + 1,
                     expires_at: p.expires_at,
                 },
-            });
+            })
         }
         Err(e) => match e {
             sqlx::Error::RowNotFound => {
@@ -65,12 +100,12 @@ async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Re
             _ => {
                 eprintln!("Error occurred while getting paste: {:?}", e);
 
-                return HttpResponse::InternalServerError().json(ApiResponse {
+                HttpResponse::InternalServerError().json(ApiResponse {
                     success: false,
                     data: ApiError {
                         message: "Unknown error occurred, please try again.".to_string(),
                     },
-                });
+                })
             }
         },
     }
@@ -91,13 +126,11 @@ async fn new_paste(state: web::Data<AppState>, data: web::Json<PartialPaste>) ->
 
     let id = nanoid!(10);
 
-    let expires_at;
-
-    if state.config.pastes.days_til_expiration == -1 {
-        expires_at = None;
+    let expires_at = if state.config.pastes.days_til_expiration == -1 {
+        None
     } else {
-        expires_at = Some(Utc::now() + Duration::days(state.config.pastes.days_til_expiration));
-    }
+        Some(Utc::now() + Duration::days(state.config.pastes.days_til_expiration))
+    };
 
     let res =
         sqlx::query(r#"INSERT INTO pastes("id", "content", "expires_at") VALUES ($1, $2, $3)"#)
@@ -159,6 +192,7 @@ async fn main() -> io::Result<()> {
         App::new()
             .wrap(cors)
             .app_data(Data::new(state.clone()))
+            .service(get_stats)
             .service(web::scope("/p").service(get_paste).service(new_paste))
     })
     .bind(address)?
