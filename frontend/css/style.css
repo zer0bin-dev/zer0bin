@@ -48,9 +48,10 @@ textarea {
 }
 
 .button-wrapper {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
+    right: 200px;
     padding: 1rem;
     background-color: #1f1d2e;
     z-index: 10;
