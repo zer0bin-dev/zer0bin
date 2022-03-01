@@ -23,19 +23,17 @@
 
 [**POST**] `/p/n` - Post a new paste
 
-# License
-
-MIT
-
 # Public instances
+
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
 
-| Website | Country | Ratelimits | Expiration | Version |
-|-|-|-|-|-|
-| zer0b.in (not up yet) | ? | N/A | 7 days | non-existant |
-| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸 | N/A | ∞ days | v0.0.1 |
+| Website                                        | Country | Ratelimits | Expiration | Version      |
+| ---------------------------------------------- | ------- | ---------- | ---------- | ------------ |
+| zer0b.in (not up yet)                          | ?       | N/A        | 7 days     | non-existant |
+| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸      | N/A        | ∞ days     | v0.0.1       |
 
 # Instructions
+
 ### Requirements
 
 - Rust >= 1.58.0
@@ -55,3 +53,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 8. `cd backend`
 9. `cargo build --release`
 10. `./target/release/backend`, preferably in a `tmux` session or with `& disown`
+
+# License
+
+MIT
