@@ -29,10 +29,10 @@
 
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
 
-| Website                                        | Country | Ratelimits | Expiration | Version      |
-| ---------------------------------------------- | ------- | ---------- | ---------- | ------------ |
-| zer0b.in (not up yet)                          | ?       | N/A        | 7 days     | non-existant |
-| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸      | N/A        | ∞ days     | v0.0.1       |
+| Website                                        | Country | Ratelimits | Expiration | Max paste size |  Version      |
+| ---------------------------------------------- | ------- | ---------- | ---------- | -------------- | ------------- |
+| zer0b.in (not up yet)                          | ?       | N/A        | 7 days     | 100,000 chars  |  non-existant |
+| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸      | N/A        | ∞ days     | 40,000 chars   |v0.0.1         |
 
 # Instructions
 
