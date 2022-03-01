@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>zer0bin</title>
 
-		<link href="css/style.min.css" rel="stylesheet" />
-		<link href="css/rosepine.min.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zer0bin</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-		<script src="js/fontawesome.min.js"></script>
-		<script src="js/highlight.min.js"></script>
-		<script src="js/jquery.min.js"></script>
+    <link href="css/style.min.css" rel="stylesheet" />
+    <link href="css/rosepine.min.css" rel="stylesheet" />
 
-		<script>
-			hljs.highlightAll();
-		</script>
-	</head>
+    <script src="js/fontawesome.min.js"></script>
+    <script src="js/highlight.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
-	<body>
-		<ul id="messages"></ul>
+    <script>
+        hljs.highlightAll();
+    </script>
 
-		<div class="wrapper">
-			<div class="line-numbers"></div>
+    <meta name="title" content="zer0bin">
+    <meta name="description" content="Just a place to paste">
 
-			<!-- We only show this if they are viewing a paste-->
-			<pre
-				id="code-view-pre"
-				style="display: none"
-			><code id="code-view"></code></pre>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="zer0bin">
+    <meta property="og:description" content="🖊">
+    <meta property="og:image" content="https://stepbro.voring.me/zero.png">
+    <meta property="twitter:title" content="zer0bin">
+    <meta property="twitter:description" content="Just a place to paste">
+    <meta property="twitter:image" content="https://stepbro.voring.me/zero.png">
+</head>
 
-			<!-- We only show the textarea if they are creating a new paste-->
-			<textarea
-				spellcheck="false"
-				autofocus
-				name="value"
-				id="text-area"
-				style="display: none"
-			></textarea>
-		</div>
-		<div class="button-wrapper">
-			<a href="/" class="logo">zer0bin</a>
-			<div class="buttons">
-				<button id="save-button" class="btn">
-					<i class="fas fa-save fa-xl"></i>
-				</button>
-				<button id="new-button" class="btn">
-					<i class="fas fa-file-medical fa-2xl"></i>
-				</button>
-				<a href="https://github.com/Domterion/zer0bin">
-        				<button class="btn">
-        					<i class="fab fa-github fa-2xl"></i>
-        				</button>
-        			</a>
-			</div>
-		</div>
+<body>
+    <ul id="messages"></ul>
 
-		<script src="js/index.min.js"></script>
-	</body>
+    <div class="wrapper">
+        <div class="line-numbers"></div>
+
+        <!-- We only show this if they are viewing a paste-->
+        <pre id="code-view-pre" style="display: none"><code id="code-view"></code></pre>
+
+        <!-- We only show the textarea if they are creating a new paste-->
+        <textarea spellcheck="false" autofocus name="value" id="text-area" style="display: none"></textarea>
+    </div>
+    <div class="button-wrapper">
+        <a href="/" class="logo">zer0bin</a>
+        <div class="buttons">
+            <button id="save-button" class="btn">
+                <i class="fas fa-save fa-xl"></i>
+            </button>
+            <button id="new-button" class="btn">
+                <i class="fas fa-file-medical fa-2xl"></i>
+            </button>
+            <a href="https://github.com/Domterion/zer0bin">
+                <button class="btn">
+                    <i class="fab fa-github fa-2xl"></i>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/index.min.js"></script>
+</body>
+
 </html>
