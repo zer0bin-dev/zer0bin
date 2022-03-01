@@ -48,13 +48,12 @@ textarea {
 }
 
 .button-wrapper {
-    position: -webkit-sticky;
-    position: sticky;
+    position: absolute;
     top: 0;
     right: 0;
     padding: 1rem;
     background-color: #1f1d2e;
-    z-index: 1000;
+    z-index: 10;
 }
 
 .buttons {
