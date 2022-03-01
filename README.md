@@ -19,9 +19,9 @@
 
 # API
 
-[**GET**] `/p/:id` - Get a paste
+**GET** /p/:id - Get a paste by ID
 
-[**POST**] `/p/n` - Post a new paste
+**POST** /p/n - Post a new paste
 
 # Public instances
 
