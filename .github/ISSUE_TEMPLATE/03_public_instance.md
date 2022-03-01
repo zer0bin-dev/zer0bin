@@ -25,3 +25,6 @@ Have you made any modifications to zer0bin? If so, what?:
 What are the ratelimits: 
 
 What is the expiration time of pastes: 
+
+What is the max paste size: 
+
