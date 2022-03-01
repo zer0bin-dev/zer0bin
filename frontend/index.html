@@ -57,7 +57,7 @@
                 const str = $(this).html();
                 const regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
                 const replaced_text = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
-                $(this).html(replaced_text);
+                console.log(replaced_text);
             });
         </script>
         <textarea spellcheck="false" autofocus name="value" id="text-area" style="display: none"></textarea>
