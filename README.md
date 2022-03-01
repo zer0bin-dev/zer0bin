@@ -8,11 +8,13 @@
 	<br>
     <p align="center">
 	<a href="https://github.com/domterion/zer0bin/stargazers">
-		<img alt="Stargazers" src="https://img.shields.io/github/stars/domterion/zer0bin?style=for-the-badge&logo=starship&color=c4a7e7&logoColor=f6c177&labelColor=12101F"></a>
+		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/github/stars/domterion/zer0bin?style=for-the-badge&logo=star&color=f6c177&logoColor=31748f&labelColor=12101F"></a>
 <!-- 	<a href="https://github.com/domterion/zer0bin/releases/latest">
 		<img alt="Releases" src="https://img.shields.io/github/release/domterion/zer0bin?style=for-the-badge&logo=github&color=31748f&logoColor=ebbcba&labelColor=12101F"/></a> -->
 	<a href="https://github.com/domterion/zer0bin/issues">
-		<img alt="Issues" src="https://img.shields.io/github/issues/domterion/zer0bin?style=for-the-badge&logo=gitbook&color=9ccfd8&logoColor=eb6f92&labelColor=12101F"></a>
+		<img alt="Issues" src="https://custom-icon-badges.herokuapp.com/github/issues/domterion/zer0bin?style=for-the-badge&logo=issue-opened&color=9ccfd8&logoColor=eb6f92&labelColor=12101F"></a>
+	<a href="https://github.com/Domterion/zer0bin/blob/main/LICENSE">
+		<img alt="License" src="https://custom-icon-badges.herokuapp.com/github/license/domterion/zer0bin?style=for-the-badge&logo=law&color=c4a7e7&logoColor=ebbcba&labelColor=12101F"></a>
 </p>
     <br>
 </div>
@@ -65,7 +67,3 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | pastes.character_limit     | Number up to 2^64 - 1                  | The amount of characters allowed in a single paste                             |
 | pastes.days_til_expiration | Number up to 9223372036854775807 or -1 | The days till a paste is to expire. If set to -1 then pastes will never expire |
 | databases.postgres_uri     | PostreSQL Connection URI               | The URI to use when connecting to a PostgreSQL database                        |
-
-# License
-
-MIT
