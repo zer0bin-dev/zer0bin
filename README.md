@@ -33,4 +33,4 @@ MIT
 7. `\q`
 8. `cd backend`
 9. `cargo build --release`
-10. `./target/release/backend`
+10. `./target/release/backend`, preferably in a `tmux` session or with `& disown`
