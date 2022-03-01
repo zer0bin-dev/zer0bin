@@ -1,6 +1,6 @@
 <div align="center">
     <h1>zer0bin</h1>
-    [zer0b.in](https://stepbro.voring.me), just a place to paste
+    <a href="https://stepbro.voring.me">zer0b.in</a>, just a place to paste
     <br>
     <img src="./frontend/zero.png" />
     <br>
