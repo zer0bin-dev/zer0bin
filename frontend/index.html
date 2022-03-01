@@ -13,7 +13,8 @@
     <link href="css/rosepine.min.css" rel="stylesheet" />
 
     <script src="js/fontawesome.min.js"></script>
-    <script src="js/highlight.min.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="js/prism-live.js?load=markup,clike,bash,elixr,fsharp,go,haxe,json,lisp,lua,nim,nix,pug,yaml,css,html,javascript,python,rust,java,scala,typescript,"></script>
     <script src="js/jquery.min.js"></script>
 
     <meta name="title" content="zer0bin">
@@ -50,13 +51,18 @@
     <div class="wrapper">
         <div class="line-numbers"></div>
         <pre id="code-view-pre" style="display: none"><code id="code-view"></code></pre>
-        <textarea spellcheck="false" autofocus name="value" id="text-area" style="display: none"></textarea>
+        <textarea spellcheck="false" autofocus name="value" id="text-area" class="prism-live language-javascript" style="display: none"></textarea>
     </div>
 
     <script src="js/index.min.js"></script>
 
     <script>
         hljs.highlightAll();
+        document.getElementById("text-area").addEventListener("keypress", checkInput)
+
+        function checkInput(event) {
+            hljs.highlightAll();
+        }
     </script>
 </body>
 

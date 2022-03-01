@@ -78,7 +78,7 @@ function addMessage(message) {
 
 function createTextLinks(text) {
     return (text || '').replace(/([^\S]|^)(((https?\:\/\/)|(www\.))(\S+))/gi, function(match, space, url) {
-        var hyperlink = url;
+        let hyperlink = url;
         if (!hyperlink.match('^https?://')) {
             hyperlink = 'http://' + hyperlink;
         }
@@ -127,9 +127,7 @@ $(document).ready(function() {
             newPaste();
         } else {
             let content = res["data"]["content"];
-
             viewPaste(hljs.highlightAuto(content).value);
-
             saveButton.prop("disabled", true);
         }
     });
