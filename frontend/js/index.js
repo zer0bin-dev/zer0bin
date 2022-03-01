@@ -76,13 +76,22 @@ function addMessage(message) {
     }, 3000);
 }
 
+function createTextLinks(text) {
+    return (text || '').replace(/([^\S]|^)(((https?\:\/\/)|(www\.))(\S+))/gi, function(match, space, url) {
+        var hyperlink = url;
+        if (!hyperlink.match('^https?://')) {
+            hyperlink = 'http://' + hyperlink;
+        }
+        return space + '<a href="' + hyperlink + '">' + url + '</a>';
+    });
+}
+
 function viewPaste(content) {
     lineNumbers.html("");
     for (let i = 1; i <= content.split("\n").length; i++) {
         lineNumbers.append(`<div>${i}</div>`);
     }
-    content.replace(/((http:|https:)[^\s]+[\w])/g, '<a href="$1" target="_blank">$1</a>');
-    codeView.html(content);
+    codeView.html(createTextLinks(content));
     editor.hide();
     codeViewPre.show();
 }
