@@ -16,7 +16,7 @@ h1 {
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
-	animation: rainbow 5s linear infinite;
+	animation: rainbow 5s ease infinite;
 	background-size: 400% 100%;
 	font-family: "Cartograph CF", monospace;
 	font-weight: 600;
