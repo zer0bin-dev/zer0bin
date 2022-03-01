@@ -1,6 +1,6 @@
 <div align="center">
     <h1>
-	    <img src="zer0bin.svg" />
+	    <img src="zer0bin.svg" width="100"/>
     </h1>
     just a place to paste
     <br>
