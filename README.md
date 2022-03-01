@@ -1,5 +1,7 @@
 <div align="center">
-    <h1>zer0bin</h1>
+    <h1>
+	    <img src="zer0bin.svg" />
+    </h1>
     just a place to paste
     <br>
     <img src="./frontend/zero.png" />
