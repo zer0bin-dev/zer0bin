@@ -122,7 +122,8 @@ async fn new_paste(state: web::Data<AppState>, data: web::Json<PartialPaste>) ->
         });
     }
 
-    let id = nanoid!(10);
+    let length = state.config.pastes.id_length;
+    let id = nanoid!(length);
 
     let expires_at = if state.config.pastes.days_til_expiration == -1 {
         None
@@ -174,8 +175,8 @@ async fn main() -> io::Result<()> {
     );
 
     let paste_governor = GovernorConfigBuilder::default()
-        .per_second(config.ratelimits.pastes_per_second)
-        .burst_size(config.ratelimits.pastes_burst)
+        .per_second(config.ratelimits.seconds_in_between_pastes)
+        .burst_size(config.ratelimits.allowed_pastes_before_ratelimit)
         .finish()
         .unwrap();
 
