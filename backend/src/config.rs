@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 pub struct Config {
     pub server: ServerConfig,
     pub pastes: PastesConfig,
+    pub ratelimits: RatelimitsConifg,
     pub databases: DatabasesConfig,
 }
 
@@ -16,9 +17,16 @@ pub struct ServerConfig {
 }
 
 #[derive(Serialize, Deserialize, Clone)]
+pub struct RatelimitsConifg {
+    pub seconds_in_between_pastes: u64,
+    pub allowed_pastes_before_ratelimit: u32,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
 pub struct PastesConfig {
     pub character_limit: usize,
     pub days_til_expiration: i64,
+    pub id_length: usize,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -28,7 +36,5 @@ pub struct DatabasesConfig {
 
 pub fn load(path: PathBuf) -> Config {
     let file = File::open(path).expect("Failed to load config");
-    let config = serde_json::from_reader(file).unwrap();
-
-    config
+    serde_json::from_reader(file).unwrap()
 }
