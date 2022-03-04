@@ -14,5 +14,9 @@
     "description": "just a place to paste",
     "main": "src/index.js",
     "repository": "https://github.com/Domterion/zer0bin",
-    "author": "Domterion, ThatOneCalculator"
+    "author": "Domterion, ThatOneCalculator",
+    "dependencies": {
+        "highlight.js": "^11.4.0",
+        "jquery": "^3.6.0"
+    }
 }
