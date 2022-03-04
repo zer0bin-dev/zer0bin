@@ -70,14 +70,11 @@ async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Re
 
     match res {
         Ok(p) => {
-            if let Err(_) =
-                sqlx::query(r#"UPDATE pastes SET "views" = "views" + 1 WHERE "id" = $1"#)
-                    .bind(id.clone())
-                    .execute(&state.pool)
-                    .await
-            {
-                // we should probably handle this but eh
-            };
+            // this may be worth handling at some point..
+            let _ = sqlx::query(r#"UPDATE pastes SET "views" = "views" + 1 WHERE "id" = $1"#)
+                .bind(id.clone())
+                .execute(&state.pool)
+                .await;
 
             HttpResponse::Ok().json(ApiResponse {
                 success: true,
@@ -142,24 +139,22 @@ async fn new_paste(state: web::Data<AppState>, data: web::Json<PartialPaste>) ->
             .await;
 
     match res {
-        Ok(_) => {
-            return HttpResponse::Ok().json(ApiResponse {
-                success: true,
-                data: NewPasteResponse {
-                    id,
-                    content: data.content.clone(),
-                },
-            });
-        }
+        Ok(_) => HttpResponse::Ok().json(ApiResponse {
+            success: true,
+            data: NewPasteResponse {
+                id,
+                content: data.content.clone(),
+            },
+        }),
         Err(e) => {
             eprintln!("Error occurred while creating paste: {:?}", e);
 
-            return HttpResponse::InternalServerError().json(ApiResponse {
+            HttpResponse::InternalServerError().json(ApiResponse {
                 success: false,
                 data: ApiError {
                     message: "Unknown error occurred, please try again.".to_string(),
                 },
-            });
+            })
         }
     }
 }
