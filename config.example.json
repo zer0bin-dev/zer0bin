@@ -7,6 +7,10 @@
 		"character_limit": 40000,
 		"days_til_expiration": 7
 	},
+	"ratelimits": {
+		"pastes_per_second": 2,
+		"pastes_burst": 5
+	},
 	"databases": {
 		"postgres_uri": "postgres://postgres:postgres@localhost:5432/zer0bin"
 	}

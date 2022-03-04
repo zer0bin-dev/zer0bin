@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 pub struct Config {
     pub server: ServerConfig,
     pub pastes: PastesConfig,
+    pub ratelimits: RatelimitsConifg,
     pub databases: DatabasesConfig,
 }
 
@@ -13,6 +14,12 @@ pub struct Config {
 pub struct ServerConfig {
     pub backend_host: String,
     pub backend_port: u16,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct RatelimitsConifg {
+    pub pastes_per_second: u64,
+    pub pastes_burst: u32
 }
 
 #[derive(Serialize, Deserialize, Clone)]

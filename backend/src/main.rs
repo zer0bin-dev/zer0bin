@@ -4,6 +4,7 @@ mod models;
 use std::{io, path::PathBuf};
 
 use actix_cors::Cors;
+use actix_governor::{Governor, GovernorConfigBuilder};
 use actix_web::{
     get, post,
     web::{self, Data},
@@ -177,9 +178,15 @@ async fn main() -> io::Result<()> {
         config.server.backend_host, config.server.backend_port
     );
 
+    let paste_governor = GovernorConfigBuilder::default()
+        .per_second(config.ratelimits.pastes_per_second)
+        .burst_size(config.ratelimits.pastes_burst)
+        .finish()
+        .unwrap();
+
     let state = AppState { config, pool };
 
-    println!("🚀 zer0bin is running on {}", address);
+    println!("🚀 zer0bin is running on {address}");
 
     HttpServer::new(move || {
         let cors = Cors::default()
@@ -193,7 +200,12 @@ async fn main() -> io::Result<()> {
             .wrap(cors)
             .app_data(Data::new(state.clone()))
             .service(get_stats)
-            .service(web::scope("/p").service(get_paste).service(new_paste))
+            .service(
+                web::scope("/p")
+                    .wrap(Governor::new(&paste_governor))
+                    .service(get_paste)
+                    .service(new_paste),
+            )
     })
     .bind(address)?
     .run()
