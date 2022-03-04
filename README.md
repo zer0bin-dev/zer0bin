@@ -40,10 +40,10 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ### Requirements
 
--   Rust >= 1.58.0
--   Postgresql >= 12.0
--   Nginx >= 1.18.0
--   \*nix OS
+- Rust >= 1.58.0
+- Postgresql >= 12.0
+- Nginx >= 1.18.0
+- \*nix OS
 
 ### Steps
 
@@ -60,16 +60,16 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ### Configuration
 
-| Key                          | Values                   | Description                                                                    |
-| ---------------------------- | ------------------------ | ------------------------------------------------------------------------------ |
-| server.backend_host          | 127.0.0.1 or 0.0.0.0     | The host to run the backend on                                                 |
-| server.backend_port          | Any open port            | The port to run the backend on                                                 |
-| pastes.character_limit       | Number up to 2^64 - 1    | The amount of characters allowed in a single paste                             |
-| pastes.days_til_expiration   | Number up to 2^63 or -1  | The days till a paste is to expire. If set to -1 then pastes will never expire |
-| pastes.id_length             | Number up to 2^64 - 1    | The length of the ID for each paste                                            |
-| databases.postgres_uri       | PostreSQL Connection URI | The URI to use when connecting to a PostgreSQL database                        |
-| ratelimits.pastes_per_second | Number up to 2^64 - 1    | The amount of pastes allowed per second                                        |
-| ratelimits.pastes_burst      | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
+| Key                                        | Values                   | Description                                                                    |
+| ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
+| server.backend_host                        | 127.0.0.1 or 0.0.0.0     | The host to run the backend on                                                 |
+| server.backend_port                        | Any open port            | The port to run the backend on                                                 |
+| pastes.character_limit                     | Number up to 2^64 - 1    | The amount of characters allowed in a single paste                             |
+| pastes.days_til_expiration                 | Number up to 2^63 or -1  | The days till a paste is to expire. If set to -1 then pastes will never expire |
+| pastes.id_length                           | Number up to 2^64 - 1    | The length of the ID for each paste                                            |
+| databases.postgres_uri                     | PostreSQL Connection URI | The URI to use when connecting to a PostgreSQL database                        |
+| ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1    | The seconds between paste uploads                                              |
+| ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
 
 # License
 
