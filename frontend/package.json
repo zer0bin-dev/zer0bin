@@ -1,12 +1,18 @@
 {
-  "name": "frontend",
-  "source": "src/index.html",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
-  },
-  "devDependencies": {
-    "parcel": "^2.3.2"
-  }
+    "name": "zer0bin",
+    "source": "src/index.html",
+    "version": "0.0.2",
+    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "license": "MIT",
+    "scripts": {
+        "start": "parcel",
+        "build": "parcel build"
+    },
+    "devDependencies": {
+        "parcel": "^2.3.2"
+    },
+    "description": "just a place to paste",
+    "main": "src/index.js",
+    "repository": "https://github.com/Domterion/zer0bin",
+    "author": "Domterion, ThatOneCalculator"
 }
