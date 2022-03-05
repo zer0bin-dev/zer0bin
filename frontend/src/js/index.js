@@ -55,12 +55,6 @@ $("#save-button").append(svgSave)
 $("#new-button").append(svgFileAdd)
 $("#github-button").append(svgGithub)
 
-
-console.log(svgSave)
-console.log(svgFileAdd)
-console.log(svgGithub)
-
-
 function postPaste(content, callback) {
     const data = {
         content,
