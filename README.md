@@ -36,7 +36,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | zer0b.in (not up yet)                          | ?       | 7 days     | 40,000 chars   | vx.x.x       |
 | [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸      | 365 days   | 100,000 chars  | v0.1.0       |
 
-### Technologies used
+# Technologies used
 Frontend: <a href="https://parceljs.org/"><img src="https://parceljs.org/parcel.fb905a63.png" height=25/></a> <a href="https://rosepinetheme.com/"><img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/27ee1976cc42a85edff37fe22c16de180c4874dc/assets/icon.svg" height=25/></a> <a href="https://jquery.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949484528773234758/PngItem_2069875.png" height=25/></a> <a href="https://highlightjs.org/"><img src="https://avatars.githubusercontent.com/u/9039821?s=200&v=4" height=25/></a>  
 
 Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949482823717388399/ezgif-2-1eeffc46b5.png" height=25/></a> <a href="https://github.com/mehcode/config-rs"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949483776340287498/ezgif-2-bb53a86ede.png" height=25/></a> 
