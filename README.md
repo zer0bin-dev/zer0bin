@@ -54,16 +54,17 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 ### Steps
 
 1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
-2. `cp config.example.json config.json` and edit as appropriate
-3. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
-4. `psql -d postgres`
-5. `CREATE DATABSE zer0bin;` and `\c zer0bin`
-6. Paste contents of `schema.sql` and `\q`
-7. `cd frontend`
-8. `cp config.example.json config.json` and edit as appropriate
-9. `yarn && yarn run build`
-10. `cd ../backend && cargo build --release`
-11. `./target/release/backend` (preferably in a tmux session)
+2. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
+3. `psql -d postgres`
+4. `CREATE DATABSE zer0bin;` and `\c zer0bin`
+5. Paste contents of `schema.sql` and `\q`
+6. `cd frontend`
+7. `cp config.example.json config.json` and edit as appropriate
+8. `yarn && yarn run build`
+9. `cd ../backend`
+10. `cp config.example.json config.json` and edit as appropriate
+11. `cargo build --release`
+12. `./target/release/backend` (preferably in a tmux session)
 
 ### Configuration
 
