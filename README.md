@@ -47,8 +47,8 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 
 - Rust >= 1.58.0
 - Postgresql >= 12.0
-- Nginx >= 1.18.0
-- NodeJS + Yarn (`sudo npm i -g yarn`)
+- NodeJS >= 16.0 + Yarn (`sudo npm i -g yarn`)
+- Nginx
 - \*nix OS
 
 ### Steps
