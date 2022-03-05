@@ -12,9 +12,7 @@
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/rosepine.min.css" rel="stylesheet" />
 
-    <script src="js/fontawesome.min.js"></script>
-    <script src="js/highlight.min.js"></script>
-    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js" type="module"></script>
 
     <meta name="title" content="zer0bin">
     <meta name="description" content="Just a place to paste">
@@ -22,10 +20,10 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="zer0bin">
     <meta property="og:description" content="🖊">
-    <meta property="og:image" content="https://stepbro.voring.me/zero.png">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Domterion/zer0bin/develop/zero.png">
     <meta property="twitter:title" content="zer0bin">
     <meta property="twitter:description" content="Just a place to paste">
-    <meta property="twitter:image" content="https://stepbro.voring.me/zero.png">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/Domterion/zer0bin/develop/zero.png">
 </head>
 
 <body>
@@ -35,14 +33,11 @@
         <a href="/" class="logo">zer0bin</a>
         <div class="buttons">
             <button id="save-button" class="btn">
-                <i class="fas fa-save fa-xl"></i>
             </button>
             <button id="new-button" class="btn">
-                <i class="fas fa-file-medical fa-2xl"></i>
             </button>
             <a href="https://github.com/Domterion/zer0bin">
-                <button class="btn">
-                    <i class="fab fa-github fa-2xl"></i>
+                <button class="btn" id="github-button">
                 </button>
             </a>
         </div>
@@ -53,11 +48,6 @@
         <textarea spellcheck="false" autofocus name="value" id="text-area" style="display: none"></textarea>
     </div>
 
-    <script src="js/index.min.js"></script>
-
-    <script>
-        hljs.highlightAll();
-    </script>
 </body>
 
 </html>
