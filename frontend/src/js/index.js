@@ -1,6 +1,12 @@
 const jquery = require("jquery");
 const hljs = require("highlight.js");
 
+import {
+    SaveOutlined,
+    FileAddOutlined,
+    GithubOutlined
+} from '@ant-design/icons-svg';
+
 window.$ = window.jQuery = jquery;
 
 const lineNumbers = $(".line-numbers");
@@ -12,9 +18,32 @@ const messages = $("#messages");
 const saveButton = $("#save-button");
 const newButton = $("#new-button");
 
-const apiUrl = "http://localhost:8000";
+const apiUrl = "https://stepbro.voring.me/api" //"http://localhost:8000";
 
 hljs.highlightAll();
+
+const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
+    extraSVGAttrs: {
+        fill: 'currentColor'
+    }
+});
+
+const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
+    extraSVGAttrs: {
+        fill: 'currentColor'
+    }
+});
+
+const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
+    extraSVGAttrs: {
+        fill: 'currentColor'
+    }
+});
+
+console.log(svgSave)
+console.log(svgFileAdd)
+console.log(svgGithub)
+
 
 function postPaste(content, callback) {
     const data = {
