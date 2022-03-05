@@ -22,7 +22,7 @@ const messages = $("#messages");
 const saveButton = $("#save-button");
 const newButton = $("#new-button");
 
-const apiUrl = configData.frontend.apiUrl
+const apiUrl = configData.frontend.api_url
 
 hljs.highlightAll();
 

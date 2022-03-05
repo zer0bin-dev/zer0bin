@@ -16,6 +16,6 @@
         "postgres_uri": "postgres://postgres:postgres@localhost:5432/zer0bin"
     },
     "frontend": {
-        "apiUrl": "http://localhost:8000"
+        "api_url": "http://localhost:8000"
     }
 }
