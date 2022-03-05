@@ -162,7 +162,7 @@ async fn new_paste(state: web::Data<AppState>, data: web::Json<PartialPaste>) ->
 
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
-    let config = config::load(PathBuf::from("../config.json"));
+    let config = config::load(PathBuf::from("config.json"));
     let pool = PgPoolOptions::new()
         .max_connections(100)
         .connect(&config.databases.postgres_uri)
