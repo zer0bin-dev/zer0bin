@@ -1,9 +1,9 @@
 <div align="center">
     <img src="zero.png" height="110px"/>
-	<h1>
-    	<img src="zer0bin.svg" height="100"/>
-	</h1>
-    just a place to paste
+	<br>
+    <img src="zer0bin.svg" height="100"/>
+	<br>
+    Just a place to paste
     <br>
 	<br>
     <p align="center">
