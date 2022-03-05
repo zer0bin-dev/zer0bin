@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "compression": "^1.7.4",
+    "silkrouter": "^4.2.10"
+  }
+}
