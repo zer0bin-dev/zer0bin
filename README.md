@@ -53,13 +53,10 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 3. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
 4. `psql -d postgres`
 5. `CREATE DATABSE zer0bin;` and `\c zer0bin`
-6. Paste contents of `schema.sql`
-7. `\q`
-8. `cd ../frontend`
-9. `yarn && yarn run build`
-10. `cd backend`
-11. `cargo build --release`
-14. `./target/release/backend` (preferably in a tmux session)
+6. Paste contents of `schema.sql` and `\q`
+7. `cd frontend && yarn && yarn run build`
+8. `cd ../backend && cargo build --release`
+9. `./target/release/backend` (preferably in a tmux session)
 
 ### Configuration
 
