@@ -1,6 +1,6 @@
 const jquery = require("jquery");
 const hljs = require("highlight.js");
-const configData = require("../../config.json");
+const configData = require("./config.json");
 
 import {
     SaveOutlined,
