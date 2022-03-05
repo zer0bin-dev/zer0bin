@@ -58,11 +58,14 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 7. `\q`
 8. `cd backend`
 9. `cargo build --release`
-10. `cd ..`
-10. `tmux` (or `tmux a`, `B+c`, `cd` into folder)
-11. `cd backend && ./target/release/backend`
-12. New tmux pane (`B+"`)
-13. `cd frontend && yarn && yarn parcel`
+10. `cd ../frontend`
+11. `yarn && yarn run build`
+12. `yarn global add serve`
+12. `cd ..`
+13. `tmux` (or `tmux a`, `B+c`, `cd` into folder)
+14. `cd backend && ./target/release/backend`
+15. New tmux pane (`B+"`)
+16. `cd frontend && serve ./dist -l 1234`
 
 ### Configuration
 
