@@ -31,25 +31,26 @@
 
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
 
-| Website                                        | Country | Expiration | Max paste size | Version      |
-| ---------------------------------------------- | ------- | ---------- | -------------- | ------------ |
-| zer0b.in (not up yet)                          | ?       | 7 days     | 40,000 chars   | vx.x.x       |
-| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸      | 365 days   | 100,000 chars  | v0.1.0       |
+| Website                                        | Country | Expiration | Max paste size | Version |
+| ---------------------------------------------- | ------- | ---------- | -------------- | ------- |
+| zer0b.in (not up yet)                          | ?       | 7 days     | 40,000 chars   | vx.x.x  |
+| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸      | 365 days   | 100,000 chars  | v0.1.0  |
 
 # Technologies used
-Frontend: <a href="https://parceljs.org/"><img src="https://parceljs.org/parcel.fb905a63.png" height=25/></a> <a href="https://rosepinetheme.com/"><img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/27ee1976cc42a85edff37fe22c16de180c4874dc/assets/icon.svg" height=25/></a> <a href="https://jquery.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949484528773234758/PngItem_2069875.png" height=25/></a> <a href="https://highlightjs.org/"><img src="https://avatars.githubusercontent.com/u/9039821?s=200&v=4" height=25/></a>  <a href="https://github.com/ant-design/ant-design-icons"><img src="https://avatars.githubusercontent.com/u/12101536?s=200&v=4" height=25/></a>  
 
-Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949482823717388399/ezgif-2-1eeffc46b5.png" height=25/></a> <a href="https://github.com/serde-rs/serde"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949485779242070076/unknown.png" height=25/></a> <a href="https://github.com/launchbadge/sqlx"><img src="https://avatars.githubusercontent.com/u/10077001?s=200&v=4" height=25/></a> <a href="https://github.com/chronotope/chrono"><img src="https://avatars.githubusercontent.com/u/20810954?s=200&v=4" height=25/></a> <a href="https://github.com/ai/nanoid"><img src="https://camo.githubusercontent.com/c306d97014be1caa9a2a511a0ff4722d54a77b0b6c81a18c81113d6051408325/68747470733a2f2f61692e6769746875622e696f2f6e616e6f69642f6c6f676f2e737667" height=25/></a> <a href="https://www.postgresql.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png" height=25/></a> 
+Frontend: <a href="https://parceljs.org/"><img src="https://parceljs.org/parcel.fb905a63.png" height=25/></a> <a href="https://rosepinetheme.com/"><img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/27ee1976cc42a85edff37fe22c16de180c4874dc/assets/icon.svg" height=25/></a> <a href="https://jquery.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949484528773234758/PngItem_2069875.png" height=25/></a> <a href="https://highlightjs.org/"><img src="https://avatars.githubusercontent.com/u/9039821?s=200&v=4" height=25/></a> <a href="https://github.com/ant-design/ant-design-icons"><img src="https://avatars.githubusercontent.com/u/12101536?s=200&v=4" height=25/></a>
+
+Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949482823717388399/ezgif-2-1eeffc46b5.png" height=25/></a> <a href="https://github.com/serde-rs/serde"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949485779242070076/unknown.png" height=25/></a> <a href="https://github.com/launchbadge/sqlx"><img src="https://avatars.githubusercontent.com/u/10077001?s=200&v=4" height=25/></a> <a href="https://github.com/chronotope/chrono"><img src="https://avatars.githubusercontent.com/u/20810954?s=200&v=4" height=25/></a> <a href="https://github.com/ai/nanoid"><img src="https://camo.githubusercontent.com/c306d97014be1caa9a2a511a0ff4722d54a77b0b6c81a18c81113d6051408325/68747470733a2f2f61692e6769746875622e696f2f6e616e6f69642f6c6f676f2e737667" height=25/></a> <a href="https://www.postgresql.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png" height=25/></a>
 
 # Instructions
 
 ### Requirements
 
-- Rust >= 1.58.0
-- Postgresql >= 12.0
-- NodeJS >= 16.0 + Yarn (`sudo npm i -g yarn`)
-- Nginx
-- \*nix OS
+-   Rust >= 1.58.0
+-   Postgresql >= 12.0
+-   NodeJS >= 16.0
+-   Nginx
+-   \*nix OS
 
 ### Steps
 
@@ -68,13 +69,13 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 
 ### Configuration
 
-| Key                                        | Values                    | Description                                                                    |
-| ------------------------------------------ | ------------------------- | ------------------------------------------------------------------------------ |
-| server.backend_host                        | 127.0.0.1 or 0.0.0.0      | The host to run the backend on                                                 |
-| server.backend_port                        | Any open port             | The port to run the backend on                                                 |
-| pastes.character_limit                     | Number up to 2^64 - 1     | The amount of characters allowed in a single paste                             |
-| pastes.days_til_expiration                 | Number up to 2^63 or -1   | The days till a paste is to expire. If set to -1 then pastes will never expire |
-| pastes.id_length                           | Number up to 2^64 - 1     | The length of the ID for each paste                                            |
-| databases.postgres_uri                     | PostreSQL Connection URI  | The URI to use when connecting to a PostgreSQL database                        |
-| ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1     | The seconds between paste uploads                                              |
-| ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1     | Amount of requests that can be made before they are blocked and have to wait   |
+| Key                                        | Values                   | Description                                                                    |
+| ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
+| server.backend_host                        | 127.0.0.1 or 0.0.0.0     | The host to run the backend on                                                 |
+| server.backend_port                        | Any open port            | The port to run the backend on                                                 |
+| pastes.character_limit                     | Number up to 2^64 - 1    | The amount of characters allowed in a single paste                             |
+| pastes.days_til_expiration                 | Number up to 2^63 or -1  | The days till a paste is to expire. If set to -1 then pastes will never expire |
+| pastes.id_length                           | Number up to 2^64 - 1    | The length of the ID for each paste                                            |
+| databases.postgres_uri                     | PostreSQL Connection URI | The URI to use when connecting to a PostgreSQL database                        |
+| ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1    | The seconds between paste uploads                                              |
+| ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |

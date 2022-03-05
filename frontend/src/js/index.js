@@ -1,10 +1,13 @@
 const configData = require("../../config.json");
 
-import { hljs } from "highlight.js";
-import { SaveOutlined, FileAddOutlined, GithubOutlined } from "@ant-design/icons-svg";
+const hljs = require("highlight.js");
+
+import {
+	SaveOutlined,
+	FileAddOutlined,
+	GithubOutlined,
+} from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
-import { Router } from 'silkrouter';
-import { route } from 'silkrouter/operators';
 
 const jquery = require("jquery");
 window.$ = window.jQuery = jquery;
@@ -23,27 +26,27 @@ const apiUrl = configData.api_url;
 hljs.highlightAll();
 
 const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
-    extraSVGAttrs: {
-        width: "1em",
-        height: "1em",
-        fill: "currentColor",
-    },
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
 });
 
 const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
-    extraSVGAttrs: {
-        width: "1em",
-        height: "1em",
-        fill: "currentColor",
-    },
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
 });
 
 const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
-    extraSVGAttrs: {
-        width: "1em",
-        height: "1em",
-        fill: "currentColor",
-    },
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
 });
 
 $("#save-button").append(svgSave);
@@ -51,131 +54,132 @@ $("#new-button").append(svgFileAdd);
 $("#github-button").append(svgGithub);
 
 function postPaste(content, callback) {
-    const data = {
-        content,
-    };
+	const data = {
+		content,
+	};
 
-    $.ajax({
-        type: "POST",
-        url: `${apiUrl}/p/n`,
-        data: JSON.stringify(data),
-        dataType: "json",
-        contentType: "application/json",
-        crossDomain: true,
-        success: function (res) {
-            callback(null, res);
-        },
-        error: function (xhr) {
-            callback(
-                JSON.parse(
-                    xhr.responseText ||
-                    `{"data": { "message": "An unkown error occured!" } }`
-                )
-            );
-        },
-    });
+	$.ajax({
+		type: "POST",
+		url: `${apiUrl}/p/n`,
+		data: JSON.stringify(data),
+		dataType: "json",
+		contentType: "application/json",
+		crossDomain: true,
+		success: function (res) {
+			callback(null, res);
+		},
+		error: function (xhr) {
+			callback(
+				JSON.parse(
+					xhr.responseText ||
+						`{"data": { "message": "An unkown error occured!" } }`
+				)
+			);
+		},
+	});
 }
 
 function getPaste(id, callback) {
-    $.ajax({
-        type: "GET",
-        url: `${apiUrl}/p/${id}`,
-        contentType: "application/json",
-        crossDomain: true,
-        success: function (res) {
-            callback(null, res);
-        },
-        error: function (xhr) {
-            callback(
-                JSON.parse(
-                    xhr.responseText ||
-                    `{"data": { "message": "Unknown error occurred.." } }`
-                )
-            );
-        },
-    });
+	$.ajax({
+		type: "GET",
+		url: `${apiUrl}/p/${id}`,
+		contentType: "application/json",
+		crossDomain: true,
+		success: function (res) {
+			callback(null, res);
+		},
+		error: function (xhr) {
+			callback(
+				JSON.parse(
+					xhr.responseText ||
+						`{"data": { "message": "Unknown error occurred.." } }`
+				)
+			);
+		},
+	});
 }
 
 function newPaste() {
-    lineNumbers.html("&gt;");
+	lineNumbers.html("&gt;");
 
-    saveButton.prop("disabled", false);
-    newButton.prop("disabled", true);
+	saveButton.prop("disabled", false);
+	newButton.prop("disabled", true);
 
-    editor.val("");
+	editor.val("");
 
-    editor.show();
-    codeViewPre.hide();
+	editor.show();
+	codeViewPre.hide();
 }
 
 function addMessage(message) {
-    let msg = $(`<li>${message}</li>`);
-    messages.prepend(msg);
+	let msg = $(`<li>${message}</li>`);
+	messages.prepend(msg);
 
-    setTimeout(function () {
-        msg.slideUp("fast", function () {
-            $(this).remove();
-        });
-    }, 3000);
+	setTimeout(function () {
+		msg.slideUp("fast", function () {
+			$(this).remove();
+		});
+	}, 3000);
 }
 
 function createTextLinks(text) {
-    return (text || "").replace(
-        /([^\S]|^)(((https?\:\/\/)|(www\.))(\S+))/gi,
-        function (match, space, url) {
-            let hyperlink = url;
-            if (!hyperlink.match("^https?://")) {
-                hyperlink = "http://" + hyperlink;
-            }
-            return space + '<a href="' + hyperlink + '">' + url + "</a>";
-        }
-    );
+	return (text || "").replace(
+		/([^\S]|^)(((https?\:\/\/)|(www\.))(\S+))/gi,
+		function (match, space, url) {
+			let hyperlink = url;
+			if (!hyperlink.match("^https?://")) {
+				hyperlink = "http://" + hyperlink;
+			}
+			return space + '<a href="' + hyperlink + '">' + url + "</a>";
+		}
+	);
 }
 
 function viewPaste(content) {
-    lineNumbers.html("");
-    for (let i = 1; i <= content.split("\n").length; i++) {
-        lineNumbers.append(`${i}
+	lineNumbers.html("");
+	for (let i = 1; i <= content.split("\n").length; i++) {
+		lineNumbers.append(`${i}
 <br>`);
-    }
-    codeView.html(createTextLinks(content));
-    editor.hide();
-    codeViewPre.show();
+	}
+	codeView.html(createTextLinks(content));
+	editor.hide();
+	codeViewPre.show();
 }
 
 saveButton.click(function () {
-    if (editor.val() === "") {
-        return;
-    }
+	if (editor.val() === "") {
+		return;
+	}
 
-    postPaste(editor.val(), function (err, res) {
-        if (err) {
-            addMessage(err["data"]["message"]);
-        } else {
-            window.location.href = `/${res["data"]["id"]}`;
-        }
-    });
+	postPaste(editor.val(), function (err, res) {
+		if (err) {
+			addMessage(err["data"]["message"]);
+		} else {
+			window.location.href = `/${res["data"]["id"]}`;
+		}
+	});
 });
 
 newButton.click(function () {
-    window.location.href = "/";
+	window.location.href = "/";
 });
 
 $(document).ready(function () {
-    const path = window.location.pathname;
+	const path = window.location.pathname;
 
-    if (path == "/") {
-        newPaste();
-    } else {
-        const id = path.substring(1, path.length);
+	if (path == "/") {
+		newPaste();
+	} else {
+		const id = path.substring(1, path.length);
 
-        getPaste(id, function (err, res) {
-            if (err) { newPaste(); }
-            else {
-                const content = res["data"]["content"];
-                viewPaste(hljs.highlightAuto(content).value);
-                saveButton.prop("disabled", true);
-            }
-        });
-    }
+		getPaste(id, function (err, res) {
+			if (err) {
+				newPaste();
+			} else {
+				const content = res["data"]["content"];
+				viewPaste(hljs.highlightAuto(content).value);
+				saveButton.prop("disabled", true);
+			}
+		});
+	}
 });
