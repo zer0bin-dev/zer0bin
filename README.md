@@ -59,9 +59,11 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 4. `psql -d postgres`
 5. `CREATE DATABSE zer0bin;` and `\c zer0bin`
 6. Paste contents of `schema.sql` and `\q`
-7. `cd frontend && yarn && yarn run build`
-8. `cd ../backend && cargo build --release`
-9. `./target/release/backend` (preferably in a tmux session)
+7. `cd frontend`
+8. `cp config.example.json config.json` and edit as appropriate
+9. `yarn && yarn run build`
+10. `cd ../backend && cargo build --release`
+11. `./target/release/backend` (preferably in a tmux session)
 
 ### Configuration
 
@@ -75,4 +77,3 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 | databases.postgres_uri                     | PostreSQL Connection URI  | The URI to use when connecting to a PostgreSQL database                        |
 | ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1     | The seconds between paste uploads                                              |
 | ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1     | Amount of requests that can be made before they are blocked and have to wait   |
-| frontend.api_url                           | Your public facing API URL| The URL that the frontend will post to, most likely `https://domain.tld/api`   |

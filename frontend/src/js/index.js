@@ -1,6 +1,6 @@
 const jquery = require("jquery");
 const hljs = require("highlight.js");
-const configData = require("../../../config.json");
+const configData = require("../../config.json");
 
 import {
     SaveOutlined,
@@ -20,7 +20,7 @@ const messages = $("#messages");
 const saveButton = $("#save-button");
 const newButton = $("#new-button");
 
-const apiUrl = configData.frontend.api_url;
+const apiUrl = configData.api_url;
 
 hljs.highlightAll();
 
