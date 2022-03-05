@@ -6,6 +6,9 @@ import {
     FileAddOutlined,
     GithubOutlined
 } from '@ant-design/icons-svg';
+import {
+    renderIconDefinitionToSVGElement
+} from '@ant-design/icons-svg/es/helpers';
 
 window.$ = window.jQuery = jquery;
 
