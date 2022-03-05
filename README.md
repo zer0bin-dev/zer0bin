@@ -43,7 +43,6 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 - Rust >= 1.58.0
 - Postgresql >= 12.0
 - Nginx >= 1.18.0
-- Tmux
 - NodeJS + Yarn (`sudo npm i -g yarn`)
 - \*nix OS
 
@@ -56,16 +55,11 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 5. `CREATE DATABSE zer0bin;` and `\c zer0bin`
 6. Paste contents of `schema.sql`
 7. `\q`
-8. `cd backend`
-9. `cargo build --release`
-10. `cd ../frontend`
-11. `yarn && yarn run build`
-12. `yarn global add serve`
-12. `cd ..`
-13. `tmux` (or `tmux a`, `B+c`, `cd` into folder)
-14. `cd backend && ./target/release/backend`
-15. New tmux pane (`B+"`)
-16. `cd frontend && serve ./dist -l 1234`
+8. `cd ../frontend`
+9. `yarn && yarn run build`
+10. `cd backend`
+11. `cargo build --release`
+14. `./target/release/backend` (preferably in a tmux session)
 
 ### Configuration
 
