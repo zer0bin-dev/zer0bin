@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./zero.png" height="110px"/>
+    <img src="zero.png" height="110px"/>
 	<h1>
     	<img src="zer0bin.svg" height="100"/>
 	</h1>
@@ -43,6 +43,8 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 - Rust >= 1.58.0
 - Postgresql >= 12.0
 - Nginx >= 1.18.0
+- Tmux
+- NodeJS + Yarn (`sudo npm i -g yarn`)
 - \*nix OS
 
 ### Steps
@@ -56,21 +58,22 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 7. `\q`
 8. `cd backend`
 9. `cargo build --release`
-10. `./target/release/backend`, preferably in a `tmux` session or with `& disown`
+10. `cd ..`
+10. `tmux` (or `tmux a`, `B+c`, `cd` into folder)
+11. `cd backend && ./target/release/backend`
+12. New tmux pane (`B+"`)
+13. `cd frontend && yarn && yarn parcel`
 
 ### Configuration
 
-| Key                                        | Values                   | Description                                                                    |
-| ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
-| server.backend_host                        | 127.0.0.1 or 0.0.0.0     | The host to run the backend on                                                 |
-| server.backend_port                        | Any open port            | The port to run the backend on                                                 |
-| pastes.character_limit                     | Number up to 2^64 - 1    | The amount of characters allowed in a single paste                             |
-| pastes.days_til_expiration                 | Number up to 2^63 or -1  | The days till a paste is to expire. If set to -1 then pastes will never expire |
-| pastes.id_length                           | Number up to 2^64 - 1    | The length of the ID for each paste                                            |
-| databases.postgres_uri                     | PostreSQL Connection URI | The URI to use when connecting to a PostgreSQL database                        |
-| ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1    | The seconds between paste uploads                                              |
-| ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
-
-# License
-
-MIT
+| Key                                        | Values                    | Description                                                                    |
+| ------------------------------------------ | ------------------------- | ------------------------------------------------------------------------------ |
+| server.backend_host                        | 127.0.0.1 or 0.0.0.0      | The host to run the backend on                                                 |
+| server.backend_port                        | Any open port             | The port to run the backend on                                                 |
+| pastes.character_limit                     | Number up to 2^64 - 1     | The amount of characters allowed in a single paste                             |
+| pastes.days_til_expiration                 | Number up to 2^63 or -1   | The days till a paste is to expire. If set to -1 then pastes will never expire |
+| pastes.id_length                           | Number up to 2^64 - 1     | The length of the ID for each paste                                            |
+| databases.postgres_uri                     | PostreSQL Connection URI  | The URI to use when connecting to a PostgreSQL database                        |
+| ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1     | The seconds between paste uploads                                              |
+| ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1     | Amount of requests that can be made before they are blocked and have to wait   |
+| frontend.api_url                           | Your public facing API URL| The URL that the frontend will post to, most likely `https://domain.tld/api`   |
