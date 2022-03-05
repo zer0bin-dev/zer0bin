@@ -4,6 +4,7 @@
 **/.parcel-cache/
 config.json
 **/yarn.lock
+**/package-lock.json
 **/yarn-error.log
 node_modules
 .yarn-integrity
