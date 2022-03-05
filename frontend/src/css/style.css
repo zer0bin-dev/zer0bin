@@ -1,23 +1,23 @@
 /* fira-mono-regular - latin */
 @font-face {
-  font-family: 'Fira Mono';
+  font-family: "Fira Mono";
   font-style: normal;
   font-weight: 400;
-  src: local(''),
-       url('../fonts/fira-mono-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/fira-mono-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""),
+    url("../fonts/fira-mono-v12-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/fira-mono-v12-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* fira-mono-700 - latin */
 @font-face {
-  font-family: 'Fira Mono';
+  font-family: "Fira Mono";
   font-style: bold;
   font-weight: 700;
-  src: local(''),
-       url('../fonts/fira-mono-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/fira-mono-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(""), url("../fonts/fira-mono-v12-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/fira-mono-v12-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-
 
 body,
 html {
@@ -42,7 +42,7 @@ pre {
 
 .line-numbers {
   color: #908caa;
-  font-family: Fira Mono, monospace;
+  font-family: monospace;
   text-align: end;
   user-select: none;
   font-size: 15px;
@@ -85,6 +85,17 @@ textarea {
   margin-left: 0.25rem;
 }
 
+a {
+  color: #31748f;
+}
+
+a:visited {
+  color: #c4a7e7;
+}
+a:hover {
+  color: #9ccfd8;
+}
+
 .btn {
   cursor: pointer;
   background: 0 0;
@@ -112,7 +123,7 @@ textarea {
   text-decoration: none;
   color: #8fbcc8;
   width: 100%;
-  font-family: Fira Mono, monospace;
+  font-family: monospace;
   display: inline-block;
   background: linear-gradient(
     to right,
@@ -147,7 +158,7 @@ textarea {
 
 #messages li {
   background-color: rgba(31, 29, 46, 0.8);
-  font-family: Fira Mono, monospace;
+  font-family: monospace;
   color: #fff;
   padding: 7px;
 }
@@ -164,7 +175,9 @@ textarea {
 }
 
 @media only screen and (max-width: 768px) {
-  textarea, .line-numbers, #code-view {
+  textarea,
+  .line-numbers,
+  #code-view {
     font-size: 13px !important;
   }
 }
