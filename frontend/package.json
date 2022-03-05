@@ -12,7 +12,7 @@
         "parcel": "^2.3.2"
     },
     "description": "just a place to paste",
-    "main": "src/index.js",
+    "main": "src/index.html",
     "repository": "https://github.com/Domterion/zer0bin",
     "author": "Domterion, ThatOneCalculator",
     "dependencies": {
