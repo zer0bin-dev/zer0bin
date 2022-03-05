@@ -61,7 +61,7 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 5. Paste contents of `schema.sql` and `\q`
 6. `cd frontend`
 7. `cp config.example.json config.json` and edit as appropriate
-8. `yarn && yarn run build`
+8. `npm i && npm run build`
 9. `cd ../backend`
 10. `cp config.example.json config.json` and edit as appropriate
 11. `cargo build --release`
