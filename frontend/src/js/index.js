@@ -18,7 +18,7 @@ const messages = $("#messages");
 const saveButton = $("#save-button");
 const newButton = $("#new-button");
 
-const apiUrl = "https://stepbro.voring.me/api" //"http://localhost:8000";
+const apiUrl = "http://localhost:8000";
 
 hljs.highlightAll();
 
