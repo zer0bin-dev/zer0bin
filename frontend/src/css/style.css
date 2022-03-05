@@ -27,10 +27,16 @@ pre {
 	font-size: 15px;
 }
 
-#code-view {
+#code-view-pre {
 	padding-top: 0;
 	padding-bottom: 0;
 	font-size: 15px;
+	-webkit-text-size-adjust: none;
+}
+
+#code-view {
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 textarea {
