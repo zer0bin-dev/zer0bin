@@ -2,11 +2,7 @@ const jquery = require("jquery");
 const hljs = require("highlight.js");
 const configData = require("../../config.json");
 
-import {
-    SaveOutlined,
-    FileAddOutlined,
-    GithubOutlined,
-} from "@ant-design/icons-svg";
+import { SaveOutlined, FileAddOutlined, GithubOutlined } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
 
 window.$ = window.jQuery = jquery;
