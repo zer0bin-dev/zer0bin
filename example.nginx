@@ -11,8 +11,14 @@ server {
     listen 80;
 
     server_name example.tld www.example.tld;
-    root /location/to/zer0bin/frontend;
-    index index.html;
+    location / {
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Origin' '*';
+
+        proxy_pass http://localhost:1234/;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+    }
 
     location ^~ /.well-known/ {
         alias /var/www/.well-known/;
@@ -33,8 +39,14 @@ server {
     listen [::]:443 ssl http2;
 
     server_name example.tld www.example.tld;
-    root /location/to/zer0bin/frontend;
-    index index.html;
+   location / {
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Origin' '*';
+
+        proxy_pass http://localhost:1234/;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+    }
 
     #ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
     #ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
