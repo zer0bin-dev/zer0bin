@@ -1,7 +1,5 @@
 const jquery = require("jquery");
-import {
-    hljs
-} from 'highlight.js';
+const hljs = require("highlight.js")
 import {
     SaveOutlined,
     FileAddOutlined,
@@ -28,25 +26,32 @@ hljs.highlightAll();
 
 const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
     extraSVGAttrs: {
-        fill: 'currentColor'
+        width: '1em',
+        height: '1em',
+        fill: 'currentColor',
+
     }
 });
 
 const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
     extraSVGAttrs: {
+        width: '1em',
+        height: '1em',
         fill: 'currentColor'
     }
 });
 
 const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
     extraSVGAttrs: {
+        width: '1em',
+        height: '1em',
         fill: 'currentColor'
     }
 });
 
-$("#save-button").appendChild(svgSave)
-$("#new-button").appendChild(svgFileAdd)
-$("#github-button").appendChild(svgGithub)
+$("#save-button").append(svgSave)
+$("#new-button").append(svgFileAdd)
+$("#github-button").append(svgGithub)
 
 
 console.log(svgSave)
