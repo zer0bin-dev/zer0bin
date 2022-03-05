@@ -42,7 +42,7 @@ pre {
 
 .line-numbers {
   color: #908caa;
-  font-family: Fira Mono, monospace;
+  font-family: monospace;
   text-align: end;
   user-select: none;
   font-size: 15px;
@@ -123,7 +123,7 @@ a:hover {
   text-decoration: none;
   color: #8fbcc8;
   width: 100%;
-  font-family: Fira Mono, monospace;
+  font-family: monospace;
   display: inline-block;
   background: linear-gradient(
     to right,
@@ -158,7 +158,7 @@ a:hover {
 
 #messages li {
   background-color: rgba(31, 29, 46, 0.8);
-  font-family: Fira Mono, monospace;
+  font-family: monospace;
   color: #fff;
   padding: 7px;
 }
