@@ -143,7 +143,7 @@ textarea {
 }
 
 @media only screen and (max-width: 768px) {
-  textarea, #code-view {
+  textarea, .line-numbers, #code-view {
     font-size: 13px;
     white-space: wrap;
     overflow: hidden;
