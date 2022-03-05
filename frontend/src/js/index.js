@@ -163,22 +163,20 @@ newButton.click(function () {
     window.location.href = "/";
 });
 
-$(document).ready(function () {
-    let path = window.location.pathname;
+const path = window.location.pathname;
 
-    if (path == "/") {
-        newPaste();
-    } else {
-        let id = path.substring(1, path.length);
+if (path == "/") {
+    newPaste();
+} else {
+    const id = path.substring(1, path.length);
 
-        getPaste(id, function (err, res) {
-            if (err) {
-                newPaste();
-            } else {
-                let content = res["data"]["content"];
-                viewPaste(hljs.highlightAuto(content).value);
-                saveButton.prop("disabled", true);
-            }
-        });
-    }
-});
+    getPaste(id, function (err, res) {
+        if (err) {
+            newPaste();
+        } else {
+            const content = res["data"]["content"];
+            viewPaste(hljs.highlightAuto(content).value);
+            saveButton.prop("disabled", true);
+        }
+    });
+}
