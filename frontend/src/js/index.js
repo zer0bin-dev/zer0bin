@@ -163,20 +163,21 @@ newButton.click(function () {
     window.location.href = "/";
 });
 
-const path = window.location.pathname;
+$(document).ready(function () {
+    const path = window.location.pathname;
 
-if (path == "/") {
-    newPaste();
-} else {
-    const id = path.substring(1, path.length);
+    if (path == "/") {
+        newPaste();
+    } else {
+        const id = path.substring(1, path.length);
 
-    getPaste(id, function (err, res) {
-        if (err) {
-            newPaste();
-        } else {
-            const content = res["data"]["content"];
-            viewPaste(hljs.highlightAuto(content).value);
-            saveButton.prop("disabled", true);
-        }
-    });
-}
+        getPaste(id, function (err, res) {
+            if (err) { newPaste(); }
+            else {
+                const content = res["data"]["content"];
+                viewPaste(hljs.highlightAuto(content).value);
+                saveButton.prop("disabled", true);
+            }
+        });
+    }
+});
