@@ -1,6 +1,7 @@
 const jquery = require("jquery");
-const hljs = require("highlight.js");
-
+import {
+    hljs
+} from 'highlight.js';
 import {
     SaveOutlined,
     FileAddOutlined,
@@ -42,6 +43,11 @@ const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
         fill: 'currentColor'
     }
 });
+
+$("#save-button").appendChild(svgSave)
+$("#new-button").appendChild(svgFileAdd)
+$("#github-button").appendChild(svgGithub)
+
 
 console.log(svgSave)
 console.log(svgFileAdd)
