@@ -1,5 +1,4 @@
 import { Router } from 'silkrouter';
-import { route } from 'silkrouter/operators';
 
 const configData = require("../config.json");
 
