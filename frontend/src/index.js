@@ -1,4 +1,4 @@
-import { Router } from '../silkrouter';
+import { Router } from 'silkrouter';
 
 const configData = require("../config.json");
 
