@@ -57,7 +57,7 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
 2. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
 3. `psql -d postgres`
-4. `CREATE DATABSE zer0bin;` and `\c zer0bin`
+4. `CREATE DATABASE zer0bin;` and `\c zer0bin`
 5. Paste contents of `schema.sql` and `\q`
 6. `cd frontend`
 7. `cp config.example.json config.json` and edit as appropriate
