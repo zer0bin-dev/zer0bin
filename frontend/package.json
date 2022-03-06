@@ -1,6 +1,6 @@
 {
     "name": "zer0bin",
-    "source": "src/index.html",
+    "source": "index.html",
     "version": "0.1.0",
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "license": "MIT",
