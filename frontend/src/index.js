@@ -1,3 +1,6 @@
+import { Router } from 'silkrouter';
+import { route } from 'silkrouter/operators';
+
 const configData = require("../config.json");
 
 const jquery = require("jquery");
@@ -13,6 +16,8 @@ const saveButton = $("#save-button");
 const newButton = $("#new-button");
 
 const apiUrl = configData.api_url;
+
+const router = new Router();
 
 function postPaste(content, callback) {
 	const data = {
@@ -125,22 +130,28 @@ newButton.click(function () {
 	window.location.href = "/";
 });
 
-$(document).ready(function () {
-	const path = window.location.pathname;
+// $(document).ready(function () {
+// 	const path = window.location.pathname;
 
-	if (path == "/") {
-		newPaste();
-	} else {
-		const id = path.substring(1, path.length);
+// 	if (path == "/") {
+// 		newPaste();
+// 	} else {
+// 		const id = path.substring(1, path.length);
 
-		getPaste(id, function (err, res) {
-			if (err) {
-				newPaste();
-			} else {
-				const content = res["data"]["content"];
-				viewPaste(hljs.highlightAuto(content).value);
-				saveButton.prop("disabled", true);
-			}
-		});
-	}
-});
+// 		getPaste(id, function (err, res) {
+// 			if (err) {
+// 				newPaste();
+// 			} else {
+// 				const content = res["data"]["content"];
+// 				viewPaste(content);
+// 				saveButton.prop("disabled", true);
+// 			}
+// 		});
+// 	}
+// });
+
+router
+    .pipe(cache(true)) // Allows caching with deep comparison
+    .subscribe((e) => {
+		console.log(e.route); // --> '/' (Current active route)
+	});
