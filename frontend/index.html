@@ -1,68 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>zer0bin</title>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-		<meta name="theme-color" content="#90BDC9" />
-		<meta
-			name="keywords"
-			content="zerobin, zer0bin, paste, paste bin, pastebin, pastebin alternative, foss pastebin, open source pastebin, free pastebin, ghostbin, hastebin, pastebin.com, free pastebin online, paste online, github paste, github gist, github gist paste"
-		/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zer0bin</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="theme-color" content="#90BDC9" />
+    <meta
+      name="keywords"
+      content="zerobin, zer0bin, paste, paste bin, pastebin, pastebin alternative, foss pastebin, open source pastebin, free pastebin, ghostbin, hastebin, pastebin.com, free pastebin online, paste online, github paste, github gist, github gist paste"
+    />
 
-		<link href="css/style.css" rel="stylesheet" />
-		<link href="css/rosepine.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/rosepine.min.css" rel="stylesheet" />
 
-		<meta name="title" content="zer0bin" />
-		<meta name="description" content="🖊 Just a place to paste" />
+    <meta name="title" content="zer0bin" />
+    <meta name="description" content="🖊 Just a place to paste" />
 
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="zer0bin" />
-		<meta property="og:description" content="🖊 Just a place to paste" />
-		<meta
-			property="og:image"
-			content="https://raw.githubusercontent.com/Domterion/zer0bin/main/zero.png"
-		/>
-		<meta property="twitter:title" content="zer0bin" />
-		<meta
-			property="twitter:description"
-			content="🖊 Just a place to paste"
-		/>
-		<meta
-			property="twitter:image"
-			content="https://raw.githubusercontent.com/Domterion/zer0bin/main/zero.png"
-		/>
-	</head>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="zer0bin" />
+    <meta property="og:description" content="🖊 Just a place to paste" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/Domterion/zer0bin/main/zero.png"
+    />
+    <meta property="twitter:title" content="zer0bin" />
+    <meta property="twitter:description" content="🖊 Just a place to paste" />
+    <meta
+      property="twitter:image"
+      content="https://raw.githubusercontent.com/Domterion/zer0bin/main/zero.png"
+    />
+  </head>
 
-	<body>
-		<ul id="messages"></ul>
+  <body>
+    <ul id="messages"></ul>
 
-		<div class="button-wrapper">
-			<a href="/" class="logo">zer0bin</a>
-			<div class="buttons">
-				<button id="save-button" class="btn"></button>
-				<button id="new-button" class="btn"></button>
-				<a href="https://github.com/Domterion/zer0bin">
-					<button class="btn" id="github-button"></button>
-				</a>
-			</div>
-		</div>
-		<div class="wrapper">
-			<div class="line-numbers"></div>
-			<pre
-				id="code-view-pre"
-				style="display: none"
-			><code id="code-view"></code></pre>
-			<textarea
-				spellcheck="false"
-				autofocus
-				name="value"
-				id="text-area"
-				style="display: none"
-			></textarea>
-		</div>
+    <div class="button-wrapper">
+      <a href="/" class="logo">zer0bin</a>
+      <div class="buttons">
+        <button id="save-button" class="btn"></button>
+        <button id="new-button" class="btn"></button>
+        <a href="https://github.com/Domterion/zer0bin">
+          <button class="btn" id="github-button"></button>
+        </a>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="line-numbers"></div>
+      <pre
+        id="code-view-pre"
+        style="display: none"
+      ><code id="code-view"></code></pre>
+      <textarea
+        spellcheck="false"
+        autofocus
+        name="value"
+        id="text-area"
+        style="display: none"
+      ></textarea>
+    </div>
 
-		<script src="src/index.js" type="module"></script>
-	</body>
+    <script src="src/index.js" type="module"></script>
+    <script>
+      $(document).ready(function () {
+        const path = window.location.pathname;
+
+        if (path == "/") {
+          newPaste();
+        } else {
+          const id = path.substring(1, path.length);
+
+          getPaste(id, function (err, res) {
+            if (err) {
+              newPaste();
+            } else {
+              const content = res["data"]["content"];
+              viewPaste(hljs.highlightAuto(content).value);
+              saveButton.prop("disabled", true);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
