@@ -17,7 +17,6 @@
     "dependencies": {
         "@ant-design/icons-svg": "^4.2.1",
         "highlight.js": "^11.4.0",
-        "jquery": "^3.6.0",
-        "lodash": "^4.17.21"
+        "jquery": "^3.6.0"
     }
 }
