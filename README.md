@@ -38,7 +38,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 # Technologies used
 
-Frontend: <a href="https://parceljs.org/"><img src="https://parceljs.org/parcel.fb905a63.png" height=25/></a> <a href="https://rosepinetheme.com/"><img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/27ee1976cc42a85edff37fe22c16de180c4874dc/assets/icon.svg" height=25/></a> <a href="https://jquery.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949484528773234758/PngItem_2069875.png" height=25/></a> <a href="https://highlightjs.org/"><img src="https://avatars.githubusercontent.com/u/9039821?s=200&v=4" height=25/></a> <a href="https://github.com/ant-design/ant-design-icons"><img src="https://avatars.githubusercontent.com/u/12101536?s=200&v=4" height=25/></a>
+Frontend: <a href="https://webpack.js.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949824318211252234/external-content.duckduckgo.com.png" height=25/></a> <a href="https://rosepinetheme.com/"><img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/27ee1976cc42a85edff37fe22c16de180c4874dc/assets/icon.svg" height=25/></a> <a href="https://jquery.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949484528773234758/PngItem_2069875.png" height=25/></a> <a href="https://highlightjs.org/"><img src="https://avatars.githubusercontent.com/u/9039821?s=200&v=4" height=25/></a> <a href="https://github.com/ant-design/ant-design-icons"><img src="https://avatars.githubusercontent.com/u/12101536?s=200&v=4" height=25/></a>
 
 Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949482823717388399/ezgif-2-1eeffc46b5.png" height=25/></a> <a href="https://github.com/serde-rs/serde"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949485779242070076/unknown.png" height=25/></a> <a href="https://github.com/launchbadge/sqlx"><img src="https://avatars.githubusercontent.com/u/10077001?s=200&v=4" height=25/></a> <a href="https://github.com/chronotope/chrono"><img src="https://avatars.githubusercontent.com/u/20810954?s=200&v=4" height=25/></a> <a href="https://github.com/ai/nanoid"><img src="https://camo.githubusercontent.com/c306d97014be1caa9a2a511a0ff4722d54a77b0b6c81a18c81113d6051408325/68747470733a2f2f61692e6769746875622e696f2f6e616e6f69642f6c6f676f2e737667" height=25/></a> <a href="https://www.postgresql.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png" height=25/></a>
 
@@ -49,6 +49,7 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 -   Rust >= 1.58.0
 -   Postgresql >= 12.0
 -   NodeJS >= 16.0
+-   Webpack + webpack-cli
 -   Nginx
 -   \*nix OS
 
