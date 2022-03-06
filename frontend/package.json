@@ -1,5 +1,6 @@
 {
     "name": "zer0bin",
+    "source": "src/index.html",
     "version": "0.1.0",
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "license": "MIT",
@@ -8,8 +9,7 @@
         "build": "parcel build"
     },
     "devDependencies": {
-        "webpack": "^5.38.1",
-        "webpack-cli": "^4.9.2"
+        "parcel": "^2.3.2"
     },
     "description": "just a place to paste",
     "repository": "https://github.com/Domterion/zer0bin",
