@@ -1,4 +1,4 @@
-const configData = require("../../config.json");
+const configData = require("../config.json");
 
 const hljs = require("highlight.js");
 
