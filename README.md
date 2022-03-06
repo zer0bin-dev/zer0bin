@@ -49,6 +49,7 @@ Backend: <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attach
 -   Rust >= 1.58.0
 -   Postgresql >= 12.0
 -   NodeJS >= 16.0
+-   Webpack + webpack-cli
 -   Nginx
 -   \*nix OS
 
