@@ -1,4 +1,5 @@
 import { Router } from 'silkrouter';
+import { route } from 'silkrouter/operators';
 
 const configData = require("../config.json");
 
@@ -132,25 +133,10 @@ newButton.click(function () {
 // $(document).ready(function () {
 // 	const path = window.location.pathname;
 
-	if (path == "/") {
-		// newPaste();
-		viewPaste(
-			hljs.highlightAuto(`
-const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
-	extraSVGAttrs: {
-		width: "1em",
-		height: "1em",
-		fill: "currentColor",
-	},
-});
-
-$("#save-button").append(svgSave);
-$("#new-button").append(svgFileAdd);
-$("#github-button").append(svgGithub);				
-`).value
-		);
-	} else {
-		const id = path.substring(1, path.length);
+// 	if (path == "/") {
+// 		newPaste();
+// 	} else {
+// 		const id = path.substring(1, path.length);
 
 // 		getPaste(id, function (err, res) {
 // 			if (err) {
