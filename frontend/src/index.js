@@ -1,14 +1,5 @@
 const configData = require("../config.json");
 
-const hljs = require("highlight.js");
-
-import {
-	SaveOutlined,
-	FileAddOutlined,
-	GithubOutlined,
-} from "@ant-design/icons-svg";
-import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
-
 const jquery = require("jquery");
 window.$ = window.jQuery = jquery;
 
@@ -22,36 +13,6 @@ const saveButton = $("#save-button");
 const newButton = $("#new-button");
 
 const apiUrl = configData.api_url;
-
-hljs.highlightAll();
-
-const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
-	extraSVGAttrs: {
-		width: "1em",
-		height: "1em",
-		fill: "currentColor",
-	},
-});
-
-const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
-	extraSVGAttrs: {
-		width: "1em",
-		height: "1em",
-		fill: "currentColor",
-	},
-});
-
-const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
-	extraSVGAttrs: {
-		width: "1em",
-		height: "1em",
-		fill: "currentColor",
-	},
-});
-
-$("#save-button").append(svgSave);
-$("#new-button").append(svgFileAdd);
-$("#github-button").append(svgGithub);
 
 function postPaste(content, callback) {
 	const data = {
