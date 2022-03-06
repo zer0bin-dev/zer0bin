@@ -17,6 +17,7 @@
     "dependencies": {
         "@ant-design/icons-svg": "^4.2.1",
         "highlight.js": "^11.4.0",
-        "jquery": "^3.6.0"
+        "jquery": "^3.6.0",
+        "silkrouter": "^4.2.10"
     }
 }
