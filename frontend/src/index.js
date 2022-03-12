@@ -164,8 +164,29 @@ newButton.click(function () {
 	window.location.href = "/";
 });
 
-$(document).ready(function () {
-	const path = window.location.pathname;
+// $(document).ready(function () {
+	// const path = window.location.pathname;
+
+	// if (path == "/") {
+	// 	newPaste();
+	// } else {
+	// 	const id = path.substring(1, path.length);
+
+	// 	getPaste(id, function (err, res) {
+	// 		if (err) {
+	// 			newPaste();
+	// 		} else {
+	// 			const content = res["data"]["content"];
+	// 			viewPaste(hljs.highlightAuto(content).value);
+	// 			saveButton.prop("disabled", true);
+	// 		}
+	// 	});
+	// }
+// });
+
+
+async function handleRequest(request) {
+	const path = request.url;
 
 	if (path == "/") {
 		newPaste();
@@ -182,4 +203,13 @@ $(document).ready(function () {
 			}
 		});
 	}
-});
+}
+
+
+addEventListener('fetch', event => {
+	event.respondWith(
+	  handleRequest(event.request).catch(
+		err => new Response(err.stack, { status: 500 })
+	  )
+	);
+  });
