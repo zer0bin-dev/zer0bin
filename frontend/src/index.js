@@ -164,30 +164,9 @@ newButton.click(function () {
 	window.location.href = "/";
 });
 
-// $(document).ready(function () {
-	// const path = window.location.pathname;
-
-	// if (path == "/") {
-	// 	newPaste();
-	// } else {
-	// 	const id = path.substring(1, path.length);
-
-	// 	getPaste(id, function (err, res) {
-	// 		if (err) {
-	// 			newPaste();
-	// 		} else {
-	// 			const content = res["data"]["content"];
-	// 			viewPaste(hljs.highlightAuto(content).value);
-	// 			saveButton.prop("disabled", true);
-	// 		}
-	// 	});
-	// }
-// });
-
-
-document.addEventListener('DOMContentLoaded', (event) => {
+$(document).ready(function () {
 	const path = window.location.pathname;
-	console.log(path);
+
 	if (path == "/") {
 		newPaste();
 	} else {
