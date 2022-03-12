@@ -1,3 +1,7 @@
+const config = require("../config.json");
+
+apiUrl = config.api_url
+
 const lineNumbers = $(".line-numbers");
 const editor = $("#text-area");
 const codeViewPre = $("#code-view-pre");
