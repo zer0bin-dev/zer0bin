@@ -161,7 +161,5 @@ $(window).bind("popstate", function (event) {
 });
 
 $(document).ready(function () {
-	feather.replace();
-
 	handlePopstate({ target: window });
 });
