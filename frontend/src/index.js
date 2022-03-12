@@ -117,8 +117,7 @@ saveButton.click(function () {
 			addMessage(err["data"]["message"]);
 		} else {
 			window.history.pushState(null, null, `/${res["data"]["id"]}`);
-
-			//window.location.href = `/${res["data"]["id"]}`;
+			window.location.href = `/${res["data"]["id"]}`;
 		}
 	});
 });
