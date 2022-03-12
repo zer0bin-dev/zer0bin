@@ -3,6 +3,7 @@
 **/dist/
 **/.parcel-cache/
 config.json
+**/url.txt
 **/yarn.lock
 **/package-lock.json
 **/yarn-error.log

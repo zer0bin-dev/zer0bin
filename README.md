@@ -60,7 +60,7 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 4. `CREATE DATABASE zer0bin;` and `\c zer0bin`
 5. Paste contents of `schema.sql` and `\q`
 6. `cd frontend`
-7. `cp config.example.json config.json` and edit as appropriate
+7. `echo 'https://example.com/api' > url.txt`
 8. `npm i && npm run build`
 9. `cd ../backend`
 10. `cp config.example.json config.json` and edit as appropriate
