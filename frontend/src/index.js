@@ -185,7 +185,7 @@ newButton.click(function () {
 // });
 
 
-async function handleRequest(request) {
+document.addEventListener('DOMContentLoaded', (event) => {
 	const path = window.location.pathname;
 	console.log(path);
 	if (path == "/") {
@@ -204,12 +204,3 @@ async function handleRequest(request) {
 		});
 	}
 }
-
-
-addEventListener('fetch', event => {
-	event.respondWith(
-	  handleRequest(event.request).catch(
-		err => new Response(err.stack, { status: 500 })
-	  )
-	);
-  });
