@@ -1,6 +1,16 @@
-const config = require("../config.json");
+function loadFile(filePath) {
+	let result = null;
+	const xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", filePath, false);
+	xmlhttp.send();
+	if (xmlhttp.status == 200) {
+	  result = xmlhttp.responseText;
+	}
+	return result;
+}
 
-apiUrl = config.api_url
+
+apiUrl = loadFile("../url.txt")
 
 const lineNumbers = $(".line-numbers");
 const editor = $("#text-area");
