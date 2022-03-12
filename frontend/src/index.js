@@ -99,6 +99,10 @@ function viewPaste(content) {
 <br>`);
 	}
 	codeView.html(createTextLinks(content));
+
+	saveButton.prop("disabled", true);
+	newButton.prop("disabled", false);
+
 	editor.hide();
 	codeViewPre.show();
 }
@@ -112,7 +116,9 @@ saveButton.click(function () {
 		if (err) {
 			addMessage(err["data"]["message"]);
 		} else {
-			window.location.href = `/${res["data"]["id"]}`;
+			window.history.pushState(null, null, `/${res["data"]["id"]}`);
+
+			//window.location.href = `/${res["data"]["id"]}`;
 		}
 	});
 });
@@ -121,23 +127,32 @@ newButton.click(function () {
 	window.location.href = "/";
 });
 
+function handlePopstate(event) {
+	const path = window.location.pathname;
+
+	if (path == "/") {
+		newPaste();
+	} else {
+		const id = path.substring(1, path.length);
+
+		getPaste(id, function (err, res) {
+			if (err) {
+				window.history.pushState(null, null, `/`);
+				newPaste();
+			} else {
+				const content = res["data"]["content"];
+				viewPaste(content);
+			}
+		});
+	}
+}
+
+$(window).bind("popstate", function (event) {
+	handlePopstate(event);
+});
+
 $(document).ready(function () {
 	feather.replace();
 
-	let id = new URLSearchParams(window.location.search).get("id");
-
-	if (id == null) {
-		newPaste();
-		return;
-	}
-
-	getPaste(id, function (err, res) {
-		if (err) {
-			newPaste();
-		} else {
-			let content = res["data"]["content"];
-			viewPaste(content);
-			saveButton.prop("disabled", true);
-		}
-	});
+	handlePopstate({ target: window });
 });
