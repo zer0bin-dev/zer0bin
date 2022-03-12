@@ -1,14 +1,5 @@
-function loadFile(filePath) {
-	let result = null;
-	const xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", filePath, false);
-	xmlhttp.send();
-	if (xmlhttp.status == 200) { result = xmlhttp.responseText; }
-	return result;
-}
-
-
-const apiUrl = loadFile("../url.txt")
+const config = require("../config.json");
+const apiUrl = config.api_url;
 
 const lineNumbers = $(".line-numbers");
 const editor = $("#text-area");
@@ -38,7 +29,7 @@ function postPaste(content, callback) {
 			callback(
 				JSON.parse(
 					xhr.responseText ||
-					`{"data": { "message": "An unkown error occured!" } }`
+						`{"data": { "message": "An unkown error occured!" } }`
 				)
 			);
 		},
@@ -58,7 +49,7 @@ function getPaste(id, callback) {
 			callback(
 				JSON.parse(
 					xhr.responseText ||
-					`{"data": { "message": "Unknown error occurred.." } }`
+						`{"data": { "message": "Unknown error occurred.." } }`
 				)
 			);
 		},
