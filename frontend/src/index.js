@@ -29,7 +29,7 @@ function postPaste(content, callback) {
 			callback(
 				JSON.parse(
 					xhr.responseText ||
-						`{"data": { "message": "An unkown error occured!" } }`
+					`{"data": { "message": "An unkown error occured!" } }`
 				)
 			);
 		},
@@ -49,7 +49,7 @@ function getPaste(id, callback) {
 			callback(
 				JSON.parse(
 					xhr.responseText ||
-						`{"data": { "message": "Unknown error occurred.." } }`
+					`{"data": { "message": "Unknown error occurred.." } }`
 				)
 			);
 		},
