@@ -8,8 +8,7 @@ function loadFile(filePath) {
 }
 
 
-apiUrl = loadFile("../url.txt")
-const apiUrl = config.api_url;
+const apiUrl = loadFile("../url.txt")
 
 const lineNumbers = $(".line-numbers");
 const editor = $("#text-area");
