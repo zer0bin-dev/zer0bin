@@ -29,7 +29,7 @@ function postPaste(content, callback) {
 			callback(
 				JSON.parse(
 					xhr.responseText ||
-					`{"data": { "message": "An unkown error occured!" } }`
+						`{"data": { "message": "An unkown error occured!" } }`
 				)
 			);
 		},
@@ -49,7 +49,7 @@ function getPaste(id, callback) {
 			callback(
 				JSON.parse(
 					xhr.responseText ||
-					`{"data": { "message": "Unknown error occurred.." } }`
+						`{"data": { "message": "Unknown error occurred.." } }`
 				)
 			);
 		},
@@ -117,7 +117,7 @@ saveButton.click(function () {
 			addMessage(err["data"]["message"]);
 		} else {
 			window.history.pushState(null, null, `/${res["data"]["id"]}`);
-			window.location.href = `/${res["data"]["id"]}`;
+			viewPaste(editor.val());
 		}
 	});
 });
@@ -151,5 +151,7 @@ $(window).bind("popstate", function (event) {
 });
 
 $(document).ready(function () {
+	feather.replace();
+
 	handlePopstate({ target: window });
 });
