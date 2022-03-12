@@ -77,7 +77,8 @@ a {
 a:visited {
 	color: #c4a7e7;
 }
-a:hover {
+
+a:hover :not(.logo){
 	color: #9ccfd8;
 }
 
