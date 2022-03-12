@@ -130,22 +130,21 @@ newButton.click(function () {
 	window.location.href = "/";
 });
 
-$(document).ready(function () {
-	const path = window.location.pathname;
+$(document).ready(function() {
+    let id = new URLSearchParams(window.location.search).get("id");
 
-	if (path == "/") {
-		newPaste();
-	} else {
-		const id = path.substring(1, path.length);
+    if (id == null) {
+        newPaste();
+        return;
+    }
 
-		getPaste(id, function (err, res) {
-			if (err) {
-				newPaste();
-			} else {
-				const content = res["data"]["content"];
-				viewPaste(hljs.highlightAuto(content).value);
-				saveButton.prop("disabled", true);
-			}
-		});
-	}
+    getPaste(id, function(err, res) {
+        if (err) {
+            newPaste();
+        } else {
+            let content = res["data"]["content"];
+            viewPaste(content);
+            saveButton.prop("disabled", true);
+        }
+    });
 });
