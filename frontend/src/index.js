@@ -187,6 +187,7 @@ newButton.click(function () {
 
 async function handleRequest(request) {
 	const path = window.location.pathname;
+	console.log(path);
 	if (path == "/") {
 		newPaste();
 	} else {
