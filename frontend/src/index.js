@@ -203,4 +203,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			}
 		});
 	}
-}
+});
