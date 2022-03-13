@@ -1,5 +1,5 @@
 const $ = require("jquery");
-const hljs = require("hljs");
+const hljs = require("highlight.js");
 
 import {
 	SaveOutlined,
