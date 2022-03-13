@@ -1,5 +1,5 @@
 # replace example.tld with your domain
-# replace /location/to with the location
+# replace /location/to with the parent folder of zer0bin
 
 server {
     #listen 80 is default
@@ -64,5 +64,9 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $host;
     }
-
+    
+    # If you have letsencrypt certs provided by certbot:
+    
+    # ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
+	# ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
 }
