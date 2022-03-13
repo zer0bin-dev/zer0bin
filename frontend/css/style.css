@@ -91,6 +91,7 @@ a:hover :not(.logo){
 	cursor: pointer;
 	background: 0 0;
 	color: #9ccfd8;
+	padding-left: 0;
 	font-size: 1rem;
 	border: none;
 	transition: background-color 0.2s ease-in-out;
