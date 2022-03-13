@@ -50,6 +50,7 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 -   Postgresql >= 12.0
 -   NodeJS >= 16.0
 -   Nginx
+-   Domain with SSL
 -   \*nix OS
 
 ### Steps
