@@ -25,6 +25,7 @@ pre {
 	text-align: end;
 	user-select: none;
 	font-size: 15px;
+	padding-right: 15px;
 }
 
 #code-view-pre {
@@ -160,10 +161,3 @@ a:hover :not(.logo){
 	}
 }
 
-@media only screen and (max-width: 768px) {
-	textarea,
-	.line-numbers,
-	#code-view {
-		font-size: 13px !important;
-	}
-}

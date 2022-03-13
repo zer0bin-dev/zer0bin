@@ -1,5 +1,44 @@
+const $ = require( "jquery" );
+
 const config = require("../config.json");
 const apiUrl = config.api_url;
+
+const hljs = require("highlight.js");
+
+import {
+	SaveOutlined,
+	FileAddOutlined,
+	GithubOutlined,
+} from "@ant-design/icons-svg";
+import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
+
+const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
+});
+
+const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
+});
+
+const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
+});
+
+$("#save-button").append(svgSave);
+$("#new-button").append(svgFileAdd);
+$("#github-button").append(svgGithub);
 
 const lineNumbers = $(".line-numbers");
 const editor = $("#text-area");
@@ -98,7 +137,7 @@ function viewPaste(content) {
 		lineNumbers.append(`${i}
 <br>`);
 	}
-	codeView.html(createTextLinks(content));
+	codeView.html(createTextLinks(hljs.highlightAuto(content).value));
 
 	saveButton.prop("disabled", true);
 	newButton.prop("disabled", false);
@@ -151,7 +190,5 @@ $(window).bind("popstate", function (event) {
 });
 
 $(document).ready(function () {
-	feather.replace();
-
 	handlePopstate({ target: window });
 });
