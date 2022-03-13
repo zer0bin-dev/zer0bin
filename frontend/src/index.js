@@ -1,6 +1,6 @@
-// import { $ } from "jquery"
 const $ = require("jquery");
-import { hljs } from "highlight.js"
+const hljs = require("hljs");
+
 import {
 	SaveOutlined,
 	FileAddOutlined,
