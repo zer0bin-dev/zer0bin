@@ -1,16 +1,15 @@
+// import { $ } from "jquery"
 const $ = require("jquery");
-
-const config = require("../config.json");
-const apiUrl = config.api_url;
-
-const hljs = require("highlight.js");
-
+import { hljs } from "highlight.js"
 import {
 	SaveOutlined,
 	FileAddOutlined,
 	GithubOutlined,
 } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
+
+const config = require("../config.json");
+const apiUrl = config.api_url;
 
 const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
 	extraSVGAttrs: {
@@ -68,7 +67,7 @@ function postPaste(content, callback) {
 			callback(
 				JSON.parse(
 					xhr.responseText ||
-						`{"data": { "message": "An unkown error occured!" } }`
+					`{"data": { "message": "An unkown error occured!" } }`
 				)
 			);
 		},
@@ -88,7 +87,7 @@ function getPaste(id, callback) {
 			callback(
 				JSON.parse(
 					xhr.responseText ||
-						`{"data": { "message": "Unknown error occurred.." } }`
+					`{"data": { "message": "Unknown error occurred.." } }`
 				)
 			);
 		},

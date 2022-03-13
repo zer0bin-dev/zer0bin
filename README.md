@@ -34,7 +34,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | Website                                        | Country | Expiration | Max paste size | Version |
 | ---------------------------------------------- | ------- | ---------- | -------------- | ------- |
 | zer0b.in (not up yet)                          | ?       | 7 days     | 40,000 chars   | vx.x.x  |
-| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸 US   | 365 days   | 100,000 chars  | v0.1.0  |
+| [stepbro.voring.me](https://stepbro.voring.me) | 🇺🇸 US   | 365 days   | 69,000 chars  | v0.2.0  |
 
 # Technologies used
 
@@ -46,27 +46,25 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 
 ### Requirements
 
--   Rust >= 1.58.0
--   Postgresql >= 12.0
--   NodeJS >= 16.0
--   Nginx
--   Domain with SSL
--   \*nix OS
+- Rust >= 1.58.0
+- Postgresql >= 12.0
+- NodeJS >= 16.0
+- Nginx
+- Domain with SSL
+- \*nix OS
 
 ### Steps
 
 1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
-2. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo ln -s /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
-3. `psql -d postgres`
-4. `CREATE DATABASE zer0bin;` and `\c zer0bin`
-5. Paste contents of `schema.sql` and `\q`
-6. `cd frontend`
-7. `cp config.example.json config.json` and edit as appropriate
-8. `npm i && npm run build`
-9. `cd ../backend`
-10. `cp config.example.json config.json` and edit as appropriate
-11. `cargo build --release`
-12. `./target/release/backend` (preferably in a tmux session)
+2. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
+3. `psql -f example.sql -U <username> zer0bin`
+5. `cd frontend`
+6. `cp config.example.json config.json` and edit as appropriate
+7. `npm i && npm run build`
+8. `cd ../backend`
+9. `cp config.example.json config.json` and edit as appropriate
+10. `cargo build --release`
+11. `./target/release/backend` (preferably in a tmux session or as a service)
 
 ### Configuration
 

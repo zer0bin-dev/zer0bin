@@ -1,22 +1,22 @@
 {
-    "name": "zer0bin",
-    "source": "index.html",
-    "version": "0.1.0",
-    "browserslist": "> 0.5%, last 2 versions, not dead",
-    "license": "MIT",
-    "scripts": {
-        "start": "parcel",
-        "build": "parcel build"
-    },
-    "devDependencies": {
-        "parcel": "^2.3.2"
-    },
-    "description": "just a place to paste",
-    "repository": "https://github.com/Domterion/zer0bin",
-    "author": "Domterion, ThatOneCalculator",
-    "dependencies": {
-        "@ant-design/icons-svg": "^4.2.1",
-        "highlight.js": "^11.4.0",
-        "jquery": "^3.6.0"
-    }
+  "name": "zer0bin",
+  "source": "index.html",
+  "version": "0.2.0",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.3.2"
+  },
+  "description": "just a place to paste",
+  "repository": "https://github.com/Domterion/zer0bin",
+  "author": "Domterion, ThatOneCalculator",
+  "dependencies": {
+    "@ant-design/icons-svg": "^4.2.1",
+    "highlight.js": "^11.4.0",
+    "jquery": "^3.6.0"
+  }
 }

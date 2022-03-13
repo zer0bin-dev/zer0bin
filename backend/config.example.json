@@ -1,18 +1,18 @@
 {
-    "server": {
-        "backend_host": "127.0.0.1",
-        "backend_port": 8000
-    },
-    "pastes": {
-        "character_limit": 40000,
-        "days_til_expiration": 7,
-        "id_length": 10
-    },
-    "ratelimits": {
-        "seconds_in_between_pastes": 2,
-        "allowed_pastes_before_ratelimit": 5
-    },
-    "databases": {
-        "postgres_uri": "postgres://postgres:postgres@localhost:5432/zer0bin"
-    }
+  "server": {
+    "backend_host": "127.0.0.1",
+    "backend_port": 8000
+  },
+  "pastes": {
+    "character_limit": 40000,
+    "days_til_expiration": 7,
+    "id_length": 10
+  },
+  "ratelimits": {
+    "seconds_in_between_pastes": 2,
+    "allowed_pastes_before_ratelimit": 5
+  },
+  "databases": {
+    "postgres_uri": "postgres://postgres:postgres@localhost:5432/zer0bin"
+  }
 }
