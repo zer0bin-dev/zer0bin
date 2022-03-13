@@ -4,7 +4,7 @@
 server {
     #listen 80 is default
     server_name www.example.tld;
-    return 301 $scheme://example.tld$request_uri;
+    return 301 https://example.tld$request_uri;
 }
 
 server {
