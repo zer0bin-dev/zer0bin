@@ -25,7 +25,7 @@ pre {
 	text-align: end;
 	user-select: none;
 	font-size: 15px;
-	padding-right: 15px;
+	padding-right: 8px;
 }
 
 #code-view-pre {
@@ -83,7 +83,7 @@ a:visited {
 	color: #c4a7e7;
 }
 
-a:hover :not(.logo){
+a:hover :not(.logo) {
 	color: #9ccfd8;
 }
 
@@ -91,6 +91,7 @@ a:hover :not(.logo){
 	cursor: pointer;
 	background: 0 0;
 	color: #9ccfd8;
+	padding-left: 0;
 	font-size: 1rem;
 	border: none;
 	transition: background-color 0.2s ease-in-out;
@@ -164,4 +165,3 @@ a:hover :not(.logo){
 		background-position: 100% 0;
 	}
 }
-

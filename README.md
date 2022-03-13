@@ -50,12 +50,13 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 -   Postgresql >= 12.0
 -   NodeJS >= 16.0
 -   Nginx
+-   Domain with SSL
 -   \*nix OS
 
 ### Steps
 
 1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
-2. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
+2. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo ln -s /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
 3. `psql -d postgres`
 4. `CREATE DATABASE zer0bin;` and `\c zer0bin`
 5. Paste contents of `schema.sql` and `\q`

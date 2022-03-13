@@ -1,4 +1,4 @@
-const $ = require( "jquery" );
+const $ = require("jquery");
 
 const config = require("../config.json");
 const apiUrl = config.api_url;
@@ -155,7 +155,7 @@ saveButton.click(function () {
 		if (err) {
 			addMessage(err["data"]["message"]);
 		} else {
-			window.history.pushState(null, null, `/${res["data"]["id"]}`);
+			window.history.pushState(null, null, `/~/${res["data"]["id"]}`);
 			viewPaste(editor.val());
 		}
 	});
@@ -171,7 +171,9 @@ function handlePopstate(event) {
 	if (path == "/") {
 		newPaste();
 	} else {
-		const id = path.substring(1, path.length);
+		const split = path.split("/");
+
+		const id = split[split.length - 1];
 
 		getPaste(id, function (err, res) {
 			if (err) {
