@@ -34,9 +34,9 @@ pre {
 	font-family: Cartograph CF, monospace;
 	text-align: end;
 	user-select: none;
-	font-size: 15px;
+	font-size: 14px;
 	padding-right: 8px;
-	line-height: 1em;
+	line-height: 1.5em;
 }
 
 #code-view-pre {
@@ -44,13 +44,13 @@ pre {
 	padding-bottom: 0;
 	font-size: 15px;
 	-webkit-text-size-adjust: none;
-	line-height: 1em;
+	line-height: 1.5em;
 }
 
 #code-view {
 	padding-top: 0;
 	padding-bottom: 0;
-	line-height: 1em;
+	line-height: 1.5em;
 }
 
 .viewcounter {
