@@ -88,7 +88,7 @@ psql -f schema.sql -U postgres zer0bin
 cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 cargo build --release
-./target/release/backend # Preferably in a tmux session or as a service
+./target/release/zer0bin-bin # Preferably in a tmux session or as a service
 ```
 
 ### Configuration
