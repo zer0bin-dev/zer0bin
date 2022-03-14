@@ -155,8 +155,6 @@ function viewPaste(content, views) {
 
   saveButton.prop("disabled", true);
   newButton.prop("disabled", false);
-
-  new cljs(`#${copyButton.attr("id")}`);
   copyButton.prop("disabled", false);
 
   viewCounter.text(views);
