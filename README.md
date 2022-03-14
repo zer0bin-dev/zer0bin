@@ -21,11 +21,11 @@
 
 # API
 
-**GET** /p/:id - Get a paste by ID
+**GET** `/api/p/:id` - Get a paste by ID
 
-**POST** /p/n - Post a new paste
+**POST** `/api/p/n` - Post a new paste
 
-**GET** /s - Get stats about the zer0bin instance
+**GET** `/api/s` - Get stats about the instance
 
 # Public instances
 
