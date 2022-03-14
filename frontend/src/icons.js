@@ -5,7 +5,7 @@ import {
 	CopyOutlined,
 } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
-
+const $ = require("jquery");
 
 const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
 	extraSVGAttrs: {
@@ -39,7 +39,12 @@ const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
 	},
 });
 
-document.getElementById("save-button").append(svgSave);
-document.getElementById("new-button").append(svgFileAdd);
-document.getElementById("copy-button").append(svgCopy);
-document.getElementById("github-button").append(svgGithub);
+const saveButton = $("#save-button");
+const newButton = $("#new-button");
+const copyButton = $("#copy-button");
+const githubButton = $("#github-button");
+
+saveButton.append(svgSave);
+newButton.append(svgFileAdd);
+copyButton.append(svgCopy);
+githubButton.append(svgGithub);
