@@ -40,12 +40,19 @@ pre {
   padding-bottom: 0;
 }
 
-#viewcounter {
-  color: #908caa;
+.viewcounter {
   font-size: 12px;
   font-family: monospace;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+#viewcounter-label {
+  color: #908caa;
+}
+
+#viewcounter-count {
+  color: #ebbcba;
 }
 
 code {
