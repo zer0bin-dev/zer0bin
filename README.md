@@ -34,7 +34,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | Website                                        | Expiration | Max paste size | Version | Country |
 | ---------------------------------------------- | ---------- | ---------------| --------| ------- |
 | zer0b.in (not up yet)                          | 7 days     | 40,000 chars   | vx.x.x  | ?       |
-| [stepbro.voring.me](https://stepbro.voring.me) | 365 days  | 69,000 chars   | v0.4.0  | 🇺🇸 US   |
+| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.4.1  | 🇺🇸 US   |
 
 # Technologies used
 
@@ -74,12 +74,12 @@ $EDITOR example.nginx # Edit as appropriate
 mv example.nginx yourdomain.tld
 for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do sudo cp ./yourdomain.tld $i; done
 systemctl nginx restart
-psql -f schema.sql -U postgres zer0bin
 cd frontend
 cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 npm i && npm run build
 cd ../backend
+psql -f schema.sql -U postgres zer0bin
 cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 cargo build --release
