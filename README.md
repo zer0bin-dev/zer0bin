@@ -72,7 +72,7 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 git clone https://github.com/Domterion/zer0bin && cd zer0bin
 $EDITOR example.nginx # Edit as appropriate
 mv example.nginx yourdomain.tld
-for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do cp ./yourdomain.tld $i; done
+for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do sudo cp ./yourdomain.tld $i; done
 systemctl nginx restart
 psql -f schema.sql -U postgres zer0bin
 cd frontend
