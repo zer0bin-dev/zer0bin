@@ -145,7 +145,7 @@ function viewPaste(content) {
 	codeViewPre.show();
 }
 
-saveButton.click(function () {
+saveButton.on("click", function () {
 	if (editor.val() === "") {
 		return;
 	}
@@ -160,7 +160,7 @@ saveButton.click(function () {
 	});
 });
 
-newButton.click(function () {
+newButton.on("click", function () {
 	window.location.href = "/";
 });
 
@@ -186,10 +186,10 @@ function handlePopstate(event) {
 	}
 }
 
-$(window).bind("popstate", function (event) {
+$(window).on("popstate", function (event) {
 	handlePopstate(event);
 });
 
-$(document).ready(function () {
+$(document).on("ready", function () {
 	handlePopstate({ target: window });
 });
