@@ -186,7 +186,7 @@ function handlePopstate(event) {
 	}
 }
 
-$(window).on("popstate", function (event) {
+$(window).bind("popstate", function (event) {
 	handlePopstate(event);
 });
 
