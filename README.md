@@ -23,6 +23,8 @@
 
 **GET** `/api/p/:id` - Get a paste by ID
 
+**GET** `/api/p/r/:id` - Get a pastes raw content
+
 **POST** `/api/p/n` - Post a new paste
 
 **GET** `/api/s` - Get stats about the instance
