@@ -87,7 +87,7 @@ textarea {
 }
 
 .buttons > * + * {
-  margin-left: 0.25rem;
+  padding: .10rem .10rem .10rem .10rem;
 }
 
 a {
@@ -106,7 +106,7 @@ a:hover :not(.logo) {
   cursor: pointer;
   background: 0 0;
   color: #9ccfd8;
-  padding-left: 0;
+  padding: 5px 5px 5px 5px;
   font-size: 1rem;
   border: none;
   transition: background-color 0.2s ease-in-out;
