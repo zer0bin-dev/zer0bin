@@ -34,12 +34,13 @@ pre {
 	font-family: Cartograph CF, monospace;
 	text-align: end;
 	user-select: none;
-	font-size: 14px;
+	font-size: 15px;
 	padding-right: 8px;
 	line-height: 1.5em;
 }
 
 #code-view-pre {
+	font-family: Cartograph CF, monospace;
 	padding-top: 0;
 	padding-bottom: 0;
 	font-size: 15px;
@@ -48,6 +49,7 @@ pre {
 }
 
 #code-view {
+	font-family: Cartograph CF, monospace;
 	padding-top: 0;
 	padding-bottom: 0;
 	line-height: 1.5em;
