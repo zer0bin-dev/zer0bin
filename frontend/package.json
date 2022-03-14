@@ -16,6 +16,7 @@
   "author": "Domterion, ThatOneCalculator",
   "dependencies": {
     "@ant-design/icons-svg": "^4.2.1",
+    "@parcel/transformer-pug": "^2.3.2",
     "highlight.js": "^11.4.0",
     "jquery": "^3.6.0"
   }
