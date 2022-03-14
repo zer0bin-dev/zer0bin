@@ -204,7 +204,7 @@ editor.keydown(function (e) {
 		e.preventDefault();
 		let start = this.selectionStart;
 		let end = this.selectionEnd;
-		this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+		this.value = this.value.substring(0, start) + "    " + this.value.substring(end);
 		this.selectionStart = this.selectionEnd = start + 1;
 	}
 });
