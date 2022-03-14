@@ -1,6 +1,7 @@
 doctype html
 head
   meta(charset='UTF-8')
+  meta(lang='en')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title zer0bin
   link(rel='shortcut icon' type='image/x-icon' href='favicon.ico')
@@ -22,10 +23,10 @@ ul#messages
 .button-wrapper
   a.logo(href='/') zer0bin
   .buttons
-    button#save-button.btn(alt='Save')
-    button#new-button.btn(alt='New paste')
-    a(href='https://github.com/Domterion/zer0bin')
-      button#github-button.btn(alt='GitHub')
+    button#save-button.btn(aria-label='Save')
+    button#new-button.btn(aria-label='New paste')
+    a(href='https://github.com/Domterion/zer0bin' aria-label='GitHub repo')
+      button#github-button.btn(aria-label='GitHub')
   span.viewcounter#viewcounter-label(style='display: none') Views:&nbsp;
   span.viewcounter#viewcounter-count
 .wrapper
