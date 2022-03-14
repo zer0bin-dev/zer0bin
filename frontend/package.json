@@ -1,12 +1,12 @@
 {
   "name": "zer0bin",
-  "source": "index.html",
+  "source": "index.pug",
   "version": "0.2.0",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "license": "MIT",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "start": "parcel index.pug",
+    "build": "parcel build index.pug"
   },
   "devDependencies": {
     "parcel": "^2.3.2"
