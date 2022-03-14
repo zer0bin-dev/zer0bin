@@ -46,12 +46,14 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 
 ### Requirements
 
-- Rust >= 1.58.0 🦀
-- NodeJS >= 16.0 🍀
-- Postgresql >= 9.0 🐘
-- Nginx 🦝
-- Domain [with SSL certs](https://letsencrypt.org/) 🌄
-- \*nix OS 🐧
+- 🦀 Rust >= 1.58.0
+	- 🚢 Cargp
+- 🍀 NodeJS >= 16.0
+	- 📦 NPM
+- 🐘 Postgresql >= 9.0
+- 🦝 Nginx
+- 🌄 Domain [with SSL certs](https://letsencrypt.org/)
+- 🐧 \*nix OS
 
 ### Steps
 <!--
