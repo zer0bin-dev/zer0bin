@@ -50,7 +50,7 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 
 - 🦀 Rust >= 1.58.0
 	- 🚢 Cargo >= 1.58.0
-- 🍀 NodeJS >= 16.0 
+- 🐢 NodeJS >= 16.0 
 	- 📦 NPM >= 8.0.0
 - 🐘 Postgresql >= 9.0
 - 🦝 Nginx
