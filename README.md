@@ -54,17 +54,37 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 - \*nix OS
 
 ### Steps
-
+<!--
 1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
-2. `cp example.nginx /etc/nginx/sites-avaliable/yoursite.tld`, edit as appropriate, `sudo cp /etc/nginx/sites-avaliable/yoursite.tld /etc/nginx/sites-enabled/yoursite.tld && systemctl nginx restart`
-3. `psql -f example.sql -U <username> zer0bin`
-5. `cd frontend`
-6. `cp config.example.json config.json` and edit as appropriate
-7. `npm i && npm run build`
-8. `cd ../backend`
-9. `cp config.example.json config.json` and edit as appropriate
-10. `cargo build --release`
-11. `./target/release/backend` (preferably in a tmux session or as a service)
+2. Edit `example.nginx` as appropriate, then `mv example.nginx yourdomain.tld && for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do cp ./yourdomain.tld $i; done && systemctl nginx restart`
+3. `psql -f schema.sql -U postgres zer0bin`
+4. `cd frontend`
+5. `cp config.example.json config.json` and edit as appropriate
+6. `npm i && npm run build`
+7. `cd ../backend`
+8. `cp config.example.json config.json` and edit as appropriate
+9. `cargo build --release`
+10. `./target/release/backend` (preferably in a tmux session or as a service)
+-->
+
+```bash
+# export EDITOR=nano
+git clone https://github.com/Domterion/zer0bin && cd zer0bin
+$EDITOR example.nginx # Edit as appropriate
+mv example.nginx yourdomain.tld
+for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do cp ./yourdomain.tld $i; done
+systemctl nginx restart
+psql -f schema.sql -U postgres zer0bin
+cd frontend
+cp config.example.json config.json
+$EDITOR config.json # Edit as appropriate
+npm i && npm run build
+cd ../backend
+cp config.example.json config.json
+$EDITOR config.json # Edit as appropriate
+cargo build --release
+./target/release/backend # Preferably in a tmux session or as a service
+```
 
 ### Configuration
 
