@@ -42,7 +42,7 @@ Frontend: <a href="https://parceljs.org/"><img src="https://parceljs.org/parcel.
 
 Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme/misskey/4b9341f0-131f-4c7c-8a99-73b9ae6fa64c.png" height=25/></a> <a href="https://github.com/serde-rs/serde"><img src="https://cdn.discordapp.com/attachments/810799100940255260/949485779242070076/unknown.png" height=25/></a> <a href="https://github.com/launchbadge/sqlx"><img src="https://pool.jortage.com/voringme/misskey/addbd8d2-4eba-462d-b7f4-0d5f81b991ac.png" height=25/></a> <a href="https://github.com/chronotope/chrono"><img src="https://avatars.githubusercontent.com/u/20810954?s=200&v=4" height=25/></a> <a href="https://www.postgresql.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png" height=25/></a> <a href="https://github.com/ai/nanoid"><img src="https://camo.githubusercontent.com/c306d97014be1caa9a2a511a0ff4722d54a77b0b6c81a18c81113d6051408325/68747470733a2f2f61692e6769746875622e696f2f6e616e6f69642f6c6f676f2e737667" height=25/></a>
 
-# Instructions
+# Self-host instructions
 
 ### Requirements
 
