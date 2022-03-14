@@ -2,7 +2,7 @@
 name: 🚀 Public instance
 about: Submit a public instance
 title: '🚀 '
-assignees: ''
+labels: public instance
 
 ---
 
