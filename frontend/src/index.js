@@ -1,6 +1,5 @@
 const $ = require("jquery");
 const hljs = require("highlight.js");
-const copy = require("clipboard-copy");
 
 import {
 	SaveOutlined,
@@ -193,7 +192,7 @@ copyButton.click(function () {
 			window.history.pushState(null, null, `/`);
 			newPaste();
 		} else {
-			copy(res["data"]["content"]);
+			navigator.clipboard.writeText(res["data"]["content"])
 			addMessage("Copied paste to clipboard!")
 		}
 	});
