@@ -145,7 +145,7 @@ function viewPaste(content) {
 	codeViewPre.show();
 }
 
-saveButton.on("click", function () {
+saveButton.click(function () {
 	if (editor.val() === "") {
 		return;
 	}
@@ -160,7 +160,7 @@ saveButton.on("click", function () {
 	});
 });
 
-newButton.on("click", function () {
+newButton.click(function () {
 	window.location.href = "/";
 });
 
@@ -190,6 +190,6 @@ $(window).bind("popstate", function (event) {
 	handlePopstate(event);
 });
 
-$(document).on("ready", function () {
+$(document).ready(function () {
 	handlePopstate({ target: window });
 });
