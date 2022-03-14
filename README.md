@@ -98,3 +98,8 @@ cargo build --release
 | databases.postgres_uri                     | PostreSQL Connection URI | The URI to use when connecting to a PostgreSQL database                        |
 | ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1    | The seconds between paste uploads                                              |
 | ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
+
+# Lighthouse
+This is on a paste with 200 lines!
+![image](https://user-images.githubusercontent.com/44733677/158105961-7e186b86-54a8-44ac-ad81-65d6cd4b8eb2.png)
+
