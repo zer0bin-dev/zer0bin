@@ -36,6 +36,7 @@ pre {
 	user-select: none;
 	font-size: 15px;
 	padding-right: 8px;
+	line-height: 1em;
 }
 
 #code-view-pre {
@@ -43,11 +44,13 @@ pre {
 	padding-bottom: 0;
 	font-size: 15px;
 	-webkit-text-size-adjust: none;
+	line-height: 1em;
 }
 
 #code-view {
 	padding-top: 0;
 	padding-bottom: 0;
+	line-height: 1em;
 }
 
 .viewcounter {
