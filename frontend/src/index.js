@@ -5,6 +5,7 @@ import {
 	SaveOutlined,
 	FileAddOutlined,
 	GithubOutlined,
+	CopyOutlined,
 } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
 
@@ -27,6 +28,14 @@ const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
 	},
 });
 
+const svgCopy = renderIconDefinitionToSVGElement(CopyOutlined, {
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
+});
+
 const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
 	extraSVGAttrs: {
 		width: "1em",
@@ -37,6 +46,7 @@ const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
 
 $("#save-button").append(svgSave);
 $("#new-button").append(svgFileAdd);
+$("#copy-button").append(svgCopy);
 $("#github-button").append(svgGithub);
 
 const lineNumbers = $(".line-numbers");
@@ -46,6 +56,7 @@ const codeView = $("#code-view");
 const messages = $("#messages");
 const saveButton = $("#save-button");
 const newButton = $("#new-button");
+const copyButton = $("#new-button");
 const viewCounterLabel = $("#viewcounter-label");
 const viewCounter = $("#viewcounter-count");
 
@@ -100,6 +111,7 @@ function newPaste() {
 
 	saveButton.prop("disabled", false);
 	newButton.prop("disabled", true);
+	copyButton.prop("disabled", true);
 
 	editor.val("");
 
@@ -141,6 +153,7 @@ function viewPaste(content, views) {
 
 	saveButton.prop("disabled", true);
 	newButton.prop("disabled", false);
+	copyButton.prop("disabled", false);
 
 	editor.hide();
 	codeViewPre.show();
@@ -166,6 +179,22 @@ saveButton.click(function () {
 
 newButton.click(function () {
 	window.location.href = "/";
+});
+
+copyButton.click(function () {
+	const path = window.location.pathname;
+	const split = path.split("/");
+	const id = split[split.length - 1];
+
+	getPaste(id, function (err, res) {
+		if (err) {
+			window.history.pushState(null, null, `/`);
+			newPaste();
+		} else {
+			navigator.clipboard.writeText(res["data"]["content"]);
+			addMessage("Copied paste to clipboard!")
+		}
+	});
 });
 
 function handlePopstate(event) {
