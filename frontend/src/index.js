@@ -44,9 +44,9 @@ const editor = $("#text-area");
 const codeViewPre = $("#code-view-pre");
 const codeView = $("#code-view");
 const messages = $("#messages");
-
 const saveButton = $("#save-button");
 const newButton = $("#new-button");
+const viewCounter = $("#viewcounter");
 
 function postPaste(content, callback) {
 	const data = {
@@ -130,7 +130,7 @@ function createTextLinks(text) {
 	);
 }
 
-function viewPaste(content) {
+function viewPaste(content, views) {
 	lineNumbers.html("");
 	for (let i = 1; i <= content.split("\n").length; i++) {
 		lineNumbers.append(`${i}
@@ -143,6 +143,8 @@ function viewPaste(content) {
 
 	editor.hide();
 	codeViewPre.show();
+
+	viewCounter.text(`Views: ${views}`)
 }
 
 saveButton.click(function () {
@@ -155,7 +157,7 @@ saveButton.click(function () {
 			addMessage(err["data"]["message"]);
 		} else {
 			window.history.pushState(null, null, `/~/${res["data"]["id"]}`);
-			viewPaste(editor.val());
+			viewPaste(editor.val(), "0");
 		}
 	});
 });
@@ -179,8 +181,7 @@ function handlePopstate(event) {
 				window.history.pushState(null, null, `/`);
 				newPaste();
 			} else {
-				const content = res["data"]["content"];
-				viewPaste(content);
+				viewPaste(res["data"]["content"], res["data"]["views"].toString());
 			}
 		});
 	}

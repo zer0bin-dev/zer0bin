@@ -40,6 +40,11 @@ pre {
   padding-bottom: 0;
 }
 
+#viewcounter {
+  color: #908caa;
+  font-size: 10px;
+}
+
 code {
   color: #e0def4;
 }
