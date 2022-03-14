@@ -1,6 +1,7 @@
 const $ = require("jquery");
 const hljs = require("highlight.js");
-import { copy } from "copy-to-clipboard";
+const copy = require("copy-to-clipboard");
+
 import {
   SaveOutlined,
   FileAddOutlined,
