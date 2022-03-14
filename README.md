@@ -48,12 +48,12 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 
 ### Requirements
 
-- 🦀 Rust >= 1.58.0
-	- 🚢 Cargo >= 1.58.0
-- 🐢 NodeJS >= 16.0 
-	- 📦 NPM >= 8.0.0
-- 🐘 Postgresql >= 9.0
-- 🦝 Nginx
+- 🦀 Rust ≥ 1.58.0
+	- 🚢 Cargo ≥ 1.58.0
+- 🐢 NodeJS ≥ 16.0 
+	- 📦 NPM ≥ 8.0.0
+- 🐘 Postgresql ≥ 12.0
+- 🦝 Nginx ≥ 1.18.0
 - 🌄 Domain [with SSL certs](https://letsencrypt.org/)
 - 🐧 \*nix OS
 
@@ -78,7 +78,7 @@ $EDITOR example.nginx # Edit as appropriate
 mv example.nginx yourdomain.tld
 sudo cp ./yourdomain.tld /etc/nginx/sites-available
 sudo cp ./yourdomain.tld /etc/nginx/sites-enabled
-systemctl nginx restart
+systemctl nginx restart # Or whichever process manager you use
 cd frontend
 cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
