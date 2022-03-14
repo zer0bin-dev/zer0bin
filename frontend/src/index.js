@@ -2,8 +2,48 @@ const $ = require("jquery");
 const hljs = require("highlight.js");
 const copy = require("clipboard-copy");
 
+import {
+	SaveOutlined,
+	FileAddOutlined,
+	GithubOutlined,
+	CopyOutlined,
+} from "@ant-design/icons-svg";
+import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
+
 const config = require("../config.json");
 const apiUrl = config.api_url;
+
+const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
+});
+
+const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
+});
+
+const svgCopy = renderIconDefinitionToSVGElement(CopyOutlined, {
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
+});
+
+const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
+	extraSVGAttrs: {
+		width: "1em",
+		height: "1em",
+		fill: "currentColor",
+	},
+});
 
 const lineNumbers = $(".line-numbers");
 const editor = $("#text-area");
@@ -12,6 +52,16 @@ const codeView = $("#code-view");
 const messages = $("#messages");
 const viewCounterLabel = $("#viewcounter-label");
 const viewCounter = $("#viewcounter-count");
+
+const saveButton = $("#save-button");
+const newButton = $("#new-button");
+const copyButton = $("#copy-button");
+const githubButton = $("#github-button");
+
+saveButton.append(svgSave);
+newButton.append(svgFileAdd);
+copyButton.append(svgCopy);
+githubButton.append(svgGithub);
 
 function postPaste(content, callback) {
 	const data = {
