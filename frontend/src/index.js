@@ -56,7 +56,7 @@ const codeView = $("#code-view");
 const messages = $("#messages");
 const saveButton = $("#save-button");
 const newButton = $("#new-button");
-const copyButton = $("#new-button");
+const copyButton = $("#copy-button");
 const viewCounterLabel = $("#viewcounter-label");
 const viewCounter = $("#viewcounter-count");
 
