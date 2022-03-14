@@ -46,7 +46,8 @@ const codeView = $("#code-view");
 const messages = $("#messages");
 const saveButton = $("#save-button");
 const newButton = $("#new-button");
-const viewCounter = $("#viewcounter");
+const viewCounterLabel = $("#viewcounter-label");
+const viewCounter = $("#viewcounter-count");
 
 function postPaste(content, callback) {
 	const data = {
@@ -143,8 +144,9 @@ function viewPaste(content, views) {
 
 	editor.hide();
 	codeViewPre.show();
+	viewCounterLabel.show();
 
-	viewCounter.text(`Views: ${views}`)
+	viewCounter.text(views)
 }
 
 saveButton.click(function () {
