@@ -131,6 +131,11 @@ function createTextLinks(text) {
 }
 
 function viewPaste(content) {
+	$('meta[name=description]').remove();
+    $('head').append(`<meta name="description" content=${content.substring(0, 200)}>`);
+	$('meta[name=og:description]').remove();
+    $('head').append(`<meta name="og:description" content=${content.substring(0, 200)}>`);
+
 	lineNumbers.html("");
 	for (let i = 1; i <= content.split("\n").length; i++) {
 		lineNumbers.append(`${i}
