@@ -43,6 +43,9 @@ pre {
 #viewcounter {
   color: #908caa;
   font-size: 10px;
+  font-family: monospace;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 code {
