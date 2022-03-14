@@ -21,11 +21,11 @@
 
 # API
 
-**GET** /p/:id - Get a paste by ID
+**GET** `/api/p/:id` - Get a paste by ID
 
-**POST** /p/n - Post a new paste
+**POST** `/api/p/n` - Post a new paste
 
-**GET** /s - Get stats about the zer0bin instance
+**GET** `/api/s` - Get stats about the instance
 
 # Public instances
 
@@ -72,7 +72,8 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 git clone https://github.com/Domterion/zer0bin && cd zer0bin
 $EDITOR example.nginx # Edit as appropriate
 mv example.nginx yourdomain.tld
-for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do sudo cp ./yourdomain.tld $i; done
+sudo cp ./yourdomain.tld /etc/nginx/sites-available
+sudo cp ./yourdomain.tld /etc/nginx/sites-enabled
 systemctl nginx restart
 cd frontend
 cp config.example.json config.json
