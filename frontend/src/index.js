@@ -1,7 +1,6 @@
 const $ = require("jquery");
 const hljs = require("highlight.js");
-const cljs = require("clipboard");
-
+import { copy } from "copy-to-clipboard";
 import {
   SaveOutlined,
   FileAddOutlined,
@@ -187,8 +186,18 @@ newButton.click(function () {
 });
 
 copyButton.click(function () {
-  //navigator.clipboard.writeText(codeView.text());
+  copy(content);
   addMessage("Copied paste to clipboard!");
+});
+
+editor.keydown(function (e) {
+	if (e.key == "Tab") {
+		e.preventDefault();
+		let start = this.selectionStart;
+		let end = this.selectionEnd;
+		this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+		this.selectionStart = this.selectionEnd = start + 1;
+	}
 });
 
 function handlePopstate(event) {
