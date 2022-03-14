@@ -28,3 +28,7 @@ lto = true
 opt-level = 3
 panic = "abort"
 debug-assertions = false
+
+[[bin]]
+name = "zer0bin-bin"
+path = "src/main.rs"
