@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Cartograph CF';
+  src: url('../fonts/CartographCF-Regular.woff2') format('woff2'),
+      url('../fonts/CartographCF-Regular.woff') format('woff'),
+      url('../fonts/CartographCF-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body,
 html {
   height: 100%;
@@ -21,7 +31,7 @@ pre {
 
 .line-numbers {
   color: #908caa;
-  font-family: monospace;
+  font-family: Cartograph CF, monospace;
   text-align: end;
   user-select: none;
   font-size: 15px;
@@ -42,7 +52,7 @@ pre {
 
 .viewcounter {
   font-size: 12px;
-  font-family: monospace;
+  font-family: Cartograph CF, monospace;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -130,7 +140,7 @@ a:hover :not(.logo) {
   text-decoration: none;
   color: #8fbcc8;
   width: 100%;
-  font-family: monospace;
+  font-family: Cartograph CF, monospace;
   display: inline-block;
   background: linear-gradient(
     to right,
@@ -165,7 +175,7 @@ a:hover :not(.logo) {
 
 #messages li {
   background-color: rgba(31, 29, 46, 0.8);
-  font-family: monospace;
+  font-family: Cartograph CF, monospace;
   color: #e0def4;
   padding: 7px;
 }
