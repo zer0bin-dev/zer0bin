@@ -26,6 +26,14 @@ pre {
 	margin: 0;
 }
 
+.noselect {
+	user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
 .wrapper {
 	display: flex;
 	padding: 1rem 0.5rem;
