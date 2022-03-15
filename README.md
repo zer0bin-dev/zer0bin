@@ -53,7 +53,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 	- 🚢 Cargo ≥ 1.58.0
 - 🐢 NodeJS ≥ 16.0 
 	- 🚀 NPM ≥ 8.0.0
-- 🐘 Postgresql ≥ 12.0
+- 🐘 PostgreSQL ≥ 9.6
 - 🦝 Nginx ≥ 1.18.0
 - 🌄 Domain with [SSL](https://letsencrypt.org/)
 - 🐧 \*nix OS
