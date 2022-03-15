@@ -1,5 +1,4 @@
 const $ = require("jquery");
-const hljs = require("highlight.js");
 
 import {
 	SaveOutlined,
@@ -8,7 +7,7 @@ import {
 	CopyOutlined,
 } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
-import Scrollbar from "smooth-scrollbar";
+import hljs from "highlight.js";
 
 const config = require("../config.json");
 const apiUrl = config.api_url;
@@ -139,8 +138,6 @@ function viewPaste(content, views) {
 	editor.hide();
 	codeViewPre.show();
 	viewCounterLabel.show();
-	// const scrollbar = Scrollbar.initAll();
-	// scrollbar.track.hide()
 }
 
 saveButton.click(function () {
