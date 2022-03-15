@@ -211,6 +211,12 @@ editor.keydown(function (e) {
 function handlePopstate(event) {
 	const path = window.location.pathname;
 
+	if ((/iPad|iPhone|iPod/.test(navigator.platform) ||
+	(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+	!window.MSStream) {
+		copyButton.hide()
+	}
+
 	if (path == "/") {
 		newPaste();
 	} else {
