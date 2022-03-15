@@ -8,6 +8,7 @@ import {
 	CopyOutlined,
 } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
+import Scrollbar from "smooth-scrollbar";
 
 const config = require("../config.json");
 const apiUrl = config.api_url;
@@ -81,32 +82,6 @@ function postPaste(content, callback) {
 		});
 }
 
-// function postPaste(content, callback) {
-// 	const data = {
-// 		content,
-// 	};
-
-// 	$.ajax({
-// 		type: "POST",
-// 		url: `${apiUrl}/p/n`,
-// 		data: JSON.stringify(data),
-// 		dataType: "json",
-// 		contentType: "application/json",
-// 		crossDomain: true,
-// 		success: function (res) {
-// 			callback(null, res);
-// 		},
-// 		error: function (xhr) {
-// 			callback(
-// 				JSON.parse(
-// 					xhr.responseText ||
-// 					`{"data": { "message": "An unkown error occured!" } }`
-// 				)
-// 			);
-// 		},
-// 	});
-// }
-
 function getPaste(id, callback) {
 	fetch(`${apiUrl}/p/${id}`, {
 		method: 'GET',
@@ -123,26 +98,6 @@ function getPaste(id, callback) {
 		});
 }
 
-// function getPaste(id, callback) {
-// 	$.ajax({
-// 		type: "GET",
-// 		url: `${apiUrl}/p/${id}`,
-// 		contentType: "application/json",
-// 		crossDomain: true,
-// 		success: function (res) {
-// 			callback(null, res);
-// 		},
-// 		error: function (xhr) {
-// 			callback(
-// 				JSON.parse(
-// 					xhr.responseText ||
-// 					`{"data": { "message": "Unknown error occurred.." } }`
-// 				)
-// 			);
-// 		},
-// 	});
-// }
-
 function newPaste() {
 	lineNumbers.html("&gt;");
 
@@ -154,6 +109,7 @@ function newPaste() {
 
 	editor.show();
 	codeViewPre.hide();
+	Scrollbar.init(document.querySelector("#text-area"));
 }
 
 function addMessage(message) {
@@ -184,6 +140,7 @@ function viewPaste(content, views) {
 	editor.hide();
 	codeViewPre.show();
 	viewCounterLabel.show();
+	Scrollbar.init(document.querySelector("#code-view-pre"));
 }
 
 saveButton.click(function () {
