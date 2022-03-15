@@ -110,7 +110,6 @@ function postPaste(content, callback) {
 function getPaste(id, callback) {
 	fetch(`${apiUrl}/p/${id}`, {
 		method: 'GET',
-		credentials: 'omit',
 		headers: {
 			'Content-Type': 'application/json'
 		},
