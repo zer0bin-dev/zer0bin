@@ -36,15 +36,20 @@ body {
 	height: 100%;
 	background-color: $bg_base;
 	margin: 0;
-	&::selection {
-		background: $highlight;
-	}
 }
 html {
 	height: 100%;
 }
 pre {
 	margin: 0;
+}
+@mixin selection {
+    ::-moz-selection { @content; }
+    ::selection { @content; }
+}
+@include selection {
+    color: $text;
+    background: $highlight;
 }
 .noselect {
 	user-select: none;
