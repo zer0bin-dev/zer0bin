@@ -54,7 +54,7 @@ Backend: <a href="https://actix.rs/"><img src="https://pool.jortage.com/voringme
 	- 🚀 NPM ≥ 8.0.0
 - 🐘 Postgresql ≥ 12.0
 - 🦝 Nginx ≥ 1.18.0
-- 🌄 Domain [with SSL certs](https://letsencrypt.org/)
+- 🌄 Domain with [SSL](https://letsencrypt.org/)
 - 🐧 \*nix OS
 
 ### Steps
