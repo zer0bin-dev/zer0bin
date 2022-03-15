@@ -1,4 +1,3 @@
-const $ = require("jquery");
 
 import {
 	SaveOutlined,
@@ -8,6 +7,7 @@ import {
 } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
 import hljs from "highlight.js";
+import $ from "jquery";
 
 const config = require("../config.json");
 const apiUrl = config.api_url;
