@@ -9,6 +9,7 @@
     "build": "parcel build index.pug"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.3.2",
     "parcel": "^2.3.2"
   },
   "description": "just a place to paste",
