@@ -63,13 +63,13 @@ copyButton.append(svgCopy);
 githubButton.append(svgGithub);
 
 function postPaste(content, callback) {
-	console.log(content);
+	const payload = { content };
 	fetch(`${apiUrl}/p/n`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(content)
+		body: JSON.stringify(payload)
 	}).then(response => response.json())
 		.then(data => {
 			console.log(data);
@@ -77,7 +77,7 @@ function postPaste(content, callback) {
 		})
 		.catch((error) => {
 			console.log(error);
-			// callback(`{"data": { "message": "An unkown error occured!" } }`);
+			callback(error || `{"data": { "message": "An unkown error occured!" } }`);
 		});
 }
 
