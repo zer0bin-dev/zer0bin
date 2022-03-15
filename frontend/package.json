@@ -9,8 +9,8 @@
 		"build": "parcel build index.pug"
 	},
 	"devDependencies": {
-		"@parcel/transformer-sass": "^2.3.2",
 		"@parcel/transformer-pug": "^2.3.2",
+		"@parcel/transformer-sass": "^2.3.2",
 		"parcel": "^2.3.2"
 	},
 	"description": "just a place to paste",
@@ -19,6 +19,7 @@
 	"dependencies": {
 		"@ant-design/icons-svg": "^4.2.1",
 		"highlight.js": "^11.4.0",
-		"jquery": "^3.6.0"
+		"jquery": "^3.6.0",
+		"smooth-scrollbar": "^8.7.4"
 	}
 }
