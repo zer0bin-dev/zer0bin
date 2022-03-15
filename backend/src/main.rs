@@ -14,7 +14,7 @@ use config::Config;
 
 use sqlx::{postgres::PgPoolOptions, PgPool};
 
-use crate::routes::{get_paste, get_raw_paste, get_stats, new_paste};
+use crate::routes::{get_paste, get_stats, new_paste};
 
 #[derive(Clone)]
 pub struct AppState {
