@@ -180,6 +180,7 @@ saveButton.click(function () {
 });
 
 newButton.click(function () {
+	// TODO: make this carry over the current text into a new paste
 	window.location.href = "/";
 });
 
