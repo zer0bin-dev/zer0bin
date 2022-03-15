@@ -107,7 +107,7 @@ function postPaste(content, callback) {
 // 	});
 // }
 
-function getPaste(callback) {
+function getPaste(id, callback) {
 	fetch(`${apiUrl}/p/${id}`, {
 		method: 'GET',
 		credentials: 'omit',
