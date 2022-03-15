@@ -109,7 +109,6 @@ function newPaste() {
 
 	editor.show();
 	codeViewPre.hide();
-	Scrollbar.init(document.querySelector("#text-area"));
 }
 
 function addMessage(message) {
