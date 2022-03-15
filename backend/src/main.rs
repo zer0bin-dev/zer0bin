@@ -63,7 +63,7 @@ async fn main() -> io::Result<()> {
                     .wrap(Governor::new(&paste_governor))
                     .service(get_paste)
                     .service(new_paste)
-                    .service(get_raw_paste),
+                    // .service(get_raw_paste),
             )
     })
     .bind(address)?
