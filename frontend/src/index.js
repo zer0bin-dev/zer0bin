@@ -65,16 +65,13 @@ githubButton.append(svgGithub);
 function postPaste(content, callback) {
 	fetch(`${apiUrl}/p/n`, {
 		method: 'POST',
-		cache: 'no-cache',
-		credentials: 'omit',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		redirect: 'follow',
-		referrerPolicy: 'no-referrer',
 		body: JSON.stringify(content)
 	}).then(response => response.json())
 		.then(data => {
+			console.log(data);
 			callback(null, data);
 		})
 		.catch((error) => {
