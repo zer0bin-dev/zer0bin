@@ -17,6 +17,7 @@ $iris: #c4a7e7;
 $text: #e0def4;
 $subtle: #908caa;
 $muted: #6e6a86;
+$highlight: rgba(82, 79, 103, 0.5);
 $bg_base: #191724;
 $bg_surface: #1f1d2e;
 $bg_trans: rgba(31, 29, 46, 0.8);
@@ -41,6 +42,9 @@ html {
 }
 pre {
 	margin: 0;
+}
+&::selection {
+	background: $highlight;
 }
 .noselect {
 	user-select: none;
