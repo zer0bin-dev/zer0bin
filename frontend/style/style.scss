@@ -8,17 +8,17 @@
 	font-display: swap;
 }
 
-$color_1: #908caa;
-$color_2: #ebbcba;
-$color_3: #e0def4;
-$color_4: #31748f;
-$color_5: #c4a7e7;
-$color_6: #9ccfd8;
-$color_7: #6e6a86;
-$background-color_1: #191724;
-$background-color_2: transparent;
-$background-color_3: #1f1d2e;
-$background-color_4: rgba(31, 29, 46, 0.8);
+$subtle: #908caa;
+$rose: #ebbcba;
+$white: #e0def4;
+$pine: #31748f;
+$iris: #c4a7e7;
+$foam: #9ccfd8;
+$muted: #6e6a86;
+$bg_main: #191724;
+$bg_sub: transparent;
+$bg_tert: #1f1d2e;
+$bg_trans: rgba(31, 29, 46, 0.8);
 $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
 @keyframes rainbow {
@@ -32,7 +32,7 @@ $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco, Consol
 }
 body {
 	height: 100%;
-	background-color: $background-color_1;
+	background-color: $bg_main;
 	margin: 0;
 }
 html {
@@ -55,7 +55,7 @@ pre {
 	height: calc(100% - 2rem);
 }
 .line-numbers {
-	color: $color_1;
+	color: $subtle;
 	font-family: $font-mono;
 	text-align: end;
 	user-select: none;
@@ -84,16 +84,16 @@ pre {
 	margin-bottom: 0px;
 }
 #viewcounter-label {
-	color: $color_1;
+	color: $subtle;
 }
 #viewcounter-count {
-	color: $color_2;
+	color: $rose;
 }
 code {
-	color: $color_3;
+	color: $white;
 }
 textarea {
-	background-color: $background-color_2;
+	background-color: $bg_sub;
 	resize: none;
 	width: 100%;
 	height: 100%;
@@ -102,7 +102,7 @@ textarea {
 	margin: 0;
 	border: none;
 	outline: 0;
-	color: $color_3;
+	color: $white;
 	font-size: 15px;
 }
 .button-wrapper {
@@ -110,7 +110,7 @@ textarea {
 	top: 0;
 	right: 0;
 	padding: 1rem 1rem 0.5rem 1rem;
-	background-color: $background-color_3;
+	background-color: $bg_tert;
 	z-index: 10;
 }
 .buttons {
@@ -124,20 +124,20 @@ textarea {
 	}
 }
 a {
-	color: $color_4;
+	color: $pine;
 	&:visited {
-		color: $color_5;
+		color: $iris;
 	}
 	&:hover {
 		&:not(.logo) {
-			color: $color_6;
+			color: $foam;
 		}
 	}
 }
 .btn {
 	cursor: pointer;
 	background: 0 0;
-	color: $color_6;
+	color: $foam;
 	padding: 5px 5px 5px 5px;
 	font-size: 1rem;
 	border: none;
@@ -145,14 +145,14 @@ a {
 	display: inline-block;
 	text-decoration: none;
 	&:hover {
-		color: $color_3;
+		color: $white;
 	}
 	&:disabled {
-		color: $color_7;
+		color: $muted;
 	}
 }
 .btn[disabled] {
-	color: $color_7;
+	color: $muted;
 }
 .logo {
 	font-size: 1.8rem;
@@ -190,9 +190,9 @@ a {
 	list-style: none;
 	width: 400px;
 	li {
-		background-color: $background-color_4;
+		background-color: $bg_trans;
 		font-family: $font-mono;
-		color: $color_3;
+		color: $white;
 		padding: 7px;
 	}
 }
