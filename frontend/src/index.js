@@ -179,24 +179,20 @@ saveButton.click(function () {
 	});
 });
 
-newButton.click(function () {
-	// TODO: make this carry over the current text into a new paste
-	window.location.href = "/";
-});
-
 copyButton.click(function () {
-	const path = window.location.pathname;
-	const split = path.split("/");
-	const id = split[split.length - 1];
-	getPaste(id, function (err, res) {
-		if (err) {
-			window.history.pushState(null, null, `/`);
-			newPaste();
-		} else {
-			navigator.clipboard.writeText(res["data"]["content"])
-			addMessage("Copied paste to clipboard!")
-		}
-	});
+	//TODO: Make copy paste to new paste
+	// const path = window.location.pathname;
+	// const split = path.split("/");
+	// const id = split[split.length - 1];
+	// getPaste(id, function (err, res) {
+	// 	if (err) {
+	// 		window.history.pushState(null, null, `/`);
+	// 		newPaste();
+	// 	} else {
+	// 		navigator.clipboard.writeText(res["data"]["content"])
+	// 		addMessage("Copied paste to clipboard!")
+	// 	}
+	// });
 });
 
 editor.keydown(function (e) {
@@ -211,12 +207,6 @@ editor.keydown(function (e) {
 
 function handlePopstate(event) {
 	const path = window.location.pathname;
-
-	if ((/iPad|iPhone|iPod/.test(navigator.platform) ||
-	(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
-	!window.MSStream) {
-		copyButton.hide()
-	}
 
 	if (path == "/") {
 		newPaste();
