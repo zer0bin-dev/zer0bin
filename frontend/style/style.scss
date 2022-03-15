@@ -21,7 +21,8 @@ $highlight: #403d52;
 $bg_base: #191724;
 $bg_surface: #1f1d2e;
 $bg_trans: rgba(31, 29, 46, 0.8);
-$font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
+	Consolas, "Liberation Mono", "Courier New", monospace;
 
 @keyframes rainbow {
 	0%,
@@ -44,12 +45,16 @@ pre {
 	margin: 0;
 }
 @mixin selection {
-    ::-moz-selection { @content; }
-    ::selection { @content; }
+	::-moz-selection {
+		@content;
+	}
+	::selection {
+		@content;
+	}
 }
 @include selection {
-    color: $text;
-    background: $highlight;
+	color: $text;
+	background: $highlight;
 }
 .noselect {
 	user-select: none;

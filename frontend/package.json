@@ -1,24 +1,31 @@
 {
-  "name": "zer0bin",
-  "source": "index.pug",
-  "version": "0.3.1",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "license": "MIT",
-  "scripts": {
-    "start": "parcel index.pug",
-    "build": "parcel build index.pug"
-  },
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.3.2",
-    "@parcel/transformer-pug": "^2.3.2",
-    "parcel": "^2.3.2"
-  },
-  "description": "just a place to paste",
-  "repository": "https://github.com/Domterion/zer0bin",
-  "author": "Domterion, ThatOneCalculator",
-  "dependencies": {
-    "@ant-design/icons-svg": "^4.2.1",
-    "highlight.js": "^11.4.0",
-    "jquery": "^3.6.0"
-  }
+	"name": "zer0bin",
+	"source": "index.pug",
+	"version": "0.3.1",
+	"browserslist": "> 0.5%, last 2 versions, not dead",
+	"license": "MIT",
+	"scripts": {
+		"start": "parcel index.pug",
+		"build": "parcel build index.pug"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.3.2",
+		"@parcel/transformer-pug": "^2.3.2",
+		"parcel": "^2.3.2"
+	},
+	"description": "just a place to paste",
+	"repository": "https://github.com/Domterion/zer0bin",
+	"author": "Domterion, ThatOneCalculator",
+	"dependencies": {
+		"@ant-design/icons-svg": "^4.2.1",
+		"highlight.js": "^11.4.0",
+		"jquery": "^3.6.0"
+	},
+	"prettier": {
+		"useTabs": true,
+		"trailingComma": "es5",
+		"tabWidth": 4,
+		"semi": false,
+		"singleQuote": false
+	}
 }
