@@ -51,6 +51,8 @@ newButton.append(svgFileAdd)
 copyButton.append(svgCopy)
 githubButton.append(svgGithub)
 
+var rawContent = null
+
 function postPaste(content: string, callback: Function) {
 	const payload = { content }
 	fetch(`${apiUrl}/p/n`, {
@@ -99,9 +101,11 @@ function newPaste() {
 	newButton.prop("disabled", true)
 	copyButton.prop("disabled", true)
 
+	rawContent = null
 	editor.val("")
 
 	editor.show()
+	viewCounterLabel.hide()
 	codeViewPre.hide()
 }
 
@@ -146,7 +150,10 @@ saveButton.click(function () {
 			addMessage(err["data"]["message"])
 		} else {
 			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
-			viewPaste(res["data"]["content"], "0")
+
+			rawContent = res["data"]["content"]
+
+			viewPaste(rawContent, "0")
 		}
 	})
 })
@@ -165,6 +172,14 @@ copyButton.click(function () {
 	// 		addMessage("Copied paste to clipboard!")
 	// 	}
 	// });
+
+	window.history.pushState(null, null, `/`)
+
+	let content = rawContent
+	newPaste()
+	rawContent = content
+
+	editor.val(rawContent)
 })
 
 editor.keydown(function (e: KeyboardEvent) {
@@ -193,10 +208,8 @@ function handlePopstate() {
 				window.history.pushState(null, "", `/`)
 				newPaste()
 			} else {
-				viewPaste(
-					res["data"]["content"],
-					res["data"]["views"].toString()
-				)
+				rawContent = res["data"]["content"]
+				viewPaste(rawContent, res["data"]["views"].toString())
 			}
 		})
 	}
