@@ -12,6 +12,8 @@
 		"@parcel/transformer-pug": "^2.3.2",
 		"@parcel/transformer-sass": "^2.3.2",
 		"@types/core-js": "^2.5.5",
+		"@types/jquery": "^3.5.14",
+		"@types/node": "^17.0.21",
 		"parcel": "^2.3.2",
 		"ts-migrate": "^0.1.28"
 	},

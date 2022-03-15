@@ -6,10 +6,8 @@ import {
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import hljs from "highlight.js"
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'jque... Remove this comment to see the full error message
 import $ from "jquery"
 
-// @ts-expect-error ts-migrate(2580) FIXME: Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const config = require("../config.json")
 const apiUrl = config.api_url
 
