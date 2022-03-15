@@ -19,14 +19,6 @@
     <br>
 </div>
 
-# API
-
-**GET** `/api/p/:id` - Get a paste by ID
-
-**POST** `/api/p/n` - Post a new paste
-
-**GET** `/api/s` - Get stats about the instance
-
 # Public instances
 
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
@@ -46,6 +38,12 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ### Misc:
 <a href="https://nginx.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Nginx.svg" height=40/></a> <a href="https://docker.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Docker.svg" height=40/></a> <a href="https://developer.mozilla.org/en-US/docs/Web/SVG"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/SVG-Dark.svg" height=40/></a> <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Markdown-Dark.svg" height=40/></a> <a href="https://git-scm.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Git.svg" height=40/></a> <a href="https://www.kernel.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Linux-Dark.svg" height=40/></a> 
+
+# API
+
+- **GET** `/api/p/:id` - Get a paste by ID
+- **POST** `/api/p/n` - Post a new paste
+- **GET** `/api/s` - Get stats about the instance
 
 # Self-host instructions
 
