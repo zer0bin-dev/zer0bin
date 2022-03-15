@@ -63,50 +63,87 @@ copyButton.append(svgCopy);
 githubButton.append(svgGithub);
 
 function postPaste(content, callback) {
-	const data = {
-		content,
-	};
-
-	$.ajax({
-		type: "POST",
-		url: `${apiUrl}/p/n`,
-		data: JSON.stringify(data),
-		dataType: "json",
-		contentType: "application/json",
-		crossDomain: true,
-		success: function (res) {
-			callback(null, res);
+	fetch(`${apiUrl}/p/n`, {
+		method: 'POST',
+		cache: 'no-cache',
+		credentials: 'omit',
+		headers: {
+			'Content-Type': 'application/json'
 		},
-		error: function (xhr) {
-			callback(
-				JSON.parse(
-					xhr.responseText ||
-					`{"data": { "message": "An unkown error occured!" } }`
-				)
-			);
-		},
-	});
+		redirect: 'follow',
+		referrerPolicy: 'no-referrer',
+		body: JSON.stringify(content)
+	}).then(response => response.json())
+		.then(data => {
+			callback(null, data);
+		})
+		.catch((error) => {
+			callback(error || `{"data": { "message": "An unkown error occured!" } }`);
+		});
 }
 
-function getPaste(id, callback) {
-	$.ajax({
-		type: "GET",
-		url: `${apiUrl}/p/${id}`,
-		contentType: "application/json",
-		crossDomain: true,
-		success: function (res) {
-			callback(null, res);
+// function postPaste(content, callback) {
+// 	const data = {
+// 		content,
+// 	};
+
+// 	$.ajax({
+// 		type: "POST",
+// 		url: `${apiUrl}/p/n`,
+// 		data: JSON.stringify(data),
+// 		dataType: "json",
+// 		contentType: "application/json",
+// 		crossDomain: true,
+// 		success: function (res) {
+// 			callback(null, res);
+// 		},
+// 		error: function (xhr) {
+// 			callback(
+// 				JSON.parse(
+// 					xhr.responseText ||
+// 					`{"data": { "message": "An unkown error occured!" } }`
+// 				)
+// 			);
+// 		},
+// 	});
+// }
+
+function getPaste(content, callback) {
+	fetch(`${apiUrl}/p/${id}`, {
+		method: 'GET',
+		credentials: 'omit',
+		headers: {
+			'Content-Type': 'application/json'
 		},
-		error: function (xhr) {
-			callback(
-				JSON.parse(
-					xhr.responseText ||
-					`{"data": { "message": "Unknown error occurred.." } }`
-				)
-			);
-		},
-	});
+		referrerPolicy: 'no-referrer',
+	}).then(response => response.json())
+		.then(data => {
+			callback(null, data);
+		})
+		.catch((error) => {
+			callback(error || `{"data": { "message": "An unkown error occured!" } }`);
+		});
 }
+
+// function getPaste(id, callback) {
+// 	$.ajax({
+// 		type: "GET",
+// 		url: `${apiUrl}/p/${id}`,
+// 		contentType: "application/json",
+// 		crossDomain: true,
+// 		success: function (res) {
+// 			callback(null, res);
+// 		},
+// 		error: function (xhr) {
+// 			callback(
+// 				JSON.parse(
+// 					xhr.responseText ||
+// 					`{"data": { "message": "Unknown error occurred.." } }`
+// 				)
+// 			);
+// 		},
+// 	});
+// }
 
 function newPaste() {
 	lineNumbers.html("&gt;");
@@ -132,26 +169,13 @@ function addMessage(message) {
 	}, 3000);
 }
 
-function createTextLinks(text) {
-	return (text || "").replace(
-		/([^\S]|^)(((https?\:\/\/)|(www\.))(\S+))/gi,
-		function (match, space, url) {
-			let hyperlink = url;
-			if (!hyperlink.match("^https?://")) {
-				hyperlink = "http://" + hyperlink;
-			}
-			return space + '<a href="' + hyperlink + '">' + url + "</a>";
-		}
-	);
-}
-
 function viewPaste(content, views) {
 	lineNumbers.html("");
 	for (let i = 1; i <= content.split("\n").length; i++) {
 		lineNumbers.append(`${i}
 <br>`);
 	}
-	codeView.html(createTextLinks(hljs.highlightAuto(content).value));
+	codeView.html(hljs.highlightAuto(content).value);
 
 	saveButton.prop("disabled", true);
 	newButton.prop("disabled", false);
