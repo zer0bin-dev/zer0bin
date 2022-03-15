@@ -32,7 +32,7 @@ ul.noselect#messages
 	span.viewcounter.noselect#viewcounter-label(style='display: none') Views:&nbsp;
 	span.viewcounter.noselect#viewcounter-count
 .wrapper
-	.line-numbers.noselect
-	pre#code-view-pre(style='display: none')
+	.line-numbers.noselect(data-scrollbar='')
+	pre#code-view-pre(style='display: none' data-scrollbar='')
 		code#code-view
 	textarea#text-area(spellcheck='false' autofocus='' name='value' style='display: none')

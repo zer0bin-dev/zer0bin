@@ -139,7 +139,7 @@ function viewPaste(content, views) {
 	editor.hide();
 	codeViewPre.show();
 	viewCounterLabel.show();
-	Scrollbar.init(document.querySelector(".wrapper"));
+	Scrollbar.initAll();
 }
 
 saveButton.click(function () {
