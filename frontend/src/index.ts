@@ -51,6 +51,8 @@ newButton.append(svgFileAdd)
 copyButton.append(svgCopy)
 githubButton.append(svgGithub)
 
+global.rawContent = ""
+
 function postPaste(content: string, callback: Function) {
 	const payload = { content }
 	fetch(`${apiUrl}/p/n`, {
@@ -71,6 +73,8 @@ function postPaste(content: string, callback: Function) {
 				error || `{"data": { "message": "An unkown error occured!" } }`
 			)
 		})
+	global.rawContent = ""
+	viewCounterLabel.hide()
 }
 
 function getPaste(id: string, callback: Function) {
@@ -146,25 +150,18 @@ saveButton.click(function () {
 			addMessage(err["data"]["message"])
 		} else {
 			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
-			viewPaste(res["data"]["content"], "0")
+			global.rawContent = res["data"]["content"]
+			viewPaste(global.rawContent, "0")
 		}
 	})
 })
 
 copyButton.click(function () {
-	//TODO: Make copy paste to new paste
-	// const path = window.location.pathname;
-	// const split = path.split("/");
-	// const id = split[split.length - 1];
-	// getPaste(id, function (err, res) {
-	// 	if (err) {
-	// 		window.history.pushState(null, null, `/`);
-	// 		newPaste();
-	// 	} else {
-	// 		navigator.clipboard.writeText(res["data"]["content"])
-	// 		addMessage("Copied paste to clipboard!")
-	// 	}
-	// });
+	window.history.pushState(null, "", "/")
+	let content = global.rawContent
+	newPaste()
+	global.rawContent = content
+	editor.val(global.rawContent)
 })
 
 editor.keydown(function (e: KeyboardEvent) {
@@ -193,10 +190,8 @@ function handlePopstate() {
 				window.history.pushState(null, "", `/`)
 				newPaste()
 			} else {
-				viewPaste(
-					res["data"]["content"],
-					res["data"]["views"].toString()
-				)
+				global.rawContent = res["data"]["content"]
+				viewPaste(global.rawContent, res["data"]["views"].toString())
 			}
 		})
 	}
