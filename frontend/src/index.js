@@ -63,6 +63,7 @@ copyButton.append(svgCopy);
 githubButton.append(svgGithub);
 
 function postPaste(content, callback) {
+	console.log(content);
 	fetch(`${apiUrl}/p/n`, {
 		method: 'POST',
 		headers: {
