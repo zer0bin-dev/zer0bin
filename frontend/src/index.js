@@ -78,7 +78,7 @@ function postPaste(content, callback) {
 			callback(null, data);
 		})
 		.catch((error) => {
-			callback(error || `{"data": { "message": "An unkown error occured!" } }`);
+			callback(`{"data": { "message": "An unkown error occured!" } }`);
 		});
 }
 
