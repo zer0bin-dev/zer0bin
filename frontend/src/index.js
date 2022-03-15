@@ -139,7 +139,8 @@ function viewPaste(content, views) {
 	editor.hide();
 	codeViewPre.show();
 	viewCounterLabel.show();
-	Scrollbar.initAll();
+	const scrollbar = Scrollbar.initAll();
+	scrollbar.track.hide()
 }
 
 saveButton.click(function () {
