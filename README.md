@@ -24,41 +24,45 @@
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
 
 | Website                                        | Expiration | Max paste size | Version | Country |
-| ---------------------------------------------- | ---------- | ---------------| --------| ------- |
+| ---------------------------------------------- | ---------- | -------------- | ------- | ------- |
 | zer0b.in (not up yet)                          | 7 days     | 40,000 chars   | vx.x.x  | ?       |
 | [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.3.1  | 🇺🇸 US   |
 
 # Technologies used
 
 ### Frontend:
-<a href="https://www.javascript.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/JavaScript.svg" height=40/></a> <a href="https://sass-lang.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Sass.svg" height=40/></a> <a href="https://pugjs.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Pug-Dark.svg" height=40/></a> <a href="https://rosepinetheme.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309444542464/RosePine.svg" height=40/></a> <a href="https://jquery.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/JQuery.svg" height=40/></a> <a href="https://highlightjs.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953177926688464936/HLJS.svg" height=40/></a> <a href="https://github.com/ant-design/ant-design-icons"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953181625259266059/AntIcons-Dark.svg" height=40/></a> <a href="https://parceljs.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176310195322920/Parcel-Dark.svg" height=40/></a> <a href="https://npmjs.org"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309259972638/NPM.svg" height=40/></a>
+
+<a href="https://www.typescriptlang.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/TypeScript.svg" height=40/></a> <a href="https://sass-lang.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Sass.svg" height=40/></a> <a href="https://pugjs.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Pug-Dark.svg" height=40/></a> <a href="https://rosepinetheme.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309444542464/RosePine.svg" height=40/></a> <a href="https://jquery.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/JQuery.svg" height=40/></a> <a href="https://highlightjs.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953177926688464936/HLJS.svg" height=40/></a> <a href="https://github.com/ant-design/ant-design-icons"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953181625259266059/AntIcons-Dark.svg" height=40/></a> <a href="https://parceljs.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176310195322920/Parcel-Dark.svg" height=40/></a> <a href="https://npmjs.org"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309259972638/NPM.svg" height=40/></a>
 
 ### Backend:
+
 <a href="https://www.rust-lang.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Rust.svg" height=40/></a> <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309813628978/Actix-Dark.svg" height=40/></a> <a href="https://github.com/serde-rs/serde"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309964627978/Serde-Dark.svg" height=40/></a> <a href="https://github.com/launchbadge/sqlx"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176310354673704/SQLX-Dark.svg" height=40/></a> <a href="https://github.com/chronotope/chrono"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953178919169835018/NPM-svg.png" height=40/></a> <a href="https://www.postgresql.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/PostgreSQL-Dark.svg" height=40/></a> <a href="https://github.com/ai/nanoid"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309629067354/NanoID-Dark.svg" height=40/></a>
 
 ### Misc:
-<a href="https://nginx.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Nginx.svg" height=40/></a> <a href="https://docker.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Docker.svg" height=40/></a> <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Markdown-Dark.svg" height=40/></a> <a href="https://prettier.io/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953339670538887318/Prettier.svg" height=40/></a> <a href="https://git-scm.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Git.svg" height=40/></a> <a href="https://www.kernel.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Linux-Dark.svg" height=40/></a> 
+
+<a href="https://nginx.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Nginx.svg" height=40/></a> <a href="https://docker.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Docker.svg" height=40/></a> <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Markdown-Dark.svg" height=40/></a> <a href="https://prettier.io/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953339670538887318/Prettier.svg" height=40/></a> <a href="https://git-scm.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Git.svg" height=40/></a> <a href="https://www.kernel.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Linux-Dark.svg" height=40/></a>
 
 # API
 
-- **GET** `/api/p/:id` - Get a paste by ID
-- **POST** `/api/p/n` - Post a new paste
-- **GET** `/api/s` - Get stats about the instance
+-   **GET** `/api/p/:id` - Get a paste by ID
+-   **POST** `/api/p/n` - Post a new paste
+-   **GET** `/api/s` - Get stats about the instance
 
 # Self-host instructions
 
 ### Requirements
 
-- 🦀 Rust ≥ 1.58.0
-	- 🚢 Cargo ≥ 1.58.0
-- 🐢 NodeJS ≥ 16.0 
-	- 🚀 NPM ≥ 8.0.0
-- 🐘 PostgreSQL ≥ 9.6
-- 🦝 Nginx ≥ 1.18.0
-- 🌄 Domain with [SSL](https://letsencrypt.org/)
-- 🐧 \*nix OS
+-   🦀 Rust ≥ 1.58.0
+    -   🚢 Cargo ≥ 1.58.0
+-   🐢 NodeJS ≥ 16.0
+    -   🚀 NPM ≥ 8.0.0
+-   🐘 PostgreSQL ≥ 9.6
+-   🦝 Nginx ≥ 1.18.0
+-   🌄 Domain with [SSL](https://letsencrypt.org/)
+-   🐧 \*nix OS
 
 ### Steps
+
 <!--
 1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
 2. Edit `example.nginx` as appropriate, then `mv example.nginx yourdomain.tld && for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do cp ./yourdomain.tld $i; done && systemctl nginx restart`
@@ -110,10 +114,13 @@ cargo build --release
 | ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
 
 # Benchmarks
+
 > This is on a paste with 200 lines!
 
 ### Lighthouse
+
 ![Lighthouse](https://user-images.githubusercontent.com/44733677/158105961-7e186b86-54a8-44ac-ad81-65d6cd4b8eb2.png)
 
 ### Firefox network
+
 ![Firefox Network](https://user-images.githubusercontent.com/44733677/158106344-71c4bb71-450b-4c9a-8473-05e304da41f3.png)

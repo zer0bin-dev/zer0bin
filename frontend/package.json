@@ -11,7 +11,9 @@
 	"devDependencies": {
 		"@parcel/transformer-pug": "^2.3.2",
 		"@parcel/transformer-sass": "^2.3.2",
-		"parcel": "^2.3.2"
+		"@types/core-js": "^2.5.5",
+		"parcel": "^2.3.2",
+		"ts-migrate": "^0.1.28"
 	},
 	"description": "just a place to paste",
 	"repository": "https://github.com/Domterion/zer0bin",
