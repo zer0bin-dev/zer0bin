@@ -14,7 +14,7 @@ use config::Config;
 
 use sqlx::{postgres::PgPoolOptions, PgPool};
 
-use crate::routes::{get_paste, get_raw_paste, get_stats, new_paste};
+use crate::routes::{get_paste, get_stats, new_paste};
 
 #[derive(Clone)]
 pub struct AppState {
@@ -63,7 +63,7 @@ async fn main() -> io::Result<()> {
                     .wrap(Governor::new(&paste_governor))
                     .service(get_paste)
                     .service(new_paste)
-                    .service(get_raw_paste),
+                    // .service(get_raw_paste),
             )
     })
     .bind(address)?

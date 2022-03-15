@@ -174,7 +174,7 @@ saveButton.click(function () {
 			addMessage(err["data"]["message"]);
 		} else {
 			window.history.pushState(null, null, `/~/${res["data"]["id"]}`);
-			viewPaste(editor.val(), "0");
+			viewPaste(res["data"]["content"], "0");
 		}
 	});
 });

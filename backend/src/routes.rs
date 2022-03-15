@@ -96,6 +96,7 @@ pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> imp
     }
 }
 
+// TODO: Fix major vuln
 #[get("/r/{id}")]
 pub async fn get_raw_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Responder {
     let id = id.into_inner();
@@ -164,10 +165,29 @@ pub async fn new_paste(
         Some(Utc::now() + Duration::days(state.config.pastes.days_til_expiration))
     };
 
+    /*
+        .replace(/&/g, '&amp;')
+    .replace(/>/g, '&gt;')
+    .replace(/</g, '&lt;')
+    .replace(/"/g, '&quot;');
+    */
+
+    // let cleaned = data
+    //     .content
+    //     .clone()
+    //     .replace("&", "&amp;")
+    //     .replace("<", "&lt;")
+    //     .replace(">", "&gt;")
+    //     .replace(r#"""#, "&quot;");
+
+    let cleaned = data
+        .content
+        .clone();
+
     let res =
         sqlx::query(r#"INSERT INTO pastes("id", "content", "expires_at") VALUES ($1, $2, $3)"#)
             .bind(id.clone())
-            .bind(data.content.clone())
+            .bind(cleaned.clone())
             .bind(expires_at)
             .execute(&state.pool)
             .await;
@@ -177,7 +197,7 @@ pub async fn new_paste(
             success: true,
             data: NewPasteResponse {
                 id,
-                content: data.content.clone(),
+                content: cleaned,
             },
         }),
         Err(e) => {
