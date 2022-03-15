@@ -178,7 +178,7 @@ editor.keydown(function (e: KeyboardEvent) {
 	}
 })
 
-function handlePopstate(event) {
+function handlePopstate() {
 	const path = window.location.pathname
 
 	if (path == "/") {
@@ -202,10 +202,10 @@ function handlePopstate(event) {
 	}
 }
 
-$(window).bind("popstate", function (event) {
-	handlePopstate(event)
+$(window).bind("popstate", function () {
+	handlePopstate()
 })
 
 $(document).ready(function () {
-	handlePopstate({ target: window })
+	handlePopstate()
 })
