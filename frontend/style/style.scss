@@ -8,16 +8,17 @@
 	font-display: swap;
 }
 
-$subtle: #908caa;
+$love: #eb6f92;
+$gold: #f6c177;
 $rose: #ebbcba;
-$white: #e0def4;
 $pine: #31748f;
-$iris: #c4a7e7;
 $foam: #9ccfd8;
+$iris: #c4a7e7;
+$text: #e0def4;
+$subtle: #908caa;
 $muted: #6e6a86;
-$bg_main: #191724;
-$bg_sub: transparent;
-$bg_tert: #1f1d2e;
+$bg_base: #191724;
+$bg_surface: #1f1d2e;
 $bg_trans: rgba(31, 29, 46, 0.8);
 $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
@@ -32,7 +33,7 @@ $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco, Consol
 }
 body {
 	height: 100%;
-	background-color: $bg_main;
+	background-color: $bg_base;
 	margin: 0;
 }
 html {
@@ -90,10 +91,10 @@ pre {
 	color: $rose;
 }
 code {
-	color: $white;
+	color: $text;
 }
 textarea {
-	background-color: $bg_sub;
+	background-color: transparent;
 	resize: none;
 	width: 100%;
 	height: 100%;
@@ -102,7 +103,7 @@ textarea {
 	margin: 0;
 	border: none;
 	outline: 0;
-	color: $white;
+	color: $text;
 	font-size: 15px;
 }
 .button-wrapper {
@@ -110,7 +111,7 @@ textarea {
 	top: 0;
 	right: 0;
 	padding: 1rem 1rem 0.5rem 1rem;
-	background-color: $bg_tert;
+	background-color: $bg_surface;
 	z-index: 10;
 }
 .buttons {
@@ -145,7 +146,7 @@ a {
 	display: inline-block;
 	text-decoration: none;
 	&:hover {
-		color: $white;
+		color: $text;
 	}
 	&:disabled {
 		color: $muted;
@@ -164,12 +165,12 @@ a {
 	display: inline-block;
 	background: linear-gradient(
 		to right,
-		#eb6f92,
-		#c9b065,
-		#ebbcba,
-		#31748f,
-		#9ccfd8,
-		#c4a7e7
+		$love,
+		$gold,
+		$rose,
+		$pine,
+		$foam,
+		$iris
 	);
 	-webkit-background-clip: text;
 	background-clip: text;
@@ -192,7 +193,7 @@ a {
 	li {
 		background-color: $bg_trans;
 		font-family: $font-mono;
-		color: $white;
+		color: $text;
 		padding: 7px;
 	}
 }
