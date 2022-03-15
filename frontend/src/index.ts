@@ -11,36 +11,26 @@ import $ from "jquery"
 const config = require("../config.json")
 const apiUrl = config.api_url
 
+const extraSVGAttrs = {
+	width: "1em",
+	height: "1em",
+	fill: "currentColor",
+}
+
 const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
-	extraSVGAttrs: {
-		width: "1em",
-		height: "1em",
-		fill: "currentColor",
-	},
+	extraSVGAttrs: extraSVGAttrs,
 })
 
 const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
-	extraSVGAttrs: {
-		width: "1em",
-		height: "1em",
-		fill: "currentColor",
-	},
+	extraSVGAttrs: extraSVGAttrs,
 })
 
 const svgCopy = renderIconDefinitionToSVGElement(CopyOutlined, {
-	extraSVGAttrs: {
-		width: "1em",
-		height: "1em",
-		fill: "currentColor",
-	},
+	extraSVGAttrs: extraSVGAttrs,
 })
 
 const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
-	extraSVGAttrs: {
-		width: "1em",
-		height: "1em",
-		fill: "currentColor",
-	},
+	extraSVGAttrs: extraSVGAttrs,
 })
 
 const lineNumbers = $(".line-numbers")
@@ -115,14 +105,12 @@ function newPaste() {
 	codeViewPre.hide()
 }
 
-// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'message' implicitly has an 'any' type.
 function addMessage(message) {
 	let msg = $(`<li>${message}</li>`)
 	messages.prepend(msg)
 
 	setTimeout(function () {
 		msg.slideUp("fast", function () {
-			// @ts-expect-error ts-migrate(2683) FIXME: 'this' implicitly has type 'any' because it does n... Remove this comment to see the full error message
 			$(this).remove()
 		})
 	}, 3000)
