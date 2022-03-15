@@ -1,31 +1,45 @@
+$color_1: #908caa;
+$color_2: #ebbcba;
+$color_3: #e0def4;
+$color_4: #31748f;
+$color_5: #c4a7e7;
+$color_6: #9ccfd8;
+$color_7: #6e6a86;
+$font-family_1: var(--font-mono);
+$background-color_1: #191724;
+$background-color_2: transparent;
+$background-color_3: #1f1d2e;
+$background-color_4: rgba(31, 29, 46, 0.8);
+
 @font-face {
 	font-family: 'Cartograph CF';
-	src: url('../fonts/CartographCF-Regular.woff2') format('woff2'),
-		url('../fonts/CartographCF-Regular.woff') format('woff'),
-		url('../fonts/CartographCF-Regular.ttf') format('truetype');
+	src: url('../fonts/CartographCF-Regular.woff2') format('woff2'), url('../fonts/CartographCF-Regular.woff') format('woff'), url('../fonts/CartographCF-Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
-
-:root {
+@keyframes rainbow {
+	0%,100% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 100% 0;
+	}
+}
+&:root {
 	--font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-
-body,
+body {
+	height: 100%;
+	background-color: $background-color_1;
+	margin: 0;
+}
 html {
 	height: 100%;
 }
-
-body {
-	background-color: #191724;
-	margin: 0;
-}
-
 pre {
 	margin: 0;
 }
-
 .noselect {
 	user-select: none;
 	-webkit-user-select: none;
@@ -33,61 +47,52 @@ pre {
 	-moz-user-select: none;
 	-ms-user-select: none;
 }
-
 .wrapper {
 	display: flex;
 	padding: 1rem 0.5rem;
 	font-size: 1rem;
 	height: calc(100% - 2rem);
 }
-
 .line-numbers {
-	color: #908caa;
-	font-family: var(--font-mono);
+	color: $color_1;
+	font-family: $font-family_1;
 	text-align: end;
 	user-select: none;
 	font-size: 15px;
 	padding-right: 8px;
 	line-height: 1.5em;
 }
-
 #code-view-pre {
-	font-family: var(--font-mono);
+	font-family: $font-family_1;
 	padding-top: 0;
 	padding-bottom: 0;
 	font-size: 15px;
 	-webkit-text-size-adjust: none;
 	line-height: 1.5em;
 }
-
 #code-view {
-	font-family: var(--font-mono);
+	font-family: $font-family_1;
 	padding-top: 0;
 	padding-bottom: 0;
 	line-height: 1.5em;
 }
-
 .viewcounter {
 	font-size: 12px;
-	font-family: var(--font-mono);
+	font-family: $font-family_1;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-
 #viewcounter-label {
-	color: #908caa;
+	color: $color_1;
 }
-
 #viewcounter-count {
-	color: #ebbcba;
+	color: $color_2;
 }
-
 code {
-	color: #e0def4;
+	color: $color_3;
 }
-
 textarea {
-	background-color: transparent;
+	background-color: $background-color_2;
 	resize: none;
 	width: 100%;
 	height: 100%;
@@ -96,89 +101,76 @@ textarea {
 	margin: 0;
 	border: none;
 	outline: 0;
-	color: #e0def4;
+	color: $color_3;
 	font-size: 15px;
 }
-
 .button-wrapper {
 	position: fixed !important;
 	top: 0;
 	right: 0;
 	padding: 1rem 1rem 0.5rem 1rem;
-	background-color: #1f1d2e;
+	background-color: $background-color_3;
 	z-index: 10;
 }
-
 .buttons {
 	display: flex;
+	>* {
+		+ {
+			* {
+				padding: .10rem .10rem .10rem .10rem;
+			}
+		}
+	}
 }
-
-.buttons > * + * {
-	padding: .10rem .10rem .10rem .10rem;
-}
-
 a {
-	color: #31748f;
+	color: $color_4;
+	&:visited {
+		color: $color_5;
+	}
+	&:hover {
+		&:not(.logo) {
+			color: $color_6;
+		}
+	}
 }
-
-a:visited {
-	color: #c4a7e7;
-}
-
-a:hover :not(.logo) {
-	color: #9ccfd8;
-}
-
 .btn {
 	cursor: pointer;
 	background: 0 0;
-	color: #9ccfd8;
+	color: $color_6;
 	padding: 5px 5px 5px 5px;
 	font-size: 1rem;
 	border: none;
 	transition: background-color 0.2s ease-in-out;
 	display: inline-block;
 	text-decoration: none;
+	&:hover {
+		color: $color_3;
+	}
+	&:disabled {
+		color: $color_7;
+	}
 }
-
-.btn:hover {
-	color: #e0def4;
-}
-
-.btn:disabled,
 .btn[disabled] {
-	color: #6e6a86;
+	color: $color_7;
 }
-
 .logo {
 	font-size: 1.8rem;
 	font-weight: 700;
 	text-align: center;
 	text-decoration: none;
-	color: #8fbcc8;
 	width: 100%;
-	font-family: var(--font-mono);
+	font-family: $font-family_1;
 	display: inline-block;
-	background: linear-gradient(
-		to right,
-		#eb6f92,
-		#c9b065,
-		#ebbcba,
-		#31748f,
-		#9ccfd8,
-		#c4a7e7
-	);
+	background: linear-gradient( to right, #eb6f92, #c9b065, #ebbcba, #31748f, #9ccfd8, #c4a7e7 );
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
 	animation: rainbow 120s linear infinite;
 	background-size: 400% 100%;
+	&:hover {
+		animation: rainbow 3s ease infinite !important;
+	}
 }
-
-.logo:hover {
-	animation: rainbow 3s ease infinite !important;
-}
-
 #messages {
 	position: absolute;
 	top: 0;
@@ -188,22 +180,10 @@ a:hover :not(.logo) {
 	margin: 0;
 	list-style: none;
 	width: 400px;
-}
-
-#messages li {
-	background-color: rgba(31, 29, 46, 0.8);
-	font-family: var(--font-mono);
-	color: #e0def4;
-	padding: 7px;
-}
-
-@keyframes rainbow {
-	0%,
-	100% {
-		background-position: 0 0;
-	}
-
-	50% {
-		background-position: 100% 0;
+	li {
+		background-color: $background-color_4;
+		font-family: $font-family_1;
+		color: $color_3;
+		padding: 7px;
 	}
 }
