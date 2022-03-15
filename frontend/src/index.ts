@@ -105,7 +105,7 @@ function newPaste() {
 	codeViewPre.hide()
 }
 
-function addMessage(message) {
+function addMessage(message: string) {
 	let msg = $(`<li>${message}</li>`)
 	messages.prepend(msg)
 
@@ -139,8 +139,9 @@ saveButton.click(function () {
 	if (editor.val() === "") {
 		return
 	}
+	const val: string = editor.val()?.toString()!
 
-	postPaste(editor.val(), function (err, res) {
+	postPaste(val, function (err, res) {
 		if (err) {
 			addMessage(err["data"]["message"])
 		} else {
