@@ -6,8 +6,10 @@ import {
 } from "@ant-design/icons-svg";
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers";
 import hljs from "highlight.js";
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'jque... Remove this comment to see the full error message
 import $ from "jquery";
 
+// @ts-expect-error ts-migrate(2580) FIXME: Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const config = require("../config.json");
 const apiUrl = config.api_url;
 
@@ -61,6 +63,7 @@ newButton.append(svgFileAdd);
 copyButton.append(svgCopy);
 githubButton.append(svgGithub);
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'content' implicitly has an 'any' type.
 function postPaste(content, callback) {
 	const payload = { content };
 	fetch(`${apiUrl}/p/n`, {
@@ -80,6 +83,7 @@ function postPaste(content, callback) {
 		});
 }
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'id' implicitly has an 'any' type.
 function getPaste(id, callback) {
 	fetch(`${apiUrl}/p/${id}`, {
 		method: 'GET',
@@ -109,17 +113,20 @@ function newPaste() {
 	codeViewPre.hide();
 }
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'message' implicitly has an 'any' type.
 function addMessage(message) {
 	let msg = $(`<li>${message}</li>`);
 	messages.prepend(msg);
 
 	setTimeout(function () {
 		msg.slideUp("fast", function () {
+// @ts-expect-error ts-migrate(2683) FIXME: 'this' implicitly has type 'any' because it does n... Remove this comment to see the full error message
 			$(this).remove();
 		});
 	}, 3000);
 }
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'content' implicitly has an 'any' type.
 function viewPaste(content, views) {
 	lineNumbers.html("");
 	for (let i = 1; i <= content.split("\n").length; i++) {
@@ -144,10 +151,12 @@ saveButton.click(function () {
 		return;
 	}
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'err' implicitly has an 'any' type.
 	postPaste(editor.val(), function (err, res) {
 		if (err) {
 			addMessage(err["data"]["message"]);
 		} else {
+// @ts-expect-error ts-migrate(2345) FIXME: Argument of type 'null' is not assignable to param... Remove this comment to see the full error message
 			window.history.pushState(null, null, `/~/${res["data"]["id"]}`);
 			viewPaste(res["data"]["content"], "0");
 		}
@@ -170,16 +179,22 @@ copyButton.click(function () {
 	// });
 });
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
 editor.keydown(function (e) {
 	if (e.key == "Tab") {
 		e.preventDefault();
+// @ts-expect-error ts-migrate(2683) FIXME: 'this' implicitly has type 'any' because it does n... Remove this comment to see the full error message
 		let start = this.selectionStart;
+// @ts-expect-error ts-migrate(2683) FIXME: 'this' implicitly has type 'any' because it does n... Remove this comment to see the full error message
 		let end = this.selectionEnd;
+// @ts-expect-error ts-migrate(2683) FIXME: 'this' implicitly has type 'any' because it does n... Remove this comment to see the full error message
 		this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+// @ts-expect-error ts-migrate(2683) FIXME: 'this' implicitly has type 'any' because it does n... Remove this comment to see the full error message
 		this.selectionStart = this.selectionEnd = start + 1;
 	}
 });
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'event' implicitly has an 'any' type.
 function handlePopstate(event) {
 	const path = window.location.pathname;
 
@@ -190,8 +205,10 @@ function handlePopstate(event) {
 
 		const id = split[split.length - 1];
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'err' implicitly has an 'any' type.
 		getPaste(id, function (err, res) {
 			if (err) {
+// @ts-expect-error ts-migrate(2345) FIXME: Argument of type 'null' is not assignable to param... Remove this comment to see the full error message
 				window.history.pushState(null, null, `/`);
 				newPaste();
 			} else {
@@ -201,6 +218,7 @@ function handlePopstate(event) {
 	}
 }
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'event' implicitly has an 'any' type.
 $(window).bind("popstate", function (event) {
 	handlePopstate(event);
 });
