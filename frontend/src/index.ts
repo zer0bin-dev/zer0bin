@@ -55,7 +55,7 @@ function hide(element: HTMLElement) {
 }
 
 function show(element: HTMLElement) {
-	element.style.display = "block"
+	element.style.display = null;
 }
 
 function disable(element: HTMLButtonElement) {
@@ -86,8 +86,6 @@ async function postPaste(content: string, callback: Function) {
 				error || `{"data": { "message": "An unkown error occured!" } }`
 			)
 		})
-	global.rawContent = ""
-	hide(viewCounterLabel)
 }
 
 async function getPaste(id: string, callback: Function) {
@@ -111,15 +109,22 @@ async function getPaste(id: string, callback: Function) {
 
 function newPaste() {
 	Scrollbar.destroyAll()
+
 	lineNumbers.innerHTML = "&gt;"
+
 	enable(saveButton)
 	disable(newButton)
 	disable(copyButton)
+
 	editor.value = ""
 	global.rawContent = ""
+
 	wrapper.classList.add("text-area-proper")
+
 	show(editor)
 	hide(codeViewPre)
+	hide(viewCounterLabel)
+	hide(viewCounter)
 }
 
 function addMessage(message: string) {
@@ -145,16 +150,20 @@ function viewPaste(content: string, views: string) {
 	}
 	codeView.innerHTML = hljs.highlightAuto(content).value
 
+	viewCounter.textContent = views.trim()
+
 	disable(saveButton)
 	enable(newButton)
 	enable(copyButton)
+	
 	hide(editor)
 	show(codeViewPre)
 	show(viewCounterLabel)
-	viewCounter.textContent = views.trim()
+
 	try {
 		wrapper.classList.remove("text-area-proper")
 	} catch (error) {}
+
 	Scrollbar.init(document.querySelector(".scrollbar-container"))
 }
 
@@ -169,9 +178,12 @@ saveButton.addEventListener("click", async function () {
 			addMessage(err["data"]["message"])
 		} else {
 			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
+
 			global.rawContent = res["data"]["content"]
 			viewPaste(global.rawContent, "0")
+			
 			const rand = Math.floor(Math.random() * 40)
+			
 			if ([1, 2, 3, 4].includes(rand)) {
 				jsConfetti.addConfetti({
 					confettiColors: [
@@ -198,8 +210,11 @@ saveButton.addEventListener("click", async function () {
 
 copyButton.addEventListener("click", function () {
 	const content = editor.value
+
 	window.history.pushState(null, "", "/")
+	
 	newPaste()
+	
 	global.rawContent = content
 	editor.value = content
 })
@@ -213,12 +228,15 @@ editor.addEventListener(
 	function (e: KeyboardEvent) {
 		if (e.key == "Tab") {
 			e.preventDefault()
+			
 			let start: number = this.selectionStart
 			let end: number = this.selectionEnd
+
 			this.value =
 				this.value.substring(0, start) +
 				"\t" +
 				this.value.substring(end)
+
 			this.selectionStart = this.selectionEnd = start + 1
 		}
 	},
