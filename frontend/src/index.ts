@@ -196,10 +196,14 @@ function handlePopstate() {
 	}
 }
 
-$(window).bind("popstate", function () {
+window.addEventListener("popstate", () => {
 	handlePopstate()
 })
 
-$(document).ready(function () {
-	handlePopstate()
-})
+document.addEventListener(
+	"DOMContentLoaded",
+	() => {
+		handlePopstate()
+	},
+	false
+)
