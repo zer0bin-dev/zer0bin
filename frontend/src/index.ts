@@ -196,11 +196,11 @@ saveButton.addEventListener("click", async function () {
 })
 
 copyButton.addEventListener("click", function () {
-	let content = global.rawContent
+	const content = global.rawContent
 	window.history.pushState(null, "", "/")
 	newPaste()
 	global.rawContent = content
-	editor.value = global.rawContent
+	editor.value = content
 })
 
 newButton.addEventListener("click", function () {
