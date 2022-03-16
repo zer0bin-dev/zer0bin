@@ -1,9 +1,8 @@
-import {
-	SaveOutlined,
-	FileAddOutlined,
-	GithubOutlined,
-	CopyOutlined,
-} from "@ant-design/icons-svg"
+import SaveOutlined from "@ant-design/icons/SaveOutlined"
+import FileAddOutlined from "@ant-design/icons/FileAddOutlined"
+import GithubOutlined from "@ant-design/icons/GithubOutlined"
+import CopyOutlined from "@ant-design/icons/CopyOutlined"
+
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import hljs from "highlight.js"
 

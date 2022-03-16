@@ -19,6 +19,7 @@
 	"repository": "https://github.com/Domterion/zer0bin",
 	"author": "Domterion, ThatOneCalculator",
 	"dependencies": {
+		"@ant-design/icons": "^4.7.0",
 		"@ant-design/icons-svg": "^4.2.1",
 		"highlight.js": "^11.4.0"
 	}
