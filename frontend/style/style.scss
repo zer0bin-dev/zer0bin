@@ -33,6 +33,11 @@ $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
 		background-position: 100% 0;
 	}
 }
+.fadeOut {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s 3s, opacity 2s linear;
+}
 body {
 	height: 100%;
 	background-color: $bg_base;

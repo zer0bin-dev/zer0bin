@@ -6,10 +6,22 @@ import {
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import hljs from "highlight.js"
-import $ from "jquery"
 
 const config = require("../config.json")
 const apiUrl = config.api_url
+
+let lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
+let editor = <HTMLTextAreaElement>document.getElementById("text-area")
+let codeViewPre = <HTMLPreElement>document.getElementById("code-view-pre")
+let codeView = <HTMLElement>document.getElementById("code-view")
+let messages = <HTMLElement>document.getElementById("messages")
+let viewCounterLabel = <HTMLElement>document.getElementById("viewcounter-label")
+let viewCounter = <HTMLElement>document.getElementById("viewcounter-count")
+
+let saveButton = <HTMLButtonElement>document.getElementById("save-button")
+let newButton = <HTMLButtonElement>document.getElementById("new-button")
+let copyButton = <HTMLButtonElement>document.getElementById("copy-button")
+let githubButton = <HTMLButtonElement>document.getElementById("github-button")
 
 const extraSVGAttrs = {
 	width: "1em",
@@ -17,39 +29,18 @@ const extraSVGAttrs = {
 	fill: "currentColor",
 }
 
-const svgSave = renderIconDefinitionToSVGElement(SaveOutlined, {
+saveButton.innerHTML += renderIconDefinitionToSVGElement(SaveOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
-
-const svgFileAdd = renderIconDefinitionToSVGElement(FileAddOutlined, {
+newButton.innerHTML += renderIconDefinitionToSVGElement(FileAddOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
-
-const svgCopy = renderIconDefinitionToSVGElement(CopyOutlined, {
+copyButton.innerHTML += renderIconDefinitionToSVGElement(CopyOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
-
-const svgGithub = renderIconDefinitionToSVGElement(GithubOutlined, {
+githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
-
-const lineNumbers = $(".line-numbers")
-const editor = $("#text-area")
-const codeViewPre = $("#code-view-pre")
-const codeView = $("#code-view")
-const messages = $("#messages")
-const viewCounterLabel = $("#viewcounter-label")
-const viewCounter = $("#viewcounter-count")
-
-const saveButton = $("#save-button")
-const newButton = $("#new-button")
-const copyButton = $("#copy-button")
-const githubButton = $("#github-button")
-
-saveButton.append(svgSave)
-newButton.append(svgFileAdd)
-copyButton.append(svgCopy)
-githubButton.append(svgGithub)
 
 global.rawContent = ""
 
@@ -74,7 +65,7 @@ function postPaste(content: string, callback: Function) {
 			)
 		})
 	global.rawContent = ""
-	viewCounterLabel.hide()
+	viewCounterLabel.hidden = true
 }
 
 function getPaste(id: string, callback: Function) {
@@ -97,53 +88,55 @@ function getPaste(id: string, callback: Function) {
 }
 
 function newPaste() {
-	lineNumbers.html("&gt;")
+	lineNumbers.innerHTML = "&gt;"
 
-	saveButton.prop("disabled", false)
-	newButton.prop("disabled", true)
-	copyButton.prop("disabled", true)
+	saveButton.disabled = false
+	newButton.disabled = true
+	copyButton.disabled = true
 
-	editor.val("")
+	editor.value = ""
 
-	editor.show()
-	codeViewPre.hide()
+	editor.hidden = false
+	codeViewPre.hidden = true
 }
 
 function addMessage(message: string) {
-	let msg = $(`<li>${message}</li>`)
-	messages.prepend(msg)
+	let msg = document.createElement("li")
+	msg.innerHTML = message
+	messages.insertBefore(msg, messages.firstChild)
 
 	setTimeout(function () {
-		msg.slideUp("fast", function () {
-			$(this).remove()
-		})
+		msg.classList.add("fadeOut"),
+			function () {
+				msg.remove()
+			}
 	}, 3000)
 }
 
 function viewPaste(content: string, views: string) {
-	lineNumbers.html("")
+	lineNumbers.innerHTML = ""
 	for (let i = 1; i <= content.split("\n").length; i++) {
 		lineNumbers.append(`${i}
 <br>`)
 	}
-	codeView.html(hljs.highlightAuto(content).value)
+	codeView.innerHTML = hljs.highlightAuto(content).value
 
-	saveButton.prop("disabled", true)
-	newButton.prop("disabled", false)
-	copyButton.prop("disabled", false)
+	saveButton.disabled = true
+	newButton.disabled = false
+	copyButton.disabled = false
 
-	viewCounter.text(views)
+	viewCounter.textContent = views
 
-	editor.hide()
-	codeViewPre.show()
-	viewCounterLabel.show()
+	editor.hidden = true
+	codeViewPre.hidden = false
+	viewCounterLabel.hidden = false
 }
 
-saveButton.click(function () {
-	if (editor.val() === "") {
+export function saveButtonExec() {
+	if (editor.value === "") {
 		return
 	}
-	const val: string = editor.val()?.toString()!
+	const val: string = editor.value?.toString()!
 
 	postPaste(val, function (err, res) {
 		if (err) {
@@ -154,26 +147,32 @@ saveButton.click(function () {
 			viewPaste(global.rawContent, "0")
 		}
 	})
-})
+}
 
-copyButton.click(function () {
+export function copyButtonExec() {
 	window.history.pushState(null, "", "/")
 	let content = global.rawContent
 	newPaste()
 	global.rawContent = content
-	editor.val(global.rawContent)
-})
+	editor.value = global.rawContent
+}
 
-editor.keydown(function (e: KeyboardEvent) {
-	if (e.key == "Tab") {
-		e.preventDefault()
-		let start: string = this.selectionStart
-		let end: string = this.selectionEnd
-		this.value =
-			this.value.substring(0, start) + "\t" + this.value.substring(end)
-		this.selectionStart = this.selectionEnd = start + 1
-	}
-})
+editor.addEventListener(
+	"keydown",
+	function (e: KeyboardEvent) {
+		if (e.key == "Tab") {
+			e.preventDefault()
+			let start: number = this.selectionStart
+			let end: number = this.selectionEnd
+			this.value =
+				this.value.substring(0, start) +
+				"\t" +
+				this.value.substring(end)
+			this.selectionStart = this.selectionEnd = start + 1
+		}
+	},
+	false
+)
 
 function handlePopstate() {
 	const path = window.location.pathname
