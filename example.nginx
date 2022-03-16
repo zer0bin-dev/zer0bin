@@ -37,11 +37,6 @@ server {
         proxy_set_header Host $host;
     }
 
-    location ~* \.(png|jpg|jpeg|gif)$ {
-        expires 365d;
-        add_header Cache-Control "public, no-transform";
-    }
-
     expires 30d;
     add_header Cache-Control "public, no-transform";
 
