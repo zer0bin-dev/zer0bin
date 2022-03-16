@@ -7,6 +7,7 @@ import {
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import hljs from "highlight.js"
 import JSConfetti from "js-confetti"
+import Scrollbar from "smooth-scrollbar"
 
 const config = require("../config.json")
 const apiUrl = config.api_url
@@ -150,6 +151,7 @@ function viewPaste(content: string, views: string) {
 	show(codeViewPre)
 	show(viewCounterLabel)
 	viewCounter.textContent = views.trim()
+	Scrollbar.init(document.querySelector(".scrollbar-container"))
 }
 
 saveButton.addEventListener("click", async function () {
@@ -165,7 +167,8 @@ saveButton.addEventListener("click", async function () {
 			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
 			global.rawContent = res["data"]["content"]
 			viewPaste(global.rawContent, "0")
-			let rand: number = Math.floor(Math.random() * 10)
+			let rand = Math.floor(Math.random() * 10)
+			console.log(rand)
 			if (rand === 1) {
 				jsConfetti.addConfetti({
 					confettiColors: [

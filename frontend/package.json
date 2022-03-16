@@ -25,6 +25,7 @@
 		"@ant-design/icons": "^4.7.0",
 		"@ant-design/icons-svg": "^4.2.1",
 		"highlight.js": "^11.4.0",
-		"js-confetti": "^0.10.2"
+		"js-confetti": "^0.10.2",
+		"smooth-scrollbar": "^8.7.4"
 	}
 }

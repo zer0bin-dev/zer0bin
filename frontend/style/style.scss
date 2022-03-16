@@ -68,11 +68,16 @@ pre {
 	-moz-user-select: none;
 	-ms-user-select: none;
 }
+.wrapper .scroll-content {
+	display: flex;
+}
+.scrollbar-container {
+	height: 100%;
+}
 .wrapper {
 	display: flex;
 	padding: 1rem 0.5rem;
 	font-size: 1rem;
-	height: calc(100% - 2rem);
 }
 .line-numbers {
 	color: $subtle;
