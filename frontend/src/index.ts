@@ -87,17 +87,33 @@ function getPaste(id: string, callback: Function) {
 		})
 }
 
+function hide(element: HTMLElement) {
+	element.style.display = "none"
+}
+
+function show(element: HTMLElement) {
+	element.style.display = "block"
+}
+
+function disable(element: HTMLButtonElement) {
+	element.disabled = true
+}
+
+function enable(element: HTMLButtonElement) {
+	element.disabled = false
+}
+
 function newPaste() {
 	lineNumbers.innerHTML = "&gt;"
 
-	saveButton.disabled = false
-	newButton.disabled = true
-	copyButton.disabled = true
+	enable(saveButton)
+	disable(newButton)
+	disable(copyButton)
 
 	editor.value = ""
 
-	editor.hidden = false
-	codeViewPre.hidden = true
+	show(editor)
+	hide(codeViewPre)
 }
 
 function addMessage(message: string) {
@@ -121,15 +137,15 @@ function viewPaste(content: string, views: string) {
 	}
 	codeView.innerHTML = hljs.highlightAuto(content).value
 
-	saveButton.disabled = true
-	newButton.disabled = false
-	copyButton.disabled = false
+	disable(saveButton)
+	enable(newButton)
+	enable(copyButton)
 
 	viewCounter.textContent = views
 
-	editor.hidden = true
-	codeViewPre.hidden = false
-	viewCounterLabel.hidden = false
+	hide(editor)
+	show(codeViewPre)
+	show(viewCounterLabel)
 }
 
 export function saveButtonExec() {
