@@ -27,7 +27,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | Website                                        | Expiration | Max paste size | Version | Country |
 | ---------------------------------------------- | ---------- | -------------- | ------- | ------- |
 | zer0b.in (not up yet)                          | 7 days     | 40,000 chars   | vx.x.x  | ?       |
-| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.6.0  | 🇺🇸 US   |
+| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.6.1  | 🇺🇸 US   |
 
 # Technologies used
 
