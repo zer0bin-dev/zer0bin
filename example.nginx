@@ -1,5 +1,6 @@
 # replace example.tld with your domain
 # replace /home/the1calc/zer0bin with the location of the zer0bin folder
+# uncomment brotoli on; if you have the nginx brotoli plugin
 
 server {
     #listen 80 is default
