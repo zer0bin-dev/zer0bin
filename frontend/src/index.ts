@@ -187,8 +187,6 @@ saveButton.addEventListener("click", async function () {
 	const val: string = editor.value?.toString()!
 
 	await postPaste(val, function (err, res) {
-		console.log(res)
-
 		if (err) {
 			addMessage(err["data"]["message"])
 		} else {
