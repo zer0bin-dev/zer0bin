@@ -10,18 +10,20 @@ import hljs from "highlight.js"
 const config = require("../config.json")
 const apiUrl = config.api_url
 
-let lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
-let editor = <HTMLTextAreaElement>document.getElementById("text-area")
-let codeViewPre = <HTMLPreElement>document.getElementById("code-view-pre")
-let codeView = <HTMLElement>document.getElementById("code-view")
-let messages = <HTMLElement>document.getElementById("messages")
-let viewCounterLabel = <HTMLElement>document.getElementById("viewcounter-label")
-let viewCounter = <HTMLElement>document.getElementById("viewcounter-count")
+const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
+const editor = <HTMLTextAreaElement>document.getElementById("text-area")
+const codeViewPre = <HTMLPreElement>document.getElementById("code-view-pre")
+const codeView = <HTMLElement>document.getElementById("code-view")
+const messages = <HTMLElement>document.getElementById("messages")
+const viewCounterLabel = <HTMLElement>(
+	document.getElementById("viewcounter-label")
+)
+const viewCounter = <HTMLElement>document.getElementById("viewcounter-count")
 
-let saveButton = <HTMLButtonElement>document.getElementById("save-button")
-let newButton = <HTMLButtonElement>document.getElementById("new-button")
-let copyButton = <HTMLButtonElement>document.getElementById("copy-button")
-let githubButton = <HTMLButtonElement>document.getElementById("github-button")
+const saveButton = <HTMLButtonElement>document.getElementById("save-button")
+const newButton = <HTMLButtonElement>document.getElementById("new-button")
+const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
+const githubButton = <HTMLButtonElement>document.getElementById("github-button")
 
 const extraSVGAttrs = {
 	width: "1em",
@@ -132,7 +134,9 @@ function addMessage(message: string) {
 function viewPaste(content: string, views: string) {
 	lineNumbers.innerHTML = ""
 	for (let i = 1; i <= content.split("\n").length; i++) {
-		lineNumbers.innerHTML = lineNumbers.innerHTML + `${i}
+		lineNumbers.innerHTML =
+			lineNumbers.innerHTML +
+			`${i}
 <br>`
 	}
 	codeView.innerHTML = hljs.highlightAuto(content).value
@@ -148,7 +152,7 @@ function viewPaste(content: string, views: string) {
 	show(viewCounterLabel)
 }
 
-saveButton.addEventListener("click", function() {
+saveButton.addEventListener("click", function () {
 	if (editor.value === "") {
 		return
 	}
@@ -165,7 +169,7 @@ saveButton.addEventListener("click", function() {
 	})
 })
 
-copyButton.addEventListener("click", function() {
+copyButton.addEventListener("click", function () {
 	window.history.pushState(null, "", "/")
 	let content = global.rawContent
 	newPaste()
@@ -173,8 +177,8 @@ copyButton.addEventListener("click", function() {
 	editor.value = global.rawContent
 })
 
-newButton.addEventListener("click", function() {
-	window.location.href = "/";
+newButton.addEventListener("click", function () {
+	window.location.href = "/"
 })
 
 editor.addEventListener(
