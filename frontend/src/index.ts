@@ -6,9 +6,11 @@ import {
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import hljs from "highlight.js"
+import JSConfetti from "js-confetti"
 
 const config = require("../config.json")
 const apiUrl = config.api_url
+const jsConfetti = new JSConfetti()
 global.rawContent = ""
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
@@ -163,6 +165,27 @@ saveButton.addEventListener("click", async function () {
 			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
 			global.rawContent = res["data"]["content"]
 			viewPaste(global.rawContent, "0")
+			let rand: number = Math.floor(Math.random() * 10)
+			if (rand === 1) {
+				jsConfetti.addConfetti({
+					confettiColors: [
+						"#eb6f92",
+						"#f6c177",
+						"#ebbcba",
+						"#31748f",
+						"#9ccfd8",
+						"#c4a7e7",
+					],
+				})
+			} else if (rand === 2) {
+				jsConfetti.addConfetti({
+					emojis: ["🦀"],
+				})
+			} else if (rand === 3) {
+				jsConfetti.addConfetti({
+					emojis: ["🐢", "🚀", "✨"],
+				})
+			}
 		}
 	})
 })
