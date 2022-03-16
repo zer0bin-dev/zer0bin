@@ -13,6 +13,7 @@ import Scrollbar from "smooth-scrollbar"
 const config = require("../config.json")
 const apiUrl = config.api_url
 const jsConfetti = new JSConfetti()
+
 global.rawContent = ""
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
@@ -78,12 +79,18 @@ async function postPaste(content: string, callback: Function) {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			callback(null, data)
+			if (data["success"]) {
+				callback(null, data)
+
+				return
+			}
+
+			callback(data || { data: { message: "An unkown error occured!" } })
 		})
 		.catch((error) => {
-			callback(
-				error || `{"data": { "message": "An unkown error occured!" } }`
-			)
+			callback({
+				data: { message: "API error occurred.. please try again." },
+			})
 		})
 }
 
@@ -97,12 +104,18 @@ async function getPaste(id: string, callback: Function) {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			callback(null, data)
+			if (data["success"]) {
+				callback(null, data)
+
+				return
+			}
+
+			callback(data || { data: { message: "An unkown error occured!" } })
 		})
 		.catch((error) => {
-			callback(
-				error || `{"data": { "message": "An unkown error occured!" } }`
-			)
+			callback({
+				data: { message: "API error occurred.. please try again." },
+			})
 		})
 }
 
@@ -127,7 +140,6 @@ function newPaste() {
 }
 
 function addMessage(message: string) {
-	console.log("L")
 	let msg = document.createElement("li")
 	msg.innerHTML = message
 	messages.insertBefore(msg, messages.firstChild)

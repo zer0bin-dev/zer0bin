@@ -1,8 +1,10 @@
 <div align="center">
+	<a href="https://zer0b.in">
     <img src="https://raw.githubusercontent.com/zer0bin-dev/.github/main/zer0bin.svg" height="150px"/>
 	<br>
     <img src="https://raw.githubusercontent.com/zer0bin-dev/.github/main/zer0bin-rainbow.svg" height="100"/>
 	<br>
+	</a>
     Just a place to paste
     <br>
 	<br>
@@ -27,7 +29,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | Website                                        | Expiration | Max paste size | Version | Country |
 | ---------------------------------------------- | ---------- | -------------- | ------- | ------- |
 | zer0b.in (not up yet)                          | 7 days     | 40,000 chars   | vx.x.x  | ?       |
-| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.6.0  | 🇺🇸 US   |
+| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.6.1  | 🇺🇸 US   |
 
 # Technologies used
 
@@ -37,7 +39,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ### Backend:
 
-<a href="https://www.rust-lang.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Rust.svg" height=40/></a> <a href="https://actix.rs/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309813628978/Actix-Dark.svg" height=40/></a> <a href="https://github.com/serde-rs/serde"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309964627978/Serde-Dark.svg" height=40/></a> <a href="https://github.com/launchbadge/sqlx"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176310354673704/SQLX-Dark.svg" height=40/></a> <a href="https://github.com/chronotope/chrono"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953178919169835018/NPM-svg.png" height=40/></a> <a href="https://www.postgresql.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/PostgreSQL-Dark.svg" height=40/></a> <a href="https://github.com/nikolay-govorov/nanoid"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309629067354/NanoID-Dark.svg" height=40/></a>
+<a href="https://www.rust-lang.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Rust.svg" height=40/></a> <a href="https://actix.rs/"><img src="https://user-images.githubusercontent.com/44733677/158648238-0586f185-4e0c-43bc-b6a9-effd18b3b1ac.svg" height=40/></a> <a href="https://github.com/serde-rs/serde"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309964627978/Serde-Dark.svg" height=40/></a> <a href="https://github.com/launchbadge/sqlx"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176310354673704/SQLX-Dark.svg" height=40/></a> <a href="https://github.com/chronotope/chrono"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953178919169835018/NPM-svg.png" height=40/></a> <a href="https://www.postgresql.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/PostgreSQL-Dark.svg" height=40/></a> <a href="https://github.com/nikolay-govorov/nanoid"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309629067354/NanoID-Dark.svg" height=40/></a>
 
 ### Misc:
 
