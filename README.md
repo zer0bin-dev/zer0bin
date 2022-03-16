@@ -117,4 +117,7 @@ cargo build --release
 ###### Measured with Lighthouse
 
 ### Homepage
-![image](https://user-images.githubusercontent.com/44733677/158515510-314cb20a-fb5f-4f2d-a3ef-eadd07476501.png)
+![image](https://user-images.githubusercontent.com/44733677/158523056-2d1b4a38-76f8-413f-b4df-5fd3d920dc66.png)
+
+### 20 line paste
+![image](https://user-images.githubusercontent.com/44733677/158522958-a226612f-3848-43be-876e-8822a4cc9907.png)
