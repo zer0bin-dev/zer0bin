@@ -8,6 +8,7 @@ import hljs from "highlight.js"
 
 const config = require("../config.json")
 const apiUrl = config.api_url
+global.rawContent = ""
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
 const editor = <HTMLTextAreaElement>document.getElementById("text-area")
@@ -18,7 +19,6 @@ const viewCounterLabel = <HTMLElement>(
 	document.getElementById("viewcounter-label")
 )
 const viewCounter = <HTMLElement>document.getElementById("viewcounter-count")
-
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
@@ -43,7 +43,21 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
 
-global.rawContent = ""
+function hide(element: HTMLElement) {
+	element.style.display = "none"
+}
+
+function show(element: HTMLElement) {
+	element.style.display = "block"
+}
+
+function disable(element: HTMLButtonElement) {
+	element.disabled = true
+}
+
+function enable(element: HTMLButtonElement) {
+	element.disabled = false
+}
 
 function postPaste(content: string, callback: Function) {
 	const payload = { content }
@@ -66,7 +80,7 @@ function postPaste(content: string, callback: Function) {
 			)
 		})
 	global.rawContent = ""
-	viewCounterLabel.hidden = true
+	hide(viewCounterLabel)
 }
 
 function getPaste(id: string, callback: Function) {
@@ -86,22 +100,6 @@ function getPaste(id: string, callback: Function) {
 				error || `{"data": { "message": "An unkown error occured!" } }`
 			)
 		})
-}
-
-function hide(element: HTMLElement) {
-	element.style.display = "none"
-}
-
-function show(element: HTMLElement) {
-	element.style.display = "block"
-}
-
-function disable(element: HTMLButtonElement) {
-	element.disabled = true
-}
-
-function enable(element: HTMLButtonElement) {
-	element.disabled = false
 }
 
 function newPaste() {
