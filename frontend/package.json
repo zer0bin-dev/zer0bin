@@ -11,6 +11,7 @@
 	"devDependencies": {
 		"@parcel/compressor-brotli": "^2.3.2",
 		"@parcel/compressor-gzip": "^2.3.2",
+		"@parcel/config-default": "^2.3.2",
 		"@parcel/transformer-pug": "^2.3.2",
 		"@parcel/transformer-sass": "^2.3.2",
 		"@types/core-js": "^2.5.5",
