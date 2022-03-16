@@ -1,6 +1,7 @@
-# replace example.tld with your domain
-# replace /home/the1calc/zer0bin with the location of the zer0bin folder
-# uncomment brotoli on; if you have the nginx brotoli plugin
+# replace `example.tld` with your domain
+# replace `/home/the1calc/zer0bin` with the location of the zer0bin folder
+# uncomment the `brotoli on;` lines if you have the nginx brotoli plugin
+# uncomment the `ssl_certificate` lines if you have letsencrypt certs
 
 server {
     #listen 80 is default
@@ -40,8 +41,6 @@ server {
 
     expires 30d;
     add_header Cache-Control "public, no-transform";
-
-    # If you have SSL certs from letsencrypt via certbot, uncomment the below lines:
 
     # ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
     # ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
