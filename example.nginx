@@ -1,47 +1,19 @@
 # replace example.tld with your domain
-# replace /location/to with the parent folder of zer0bin
+# replace /home/the1calc/zer0bin with the location of the zer0bin folder
 
 server {
     #listen 80 is default
     server_name www.example.tld;
     return 301 https://example.tld$request_uri;
-}
-
-server {
-    listen 80;
-    server_name example.tld;
-
-    root /location/to/zer0bin/frontend/dist;
-
-    rewrite ^/~/(.*)$ /index.html;
-
-    location / {
-        index index.html;
-    }
-
-    location ~ \.(css|js|html) {
-        try_files $uri =404;
-    }
-
-    location ^~ /.well-known/ {
-        alias /var/www/.well-known/;
-    }
-
-    location /api/ {
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Origin' '*';
-        proxy_pass http://localhost:8000/;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $host;
-    }
-
+    brotli on;
 }
 
 server {
     listen 443;
     server_name example.tld;
+    brotli on;
 
-    root /location/to/zer0bin/frontend/dist;
+    root /location/of/zer0bin/frontend/dist;
 
     rewrite ^/~/(.*)$ /index.html;
 
@@ -65,8 +37,18 @@ server {
         proxy_set_header Host $host;
     }
 
-    # If you have letsencrypt certs provided by certbot:
+    location ~* \.(png|jpg|jpeg|gif)$ {
+        expires 365d;
+        add_header Cache-Control "public, no-transform";
+    }
 
-    # ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
-    # ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
+    location ~* \.(js|css|pdf|html|swf)$ {
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    # If you have SSL certs from letsencrypt via certbot, uncomment the below lines:
+
+	# ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
+	# ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
 }
