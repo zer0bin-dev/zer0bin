@@ -16,10 +16,12 @@ const editor = <HTMLTextAreaElement>document.getElementById("text-area")
 const codeViewPre = <HTMLPreElement>document.getElementById("code-view-pre")
 const codeView = <HTMLElement>document.getElementById("code-view")
 const messages = <HTMLElement>document.getElementById("messages")
-const viewCounterLabel = <HTMLElement>(
+const viewCounterLabel = <HTMLSpanElement>(
 	document.getElementById("viewcounter-label")
 )
-const viewCounter = <HTMLElement>document.getElementById("viewcounter-count")
+const viewCounter = <HTMLSpanElement>(
+	document.getElementById("viewcounter-count")
+)
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
@@ -142,12 +144,10 @@ function viewPaste(content: string, views: string) {
 	disable(saveButton)
 	enable(newButton)
 	enable(copyButton)
-
-	viewCounter.textContent = views
-
 	hide(editor)
 	show(codeViewPre)
 	show(viewCounterLabel)
+	viewCounter.textContent = views.trim()
 }
 
 saveButton.addEventListener("click", async function () {
