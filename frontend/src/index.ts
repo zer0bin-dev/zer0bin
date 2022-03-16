@@ -170,9 +170,8 @@ saveButton.addEventListener("click", async function () {
 			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
 			global.rawContent = res["data"]["content"]
 			viewPaste(global.rawContent, "0")
-			let rand = Math.floor(Math.random() * 10)
-			console.log(rand)
-			if (rand === 1) {
+			const rand = Math.floor(Math.random() * 40)
+			if ([1, 2, 3, 4].includes(rand)) {
 				jsConfetti.addConfetti({
 					confettiColors: [
 						"#eb6f92",
@@ -183,11 +182,11 @@ saveButton.addEventListener("click", async function () {
 						"#c4a7e7",
 					],
 				})
-			} else if (rand === 2) {
+			} else if (rand === 5) {
 				jsConfetti.addConfetti({
 					emojis: ["🦀"],
 				})
-			} else if (rand === 3) {
+			} else if (rand === 6) {
 				jsConfetti.addConfetti({
 					emojis: ["🐢", "🚀", "✨"],
 				})
