@@ -162,7 +162,7 @@ function viewPaste(content: string, views: string) {
 	}
 	codeView.innerHTML = hljs.highlightAuto(content).value
 
-	viewCounter.textContent = views.trim()
+	viewCounter.textContent = views
 
 	disable(saveButton)
 	enable(newButton)
