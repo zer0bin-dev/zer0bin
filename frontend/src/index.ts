@@ -116,6 +116,7 @@ function newPaste() {
 	disable(newButton)
 	disable(copyButton)
 	editor.value = ""
+	global.rawContent = ""
 	wrapper.classList.add("text-area-proper")
 	show(editor)
 	hide(codeViewPre)
@@ -196,10 +197,9 @@ saveButton.addEventListener("click", async function () {
 })
 
 copyButton.addEventListener("click", function () {
-	const content = global.rawContent
+	const content = editor.value
 	window.history.pushState(null, "", "/")
 	newPaste()
-	console.log(content)
 	global.rawContent = content
 	editor.value = content
 })
