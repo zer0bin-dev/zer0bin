@@ -1,7 +1,7 @@
 <div align="center">
-    <img src="assets/zero.png" height="110px"/>
+    <img src="assets/zer0bin.svg" height="110px"/>
 	<br>
-    <img src="assets/zer0bin.svg" height="100"/>
+    <img src="assets/zer0bin-rainbow.svg" height="100"/>
 	<br>
     Just a place to paste
     <br>
