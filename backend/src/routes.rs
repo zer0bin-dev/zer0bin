@@ -63,6 +63,10 @@ pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> imp
                 .execute(&state.pool)
                 .await;
 
+            if state.config.logging.on_get_paste {
+                println!("[GET]  id={} views={}", id, p.views + 1);
+            }
+
             HttpResponse::Ok().json(ApiResponse {
                 success: true,
                 data: GetPasteResponse {
@@ -165,41 +169,29 @@ pub async fn new_paste(
         Some(Utc::now() + Duration::days(state.config.pastes.days_til_expiration))
     };
 
-    /*
-        .replace(/&/g, '&amp;')
-    .replace(/>/g, '&gt;')
-    .replace(/</g, '&lt;')
-    .replace(/"/g, '&quot;');
-    */
-
-    // let cleaned = data
-    //     .content
-    //     .clone()
-    //     .replace("&", "&amp;")
-    //     .replace("<", "&lt;")
-    //     .replace(">", "&gt;")
-    //     .replace(r#"""#, "&quot;");
-
-    let cleaned = data
-        .content
-        .clone();
+    let content = data.content.clone();
 
     let res =
         sqlx::query(r#"INSERT INTO pastes("id", "content", "expires_at") VALUES ($1, $2, $3)"#)
             .bind(id.clone())
-            .bind(cleaned.clone())
+            .bind(content.clone())
             .bind(expires_at)
             .execute(&state.pool)
             .await;
 
     match res {
-        Ok(_) => HttpResponse::Ok().json(ApiResponse {
+        Ok(_) => {
+            if state.config.logging.on_post_paste {
+                println!("[POST] id={} length={}", id, content.len());
+            }
+            
+            HttpResponse::Ok().json(ApiResponse {
             success: true,
             data: NewPasteResponse {
                 id,
-                content: cleaned,
+                content,
             },
-        }),
+        })},
         Err(e) => {
             eprintln!("Error occurred while creating paste: {:?}", e);
 

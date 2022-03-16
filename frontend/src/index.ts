@@ -166,14 +166,18 @@ function viewPaste(content: string, views: string) {
 	enable(newButton)
 	enable(copyButton)
 	hide(editor)
+	
 	show(codeViewPre)
 	show(viewCounterLabel)
+	show(viewCounter)
+
+	viewCounter.textContent = views
+
 	try {
 		wrapper.classList.remove("text-area-proper")
 	} catch (error) {}
 
 	Scrollbar.init(document.querySelector(".scrollbar-container"))
-	viewCounter.textContent = views
 }
 
 saveButton.addEventListener("click", async function () {
