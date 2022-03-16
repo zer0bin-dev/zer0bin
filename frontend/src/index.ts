@@ -12,6 +12,7 @@ import Scrollbar from "smooth-scrollbar"
 const config = require("../config.json")
 const apiUrl = config.api_url
 const jsConfetti = new JSConfetti()
+
 global.rawContent = ""
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
@@ -55,7 +56,7 @@ function hide(element: HTMLElement) {
 }
 
 function show(element: HTMLElement) {
-	element.style.display = null;
+	element.style.display = null
 }
 
 function disable(element: HTMLButtonElement) {
@@ -77,12 +78,18 @@ async function postPaste(content: string, callback: Function) {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			callback(null, data)
+			if (data["success"]) {
+				callback(null, data)
+
+				return
+			}
+
+			callback(data || { data: { message: "An unkown error occured!" } })
 		})
 		.catch((error) => {
-			callback(
-				error || `{"data": { "message": "An unkown error occured!" } }`
-			)
+			callback({
+				data: { message: "API error occurred.. please try again." },
+			})
 		})
 }
 
@@ -96,12 +103,18 @@ async function getPaste(id: string, callback: Function) {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			callback(null, data)
+			if (data["success"]) {
+				callback(null, data)
+
+				return
+			}
+
+			callback(data || { data: { message: "An unkown error occured!" } })
 		})
 		.catch((error) => {
-			callback(
-				error || `{"data": { "message": "An unkown error occured!" } }`
-			)
+			callback({
+				data: { message: "API error occurred.. please try again." },
+			})
 		})
 }
 
@@ -126,7 +139,6 @@ function newPaste() {
 }
 
 function addMessage(message: string) {
-	console.log("L")
 	let msg = document.createElement("li")
 	msg.innerHTML = message
 	messages.insertBefore(msg, messages.firstChild)
@@ -154,7 +166,7 @@ function viewPaste(content: string, views: string) {
 	disable(saveButton)
 	enable(newButton)
 	enable(copyButton)
-	
+
 	hide(editor)
 	show(codeViewPre)
 	show(viewCounterLabel)
@@ -173,7 +185,6 @@ saveButton.addEventListener("click", async function () {
 	const val: string = editor.value?.toString()!
 
 	await postPaste(val, function (err, res) {
-
 		console.log(res)
 
 		if (err) {
@@ -183,9 +194,9 @@ saveButton.addEventListener("click", async function () {
 
 			global.rawContent = res["data"]["content"]
 			viewPaste(global.rawContent, "0")
-			
+
 			const rand = Math.floor(Math.random() * 40)
-			
+
 			if ([1, 2, 3, 4].includes(rand)) {
 				jsConfetti.addConfetti({
 					confettiColors: [
@@ -214,9 +225,9 @@ copyButton.addEventListener("click", function () {
 	const content = editor.value
 
 	window.history.pushState(null, "", "/")
-	
+
 	newPaste()
-	
+
 	global.rawContent = content
 	editor.value = content
 })
@@ -230,7 +241,7 @@ editor.addEventListener(
 	function (e: KeyboardEvent) {
 		if (e.key == "Tab") {
 			e.preventDefault()
-			
+
 			let start: number = this.selectionStart
 			let end: number = this.selectionEnd
 
