@@ -12,7 +12,6 @@ import Scrollbar from "smooth-scrollbar"
 const config = require("../config.json")
 const apiUrl = config.api_url
 const jsConfetti = new JSConfetti()
-Scrollbar.init(document.querySelector(".scrollbar-container"))
 global.rawContent = ""
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
@@ -110,14 +109,12 @@ async function getPaste(id: string, callback: Function) {
 }
 
 function newPaste() {
+	Scrollbar.destroyAll()
 	lineNumbers.innerHTML = "&gt;"
-
 	enable(saveButton)
 	disable(newButton)
 	disable(copyButton)
-
 	editor.value = ""
-
 	show(editor)
 	hide(codeViewPre)
 }
@@ -152,6 +149,7 @@ function viewPaste(content: string, views: string) {
 	show(codeViewPre)
 	show(viewCounterLabel)
 	viewCounter.textContent = views.trim()
+	Scrollbar.init(document.querySelector(".scrollbar-container"))
 }
 
 saveButton.addEventListener("click", async function () {
