@@ -199,6 +199,7 @@ copyButton.addEventListener("click", function () {
 	const content = global.rawContent
 	window.history.pushState(null, "", "/")
 	newPaste()
+	console.log(content)
 	global.rawContent = content
 	editor.value = content
 })
