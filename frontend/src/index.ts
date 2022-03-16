@@ -77,11 +77,9 @@ async function postPaste(content: string, callback: Function) {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data)
 			callback(null, data)
 		})
 		.catch((error) => {
-			console.log(error)
 			callback(
 				error || `{"data": { "message": "An unkown error occured!" } }`
 			)
@@ -128,6 +126,7 @@ function newPaste() {
 }
 
 function addMessage(message: string) {
+	console.log("L")
 	let msg = document.createElement("li")
 	msg.innerHTML = message
 	messages.insertBefore(msg, messages.firstChild)
@@ -174,6 +173,9 @@ saveButton.addEventListener("click", async function () {
 	const val: string = editor.value?.toString()!
 
 	await postPaste(val, function (err, res) {
+
+		console.log(res)
+
 		if (err) {
 			addMessage(err["data"]["message"])
 		} else {
