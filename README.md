@@ -59,9 +59,9 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 -   🐘 PostgreSQL ≥ 9.6
 -   🦝 Nginx ≥ 1.18.0
 	- 🥖 [Brotli](https://github.com/google/ngx_brotli) plugin reccomended
--   🌄 Domain 
-	- 🔒 Must have [SSL](https://letsencrypt.org/)
--   🐧 \*nix OS
+-   🌄 Domain  linked to your server
+	- 🔒 Must have [SSL certs](https://letsencrypt.org/)
+-   🐧 \*nix OS (Linux, \*BSD, etc)
 
 ### Steps
 
