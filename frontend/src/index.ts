@@ -148,7 +148,7 @@ function viewPaste(content: string, views: string) {
 	show(viewCounterLabel)
 }
 
-export function saveButtonExec() {
+saveButton.addEventListener("click", function() {
 	if (editor.value === "") {
 		return
 	}
@@ -163,15 +163,19 @@ export function saveButtonExec() {
 			viewPaste(global.rawContent, "0")
 		}
 	})
-}
+})
 
-export function copyButtonExec() {
+copyButton.addEventListener("click", function() {
 	window.history.pushState(null, "", "/")
 	let content = global.rawContent
 	newPaste()
 	global.rawContent = content
 	editor.value = global.rawContent
-}
+})
+
+newButton.addEventListener("click", function() {
+	window.location.href = "/";
+})
 
 editor.addEventListener(
 	"keydown",
