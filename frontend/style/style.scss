@@ -79,6 +79,9 @@ pre {
 	padding: 1rem 0.5rem;
 	font-size: 1rem;
 }
+#text-area {
+	height: calc(100% - 2rem);
+}
 .line-numbers {
 	color: $subtle;
 	font-family: $font-mono;
