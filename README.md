@@ -21,7 +21,6 @@
     <br>
 </div>
 
-
 # Public instances
 
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
@@ -117,6 +116,8 @@ cargo build --release
 | databases.postgres_uri                     | PostreSQL Connection URI | The URI to use when connecting to a PostgreSQL database                        |
 | ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1    | The seconds between paste uploads                                              |
 | ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
+| logging.on_post_paste                      | true or false            | Log on new paste is made                                                       |
+| logging.on_get_paste                       | true or false            | Log on paste get                                                               |
 
 # Benchmarks
 
