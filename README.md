@@ -1,7 +1,7 @@
 <div align="center">
-    <img src="assets/zer0bin.png" height="110px"/>
+    <img src="https://raw.githubusercontent.com/zer0bin-dev/.github/main/zer0bin.svg" height="150px"/>
 	<br>
-    <img src="assets/zer0bin-rainbow.svg" height="100"/>
+    <img src="https://raw.githubusercontent.com/zer0bin-dev/.github/main/zer0bin-rainbow.svg" height="100"/>
 	<br>
     Just a place to paste
     <br>
