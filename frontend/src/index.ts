@@ -60,9 +60,9 @@ function enable(element: HTMLButtonElement) {
 	element.disabled = false
 }
 
-function postPaste(content: string, callback: Function) {
+async function postPaste(content: string, callback: Function) {
 	const payload = { content }
-	fetch(`${apiUrl}/p/n`, {
+	await fetch(`${apiUrl}/p/n`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -84,8 +84,8 @@ function postPaste(content: string, callback: Function) {
 	hide(viewCounterLabel)
 }
 
-function getPaste(id: string, callback: Function) {
-	fetch(`${apiUrl}/p/${id}`, {
+async function getPaste(id: string, callback: Function) {
+	await fetch(`${apiUrl}/p/${id}`, {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
@@ -150,13 +150,13 @@ function viewPaste(content: string, views: string) {
 	show(viewCounterLabel)
 }
 
-saveButton.addEventListener("click", function () {
+saveButton.addEventListener("click", async function () {
 	if (editor.value === "") {
 		return
 	}
 	const val: string = editor.value?.toString()!
 
-	postPaste(val, function (err, res) {
+	await postPaste(val, function (err, res) {
 		if (err) {
 			addMessage(err["data"]["message"])
 		} else {
@@ -196,7 +196,7 @@ editor.addEventListener(
 	false
 )
 
-function handlePopstate() {
+async function handlePopstate() {
 	const path = window.location.pathname
 
 	if (path == "/") {
@@ -206,7 +206,7 @@ function handlePopstate() {
 
 		const id = split[split.length - 1]
 
-		getPaste(id, function (err, res) {
+		await getPaste(id, function (err, res) {
 			if (err) {
 				window.history.pushState(null, "", `/`)
 				newPaste()
@@ -218,14 +218,14 @@ function handlePopstate() {
 	}
 }
 
-window.addEventListener("popstate", () => {
-	handlePopstate()
+window.addEventListener("popstate", async () => {
+	await handlePopstate()
 })
 
 document.addEventListener(
 	"DOMContentLoaded",
-	() => {
-		handlePopstate()
+	async () => {
+		await handlePopstate()
 	},
 	false
 )
