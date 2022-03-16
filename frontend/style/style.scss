@@ -173,6 +173,7 @@ a {
 }
 .btn[disabled] {
 	color: $muted;
+	cursor: auto;
 }
 .logo {
 	font-size: 1.8rem;
