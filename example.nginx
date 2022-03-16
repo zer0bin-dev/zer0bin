@@ -5,13 +5,13 @@ server {
     #listen 80 is default
     server_name www.example.tld;
     return 301 https://example.tld$request_uri;
-    brotli on;
+    # brotli on;
 }
 
 server {
     listen 443;
     server_name example.tld;
-    brotli on;
+    # brotli on;
 
     root /location/of/zer0bin/frontend/dist;
 
