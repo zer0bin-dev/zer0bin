@@ -15,6 +15,7 @@ const jsConfetti = new JSConfetti()
 global.rawContent = ""
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
+const wrapper = <HTMLPreElement>document.querySelector(".wrapper")
 const editor = <HTMLTextAreaElement>document.getElementById("text-area")
 const codeViewPre = <HTMLPreElement>document.getElementById("code-view-pre")
 const codeView = <HTMLElement>document.getElementById("code-view")
@@ -149,6 +150,9 @@ function viewPaste(content: string, views: string) {
 	show(codeViewPre)
 	show(viewCounterLabel)
 	viewCounter.textContent = views.trim()
+	try {
+		wrapper.classList.remove("text-area-proper")
+	} catch (error) {}
 	Scrollbar.init(document.querySelector(".scrollbar-container"))
 }
 
@@ -195,6 +199,7 @@ copyButton.addEventListener("click", function () {
 	window.history.pushState(null, "", "/")
 	let content = global.rawContent
 	newPaste()
+	wrapper.classList.add("text-area-proper")
 	global.rawContent = content
 	editor.value = global.rawContent
 })
