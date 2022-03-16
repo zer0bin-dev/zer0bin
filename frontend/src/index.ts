@@ -132,8 +132,8 @@ function addMessage(message: string) {
 function viewPaste(content: string, views: string) {
 	lineNumbers.innerHTML = ""
 	for (let i = 1; i <= content.split("\n").length; i++) {
-		lineNumbers.innerHTML = lineNumbers.innerHTML + (`${i}
-<br>`)
+		lineNumbers.innerHTML = lineNumbers.innerHTML + `${i}
+<br>`
 	}
 	codeView.innerHTML = hljs.highlightAuto(content).value
 
