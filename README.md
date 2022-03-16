@@ -114,13 +114,7 @@ cargo build --release
 | ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
 
 # Benchmarks
+###### Measured with Lighthouse
 
-> This is on a paste with 200 lines!
-
-### Lighthouse
-
-![Lighthouse](https://user-images.githubusercontent.com/44733677/158105961-7e186b86-54a8-44ac-ad81-65d6cd4b8eb2.png)
-
-### Firefox network
-
-![Firefox Network](https://user-images.githubusercontent.com/44733677/158106344-71c4bb71-450b-4c9a-8473-05e304da41f3.png)
+### Homepage
+![image](https://user-images.githubusercontent.com/44733677/158515510-314cb20a-fb5f-4f2d-a3ef-eadd07476501.png)
