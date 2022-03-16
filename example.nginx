@@ -1,5 +1,5 @@
 # replace `example.tld` with your domain
-# replace `/home/the1calc/zer0bin` with the location of the zer0bin folder
+# replace `/location/of/zer0bin` with the location of the zer0bin folder
 # uncomment the `brotoli on;` lines if you have the nginx brotoli plugin
 # uncomment the `ssl_certificate` lines if you have letsencrypt certs
 
