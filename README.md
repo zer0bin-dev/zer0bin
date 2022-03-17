@@ -70,7 +70,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 ### Steps
 
 <!--
-1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
+1. `git clone https://github.com/zer0bin-dev/zer0bin && cd zer0bin`
 2. Edit `example.nginx` as appropriate, then `mv example.nginx yourdomain.tld && for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do cp ./yourdomain.tld $i; done && systemctl nginx restart`
 3. `psql -f schema.sql -U postgres zer0bin`
 4. `cd frontend`
@@ -88,7 +88,7 @@ Please run each command one at a time!
 
 ```bash
 # export EDITOR=nano
-git clone https://github.com/Domterion/zer0bin && cd zer0bin
+git clone https://github.com/zer0bin-dev/zer0bin && cd zer0bin
 $EDITOR example.nginx # Edit as appropriate
 mv example.nginx yourdomain.tld
 sudo cp ./yourdomain.tld /etc/nginx/sites-available
