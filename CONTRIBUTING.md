@@ -1,6 +1,8 @@
 # Contributing Guidelines
-- Follow repo structure
-- Use prettier formatter with our settings
-- Be respectful
-- Don't add packages that have a lot of bloat
-- Remember to use `npm` if you're working on the frontend
+- Follow the repository structure
+- Commit messages must be descriptive and concise
+- Your code must be formatted with the respective formatter
+    - The frontend must use `prettier` using our config
+    - The backend must use `rustfmt`
+- The frontend must work with `npm`
+- Additional frontend packages must not be considered bloated

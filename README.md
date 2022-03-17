@@ -21,7 +21,6 @@
     <br>
 </div>
 
-
 # Public instances
 
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
@@ -44,6 +43,8 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 ### Misc:
 
 <a href="https://nginx.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Nginx.svg" height=40/></a> <a href="https://github.com/google/ngx_brotli"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953552981691883520/Brotli.svg" height=40/></a> <a href="https://docker.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Docker.svg" height=40/></a> <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Markdown-Dark.svg" height=40/></a> <a href="https://prettier.io/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953339670538887318/Prettier.svg" height=40/></a> <a href="https://git-scm.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Git.svg" height=40/></a>
+
+###### (Sorta) made with [Skill Icons](https://skillicons.dev/)
 
 # API
 
@@ -69,7 +70,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 ### Steps
 
 <!--
-1. `git clone https://github.com/Domterion/zer0bin && cd zer0bin`
+1. `git clone https://github.com/zer0bin-dev/zer0bin && cd zer0bin`
 2. Edit `example.nginx` as appropriate, then `mv example.nginx yourdomain.tld && for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do cp ./yourdomain.tld $i; done && systemctl nginx restart`
 3. `psql -f schema.sql -U postgres zer0bin`
 4. `cd frontend`
@@ -87,7 +88,7 @@ Please run each command one at a time!
 
 ```bash
 # export EDITOR=nano
-git clone https://github.com/Domterion/zer0bin && cd zer0bin
+git clone https://github.com/zer0bin-dev/zer0bin && cd zer0bin
 $EDITOR example.nginx # Edit as appropriate
 mv example.nginx yourdomain.tld
 sudo cp ./yourdomain.tld /etc/nginx/sites-available
@@ -117,6 +118,8 @@ cargo build --release
 | databases.postgres_uri                     | PostreSQL Connection URI | The URI to use when connecting to a PostgreSQL database                        |
 | ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1    | The seconds between paste uploads                                              |
 | ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
+| logging.on_post_paste                      | true or false            | Log on new paste is made                                                       |
+| logging.on_get_paste                       | true or false            | Log on paste get                                                               |
 
 # Benchmarks
 
@@ -131,3 +134,7 @@ cargo build --release
 
 ![image](https://user-images.githubusercontent.com/44733677/158522958-a226612f-3848-43be-876e-8822a4cc9907.png)
 ![image](https://user-images.githubusercontent.com/44733677/158523846-d79a94a5-64a5-475a-b481-e72141b47cf6.png)
+
+# Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md)

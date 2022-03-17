@@ -165,14 +165,18 @@ function viewPaste(content: string, views: string) {
 	enable(newButton)
 	enable(copyButton)
 	hide(editor)
+	
 	show(codeViewPre)
 	show(viewCounterLabel)
+	show(viewCounter)
+
+	viewCounter.textContent = views
+
 	try {
 		wrapper.classList.remove("text-area-proper")
 	} catch (error) {}
 
 	Scrollbar.init(document.querySelector(".scrollbar-container"))
-	viewCounter.textContent = views
 }
 
 async function savePaste() {
@@ -182,8 +186,6 @@ async function savePaste() {
 	const val: string = editor.value?.toString()!
 
 	await postPaste(val, function (err, res) {
-		console.log(res)
-
 		if (err) {
 			addMessage(err["data"]["message"])
 		} else {

@@ -8,6 +8,7 @@ pub struct Config {
     pub pastes: PastesConfig,
     pub ratelimits: RatelimitsConifg,
     pub databases: DatabasesConfig,
+    pub logging: LoggingConfig
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -32,6 +33,12 @@ pub struct PastesConfig {
 #[derive(Serialize, Deserialize, Clone)]
 pub struct DatabasesConfig {
     pub postgres_uri: String,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct LoggingConfig {
+    pub on_post_paste: bool,
+    pub on_get_paste: bool
 }
 
 pub fn load(path: PathBuf) -> Config {
