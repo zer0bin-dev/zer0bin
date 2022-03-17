@@ -132,3 +132,7 @@ cargo build --release
 
 ![image](https://user-images.githubusercontent.com/44733677/158522958-a226612f-3848-43be-876e-8822a4cc9907.png)
 ![image](https://user-images.githubusercontent.com/44733677/158523846-d79a94a5-64a5-475a-b481-e72141b47cf6.png)
+
+# Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md)
