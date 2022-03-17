@@ -14,8 +14,8 @@ RUN CARGO_INCREMENTAL=1 cargo build --release
 
 FROM alpine:3.15
 
-WORKDIR /app
+WORKDIR /backend
 RUN apk update && apk add --no-cache build-base openssl
 COPY --from=builder /build/zer0bin/target/release/zer0bin-bin .
 
-CMD ["/app/zer0bin-bin"]
+CMD ["/backend/zer0bin-bin"]
