@@ -5,7 +5,6 @@ import {
 	CopyOutlined,
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
-import { roles } from "@rose-pine/palette"
 import hljs from "highlight.js"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
@@ -176,7 +175,7 @@ function viewPaste(content: string, views: string) {
 	viewCounter.textContent = views
 }
 
-saveButton.addEventListener("click", async function () {
+async function savePaste() {
 	if (editor.value === "") {
 		return
 	}
@@ -217,21 +216,17 @@ saveButton.addEventListener("click", async function () {
 			}
 		}
 	})
+}
+
+saveButton.addEventListener("click", async function () {
+	await savePaste()
 })
 
-copyButton.addEventListener("click", function () {
-	const content = editor.value
-
-	window.history.pushState(null, "", "/")
-
-	newPaste()
-
-	global.rawContent = content
-	editor.value = content
-})
-
-newButton.addEventListener("click", function () {
-	window.location.href = "/"
+document.addEventListener("keydown", (e) => {
+	if (e.ctrlKey && e.key === "s") {
+		e.preventDefault()
+		savePaste()
+	}
 })
 
 editor.addEventListener(
@@ -253,6 +248,21 @@ editor.addEventListener(
 	},
 	false
 )
+
+copyButton.addEventListener("click", function () {
+	const content = editor.value
+
+	window.history.pushState(null, "", "/")
+
+	newPaste()
+
+	global.rawContent = content
+	editor.value = content
+})
+
+newButton.addEventListener("click", function () {
+	window.location.href = "/"
+})
 
 async function handlePopstate() {
 	const path = window.location.pathname
