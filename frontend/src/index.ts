@@ -196,7 +196,7 @@ async function savePaste() {
 
 			const rand = Math.floor(Math.random() * 40)
 
-			if ([1, 2, 3, 4].includes(rand)) {
+			if (rand > 5) {
 				jsConfetti.addConfetti({
 					confettiColors: [
 						"#eb6f92",
