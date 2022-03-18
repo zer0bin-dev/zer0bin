@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-WORKDIR /frontend
+WORKDIR /var/www/frontend
 
 COPY package.json ./
 RUN npm install
