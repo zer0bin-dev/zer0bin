@@ -57,7 +57,6 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 ### Requirements
 
 -   🦀 [Rust](https://www.rust-lang.org/) ≥ 1.58.0
-    -   📦 [Cargo](https://doc.rust-lang.org/cargo/) ≥ 1.58.0
 -   🐈 [Yarn](https://yarnpkg.com/) ≥ 1.0.0
 -   🐘 [PostgreSQL](https://www.postgresql.org/) ≥ 9.6
 -   🦝 [Nginx](https://www.nginx.com/) ≥ 1.18.0
