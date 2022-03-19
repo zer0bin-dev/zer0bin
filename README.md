@@ -82,8 +82,6 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 10. `./target/release/backend` (preferably in a tmux session or as a service)
 -->
 
-🐋 Docker is coming soon:tm:
-
 Please run each command one at a time!
 
 ```bash
