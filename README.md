@@ -106,6 +106,8 @@ cargo build --release
 
 ### Configuration
 
+<details>
+
 | Key                                        | Values                   | Description                                                                    |
 | ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
 | server.backend_host                        | 127.0.0.1 or 0.0.0.0     | The host to run the backend on                                                 |
@@ -119,9 +121,13 @@ cargo build --release
 | logging.on_post_paste                      | true or false            | Log on new paste is made                                                       |
 | logging.on_get_paste                       | true or false            | Log on paste get                                                               |
 
+</details>	
+	
 # Benchmarks
 
 ###### Measured with Lighthouse and Firefox Network Performance Analysis
+
+<details>
 
 ### Homepage
 
@@ -133,6 +139,8 @@ cargo build --release
 ![image](https://user-images.githubusercontent.com/44733677/158522958-a226612f-3848-43be-876e-8822a4cc9907.png)
 ![image](https://user-images.githubusercontent.com/44733677/158523846-d79a94a5-64a5-475a-b481-e72141b47cf6.png)
 
+</details>
+	
 # Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md)
