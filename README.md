@@ -88,9 +88,10 @@ cargo build --release
 ./target/release/zer0bin-bin # Preferably in a tmux session or as a service
 ```
 
-### Configuration
 
 <details>
+	<summary><h3>Configuration</h3></summary>
+
 
 | Key                                        | Values                   | Description                                                                    |
 | ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
@@ -112,7 +113,8 @@ cargo build --release
 ###### Measured with Lighthouse and Firefox Network Performance Analysis
 
 <details>
-
+	<summary><h3>Results</h3></summary>
+	
 ### Homepage
 
 ![image](https://user-images.githubusercontent.com/44733677/158523056-2d1b4a38-76f8-413f-b4df-5fd3d920dc66.png)
