@@ -179,7 +179,7 @@ async function savePaste() {
 				})
 			} else if (rand === 6) {
 				jsConfetti.addConfetti({
-					emojis: ["🐢", "🚀", "✨"],
+					emojis: ["🐈", "🧶", "📦"],
 				})
 			}
 		}
