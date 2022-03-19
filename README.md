@@ -60,7 +60,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 -   🐈 [Yarn](https://yarnpkg.com/) ≥ 1.0.0
 -   🐘 [PostgreSQL](https://www.postgresql.org/) ≥ 9.6
 -   🦝 [Nginx](https://www.nginx.com/) ≥ 1.18.0
-    -   🥖 [Brotli plugin](https://github.com/google/ngx_brotli) recommended
+    -  🌾 [Brotli plugin](https://github.com/google/ngx_brotli) recommended
 -   🐧 [Linux](https://kernel.org/) or 👿 [FreeBSD](https://freebsd.org/)
 -   🌄 Domain with [SSL](https://letsencrypt.org/)
 
