@@ -64,7 +64,9 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 -   🐧 [Linux](https://kernel.org/) or 😈 [FreeBSD](https://freebsd.org/)
 -   🌄 Domain with [SSL](https://letsencrypt.org/)
 
-### Steps
+
+<details>
+	<summary><h3>Steps</h3></summary>
 
 Please run each command one at a time!
 
@@ -87,7 +89,7 @@ $EDITOR config.json # Edit as appropriate
 cargo build --release
 ./target/release/zer0bin-bin # Preferably in a tmux session or as a service
 ```
-
+</details>
 
 <details>
 	<summary><h3>Configuration</h3></summary>
