@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS pastes (
     "expires_at" TIMESTAMP WITHOUT TIME ZONE,
     "created_at" TIMESTAMP WITHOUT TIME ZONE DEFAULT(NOW() AT TIME ZONE 'utc')
 );
+
 CREATE OR REPLACE FUNCTION deleteExpiredPastes() RETURNS trigger AS $pastes_expire$ BEGIN
 DELETE FROM pastes
 WHERE "expires_at" IS NOT NULL
@@ -12,6 +13,7 @@ WHERE "expires_at" IS NOT NULL
 RETURN NEW;
 END;
 $pastes_expire$ LANGUAGE plpgsql;
+
 CREATE TRIGGER checkPastes BEFORE
 INSERT
     OR

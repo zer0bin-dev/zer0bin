@@ -34,7 +34,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ### Frontend:
 
-<a href="https://www.typescriptlang.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/TypeScript.svg" height=40/></a> <a href="https://sass-lang.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Sass.svg" height=40/></a> <a href="https://pugjs.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Pug-Dark.svg" height=40/></a> <a href="https://rosepinetheme.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309444542464/RosePine.svg" height=40/></a> <a href="https://highlightjs.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953177926688464936/HLJS.svg" height=40/></a> <a href="https://github.com/ant-design/ant-design-icons"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953181625259266059/AntIcons-Dark.svg" height=40/></a> <a href="https://github.com/idiotWu/smooth-scrollbar"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953564432628322364/SmoothScrollJS.svg" height=40/></a> <a href="https://github.com/loonywizard/js-confetti"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953564432896782416/JSConfetti.svg" height=40/></a> <a href="https://definitelytyped.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953567495321710602/DefinitelyTyped.svg" height=40/></a> <a href="https://parceljs.org/"><img src="https://user-images.githubusercontent.com/44733677/158683062-17ac3b62-cacd-4add-babb-1f74f36020d8.svg" height=40/></a> <a href="https://npmjs.org"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309259972638/NPM.svg" height=40/></a> <a href="https://transfonter.org"><img src="https://user-images.githubusercontent.com/44733677/159066877-234f68ba-e95c-439d-b5fe-74def49dc762.svg" height=40></a>
+<a href="https://www.typescriptlang.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/TypeScript.svg" height=40/></a> <a href="https://sass-lang.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Sass.svg" height=40/></a> <a href="https://pugjs.org/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Pug-Dark.svg" height=40/></a> <a href="https://rosepinetheme.com/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953176309444542464/RosePine.svg" height=40/></a> <a href="https://highlightjs.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953177926688464936/HLJS.svg" height=40/></a> <a href="https://github.com/ant-design/ant-design-icons"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953181625259266059/AntIcons-Dark.svg" height=40/></a> <a href="https://github.com/idiotWu/smooth-scrollbar"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953564432628322364/SmoothScrollJS.svg" height=40/></a> <a href="https://github.com/loonywizard/js-confetti"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953564432896782416/JSConfetti.svg" height=40/></a> <a href="https://definitelytyped.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/953567495321710602/DefinitelyTyped.svg" height=40/></a> <a href="https://parceljs.org/"><img src="https://user-images.githubusercontent.com/44733677/158683062-17ac3b62-cacd-4add-babb-1f74f36020d8.svg" height=40/></a> <a href="https://yarnpkg.org"><img src="https://cdn.discordapp.com/attachments/810799100940255260/954823377493852170/Yarn.svg" height=40/></a> <a href="https://transfonter.org"><img src="https://user-images.githubusercontent.com/44733677/159066877-234f68ba-e95c-439d-b5fe-74def49dc762.svg" height=40></a>
 
 ### Backend:
 
@@ -56,33 +56,15 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ### Requirements
 
--   🦀 Rust ≥ 1.58.0
-    -   🚢 Cargo ≥ 1.58.0
--   🐢 NodeJS ≥ 16.0
-    -   🚀 NPM ≥ 8.0.0
--   🐘 PostgreSQL ≥ 9.6
--   🦝 Nginx ≥ 1.18.0
-    -   🥖 [Brotli](https://github.com/google/ngx_brotli) plugin reccomended
--   📍 Domain linked to your server
-    -   🌄 Must have [SSL certs](https://letsencrypt.org/)
--   🐧 \*nix OS (Linux, \*BSD, etc)
+-   🦀 [Rust](https://www.rust-lang.org/) ≥ 1.58.0
+-   🐈 [Yarn](https://yarnpkg.com/) ≥ 1.0.0
+-   🐘 [PostgreSQL](https://www.postgresql.org/) ≥ 9.6
+-   🦝 [Nginx](https://www.nginx.com/) ≥ 1.18.0
+    -  🌾 [Brotli plugin](https://github.com/google/ngx_brotli) recommended
+-   🐧 [Linux](https://kernel.org/) or 😈 [FreeBSD](https://freebsd.org/)
+-   🌄 Domain with [SSL](https://letsencrypt.org/)
 
 ### Steps
-
-<!--
-1. `git clone https://github.com/zer0bin-dev/zer0bin && cd zer0bin`
-2. Edit `example.nginx` as appropriate, then `mv example.nginx yourdomain.tld && for i in /etc/nginx/sites-available/ /etc/nginx/sites-enabled/; do cp ./yourdomain.tld $i; done && systemctl nginx restart`
-3. `psql -f schema.sql -U postgres zer0bin`
-4. `cd frontend`
-5. `cp config.example.json config.json` and edit as appropriate
-6. `npm i && npm run build`
-7. `cd ../backend`
-8. `cp config.example.json config.json` and edit as appropriate
-9. `cargo build --release`
-10. `./target/release/backend` (preferably in a tmux session or as a service)
--->
-
-🐋 Docker is coming soon:tm:
 
 Please run each command one at a time!
 
@@ -97,7 +79,7 @@ systemctl nginx restart # Or whichever process manager you use
 cd frontend
 cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
-npm i && npm run build
+yarn && yarn build
 cd ../backend
 psql -f schema.sql -U postgres zer0bin
 cp config.example.json config.json
@@ -107,6 +89,8 @@ cargo build --release
 ```
 
 ### Configuration
+
+<details>
 
 | Key                                        | Values                   | Description                                                                    |
 | ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
@@ -121,9 +105,13 @@ cargo build --release
 | logging.on_post_paste                      | true or false            | Log on new paste is made                                                       |
 | logging.on_get_paste                       | true or false            | Log on paste get                                                               |
 
+</details>	
+	
 # Benchmarks
 
 ###### Measured with Lighthouse and Firefox Network Performance Analysis
+
+<details>
 
 ### Homepage
 
@@ -135,6 +123,8 @@ cargo build --release
 ![image](https://user-images.githubusercontent.com/44733677/158522958-a226612f-3848-43be-876e-8822a4cc9907.png)
 ![image](https://user-images.githubusercontent.com/44733677/158523846-d79a94a5-64a5-475a-b481-e72141b47cf6.png)
 
+</details>
+	
 # Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md)

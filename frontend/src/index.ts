@@ -1,19 +1,12 @@
-import {
-	SaveOutlined,
-	FileAddOutlined,
-	GithubOutlined,
-	CopyOutlined,
-} from "@ant-design/icons-svg"
-import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import hljs from "highlight.js"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
-const config = require("../config.json")
+import config from "../config.json"
 const apiUrl = config.api_url
-const jsConfetti = new JSConfetti()
+let rawContent = ""
 
-global.rawContent = ""
+const jsConfetti = new JSConfetti()
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
 const wrapper = <HTMLPreElement>document.querySelector(".wrapper")
@@ -30,26 +23,6 @@ const viewCounter = <HTMLSpanElement>(
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
-const githubButton = <HTMLButtonElement>document.getElementById("github-button")
-
-const extraSVGAttrs = {
-	width: "1em",
-	height: "1em",
-	fill: "currentColor",
-}
-
-saveButton.innerHTML += renderIconDefinitionToSVGElement(SaveOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
-newButton.innerHTML += renderIconDefinitionToSVGElement(FileAddOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
-copyButton.innerHTML += renderIconDefinitionToSVGElement(CopyOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
-githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
 
 function hide(element: HTMLElement) {
 	element.style.display = "none"
@@ -80,15 +53,14 @@ async function postPaste(content: string, callback: Function) {
 		.then((data) => {
 			if (data["success"]) {
 				callback(null, data)
-
 				return
 			}
 
 			callback(data || { data: { message: "An unkown error occured!" } })
 		})
-		.catch((error) => {
+		.catch(() => {
 			callback({
-				data: { message: "API error occurred.. please try again." },
+				data: { message: "An API error occurred, please try again." },
 			})
 		})
 }
@@ -105,15 +77,13 @@ async function getPaste(id: string, callback: Function) {
 		.then((data) => {
 			if (data["success"]) {
 				callback(null, data)
-
 				return
 			}
-
 			callback(data || { data: { message: "An unkown error occured!" } })
 		})
-		.catch((error) => {
+		.catch(() => {
 			callback({
-				data: { message: "API error occurred.. please try again." },
+				data: { message: "An API error occurred, please try again." },
 			})
 		})
 }
@@ -128,10 +98,9 @@ function newPaste() {
 	disable(copyButton)
 
 	editor.value = ""
-	global.rawContent = ""
+	rawContent = ""
 
 	wrapper.classList.add("text-area-proper")
-
 	show(editor)
 	hide(codeViewPre)
 	hide(viewCounterLabel)
@@ -154,10 +123,7 @@ function addMessage(message: string) {
 function viewPaste(content: string, views: string) {
 	lineNumbers.innerHTML = ""
 	for (let i = 1; i <= content.split("\n").length; i++) {
-		lineNumbers.innerHTML =
-			lineNumbers.innerHTML +
-			`${i}
-<br>`
+		lineNumbers.innerHTML = lineNumbers.innerHTML + `${i}<br>`
 	}
 	codeView.innerHTML = hljs.highlightAuto(content).value
 
@@ -191,8 +157,8 @@ async function savePaste() {
 		} else {
 			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
 
-			global.rawContent = res["data"]["content"]
-			viewPaste(global.rawContent, "0")
+			rawContent = res["data"]["content"]
+			viewPaste(rawContent, "0")
 
 			const rand = Math.floor(Math.random() * 40)
 
@@ -213,7 +179,7 @@ async function savePaste() {
 				})
 			} else if (rand === 6) {
 				jsConfetti.addConfetti({
-					emojis: ["🐢", "🚀", "✨"],
+					emojis: ["🐈", "🧶", "📦"],
 				})
 			}
 		}
@@ -255,10 +221,9 @@ copyButton.addEventListener("click", function () {
 	const content = editor.value
 
 	window.history.pushState(null, "", "/")
-
 	newPaste()
 
-	global.rawContent = content
+	rawContent = content
 	editor.value = content
 })
 
@@ -273,7 +238,6 @@ async function handlePopstate() {
 		newPaste()
 	} else {
 		const split = path.split("/")
-
 		const id = split[split.length - 1]
 
 		await getPaste(id, function (err, res) {
@@ -281,8 +245,8 @@ async function handlePopstate() {
 				window.history.pushState(null, "", `/`)
 				newPaste()
 			} else {
-				global.rawContent = res["data"]["content"]
-				viewPaste(global.rawContent, res["data"]["views"].toString())
+				rawContent = res["data"]["content"]
+				viewPaste(rawContent, res["data"]["views"].toString())
 			}
 		})
 	}
