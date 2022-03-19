@@ -53,7 +53,6 @@ async function postPaste(content: string, callback: Function) {
 		.then((data) => {
 			if (data["success"]) {
 				callback(null, data)
-
 				return
 			}
 
@@ -78,10 +77,8 @@ async function getPaste(id: string, callback: Function) {
 		.then((data) => {
 			if (data["success"]) {
 				callback(null, data)
-
 				return
 			}
-
 			callback(data || { data: { message: "An unkown error occured!" } })
 		})
 		.catch((error) => {
@@ -228,7 +225,6 @@ copyButton.addEventListener("click", function () {
 	const content = editor.value
 
 	window.history.pushState(null, "", "/")
-
 	newPaste()
 
 	global.rawContent = content
@@ -246,7 +242,6 @@ async function handlePopstate() {
 		newPaste()
 	} else {
 		const split = path.split("/")
-
 		const id = split[split.length - 1]
 
 		await getPaste(id, function (err, res) {
