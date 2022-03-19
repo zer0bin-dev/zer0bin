@@ -81,7 +81,7 @@ cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 yarn && yarn build
 cd ../backend
-psql -f schema.sql -U username zer0bin
+psql -f schema.sql -U username zer0bin # Replace username with psql username
 cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 cargo build --release
