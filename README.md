@@ -97,7 +97,7 @@ cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 npm i && npm run build
 cd ../backend
-psql -f schema.sql -U username zer0bin
+psql -f schema.sql -U username zer0bin # Replace username with your psql username
 cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 cargo build --release
