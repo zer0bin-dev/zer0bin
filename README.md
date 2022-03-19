@@ -99,7 +99,7 @@ cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 npm i && npm run build
 cd ../backend
-psql -f schema.sql -U postgres zer0bin
+psql -f schema.sql -U username zer0bin
 cp config.example.json config.json
 $EDITOR config.json # Edit as appropriate
 cargo build --release
