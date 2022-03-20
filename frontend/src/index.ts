@@ -195,6 +195,10 @@ document.addEventListener("keydown", (e) => {
 		e.preventDefault()
 		savePaste()
 	}
+	if (e.ctrlKey && e.key === "n") {
+		e.preventDefault()
+		newPaste()
+	}
 })
 
 editor.addEventListener(
