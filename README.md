@@ -119,13 +119,15 @@ cargo build --release
 	
 ### Homepage
 
-![image](https://user-images.githubusercontent.com/44733677/158523056-2d1b4a38-76f8-413f-b4df-5fd3d920dc66.png)
-![image](https://user-images.githubusercontent.com/44733677/158523711-19f34696-b88f-4a6c-9a66-a77cf2f3e74e.png)
+![image](https://user-images.githubusercontent.com/44733677/159143364-a6e06aee-256e-4998-83f2-541c77e85184.png)
+![image](https://user-images.githubusercontent.com/44733677/159143316-c8e95ed6-ec32-44b3-abcc-18bd204a004d.png)
+![image](https://user-images.githubusercontent.com/44733677/159143321-aa8a5f6f-53d2-40d1-bff9-71d72347e7ea.png)
 
 ### 20 line paste
 
-![image](https://user-images.githubusercontent.com/44733677/158522958-a226612f-3848-43be-876e-8822a4cc9907.png)
-![image](https://user-images.githubusercontent.com/44733677/158523846-d79a94a5-64a5-475a-b481-e72141b47cf6.png)
+![image](https://user-images.githubusercontent.com/44733677/159143373-6e8787d8-61ef-44dc-9d66-52cd74e2a495.png)
+![image](https://user-images.githubusercontent.com/44733677/159143298-f8c7420d-ff76-4db7-a98e-03ff3615315e.png)
+![image](https://user-images.githubusercontent.com/44733677/159143303-efb71e15-623a-42cc-abf6-7e602843d801.png)
 
 </details>
 	
