@@ -2,7 +2,7 @@
 
 -   Follow the repository structure
 -   Commit messages must be descriptive and concise
--   Your code must be formatted with the respective formatter(s)
+-   Your code must be formatted with the formatters we use
     -   The frontend must use our `prettier` config
     -   The backend must use `rustfmt`
 -   The frontend must be installed and compiled with `yarn` and `parcel`
