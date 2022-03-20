@@ -42,7 +42,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ### Misc:
 
-<a href="https://nginx.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Nginx.svg" height=40/></a> <!-- <a href="https://docker.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Docker.svg" height=40/></a> --> <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Markdown-Dark.svg" height=40/></a> <a href="https://git-scm.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Git.svg" height=40/></a>
+<a href="https://nginx.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Nginx.svg" height=40/></a> <!-- <a href="https://docker.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Docker.svg" height=40/></a> --> <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Markdown-Dark.svg" height=40/></a> <a href="https://git-scm.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Git.svg" height=40/></a> <a href="https://www.conventionalcommits.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/954930714007191582/ConventionalCommits.svg" /></a>
 
 ###### (Sorta) made with [Skill Icons](https://skillicons.dev/)
 
