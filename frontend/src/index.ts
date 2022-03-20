@@ -194,8 +194,7 @@ document.addEventListener("keydown", (e) => {
 	if (e.ctrlKey && e.key === "s") {
 		e.preventDefault()
 		savePaste()
-	}
-	if (e.ctrlKey && e.key === "n") {
+	} else if (e.ctrlKey && e.key === "n") {
 		e.preventDefault()
 		newPaste()
 	}
