@@ -155,7 +155,7 @@ async function savePaste() {
 		if (err) {
 			addMessage(err["data"]["message"])
 		} else {
-			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
+			window.history.pushState(null, "", `/${res["data"]["id"]}`)
 
 			rawContent = res["data"]["content"]
 			viewPaste(rawContent, "0")
