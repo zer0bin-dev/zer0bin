@@ -19,6 +19,7 @@ use crate::{
 
 #[get("/s")]
 pub async fn get_stats(state: web::Data<AppState>) -> impl Responder {
+    let version = env!("CARGO_PKG_VERSION").to_string();
     // TODO: Maybe there's a less hacky way to do this..?
     let count: Result<i64, sqlx::Error> = sqlx::query(r#"SELECT COUNT(*) FROM pastes"#)
         .try_map(|row: PgRow| row.try_get::<i64, _>("count"))
@@ -41,6 +42,7 @@ pub async fn get_stats(state: web::Data<AppState>) -> impl Responder {
         success: true,
         data: GetStatsResponse {
             count: count.unwrap(),
+            version
         },
     })
 }

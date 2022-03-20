@@ -28,7 +28,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | Website                                        | Expiration | Max paste size | Version | Country |
 | ---------------------------------------------- | ---------- | -------------- | ------- | ------- |
 | zer0b.in (not up yet)                          | 7 days     | 40,000 chars   | vx.x.x  | ?       |
-| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.6.1  | 🇺🇸 US   |
+| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.7.0  | 🇺🇸 US   |
 
 # Technologies used
 
@@ -60,10 +60,9 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 -   🐈 [Yarn](https://yarnpkg.com/) ≥ 1.0.0
 -   🐘 [PostgreSQL](https://www.postgresql.org/) ≥ 9.6
 -   🦝 [Nginx](https://www.nginx.com/) ≥ 1.18.0
-    -  🌾 [Brotli plugin](https://github.com/google/ngx_brotli) recommended
+    -   🌾 [Brotli plugin](https://github.com/google/ngx_brotli) recommended
 -   🐧 [Linux](https://kernel.org/) or 😈 [FreeBSD](https://freebsd.org/)
 -   🌄 Domain with [SSL](https://letsencrypt.org/)
-
 
 <details>
 	<summary><h3>Steps</h3></summary>
@@ -89,11 +88,11 @@ $EDITOR config.json # Edit as appropriate
 cargo build --release
 ./target/release/zer0bin-bin # Preferably in a tmux session or as a service
 ```
+
 </details>
 
 <details>
 	<summary><h3>Configuration</h3></summary>
-
 
 | Key                                        | Values                   | Description                                                                    |
 | ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
