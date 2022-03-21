@@ -220,14 +220,21 @@ editor.addEventListener(
 	false
 )
 
-copyButton.addEventListener("click", function () {
-	const content = editor.value
+copyButton.addEventListener("click", async function () {
+	const path = window.location.pathname
+	const split = path.split("/")
+	const id = split[split.length - 1]
+	await getPaste(id, function (err, res) {
+		if (err) {
+			return
+		}
+		const content = res["data"]["content"]
+		window.history.pushState(null, "", "/")
+		newPaste()
 
-	window.history.pushState(null, "", "/")
-	newPaste()
-
-	rawContent = content
-	editor.value = content
+		rawContent = content
+		editor.value = content
+	})
 })
 
 newButton.addEventListener("click", function () {
