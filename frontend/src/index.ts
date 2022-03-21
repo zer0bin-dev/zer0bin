@@ -102,6 +102,7 @@ function newPaste() {
 
 	wrapper.classList.add("text-area-proper")
 	show(editor)
+	editor.disabled = false
 	hide(codeViewPre)
 	hide(viewCounterLabel)
 	hide(viewCounter)
