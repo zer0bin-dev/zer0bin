@@ -234,3 +234,8 @@ a {
 		padding: 7px;
 	}
 }
+@media only screen and (hover: none) and (pointer: coarse) {
+	.button-wrapper {
+		opacity: 0.6;
+	}
+}
