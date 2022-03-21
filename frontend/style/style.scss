@@ -236,10 +236,7 @@ a {
 	}
 }
 @media only screen and (hover: none) and (pointer: coarse) {
-	.button-wrapper {
+	.button-wrapper:not(.logo) {
 		opacity: 0.6;
-	}
-	.logo {
-		opacity: 0.9 !important;
 	}
 }
