@@ -75,7 +75,7 @@ tippy("#github-button", {
 	allowHTML: true,
 })
 
-let observer = new MutationObserver(callback)
+const observer = new MutationObserver(callback)
 
 function callback() {
 	let theme = ""
@@ -89,6 +89,7 @@ function callback() {
 	console.log(theme)
 
 	for (const i in document.querySelectorAll(".btn")) {
+		console.log(i)
 		//@ts-ignore
 		console.log(i._tippy)
 		//@ts-ignore
