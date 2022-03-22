@@ -187,6 +187,23 @@ async function savePaste() {
 	})
 }
 
+async function duplicatePaste() {
+	const path = window.location.pathname
+	const split = path.split("/")
+	const id = split[split.length - 1]
+	await getPaste(id, function (err, res) {
+		if (err) {
+			return
+		}
+		const content = res["data"]["content"]
+		window.history.pushState(null, "", "/")
+		newPaste()
+
+		rawContent = content
+		editor.value = content
+	})
+}
+
 saveButton.addEventListener("click", async function () {
 	await savePaste()
 })
@@ -198,6 +215,9 @@ document.addEventListener("keydown", (e) => {
 	} else if (e.ctrlKey && e.key === "n") {
 		e.preventDefault()
 		newPaste()
+	} else if (e.ctrlKey && e.key === "d") {
+		e.preventDefault()
+		duplicatePaste()
 	}
 })
 
@@ -222,20 +242,7 @@ editor.addEventListener(
 )
 
 copyButton.addEventListener("click", async function () {
-	const path = window.location.pathname
-	const split = path.split("/")
-	const id = split[split.length - 1]
-	await getPaste(id, function (err, res) {
-		if (err) {
-			return
-		}
-		const content = res["data"]["content"]
-		window.history.pushState(null, "", "/")
-		newPaste()
-
-		rawContent = content
-		editor.value = content
-	})
+	await duplicatePaste()
 })
 
 newButton.addEventListener("click", function () {
