@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import tippy from "tippy.js"
-import "../style/tooltip.scss"
+import "./style/tooltip.scss"
 import "tippy.js/animations/scale.css"
 
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
