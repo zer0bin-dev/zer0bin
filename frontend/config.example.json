@@ -1,3 +1,4 @@
 {
-  "api_url": "https://example.tld/api"
+	"api_url": "https://example.tld/api",
+	"confetti_chance": 40
 }

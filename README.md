@@ -95,6 +95,8 @@ cargo build --release
 <details>
 	<summary><h3>Configuration</h3></summary>
 
+<h3>Backend</h3>
+
 | Key                                        | Values                   | Description                                                                    |
 | ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
 | server.backend_host                        | 127.0.0.1 or 0.0.0.0     | The host to run the backend on                                                 |
@@ -108,15 +110,22 @@ cargo build --release
 | logging.on_post_paste                      | true or false            | Log on new paste is made                                                       |
 | logging.on_get_paste                       | true or false            | Log on paste get                                                               |
 
-</details>	
-	
+<h3>Frontend</h3>
+
+| Key             | Values                             | Description                                                                                                                     |
+| --------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| api_url         | API URL                            | The URL of the API. Should be your instance's domain + /api                                                                     |
+| confetti_chance | Positive number from 6 to 2^64 - 1 | The 6 out of \<number\> chance of confetti showing on saving a paste. The default of 40 means there's a 6/40 chance of confetti |
+
+</details>
+
 # Benchmarks
 
 ###### Measured with Lighthouse and Firefox Network Performance Analysis
 
 <details>
 	<summary><h3>Results</h3></summary>
-	
+
 ### Homepage
 
 ![image](https://user-images.githubusercontent.com/44733677/159571157-64cebfa7-c10b-4597-b493-df9186c07680.png)
@@ -130,7 +139,7 @@ cargo build --release
 ![image](https://user-images.githubusercontent.com/44733677/159571491-8afe7dcd-9e64-46fe-b23a-4a2fe2763adf.png)
 
 </details>
-	
+
 # Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md)
