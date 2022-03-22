@@ -175,6 +175,11 @@ a {
 	color: $muted;
 	cursor: auto;
 }
+.keybind {
+	color: $subtle;
+	font-size: 11px;
+	font-family: $font-mono;
+}
 .logo {
 	font-size: 1.8rem;
 	font-weight: 700;

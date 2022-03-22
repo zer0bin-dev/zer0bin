@@ -34,25 +34,29 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 })
 
 tippy("#save-button", {
-	content: "Save paste",
+	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
 	animation: "scale",
 	theme: "rosepine",
+	allowHTML: true,
 })
 
 tippy("#new-button", {
-	content: "New paste",
+	content: "New paste<br><span class='keybind'>Ctrl + N</span>",
 	animation: "scale",
 	theme: "rosepine",
+	allowHTML: true,
 })
 
 tippy("#copy-button", {
-	content: "Duplicate paste",
+	content: "Save paste<br><span class='keybind'>Ctrl + D</span>",
 	animation: "scale",
 	theme: "rosepine",
+	allowHTML: true,
 })
 
 tippy("#github-button", {
 	content: "GitHub",
 	animation: "scale",
 	theme: "rosepine",
+	allowHTML: true,
 })

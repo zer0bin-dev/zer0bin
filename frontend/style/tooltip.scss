@@ -6,9 +6,6 @@ $bg: #26233a;
 @import "./font.scss";
 .tippy-box[data-theme~="rosepine"] {
 	color: $color_1;
-	box-shadow: 0 0 20px 4px rgba(82, 79, 103, 0.15),
-		0 4px 80px -8px rgba(64, 61, 82, 0.25),
-		0 4px 4px -2px rgba(33, 32, 46, 0.15);
 	background-color: $bg;
 	opacity: 0.8;
 	margin-top: 10px;
