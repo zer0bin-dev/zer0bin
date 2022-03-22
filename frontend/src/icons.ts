@@ -84,6 +84,8 @@ function updateTooltips() {
 		theme = "rosepine-extended"
 	}
 
+	console.log(theme)
+
 	for (const i in document.querySelectorAll(".btn")) {
 		//@ts-ignore
 		i._tippy.setProps({ theme: theme })
