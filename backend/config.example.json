@@ -4,9 +4,9 @@
 		"backend_port": 8000
 	},
 	"pastes": {
-		"character_limit": 40000,
-		"days_til_expiration": 7,
-		"id_length": 10
+		"character_limit": 50000,
+		"days_til_expiration": 30,
+		"id_length": 6
 	},
 	"ratelimits": {
 		"seconds_in_between_pastes": 2,
