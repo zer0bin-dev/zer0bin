@@ -1,11 +1,11 @@
-$color_1: #e0def4;
+$text: #e0def4;
 $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
 	Consolas, "Liberation Mono", "Courier New", monospace;
 $bg: #26233a;
 
 @import "./font.scss";
 .tippy-box[data-theme~="rosepine"] {
-	color: $color_1;
+	color: $text;
 	background-color: $bg;
 	opacity: 0.8;
 	margin-top: 30px;
