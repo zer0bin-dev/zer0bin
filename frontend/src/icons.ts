@@ -86,11 +86,7 @@ function callback() {
 		theme = "rosepine-extended"
 	}
 
-	console.log(theme)
-
-	const allButtons = document.querySelectorAll("button")
-
-	allButtons.forEach(function (btn) {
+	document.querySelectorAll("button").forEach(function (btn) {
 		//@ts-ignore
 		btn._tippy.setProps({ theme: theme })
 	})
