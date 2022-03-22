@@ -9,14 +9,14 @@
 		"build": "parcel build index.pug"
 	},
 	"devDependencies": {
-		"@parcel/compressor-brotli": "2.3.2",
-		"@parcel/compressor-gzip": "2.3.2",
-		"@parcel/config-default": "2.3.2",
-		"@parcel/transformer-pug": "2.3.2",
-		"@parcel/transformer-sass": "2.3.2",
+		"@parcel/compressor-brotli": "^2.4.0",
+		"@parcel/compressor-gzip": "^2.4.0",
+		"@parcel/config-default": "^2.4.0",
+		"@parcel/transformer-pug": "^2.4.0",
+		"@parcel/transformer-sass": "^2.4.0",
 		"@types/core-js": "^2.5.5",
 		"@types/node": "^17.0.21",
-		"parcel": "2.3.2"
+		"parcel": "^2.4.0"
 	},
 	"description": "just a place to paste",
 	"repository": "https://github.com/Domterion/zer0bin",

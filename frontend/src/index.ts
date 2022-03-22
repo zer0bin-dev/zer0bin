@@ -4,7 +4,7 @@ import hljs from "highlight.js"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
-import config from "./config.json"
+import config from "../config.json"
 const apiUrl = config.api_url
 const confetti_chance = parseInt(config.api_url)
 let rawContent = ""
