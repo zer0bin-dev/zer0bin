@@ -36,47 +36,61 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
 
-let theme = "rosepine-extended"
+function makeTooltips() {
+	let theme = "rosepine-extended"
 
-if (window.location.pathname == "/") {
-	theme = "rosepine"
+	if (window.location.pathname == "/") {
+		theme = "rosepine"
+	}
+
+	tippy("#save-button", {
+		content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
+		placement: "bottom",
+		animation: "scale",
+		theme: theme,
+		allowHTML: true,
+	})
+
+	tippy("#new-button", {
+		content: "New paste<br><span class='keybind'>Ctrl + N</span>",
+		placement: "bottom",
+		animation: "scale",
+		theme: theme,
+		allowHTML: true,
+	})
+
+	tippy("#copy-button", {
+		content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
+		placement: "bottom",
+		animation: "scale",
+		theme: theme,
+		allowHTML: true,
+	})
+
+	tippy("#github-button", {
+		content: `GitHub<br><span class='keybind'>
+		${renderIconDefinitionToSVGElement(StarOutlined, {
+			extraSVGAttrs: extraSVGAttrs,
+		})} ${renderIconDefinitionToSVGElement(ForkOutlined, {
+			extraSVGAttrs: extraSVGAttrs,
+		})} ${renderIconDefinitionToSVGElement(HeartOutlined, {
+			extraSVGAttrs: extraSVGAttrs,
+		})}</span>`,
+		placement: "bottom",
+		animation: "scale",
+		theme: theme,
+		allowHTML: true,
+	})
 }
 
-tippy("#save-button", {
-	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
-	placement: "bottom",
-	animation: "scale",
-	theme: theme,
-	allowHTML: true,
+window.addEventListener("popstate", () => {
+	makeTooltips()
 })
 
-tippy("#new-button", {
-	content: "New paste<br><span class='keybind'>Ctrl + N</span>",
-	placement: "bottom",
-	animation: "scale",
-	theme: theme,
-	allowHTML: true,
-})
-
-tippy("#copy-button", {
-	content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
-	placement: "bottom",
-	animation: "scale",
-	theme: theme,
-	allowHTML: true,
-})
-
-tippy("#github-button", {
-	content: `GitHub<br><span class='keybind'>
-	${renderIconDefinitionToSVGElement(StarOutlined, {
-		extraSVGAttrs: extraSVGAttrs,
-	})} ${renderIconDefinitionToSVGElement(ForkOutlined, {
-		extraSVGAttrs: extraSVGAttrs,
-	})} ${renderIconDefinitionToSVGElement(HeartOutlined, {
-		extraSVGAttrs: extraSVGAttrs,
-	})}</span>`,
-	placement: "bottom",
-	animation: "scale",
-	theme: theme,
-	allowHTML: true,
-})
+document.addEventListener(
+	"DOMContentLoaded",
+	() => {
+		makeTooltips()
+	},
+	false
+)
