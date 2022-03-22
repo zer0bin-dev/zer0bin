@@ -51,7 +51,7 @@ tippy("#new-button", {
 })
 
 tippy("#copy-button", {
-	content: "Save paste<br><span class='keybind'>Ctrl + D</span>",
+	content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
 	animation: "scale",
 	theme: "rosepine",
 	allowHTML: true,
