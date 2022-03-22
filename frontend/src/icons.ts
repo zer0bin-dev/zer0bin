@@ -75,7 +75,9 @@ tippy("#github-button", {
 	allowHTML: true,
 })
 
-window.addEventListener("popstate", () => {
+let observer = new MutationObserver(callback)
+
+function callback() {
 	let theme = ""
 
 	if (window.location.pathname == "/") {
@@ -92,4 +94,6 @@ window.addEventListener("popstate", () => {
 		//@ts-ignore
 		i._tippy.setProps({ theme: theme })
 	}
-})
+}
+
+observer.observe(document.getElementById("code-view-pre"))
