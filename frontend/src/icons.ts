@@ -91,9 +91,6 @@ function callback() {
 	const allButtons = document.querySelectorAll("button")
 
 	allButtons.forEach(function (btn) {
-		console.log(btn)
-		//@ts-ignore
-		console.log(btn._tippy)
 		//@ts-ignore
 		btn._tippy.setProps({ theme: theme })
 	})
