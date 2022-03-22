@@ -36,7 +36,46 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
 
-function makeTooltips() {
+tippy("#save-button", {
+	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
+	placement: "bottom",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#new-button", {
+	content: "New paste<br><span class='keybind'>Ctrl + N</span>",
+	placement: "bottom",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#copy-button", {
+	content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
+	placement: "bottom",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#github-button", {
+	content: `GitHub<br><span class='keybind'>
+	${renderIconDefinitionToSVGElement(StarOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})} ${renderIconDefinitionToSVGElement(ForkOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})} ${renderIconDefinitionToSVGElement(HeartOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})}</span>`,
+	placement: "bottom",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+function updateTooltips() {
 	let theme = ""
 
 	if (window.location.pathname == "/") {
@@ -45,54 +84,12 @@ function makeTooltips() {
 		theme = "rosepine-extended"
 	}
 
-	tippy("#save-button", {
-		content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
-		placement: "bottom",
-		animation: "scale",
-		theme: theme,
-		allowHTML: true,
-	})
-
-	tippy("#new-button", {
-		content: "New paste<br><span class='keybind'>Ctrl + N</span>",
-		placement: "bottom",
-		animation: "scale",
-		theme: theme,
-		allowHTML: true,
-	})
-
-	tippy("#copy-button", {
-		content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
-		placement: "bottom",
-		animation: "scale",
-		theme: theme,
-		allowHTML: true,
-	})
-
-	tippy("#github-button", {
-		content: `GitHub<br><span class='keybind'>
-		${renderIconDefinitionToSVGElement(StarOutlined, {
-			extraSVGAttrs: extraSVGAttrs,
-		})} ${renderIconDefinitionToSVGElement(ForkOutlined, {
-			extraSVGAttrs: extraSVGAttrs,
-		})} ${renderIconDefinitionToSVGElement(HeartOutlined, {
-			extraSVGAttrs: extraSVGAttrs,
-		})}</span>`,
-		placement: "bottom",
-		animation: "scale",
-		theme: theme,
-		allowHTML: true,
-	})
+	for (const i in document.querySelectorAll(".btn")) {
+		//@ts-ignore
+		i._tippy.setProps({ theme: theme })
+	}
 }
 
 window.addEventListener("popstate", () => {
-	makeTooltips()
+	updateTooltips()
 })
-
-document.addEventListener(
-	"DOMContentLoaded",
-	() => {
-		makeTooltips()
-	},
-	false
-)
