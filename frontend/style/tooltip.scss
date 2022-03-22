@@ -1,0 +1,20 @@
+$text: #e0def4;
+$bg: #26233a;
+$font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
+	Consolas, "Liberation Mono", "Courier New", monospace;
+
+@import "./font.scss";
+.tippy-box[data-theme~="rosepine"] {
+	color: $text;
+	background-color: $bg;
+	opacity: 0.8;
+	margin-top: 10px;
+	padding: 10px;
+	font-family: $font-mono;
+	> .tippy-backdrop {
+		background-color: $bg;
+	}
+	> .tippy-svg-arrow {
+		fill: $bg;
+	}
+}

@@ -1,7 +1,7 @@
 {
 	"name": "zer0bin",
 	"source": "index.pug",
-	"version": "0.6.1",
+	"version": "0.7.1",
 	"browserslist": "> 0.5%, last 2 versions, not dead",
 	"license": "MIT",
 	"scripts": {
@@ -26,6 +26,7 @@
 		"@ant-design/icons-svg": "^4.2.1",
 		"highlight.js": "^11.4.0",
 		"js-confetti": "^0.10.2",
-		"smooth-scrollbar": "^8.7.4"
+		"smooth-scrollbar": "^8.7.4",
+		"tippy.js": "^6.3.7"
 	}
 }

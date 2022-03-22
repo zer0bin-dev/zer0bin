@@ -17,7 +17,7 @@ server {
 
     root /location/of/zer0bin/frontend/dist;
 
-    rewrite ^/~/(.*)$ /index.html;
+    rewrite ^/(?!.*api)(?!.*\.).*$ /index.html;
 
     location / {
         index index.html;

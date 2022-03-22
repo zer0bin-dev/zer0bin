@@ -38,6 +38,7 @@ pub struct GetPasteResponse {
 #[derive(Serialize)]
 pub struct GetStatsResponse {
     pub count: i64,
+    pub version: String,
 }
 
 #[derive(Serialize)]

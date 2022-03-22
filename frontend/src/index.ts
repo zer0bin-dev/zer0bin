@@ -102,6 +102,7 @@ function newPaste() {
 
 	wrapper.classList.add("text-area-proper")
 	show(editor)
+	editor.disabled = false
 	hide(codeViewPre)
 	hide(viewCounterLabel)
 	hide(viewCounter)
@@ -155,7 +156,7 @@ async function savePaste() {
 		if (err) {
 			addMessage(err["data"]["message"])
 		} else {
-			window.history.pushState(null, "", `/~/${res["data"]["id"]}`)
+			window.history.pushState(null, "", `/${res["data"]["id"]}`)
 
 			rawContent = res["data"]["content"]
 			viewPaste(rawContent, "0")
@@ -186,6 +187,23 @@ async function savePaste() {
 	})
 }
 
+async function duplicatePaste() {
+	const path = window.location.pathname
+	const split = path.split("/")
+	const id = split[split.length - 1]
+	await getPaste(id, function (err, res) {
+		if (err) {
+			return
+		}
+		const content = res["data"]["content"]
+		window.history.pushState(null, "", "/")
+		newPaste()
+
+		rawContent = content
+		editor.value = content
+	})
+}
+
 saveButton.addEventListener("click", async function () {
 	await savePaste()
 })
@@ -194,6 +212,12 @@ document.addEventListener("keydown", (e) => {
 	if (e.ctrlKey && e.key === "s") {
 		e.preventDefault()
 		savePaste()
+	} else if (e.ctrlKey && e.key === "n") {
+		e.preventDefault()
+		newPaste()
+	} else if (e.ctrlKey && e.key === "d") {
+		e.preventDefault()
+		duplicatePaste()
 	}
 })
 
@@ -217,14 +241,8 @@ editor.addEventListener(
 	false
 )
 
-copyButton.addEventListener("click", function () {
-	const content = editor.value
-
-	window.history.pushState(null, "", "/")
-	newPaste()
-
-	rawContent = content
-	editor.value = content
+copyButton.addEventListener("click", async function () {
+	await duplicatePaste()
 })
 
 newButton.addEventListener("click", function () {

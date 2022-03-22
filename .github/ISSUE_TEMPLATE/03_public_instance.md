@@ -16,7 +16,7 @@ What country is the server in:
 
 What server hardware/provider is the server on:
 
-Are you using CloudFlare: 
+Are you using CloudFlare or any Google serives (domain, DNS, etc): 
 
 What version of zer0bin is it running: 
 

@@ -3,8 +3,14 @@ import {
 	FileAddOutlined,
 	GithubOutlined,
 	CopyOutlined,
+	ForkOutlined,
+	HeartOutlined,
+	StarOutlined,
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
+import tippy from "tippy.js"
+import "../style/tooltip.scss"
+import "tippy.js/animations/scale.css"
 
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
@@ -28,4 +34,39 @@ copyButton.innerHTML += renderIconDefinitionToSVGElement(CopyOutlined, {
 })
 githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
+})
+
+tippy("#save-button", {
+	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#new-button", {
+	content: "New paste<br><span class='keybind'>Ctrl + N</span>",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#copy-button", {
+	content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#github-button", {
+	content: `GitHub<br><span class='keybind'>
+	${renderIconDefinitionToSVGElement(StarOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})} ${renderIconDefinitionToSVGElement(ForkOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})} ${renderIconDefinitionToSVGElement(HeartOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})}</span>`,
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
 })
