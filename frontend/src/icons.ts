@@ -88,13 +88,15 @@ function callback() {
 
 	console.log(theme)
 
-	for (const i in document.querySelectorAll("button")) {
-		console.log(i)
+	const allButtons = document.querySelectorAll("button")
+
+	allButtons.forEach(function (btn) {
+		console.log(btn)
 		//@ts-ignore
-		console.log(i._tippy)
+		console.log(btn._tippy)
 		//@ts-ignore
-		i._tippy.setProps({ theme: theme })
-	}
+		btn._tippy.setProps({ theme: theme })
+	})
 }
 
 observer.observe(document.getElementById("code-view-pre"), {
