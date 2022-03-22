@@ -26,6 +26,7 @@
 		"@ant-design/icons-svg": "^4.2.1",
 		"highlight.js": "^11.4.0",
 		"js-confetti": "^0.10.2",
-		"smooth-scrollbar": "^8.7.4"
+		"smooth-scrollbar": "^8.7.4",
+		"tippy.js": "^6.3.7"
 	}
 }

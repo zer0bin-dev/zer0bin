@@ -1,0 +1,36 @@
+@import url("./font.css");
+
+.tippy-box[data-theme~="rosepine"] {
+	color: #e0def4;
+	box-shadow: 0 0 20px 4px rgba(82, 79, 103, 0.15),
+		0 4px 80px -8px rgba(64, 61, 82, 0.25),
+		0 4px 4px -2px rgba(33, 32, 46, 0.15);
+	background-color: #26233a;
+	opacity: 0.8;
+	margin-top: 10px;
+	padding: 10px;
+	font-family: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
+		Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.tippy-box[data-theme~="rosepine"][data-placement^="top"]
+	> .tippy-arrow:before {
+	border-top-color: #26233a;
+}
+.tippy-box[data-theme~="rosepine"][data-placement^="bottom"]
+	> .tippy-arrow:before {
+	border-bottom-color: #26233a;
+}
+.tippy-box[data-theme~="rosepine"][data-placement^="left"]
+	> .tippy-arrow:before {
+	border-left-color: #26233a;
+}
+.tippy-box[data-theme~="rosepine"][data-placement^="right"]
+	> .tippy-arrow:before {
+	border-right-color: #26233a;
+}
+.tippy-box[data-theme~="rosepine"] > .tippy-backdrop {
+	background-color: #26233a;
+}
+.tippy-box[data-theme~="rosepine"] > .tippy-svg-arrow {
+	fill: #26233a;
+}
