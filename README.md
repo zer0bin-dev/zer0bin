@@ -79,8 +79,6 @@ sudo cp ./yourdomain.tld /etc/nginx/sites-available
 sudo cp ./yourdomain.tld /etc/nginx/sites-enabled
 systemctl nginx restart # Or whichever process manager you use
 cd frontend
-cp config.example.json config.json
-$EDITOR config.json # Edit as appropriate
 yarn && yarn build
 cd ../backend
 psql -f schema.sql -U postgres zer0bin
@@ -108,15 +106,15 @@ cargo build --release
 | logging.on_post_paste                      | true or false            | Log on new paste is made                                                       |
 | logging.on_get_paste                       | true or false            | Log on paste get                                                               |
 
-</details>	
-	
+</details>
+
 # Benchmarks
 
 ###### Measured with Lighthouse and Firefox Network Performance Analysis
 
 <details>
 	<summary><h3>Results</h3></summary>
-	
+
 ### Homepage
 
 ![image](https://user-images.githubusercontent.com/44733677/159571157-64cebfa7-c10b-4597-b493-df9186c07680.png)
@@ -130,7 +128,7 @@ cargo build --release
 ![image](https://user-images.githubusercontent.com/44733677/159571491-8afe7dcd-9e64-46fe-b23a-4a2fe2763adf.png)
 
 </details>
-	
+
 # Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md)

@@ -4,8 +4,7 @@ import hljs from "highlight.js"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
-import config from "../config.json"
-const apiUrl = config.api_url
+const apiUrl = window.location.hostname + "/api"
 let rawContent = ""
 
 const jsConfetti = new JSConfetti()
