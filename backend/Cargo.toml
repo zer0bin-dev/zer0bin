@@ -14,6 +14,8 @@ actix-web = "4.0.0-rc.1"
 actix-cors = "0.6.0"
 actix-governor = "0.3.0"
 
+badge-maker = "0.2.1"
+
 sqlx = { version = "0.5", features = ["runtime-tokio-rustls", "postgres", "chrono"] }
 
 chrono = { version = "0.4.19", features = ["serde"] }

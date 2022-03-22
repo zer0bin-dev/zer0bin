@@ -4,8 +4,9 @@ use actix_web::{
     HttpResponse, Responder,
 };
 
-use chrono::Duration;
+use badge_maker::BadgeBuilder;
 
+use chrono::Duration;
 use nanoid::nanoid;
 use sqlx::{postgres::PgRow, types::chrono::Utc, Row};
 
@@ -42,10 +43,62 @@ pub async fn get_stats(state: web::Data<AppState>) -> impl Responder {
         success: true,
         data: GetStatsResponse {
             count: count.unwrap(),
-            version
+            version,
         },
     })
 }
+
+#[get("/s/version")]
+pub async fn get_version_badge(state: web::Data<AppState>) -> impl Responder {
+    let count: Result<i64, sqlx::Error> = sqlx::query(r#"SELECT COUNT(*) FROM pastes"#)
+        .try_map(|row: PgRow| row.try_get::<i64, _>("count"))
+        .fetch_one(&state.pool)
+        .await;
+
+    if let Err(e) = count {
+        eprintln!("Error occurred while retrieving paste count: {:?}", e);
+
+        return HttpResponse::InternalServerError().json(ApiResponse {
+            success: false,
+            data: ApiError {
+                message: "Error occurred while retrieving paste count, please try again."
+                    .to_string(),
+            },
+        });
+    }
+
+    let badge = BadgeBuilder::new()
+            .label("paste count")
+            .message(&count.unwrap().to_string())
+            .color_parse("#31748f")
+            .build()?
+            .svg();
+
+   HttpResponse::Ok().ApiResponse {
+        success: true,
+        content_type: "image/svg",
+        body: badge
+    }
+}
+
+#[get("/s/version")]
+pub async fn get_count_badge(state: web::Data<AppState>) -> impl Responder {
+    let version = env!("CARGO_PKG_VERSION").to_string();
+
+    let badge = BadgeBuilder::new()
+            .label("version")
+            .message(&version)
+            .color_parse("#31748f")
+            .build()?
+            .svg();
+
+   HttpResponse::Ok().ApiResponse {
+        success: true,
+        content_type: "image/svg",
+        body: badge
+    }
+}
+
 
 #[get("/{id}")]
 pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Responder {
@@ -186,14 +239,11 @@ pub async fn new_paste(
             if state.config.logging.on_post_paste {
                 println!("[POST] id={} length={}", id, content.len());
             }
-            
             HttpResponse::Ok().json(ApiResponse {
-            success: true,
-            data: NewPasteResponse {
-                id,
-                content,
-            },
-        })},
+                success: true,
+                data: NewPasteResponse { id, content },
+            })
+        }
         Err(e) => {
             eprintln!("Error occurred while creating paste: {:?}", e);
 
