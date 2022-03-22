@@ -75,7 +75,7 @@ tippy("#github-button", {
 	allowHTML: true,
 })
 
-function updateTooltips() {
+window.addEventListener("popstate", () => {
 	let theme = ""
 
 	if (window.location.pathname == "/") {
@@ -88,10 +88,8 @@ function updateTooltips() {
 
 	for (const i in document.querySelectorAll(".btn")) {
 		//@ts-ignore
+		console.log(i._tippy)
+		//@ts-ignore
 		i._tippy.setProps({ theme: theme })
 	}
-}
-
-window.addEventListener("popstate", () => {
-	updateTooltips()
 })
