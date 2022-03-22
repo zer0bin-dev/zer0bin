@@ -6,7 +6,7 @@ import Scrollbar from "smooth-scrollbar"
 
 import config from "./config.json"
 const apiUrl = config.api_url
-const confetti_chance = config.api_url
+const confetti_chance = parseInt(config.api_url)
 let rawContent = ""
 
 const jsConfetti = new JSConfetti()
