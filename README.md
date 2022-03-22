@@ -50,7 +50,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 # More info
 
 ### Looking for API reference, self-hosting instructions, and/or benchmarks?
-### It's now in the [Wiki](https://github.com/zer0bin-dev/zer0bin/wiki/Self-hosting)!
+### It's now in the [Wiki](https://github.com/zer0bin-dev/zer0bin/wiki/)!
 
 # Contributing
 
