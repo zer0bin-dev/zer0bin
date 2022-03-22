@@ -29,6 +29,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | ---------------------------------------------- | ---------- | -------------- | ------- | ------- |
 | zer0b.in                                       | 7 days     | 40,000 chars   | v1.0.0  | 🇺🇸 USA  |
 | [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.7.1  | 🇺🇸 USA  |
+| [tinker.nz](https://tinker.nz/) | 28 days                 | 69,420 chars   | v0.7.1  |  🇳🇿 NZ |
 
 # Technologies used
 
