@@ -3,6 +3,9 @@ import {
 	FileAddOutlined,
 	GithubOutlined,
 	CopyOutlined,
+	ForkOutlined,
+	HeartOutlined,
+	StarOutlined,
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import tippy from "tippy.js"
@@ -55,7 +58,14 @@ tippy("#copy-button", {
 })
 
 tippy("#github-button", {
-	content: "GitHub",
+	content: `GitHub<br><span class='keybind'>
+	${renderIconDefinitionToSVGElement(StarOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})} ${renderIconDefinitionToSVGElement(ForkOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})} ${renderIconDefinitionToSVGElement(HeartOutlined, {
+		extraSVGAttrs: extraSVGAttrs,
+	})}</span>`,
 	animation: "scale",
 	theme: "rosepine",
 	allowHTML: true,
