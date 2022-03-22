@@ -4,7 +4,9 @@ import hljs from "highlight.js"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
-const apiUrl = window.location.hostname + "/api"
+import config from "./config.json"
+const apiUrl = config.api_url
+const confetti_chance = config.api_url
 let rawContent = ""
 
 const jsConfetti = new JSConfetti()
@@ -162,7 +164,7 @@ async function savePaste() {
 			rawContent = res["data"]["content"]
 			viewPaste(rawContent, "0")
 
-			const rand = Math.floor(Math.random() * 40)
+			const rand = Math.floor(Math.random() * confetti_chance * 6)
 
 			if (rand < 5) {
 				jsConfetti.addConfetti({
