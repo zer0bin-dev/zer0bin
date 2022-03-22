@@ -5,7 +5,7 @@
 
 server {
     #listen 80 is default
-    server_name www.example.tld;
+    server_name example.tld;
     return 301 https://example.tld$request_uri;
     # brotli on;
 }
