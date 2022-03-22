@@ -36,11 +36,17 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
 
+let theme = "rosepine-extended"
+
+if (window.location.pathname == "/") {
+	theme = "rosepine"
+}
+
 tippy("#save-button", {
 	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
 	placement: "bottom",
 	animation: "scale",
-	theme: "rosepine",
+	theme: theme,
 	allowHTML: true,
 })
 
@@ -48,7 +54,7 @@ tippy("#new-button", {
 	content: "New paste<br><span class='keybind'>Ctrl + N</span>",
 	placement: "bottom",
 	animation: "scale",
-	theme: "rosepine",
+	theme: theme,
 	allowHTML: true,
 })
 
@@ -56,7 +62,7 @@ tippy("#copy-button", {
 	content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
 	placement: "bottom",
 	animation: "scale",
-	theme: "rosepine",
+	theme: theme,
 	allowHTML: true,
 })
 
@@ -71,6 +77,6 @@ tippy("#github-button", {
 	})}</span>`,
 	placement: "bottom",
 	animation: "scale",
-	theme: "rosepine",
+	theme: theme,
 	allowHTML: true,
 })

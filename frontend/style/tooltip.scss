@@ -4,11 +4,11 @@ $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
 	Consolas, "Liberation Mono", "Courier New", monospace;
 
 @import "./font.scss";
-.tippy-box[data-theme~="rosepine"] {
+
+.rosepine-parent {
 	color: $text;
 	background-color: $bg;
 	opacity: 0.8;
-	margin-top: 0.3rem;
 	padding: 10px;
 	font-family: $font-mono;
 	> .tippy-backdrop {
@@ -17,4 +17,12 @@ $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
 	> .tippy-svg-arrow {
 		fill: $bg;
 	}
+}
+.tippy-box[data-theme~="rosepine"] {
+	@extend .rosepine-parent;
+	margin-top: 0.3rem;
+}
+.tippy-box[data-theme~="rosepine-extended"] {
+	@extend .rosepine-parent;
+	margin-top: 0.6rem;
 }
