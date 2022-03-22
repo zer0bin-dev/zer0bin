@@ -46,88 +46,15 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 <a href="https://nginx.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Nginx.svg" height=40/></a> <!-- <a href="https://docker.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Docker.svg" height=40/></a> --> <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Markdown-Dark.svg" height=40/></a> <a href="https://git-scm.com/"><img src="https://github.com/tandpfun/skill-icons/raw/main/icons/Git.svg" height=40/></a> <a href="https://www.conventionalcommits.org/"><img src="https://cdn.discordapp.com/attachments/810799100940255260/955896756095320074/ConventionalCommits.svg" height=40/></a>
 
 ###### (Sorta) made with [Skill Icons](https://skillicons.dev/)
-
-# API
-
-- **GET** `/api/p/:id` - Get a paste by ID
-- **POST** `/api/p/n` - Post a new paste
-- **GET** `/api/s` - Get stats about the instance
+ce
 
 # Self-host instructions
 
-### Requirements
-
-- 🦀 [Rust](https://www.rust-lang.org/) ≥ 1.58.0
-- 🐈 [Yarn](https://yarnpkg.com/) ≥ 1.0.0
-- 🐘 [PostgreSQL](https://www.postgresql.org/) ≥ 9.6
-- 🦝 [Nginx](https://www.nginx.com/) ≥ 1.18.0
-  - 🌾 [Brotli plugin](https://github.com/google/ngx_brotli) recommended
-- 🐧 [Linux](https://kernel.org/) or 😈 [FreeBSD](https://freebsd.org/)
-- 🌄 Domain with [SSL](https://letsencrypt.org/)
-
-<details>
-	<summary><h3>Steps</h3></summary>
-
-Please run each command one at a time!
-
-```bash
-# export EDITOR=nano
-git clone https://github.com/zer0bin-dev/zer0bin && cd zer0bin
-$EDITOR example.nginx # Edit as appropriate
-mv example.nginx yourdomain.tld
-sudo cp ./yourdomain.tld /etc/nginx/sites-available
-sudo cp ./yourdomain.tld /etc/nginx/sites-enabled
-systemctl nginx restart # Or whichever process manager you use
-cd frontend
-yarn && yarn build
-cd ../backend
-psql -f schema.sql -U postgres zer0bin
-cp config.example.json config.json
-$EDITOR config.json # Edit as appropriate
-cargo build --release
-./target/release/zer0bin-bin # Preferably in a tmux session or as a service
-```
-
-</details>
-
-<details>
-	<summary><h3>Configuration</h3></summary>
-
-| Key                                        | Values                   | Description                                                                    |
-| ------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
-| server.backend_host                        | 127.0.0.1 or 0.0.0.0     | The host to run the backend on                                                 |
-| server.backend_port                        | Any open port            | The port to run the backend on                                                 |
-| pastes.character_limit                     | Number up to 2^64 - 1    | The amount of characters allowed in a single paste                             |
-| pastes.days_til_expiration                 | Number up to 2^63 or -1  | The days till a paste is to expire. If set to -1 then pastes will never expire |
-| pastes.id_length                           | Number up to 2^64 - 1    | The length of the ID for each paste                                            |
-| databases.postgres_uri                     | PostreSQL Connection URI | The URI to use when connecting to a PostgreSQL database                        |
-| ratelimits.seconds_in_between_pastes       | Number up to 2^64 - 1    | The seconds between paste uploads                                              |
-| ratelimits.allowed_pastes_before_ratelimit | Number up to 2^32 - 1    | Amount of requests that can be made before they are blocked and have to wait   |
-| logging.on_post_paste                      | true or false            | Log on new paste is made                                                       |
-| logging.on_get_paste                       | true or false            | Log on paste get                                                               |
-
-</details>
+Now in the [Wiki](https://github.com/zer0bin-dev/zer0bin/wiki/Self-hosting)!
 
 # Benchmarks
 
-###### Measured with Lighthouse and Firefox Network Performance Analysis
-
-<details>
-	<summary><h3>Results</h3></summary>
-
-### Homepage
-
-![image](https://user-images.githubusercontent.com/44733677/159571157-64cebfa7-c10b-4597-b493-df9186c07680.png)
-![image](https://user-images.githubusercontent.com/44733677/159571670-ca41367f-b3e7-44af-b857-7260ffa6a9b5.png)
-![image](https://user-images.githubusercontent.com/44733677/159571586-d03d776d-6a64-4430-aa6b-cecc3796c9a4.png)
-
-### 20 line paste
-
-![image](https://user-images.githubusercontent.com/44733677/159571303-e8ad600c-ffb6-4b06-b5e5-913373999c3a.png)
-![image](https://user-images.githubusercontent.com/44733677/159571455-66dc75aa-b2d6-4a39-b6ab-8afe34a64717.png)
-![image](https://user-images.githubusercontent.com/44733677/159571491-8afe7dcd-9e64-46fe-b23a-4a2fe2763adf.png)
-
-</details>
+Now in the [Wiki](https://github.com/zer0bin-dev/zer0bin/wiki/Self-hosting)!
 
 # Contributing
 
