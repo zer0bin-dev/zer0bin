@@ -88,7 +88,7 @@ function callback() {
 
 	console.log(theme)
 
-	for (const i in document.querySelectorAll(".btn")) {
+	for (const i in document.querySelectorAll("button")) {
 		console.log(i)
 		//@ts-ignore
 		console.log(i._tippy)
