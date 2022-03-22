@@ -47,13 +47,10 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ###### (Sorta) made with [Skill Icons](https://skillicons.dev/)
 
-# Self-host instructions
+# More info
 
-Now in the [Wiki](https://github.com/zer0bin-dev/zer0bin/wiki/Self-hosting)!
-
-# Benchmarks
-
-Now in the [Wiki](https://github.com/zer0bin-dev/zer0bin/wiki/Self-hosting)!
+### Looking for API reference, self-hosting instructions, and/or benchmarks?
+### It's now in the [Wiki](https://github.com/zer0bin-dev/zer0bin/wiki/Self-hosting)!
 
 # Contributing
 
