@@ -37,10 +37,12 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 })
 
 function makeTooltips() {
-	let theme = "rosepine-extended"
+	let theme = ""
 
 	if (window.location.pathname == "/") {
 		theme = "rosepine"
+	} else {
+		theme = "rosepine-extended"
 	}
 
 	tippy("#save-button", {
