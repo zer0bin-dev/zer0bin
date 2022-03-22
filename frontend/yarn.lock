@@ -2373,6 +2373,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"no-darkreader@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "no-darkreader@npm:1.0.1"
+  checksum: d2723be352daff453ae775daced9c755767e2caaf138b645f10073fa9b3253cf28eadc2addd8ce6b17bc720b8201cc0c7e045b6352b44cdc51a9e143fee4e989
+  languageName: node
+  linkType: hard
+
 "node-addon-api@npm:^3.2.1":
   version: 3.2.1
   resolution: "node-addon-api@npm:3.2.1"
@@ -3659,6 +3666,7 @@ __metadata:
     "@types/node": ^17.0.21
     highlight.js: ^11.4.0
     js-confetti: ^0.10.2
+    no-darkreader: ^1.0.1
     parcel: ^2.3.2
     smooth-scrollbar: ^8.7.4
     tippy.js: ^6.3.7
