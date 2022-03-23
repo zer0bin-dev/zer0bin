@@ -23,6 +23,13 @@
     <br>
 </div>
 
+# Features
+
+- Code highlighting (default)
+- Markdown rendering (add `---` to the start of your paste)
+- View counter
+- Keybinds (<kbd>Ctrl</kbd> + <kbd>S</kbd>: save paste, <kbd>Ctrl</kbd> + <kbd>N</kbd>: new paste, <kbd>Ctrl</kbd> + <kbd>D</kbd>: duplicate paste)
+
 # Public instances
 
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
