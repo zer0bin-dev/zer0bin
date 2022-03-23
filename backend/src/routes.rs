@@ -1,6 +1,5 @@
 use actix_web::{
     get,
-    http::header::ContentType,
     post,
     web::{self},
     HttpResponse, Responder,
@@ -214,7 +213,7 @@ pub async fn get_stats(state: web::Data<AppState>) -> impl Responder {
 // Badges
 
 #[get("/v")]
-pub async fn get_version_badge(state: web::Data<AppState>) -> impl Responder {
+pub async fn get_version_badge() -> impl Responder {
     let version = env!("CARGO_PKG_VERSION").to_string();
 
     let badge = BadgeBuilder::new()
