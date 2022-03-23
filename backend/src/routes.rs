@@ -1,10 +1,12 @@
 use actix_web::{
-    get, post,
+    get,
+    http::header::ContentType,
+    post,
     web::{self},
     HttpResponse, Responder,
 };
 
-use badge_maker::BadgeBuilder;
+use badge_maker::{BadgeBuilder, Style};
 
 use chrono::Duration;
 use nanoid::nanoid;
@@ -18,87 +20,7 @@ use crate::{
     AppState,
 };
 
-#[get("/s")]
-pub async fn get_stats(state: web::Data<AppState>) -> impl Responder {
-    let version = env!("CARGO_PKG_VERSION").to_string();
-    // TODO: Maybe there's a less hacky way to do this..?
-    let count: Result<i64, sqlx::Error> = sqlx::query(r#"SELECT COUNT(*) FROM pastes"#)
-        .try_map(|row: PgRow| row.try_get::<i64, _>("count"))
-        .fetch_one(&state.pool)
-        .await;
-
-    if let Err(e) = count {
-        eprintln!("Error occurred while retrieving paste count: {:?}", e);
-
-        return HttpResponse::InternalServerError().json(ApiResponse {
-            success: false,
-            data: ApiError {
-                message: "Error occurred while retrieving paste count, please try again."
-                    .to_string(),
-            },
-        });
-    }
-
-    HttpResponse::Ok().json(ApiResponse {
-        success: true,
-        data: GetStatsResponse {
-            count: count.unwrap(),
-            version,
-        },
-    })
-}
-
-#[get("/s/version")]
-pub async fn get_version_badge(state: web::Data<AppState>) -> impl Responder {
-    let count: Result<i64, sqlx::Error> = sqlx::query(r#"SELECT COUNT(*) FROM pastes"#)
-        .try_map(|row: PgRow| row.try_get::<i64, _>("count"))
-        .fetch_one(&state.pool)
-        .await;
-
-    if let Err(e) = count {
-        eprintln!("Error occurred while retrieving paste count: {:?}", e);
-
-        return HttpResponse::InternalServerError().json(ApiResponse {
-            success: false,
-            data: ApiError {
-                message: "Error occurred while retrieving paste count, please try again."
-                    .to_string(),
-            },
-        });
-    }
-
-    let badge = BadgeBuilder::new()
-            .label("paste count")
-            .message(&count.unwrap().to_string())
-            .color_parse("#31748f")
-            .build()?
-            .svg();
-
-   HttpResponse::Ok().ApiResponse {
-        success: true,
-        content_type: "image/svg",
-        body: badge
-    }
-}
-
-#[get("/s/version")]
-pub async fn get_count_badge(state: web::Data<AppState>) -> impl Responder {
-    let version = env!("CARGO_PKG_VERSION").to_string();
-
-    let badge = BadgeBuilder::new()
-            .label("version")
-            .message(&version)
-            .color_parse("#31748f")
-            .build()?
-            .svg();
-
-   HttpResponse::Ok().ApiResponse {
-        success: true,
-        content_type: "image/svg",
-        body: badge
-    }
-}
-
+// Pastes
 
 #[get("/{id}")]
 pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Responder {
@@ -255,4 +177,54 @@ pub async fn new_paste(
             })
         }
     }
+}
+
+// Stats
+
+#[get("/s")]
+pub async fn get_stats(state: web::Data<AppState>) -> impl Responder {
+    let version = env!("CARGO_PKG_VERSION").to_string();
+    // TODO: Maybe there's a less hacky way to do this..?
+    let count: Result<i64, sqlx::Error> = sqlx::query(r#"SELECT COUNT(*) FROM pastes"#)
+        .try_map(|row: PgRow| row.try_get::<i64, _>("count"))
+        .fetch_one(&state.pool)
+        .await;
+
+    if let Err(e) = count {
+        eprintln!("Error occurred while retrieving paste count: {:?}", e);
+
+        return HttpResponse::InternalServerError().json(ApiResponse {
+            success: false,
+            data: ApiError {
+                message: "Error occurred while retrieving paste count, please try again."
+                    .to_string(),
+            },
+        });
+    }
+
+    HttpResponse::Ok().json(ApiResponse {
+        success: true,
+        data: GetStatsResponse {
+            count: count.unwrap(),
+            version,
+        },
+    })
+}
+
+// Badges
+
+#[get("/v")]
+pub async fn get_version_badge(state: web::Data<AppState>) -> impl Responder {
+    let version = env!("CARGO_PKG_VERSION").to_string();
+
+    let badge = BadgeBuilder::new()
+        .label("version")
+        .message(&version)
+        .color_parse("#31748f")
+        .style(Style::FlatSquare)
+        .build()
+        .expect("Failed to build badge")
+        .svg();
+
+    HttpResponse::Ok().content_type("image/svg+xml").body(badge)
 }
