@@ -6,7 +6,7 @@ import Scrollbar from "smooth-scrollbar"
 
 import config from "../config.json"
 const apiUrl = config.api_url
-const confetti_chance = parseInt(config.api_url)
+const confettiChance = parseInt(config.confetti_chance)
 let rawContent = ""
 
 const jsConfetti = new JSConfetti()
@@ -164,7 +164,7 @@ async function savePaste() {
 			rawContent = res["data"]["content"]
 			viewPaste(rawContent, "0")
 
-			const rand = Math.floor(Math.random() * confetti_chance * 6)
+			const rand = Math.floor(Math.random() * confettiChance * 6)
 
 			if (rand < 5) {
 				jsConfetti.addConfetti({
