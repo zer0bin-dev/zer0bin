@@ -22,6 +22,7 @@
 		"@parcel/transformer-pug": "^2.4.0",
 		"highlight.js": "^11.4.0",
 		"js-confetti": "^0.10.2",
+		"marked": "^4.0.12",
 		"no-darkreader": "^1.0.1",
 		"parcel": "^2.4.0",
 		"smooth-scrollbar": "^8.7.4",

@@ -1,6 +1,7 @@
 import "no-darkreader"
 
 import hljs from "highlight.js"
+import marked from "marked"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
@@ -129,7 +130,11 @@ function viewPaste(content: string, views: string) {
 	for (let i = 1; i <= content.split("\n").length; i++) {
 		lineNumbers.innerHTML = lineNumbers.innerHTML + `${i}<br>`
 	}
-	codeView.innerHTML = hljs.highlightAuto(content).value
+	if (content.substring(0, 3) == "---") {
+		codeView.innerHTML = marked.parse(content.substring(3)).value
+	} else {
+		codeView.innerHTML = hljs.highlightAuto(content).value
+	}
 
 	disable(saveButton)
 	enable(newButton)

@@ -2030,6 +2030,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"marked@npm:^4.0.12":
+  version: 4.0.12
+  resolution: "marked@npm:4.0.12"
+  bin:
+    marked: bin/marked.js
+  checksum: 7575117f85a8986652f3ac8b8a7b95056c4c5fce01a1fc76dc4c7960412cb4c9bd9da8133487159b6b3ff84f52b543dfe9a36f826a5f358892b5ec4b6824f192
+  languageName: node
+  linkType: hard
+
 "mdn-data@npm:2.0.14":
   version: 2.0.14
   resolution: "mdn-data@npm:2.0.14"
@@ -3079,6 +3088,7 @@ __metadata:
     "@types/node": ^17.0.21
     highlight.js: ^11.4.0
     js-confetti: ^0.10.2
+    marked: ^4.0.12
     no-darkreader: ^1.0.1
     parcel: ^2.4.0
     smooth-scrollbar: ^8.7.4
