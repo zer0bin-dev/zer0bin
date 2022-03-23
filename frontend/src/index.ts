@@ -131,7 +131,8 @@ function viewPaste(content: string, views: string) {
 		lineNumbers.innerHTML = lineNumbers.innerHTML + `${i}<br>`
 	}
 	if (content.substring(0, 3) == "---") {
-		codeView.innerHTML = marked.parse(content.substring(3)).value
+		console.log(marked.parse(content))
+		codeView.innerHTML = marked.parse(content)
 	} else {
 		codeView.innerHTML = hljs.highlightAuto(content).value
 	}
