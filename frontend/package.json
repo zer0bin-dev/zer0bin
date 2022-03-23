@@ -9,14 +9,8 @@
 		"build": "parcel build index.pug"
 	},
 	"devDependencies": {
-		"@parcel/compressor-brotli": "^2.4.0",
-		"@parcel/compressor-gzip": "^2.4.0",
-		"@parcel/config-default": "^2.4.0",
-		"@parcel/transformer-pug": "^2.4.0",
-		"@parcel/transformer-sass": "^2.4.0",
 		"@types/core-js": "^2.5.5",
-		"@types/node": "^17.0.21",
-		"parcel": "^2.4.0"
+		"@types/node": "^17.0.21"
 	},
 	"description": "just a place to paste",
 	"repository": "https://github.com/Domterion/zer0bin",
@@ -24,9 +18,12 @@
 	"dependencies": {
 		"@ant-design/icons": "^4.7.0",
 		"@ant-design/icons-svg": "^4.2.1",
+		"@parcel/core": "^2.4.0",
+		"@parcel/transformer-pug": "^2.4.0",
 		"highlight.js": "^11.4.0",
 		"js-confetti": "^0.10.2",
 		"no-darkreader": "^1.0.1",
+		"parcel": "^2.4.0",
 		"smooth-scrollbar": "^8.7.4",
 		"tippy.js": "^6.3.7"
 	}
