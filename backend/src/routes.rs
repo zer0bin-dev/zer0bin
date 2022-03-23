@@ -1,6 +1,5 @@
 use actix_web::{
-    get,
-    post,
+    get, post,
     web::{self},
     HttpResponse, Responder,
 };
@@ -219,6 +218,38 @@ pub async fn get_version_badge() -> impl Responder {
     let badge = BadgeBuilder::new()
         .label("version")
         .message(&version)
+        .color_parse("#31748f")
+        .label_color_parse("#191724")
+        .style(Style::FlatSquare)
+        .build()
+        .expect("Failed to build badge")
+        .svg();
+
+    HttpResponse::Ok().content_type("image/svg+xml").body(badge)
+}
+
+#[get("/t")]
+pub async fn get_total_pastes_badge(state: web::Data<AppState>) -> impl Responder {
+    let count: Result<i64, sqlx::Error> = sqlx::query(r#"SELECT COUNT(*) FROM pastes"#)
+        .try_map(|row: PgRow| row.try_get::<i64, _>("count"))
+        .fetch_one(&state.pool)
+        .await;
+
+    if let Err(e) = count {
+        eprintln!("Error occurred while retrieving paste count: {:?}", e);
+
+        return HttpResponse::InternalServerError().json(ApiResponse {
+            success: false,
+            data: ApiError {
+                message: "Error occurred while retrieving paste count, please try again."
+                    .to_string(),
+            },
+        });
+    }
+
+    let badge = BadgeBuilder::new()
+        .label("total pastes")
+        .message(&count.unwrap().to_string())
         .color_parse("#31748f")
         .label_color_parse("#191724")
         .style(Style::FlatSquare)
