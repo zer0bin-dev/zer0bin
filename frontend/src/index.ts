@@ -130,7 +130,7 @@ function viewPaste(content: string, views: string) {
 	for (let i = 1; i <= content.split("\n").length; i++) {
 		lineNumbers.innerHTML = lineNumbers.innerHTML + `${i}<br>`
 	}
-	if (content.startsWith("---") or content.startsWith("md ")) {
+	if (content.startsWith("---") || content.startsWith("md ")) {
 		codeView.innerHTML = marked.parse(content.substring(3))
 		hide(lineNumbers)
 	} else {
