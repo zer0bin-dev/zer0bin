@@ -6,14 +6,14 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "parcel index.pug",
-		"build": "parcel build index.pug"
+		"build": "parcel build index.pug --public-url /"
 	},
 	"devDependencies": {
 		"@types/core-js": "^2.5.5",
 		"@types/node": "^17.0.21"
 	},
 	"description": "just a place to paste",
-	"repository": "https://github.com/Domterion/zer0bin",
+	"repository": "https://github.com/zer0bin-dev/zer0bin",
 	"author": "Domterion, ThatOneCalculator",
 	"dependencies": {
 		"@ant-design/icons": "^4.7.0",
