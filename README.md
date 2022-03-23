@@ -10,11 +10,13 @@
 	<br>
     <p align="center">
 	<a href="https://github.com/zer0bin-dev/zer0bin/stargazers">
-		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/github/stars/zer0bin-dev/zer0bin?style=for-the-badge&logo=star&color=f6c177&logoColor=ebbcba&labelColor=191724"></a>
+		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/github/stars/zer0bin-dev/zer0bin?style=for-the-badge&logo=star&color=f6c177&logoColor=eb6f92&labelColor=191724"></a>
+	<a href="https://github.com/zer0bin-dev/zer0bin/wiki">
+		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/badge/read_the-wiki-ebbcba?style=for-the-badge&logo=repo&color=f6c177&logoColor=eb6f92&labelColor=191724"></a>
  	<a href="https://github.com/zer0bin-dev/zer0bin/releases/latest">
-		<img alt="Releases" src="https://img.shields.io/github/release/zer0bin-dev/zer0bin?style=for-the-badge&logo=github&color=31748f&logoColor=ebbcba&labelColor=191724"/></a>
+		<img alt="Releases" src="https://img.shields.io/github/release/zer0bin-dev/zer0bin?style=for-the-badge&logo=github&color=31748f&logoColor=eb6f92&labelColor=191724"/></a>
 	<a href="https://github.com/zer0bin-dev/zer0bin/blob/main/LICENSE">
-		<img alt="License" src="https://custom-icon-badges.herokuapp.com/github/license/zer0bin-dev/zer0bin?style=for-the-badge&logo=law&color=c4a7e7&logoColor=ebbcba&labelColor=191724"></a>
+		<img alt="License" src="https://custom-icon-badges.herokuapp.com/github/license/zer0bin-dev/zer0bin?style=for-the-badge&logo=law&color=c4a7e7&logoColor=eb6f92&labelColor=191724"></a>
 	<a href="https://github.com/zer0bin-dev/zer0bin/issues">
 		<img alt="Issues" src="https://custom-icon-badges.herokuapp.com/github/issues/zer0bin-dev/zer0bin?style=for-the-badge&logo=issue-opened&color=9ccfd8&logoColor=eb6f92&labelColor=191724"></a>
 </p>
@@ -50,7 +52,9 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 # More info
 
 ### Looking for API reference, self-hosting instructions, and/or benchmarks?
-### It's now in the [Wiki](https://github.com/zer0bin-dev/zer0bin/wiki/)!
+
+<a href="https://github.com/zer0bin-dev/zer0bin/wiki">
+		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/badge/read_the-wiki-ebbcba?style=for-the-badge&logo=repo&color=f6c177&logoColor=eb6f92&labelColor=191724" height=50></a>
 
 # Contributing
 
