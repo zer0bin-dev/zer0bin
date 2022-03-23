@@ -250,7 +250,7 @@ pub async fn get_total_pastes_badge(state: web::Data<AppState>) -> impl Responde
     let badge = BadgeBuilder::new()
         .label("total pastes")
         .message(&count.unwrap().to_string())
-        .color_parse("#31748f")
+        .color_parse("#ebbcba")
         .label_color_parse("#191724")
         .style(Style::FlatSquare)
         .build()
