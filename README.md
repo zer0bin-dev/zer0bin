@@ -27,11 +27,11 @@
 
 Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/new?assignees=&labels=&template=03_public_instance.md&title=%F0%9F%9A%80+)!
 
-| Website                                        | Expiration | Max paste size | Version | Country |
-| ---------------------------------------------- | ---------- | -------------- | ------- | ------- |
-| [zer0b.in](https://zer0b.in)                   | 90 days    | 50,000 chars   | v0.7.1  | 🇺🇸 USA  |
-| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | v0.7.1  | 🇺🇸 USA  |
-| [tinker.nz](https://tinker.nz/)                | 28 days    | 69,420 chars   | v0.7.1  | 🇳🇿 NZ   |
+| URL                                            | Expiration | Max paste size | Total Pastes                                 | Version                                       | Country |
+| ---------------------------------------------- | ---------- | -------------- | -------------------------------------------- | --------------------------------------------- | ------- |
+| [zer0b.in](https://zer0b.in)                   | 90 days    | 50,000 chars   | ![pastes](https://zer0b.in/api/b/t)          | ![version](https://zer0b.in/api/b/v)          | 🇺🇸 USA  |
+| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | ![pastes](https://stepbro.voring.me/api/b/t) | ![version](https://stepbro.voring.me/api/b/v) | 🇺🇸 USA  |
+| [tinker.nz](https://tinker.nz/)                | 28 days    | 69,420 chars   | ![pastes](https://tinker.nz/api/b/t)         | ![version](https://tinker.nz/api/b/v)         | 🇳🇿 NZ   |
 
 # Technologies used
 
