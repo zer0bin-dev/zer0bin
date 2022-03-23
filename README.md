@@ -12,7 +12,7 @@
 	<a href="https://github.com/zer0bin-dev/zer0bin/stargazers">
 		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/github/stars/zer0bin-dev/zer0bin?style=for-the-badge&logo=star&color=f6c177&logoColor=eb6f92&labelColor=191724"></a>
 	<a href="https://github.com/zer0bin-dev/zer0bin/wiki">
-		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/badge/read_the-wiki-ebbcba?style=for-the-badge&logo=repo&color=f6c177&logoColor=eb6f92&labelColor=191724"></a>
+		<img alt="Wiki" src="https://custom-icon-badges.herokuapp.com/badge/read_the-wiki-ebbcba?style=for-the-badge&logo=repo&logoColor=eb6f92&labelColor=191724"></a>
  	<a href="https://github.com/zer0bin-dev/zer0bin/releases/latest">
 		<img alt="Releases" src="https://img.shields.io/github/release/zer0bin-dev/zer0bin?style=for-the-badge&logo=github&color=31748f&logoColor=eb6f92&labelColor=191724"/></a>
 	<a href="https://github.com/zer0bin-dev/zer0bin/blob/main/LICENSE">
@@ -54,7 +54,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 ### Looking for API reference, self-hosting instructions, and/or benchmarks?
 
 <a href="https://github.com/zer0bin-dev/zer0bin/wiki">
-		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/badge/read_the-wiki-ebbcba?style=for-the-badge&logo=repo&color=f6c177&logoColor=eb6f92&labelColor=191724" height=50></a>
+		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/badge/read_the-wiki-ebbcba?style=for-the-badge&logo=repo&logoColor=eb6f92&labelColor=191724" height=50></a>
 
 # Contributing
 
