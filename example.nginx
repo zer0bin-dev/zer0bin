@@ -17,6 +17,9 @@ server {
 
     rewrite ^/(?!.*api)(?!.*\.).*$ /index.html;
 
+    expires 30d;
+    add_header Cache-Control "public, no-transform";
+
     location / {
         index index.html;
     }
@@ -35,10 +38,13 @@ server {
         proxy_pass http://localhost:8000/;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $host;
+        add_header Last-Modified $date_gmt;
+        add_header Cache-Control 'no-store, no-cache';
+        if_modified_since off;
+        expires off;
+        etag off;
     }
 
-    expires 30d;
-    add_header Cache-Control "public, no-transform";
 
     # ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
     # ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
