@@ -26,7 +26,7 @@
 # Features
 
 - ✨ Code highlighting and line numbers (default)
-- 📔 Markdown rendering (add `---` to the start of your paste)
+- 📖 Markdown rendering (add `---` or `md` to the start of your paste)
 - 👀 View counter
 - ⌨️ Keybinds (<kbd>Ctrl</kbd> + <kbd>S</kbd>: save paste, <kbd>Ctrl</kbd> + <kbd>N</kbd>: new paste, <kbd>Ctrl</kbd> + <kbd>D</kbd>: duplicate paste)
 - 📱 Mobile-friendly UI
