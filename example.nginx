@@ -1,7 +1,7 @@
 # replace `example.tld` with your domain
 # replace `/location/of/zer0bin` with the location of the zer0bin folder
-# uncomment the `brotli on;` lines if you have the nginx brotoli plugin
-# uncomment the `ssl_certificate` lines if you have letsencrypt certs
+# comment out line 15 and uncomment line 16 if you have the nginx brotoli plugin
+# uncomment lines 51 and 52 if you have letsencrypt certs
 
 server {
     server_name example.tld;
@@ -11,6 +11,8 @@ server {
 server {
     listen 443;
     server_name example.tld;
+    
+    gzip_static on;
     # brotli on;
 
     root /location/of/zer0bin/frontend/dist;
