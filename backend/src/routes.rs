@@ -221,6 +221,7 @@ pub async fn get_version_badge(state: web::Data<AppState>) -> impl Responder {
         .label("version")
         .message(&version)
         .color_parse("#31748f")
+        .label_color_parse("#191724")
         .style(Style::FlatSquare)
         .build()
         .expect("Failed to build badge")
