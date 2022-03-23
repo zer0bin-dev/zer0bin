@@ -132,6 +132,7 @@ function viewPaste(content: string, views: string) {
 	}
 	if (content.startsWith("---")) {
 		codeView.innerHTML = marked.parse(content)
+		hide(lineNumbers)
 	} else {
 		codeView.innerHTML = hljs.highlightAuto(content).value
 	}
