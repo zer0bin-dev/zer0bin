@@ -38,6 +38,7 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 
 tippy("#save-button", {
 	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
+	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",
 	allowHTML: true,
@@ -45,6 +46,7 @@ tippy("#save-button", {
 
 tippy("#new-button", {
 	content: "New paste<br><span class='keybind'>Ctrl + N</span>",
+	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",
 	allowHTML: true,
@@ -52,6 +54,7 @@ tippy("#new-button", {
 
 tippy("#copy-button", {
 	content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
+	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",
 	allowHTML: true,
@@ -66,7 +69,29 @@ tippy("#github-button", {
 	})} ${renderIconDefinitionToSVGElement(HeartOutlined, {
 		extraSVGAttrs: extraSVGAttrs,
 	})}</span>`,
+	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",
 	allowHTML: true,
+})
+
+const observer = new MutationObserver(callback)
+
+function callback() {
+	let theme = ""
+
+	if (window.location.pathname == "/") {
+		theme = "rosepine"
+	} else {
+		theme = "rosepine-extended"
+	}
+
+	document.querySelectorAll("button").forEach(function (btn) {
+		//@ts-ignore
+		btn._tippy.setProps({ theme: theme })
+	})
+}
+
+observer.observe(document.getElementById("code-view-pre"), {
+	attributes: true,
 })

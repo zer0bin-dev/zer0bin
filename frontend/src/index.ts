@@ -1,11 +1,13 @@
 import "no-darkreader"
 
 import hljs from "highlight.js"
+import { marked } from "marked"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
 import config from "../config.json"
 const apiUrl = config.api_url
+const confettiChance = parseInt(config.confetti_chance)
 let rawContent = ""
 
 const jsConfetti = new JSConfetti()
@@ -125,10 +127,18 @@ function addMessage(message: string) {
 
 function viewPaste(content: string, views: string) {
 	lineNumbers.innerHTML = ""
-	for (let i = 1; i <= content.split("\n").length; i++) {
-		lineNumbers.innerHTML = lineNumbers.innerHTML + `${i}<br>`
+	if (
+		content.startsWith("---") ||
+		content.startsWith("md ") ||
+		content.startsWith("md\n")
+	) {
+		codeView.innerHTML = marked.parse(content.substring(3))
+	} else {
+		for (let i = 1; i <= content.split("\n").length; i++) {
+			lineNumbers.innerHTML = lineNumbers.innerHTML + `${i}<br>`
+		}
+		codeView.innerHTML = hljs.highlightAuto(content).value
 	}
-	codeView.innerHTML = hljs.highlightAuto(content).value
 
 	disable(saveButton)
 	enable(newButton)
@@ -163,7 +173,7 @@ async function savePaste() {
 			rawContent = res["data"]["content"]
 			viewPaste(rawContent, "0")
 
-			const rand = Math.floor(Math.random() * 40)
+			const rand = Math.floor(Math.random() * confettiChance * 6)
 
 			if (rand < 5) {
 				jsConfetti.addConfetti({

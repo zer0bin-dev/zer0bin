@@ -1,32 +1,30 @@
 {
 	"name": "zer0bin",
 	"source": "index.pug",
-	"version": "0.7.1",
+	"version": "1.0.1",
 	"browserslist": "> 0.5%, last 2 versions, not dead",
 	"license": "MIT",
 	"scripts": {
 		"start": "parcel index.pug",
-		"build": "parcel build index.pug"
+		"build": "parcel build index.pug --public-url /"
 	},
 	"devDependencies": {
-		"@parcel/compressor-brotli": "^2.3.2",
-		"@parcel/compressor-gzip": "^2.3.2",
-		"@parcel/config-default": "^2.3.2",
-		"@parcel/transformer-pug": "2.3.2",
-		"@parcel/transformer-sass": "^2.3.2",
 		"@types/core-js": "^2.5.5",
-		"@types/node": "^17.0.21",
-		"parcel": "^2.3.2"
+		"@types/node": "^17.0.21"
 	},
 	"description": "just a place to paste",
-	"repository": "https://github.com/Domterion/zer0bin",
+	"repository": "https://github.com/zer0bin-dev/zer0bin",
 	"author": "Domterion, ThatOneCalculator",
 	"dependencies": {
 		"@ant-design/icons": "^4.7.0",
 		"@ant-design/icons-svg": "^4.2.1",
+		"@parcel/core": "^2.4.0",
+		"@parcel/transformer-pug": "^2.4.0",
 		"highlight.js": "^11.4.0",
 		"js-confetti": "^0.10.2",
+		"marked": "^4.0.12",
 		"no-darkreader": "^1.0.1",
+		"parcel": "^2.4.0",
 		"smooth-scrollbar": "^8.7.4",
 		"tippy.js": "^6.3.7"
 	}

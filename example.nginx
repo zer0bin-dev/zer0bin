@@ -1,18 +1,18 @@
 # replace `example.tld` with your domain
 # replace `/location/of/zer0bin` with the location of the zer0bin folder
-# uncomment the `brotli on;` lines if you have the nginx brotoli plugin
-# uncomment the `ssl_certificate` lines if you have letsencrypt certs
+# comment out line 15 and uncomment line 16 if you have the nginx brotoli plugin
+# uncomment lines 51 and 52 if you have letsencrypt certs
 
 server {
-    #listen 80 is default
     server_name example.tld;
     return 301 https://example.tld$request_uri;
-    # brotli on;
 }
 
 server {
     listen 443;
     server_name example.tld;
+    
+    gzip_static on;
     # brotli on;
 
     root /location/of/zer0bin/frontend/dist;
@@ -21,10 +21,14 @@ server {
 
     location / {
         index index.html;
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
     }
 
     location ~ \.(css|js|html) {
         try_files $uri =404;
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
     }
 
     location ^~ /.well-known/ {
@@ -37,10 +41,12 @@ server {
         proxy_pass http://localhost:8000/;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $host;
+        add_header Last-Modified $date_gmt;
+        add_header Cache-Control 'no-store, no-cache';
+        if_modified_since off;
+        expires off;
+        etag off;
     }
-
-    expires 30d;
-    add_header Cache-Control "public, no-transform";
 
     # ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
     # ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
