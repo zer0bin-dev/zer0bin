@@ -181,6 +181,13 @@ a {
 	right: 0;
 	padding: 1rem 1rem 0.5rem 1rem;
 	z-index: 10;
+
+	.btn {
+		color: $muted;
+		&:hover {
+			color: $foam;
+		}
+	}
 }
 .keybind {
 	color: $subtle;
