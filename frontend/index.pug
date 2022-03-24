@@ -22,7 +22,7 @@ head
 	script(defer='' type='module' src='src/icons.ts')
 
 ul.noselect#messages
-.button-wrapper.noselect(style='position: fixed')
+.button-wrapper.noselect()
 	a.logo.noselect(href='/') zer0bin
 	.buttons.noselect
 		button#save-button.btn(aria-label='Save')
@@ -33,6 +33,10 @@ ul.noselect#messages
 			button#github-button.btn(aria-label='GitHub')
 	span.viewcounter.noselect#viewcounter-label Views:&nbsp;
 	span.viewcounter.noselect#viewcounter-count
+
+.hide-button-wrapper
+	button#hide-button.btn(aria-label='Hide')
+
 .scrollbar-container
 	.wrapper
 		.line-numbers.noselect

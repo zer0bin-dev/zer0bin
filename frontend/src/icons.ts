@@ -6,6 +6,7 @@ import {
 	ForkOutlined,
 	HeartOutlined,
 	StarOutlined,
+	EyeOutlined
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import tippy from "tippy.js"
@@ -15,6 +16,7 @@ import "tippy.js/animations/scale.css"
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
+const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 const githubButton = <HTMLButtonElement>document.getElementById("github-button")
 
 const extraSVGAttrs = {
@@ -33,6 +35,9 @@ copyButton.innerHTML += renderIconDefinitionToSVGElement(CopyOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
 githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
+	extraSVGAttrs: extraSVGAttrs,
+})
+hideButton.innerHTML += renderIconDefinitionToSVGElement(EyeOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
 
@@ -74,6 +79,15 @@ tippy("#github-button", {
 	theme: "rosepine",
 	allowHTML: true,
 })
+
+tippy("#hide-button", {
+	content: "Hide the button pane",
+	placement: "top",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
 
 const observer = new MutationObserver(callback)
 
