@@ -6,7 +6,8 @@ import {
 	ForkOutlined,
 	HeartOutlined,
 	StarOutlined,
-	EyeOutlined
+	EyeOutlined,
+	EyeInvisibleOutlined
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import tippy from "tippy.js"
@@ -37,7 +38,7 @@ copyButton.innerHTML += renderIconDefinitionToSVGElement(CopyOutlined, {
 githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
-hideButton.innerHTML += renderIconDefinitionToSVGElement(EyeOutlined, {
+hideButton.innerHTML += renderIconDefinitionToSVGElement(EyeInvisibleOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
 
@@ -109,3 +110,15 @@ function callback() {
 observer.observe(document.getElementById("code-view-pre"), {
 	attributes: true,
 })
+
+export function toggleHiddenIcon(hidden: boolean) {
+	if (!hidden) {
+		hideButton.innerHTML = renderIconDefinitionToSVGElement(EyeInvisibleOutlined, {
+			extraSVGAttrs: extraSVGAttrs,
+		})
+	} else {
+		hideButton.innerHTML = renderIconDefinitionToSVGElement(EyeOutlined, {
+			extraSVGAttrs: extraSVGAttrs,
+		})
+	}
+}

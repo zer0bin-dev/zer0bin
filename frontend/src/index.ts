@@ -5,7 +5,10 @@ import { marked } from "marked"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
+import "./icons"
+
 import config from "../config.json"
+import { toggleHiddenIcon } from "./icons"
 const apiUrl = config.api_url
 const confettiChance = parseInt(config.confetti_chance)
 let rawContent = ""
@@ -274,6 +277,8 @@ hideButton.addEventListener("click", function () {
 		buttonPaneHidden = false
 		show(buttonWrapper)
 	}
+
+	toggleHiddenIcon(buttonPaneHidden)
 })
 
 async function handlePopstate() {
