@@ -75,7 +75,6 @@ pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> imp
     }
 }
 
-// TODO: Fix major vuln
 #[get("/r/{id}")]
 pub async fn get_raw_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Responder {
     let id = id.into_inner();
@@ -94,7 +93,7 @@ pub async fn get_raw_paste(state: web::Data<AppState>, id: web::Path<String>) ->
                 .execute(&state.pool)
                 .await;
 
-            HttpResponse::Ok().body(p.content)
+            HttpResponse::Ok().content_type("text/plain").body(p.content)
         }
         Err(e) => match e {
             sqlx::Error::RowNotFound => {
