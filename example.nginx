@@ -19,15 +19,16 @@ server {
 
     rewrite ^/(?!.*api)(?!.*\.).*$ /index.html;
 
-    expires 30d;
-    add_header Cache-Control "public, no-transform";
-
     location / {
         index index.html;
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
     }
 
     location ~ \.(css|js|html) {
         try_files $uri =404;
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
     }
 
     location ^~ /.well-known/ {
@@ -46,7 +47,6 @@ server {
         expires off;
         etag off;
     }
-
 
     # ssl_certificate           /etc/letsencrypt/live/example.tld/fullchain.pem;
     # ssl_certificate_key       /etc/letsencrypt/live/example.tld/privkey.pem;
