@@ -1,7 +1,7 @@
 {
 	"name": "zer0bin",
 	"source": "index.pug",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"browserslist": "> 0.5%, last 2 versions, not dead",
 	"license": "MIT",
 	"scripts": {
@@ -11,7 +11,7 @@
 	"devDependencies": {
 		"@parcel/compressor-brotli": "^2.4.0",
 		"@parcel/compressor-gzip": "^2.4.0",
-		"@parcel/transformer-sass": "2.4.0",
+		"@parcel/transformer-sass": "^2.4.0",
 		"@types/core-js": "^2.5.5",
 		"@types/node": "^17.0.21"
 	},
