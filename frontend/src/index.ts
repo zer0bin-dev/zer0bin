@@ -1,19 +1,24 @@
 import "no-darkreader"
 
-import hljs from "highlight.js"
+import hljs from "highlight.js/lib/common"
 import { marked } from "marked"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
+import "./icons"
+
 import config from "../config.json"
+import { toggleHiddenIcon } from "./icons"
 const apiUrl = config.api_url
 const confettiChance = parseInt(config.confetti_chance)
 let rawContent = ""
+let buttonPaneHidden = false
 
 const jsConfetti = new JSConfetti()
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
 const wrapper = <HTMLPreElement>document.querySelector(".wrapper")
+const buttonWrapper = <HTMLPreElement>document.querySelector(".button-wrapper")
 const editor = <HTMLTextAreaElement>document.getElementById("text-area")
 const codeViewPre = <HTMLPreElement>document.getElementById("code-view-pre")
 const codeView = <HTMLElement>document.getElementById("code-view")
@@ -27,6 +32,7 @@ const viewCounter = <HTMLSpanElement>(
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
+const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 
 function hide(element: HTMLElement) {
 	element.style.display = "none"
@@ -259,6 +265,20 @@ copyButton.addEventListener("click", async function () {
 
 newButton.addEventListener("click", function () {
 	window.location.href = "/"
+})
+
+hideButton.addEventListener("click", function () {
+	if (!buttonPaneHidden) {
+		// The button pane is currently visible so we hide it
+		buttonPaneHidden = true
+		hide(buttonWrapper)
+	} else {
+		// The button pane isnt visible so we show it
+		buttonPaneHidden = false
+		show(buttonWrapper)
+	}
+
+	toggleHiddenIcon(buttonPaneHidden)
 })
 
 async function handlePopstate() {
