@@ -9,9 +9,11 @@
 		"build": "parcel build index.pug --public-url /"
 	},
 	"devDependencies": {
+		"@parcel/core": "^2.4.0",
 		"@parcel/compressor-brotli": "^2.4.0",
 		"@parcel/compressor-gzip": "^2.4.0",
 		"@parcel/transformer-sass": "^2.4.0",
+		"@parcel/transformer-pug": "^2.4.0",
 		"@types/core-js": "^2.5.5",
 		"@types/node": "^17.0.21"
 	},
@@ -19,10 +21,7 @@
 	"repository": "https://github.com/zer0bin-dev/zer0bin",
 	"author": "Domterion, ThatOneCalculator",
 	"dependencies": {
-		"@ant-design/icons": "^4.7.0",
 		"@ant-design/icons-svg": "^4.2.1",
-		"@parcel/core": "^2.4.0",
-		"@parcel/transformer-pug": "^2.4.0",
 		"js-confetti": "^0.10.2",
 		"marked": "^4.0.12",
 		"no-darkreader": "^1.0.1",
