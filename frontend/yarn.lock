@@ -1791,7 +1791,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:^11.4.0":
+"highlight.js@npm:^11.5.0":
   version: 11.5.0
   resolution: "highlight.js@npm:11.5.0"
   checksum: a4339278d5be464fa29047fd00bc91f3d3966f5acbbb861ec51a09f3eea7c79ca63c2e0a2ba0c7b3d3663ee56b11c6470ab2759c7278e0d11af5cb0efa26e6eb
@@ -3291,7 +3291,7 @@ __metadata:
     "@parcel/transformer-sass": ^2.4.0
     "@types/core-js": ^2.5.5
     "@types/node": ^17.0.21
-    highlight.js: ^11.4.0
+    highlight.js: ^11.5.0
     js-confetti: ^0.10.2
     marked: ^4.0.12
     no-darkreader: ^1.0.1

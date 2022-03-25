@@ -1,6 +1,6 @@
 import "no-darkreader"
 
-import hljs from "highlight.js"
+import hljs from "highlight.js/lib/common"
 import { marked } from "marked"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"

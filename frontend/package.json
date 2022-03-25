@@ -23,7 +23,7 @@
 		"@ant-design/icons-svg": "^4.2.1",
 		"@parcel/core": "^2.4.0",
 		"@parcel/transformer-pug": "^2.4.0",
-		"highlight.js": "^11.4.0",
+		"highlight.js": "^11.5.0",
 		"js-confetti": "^0.10.2",
 		"marked": "^4.0.12",
 		"no-darkreader": "^1.0.1",
