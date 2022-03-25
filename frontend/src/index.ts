@@ -1,11 +1,11 @@
 import "no-darkreader"
 
-import hljs from "highlight.js/lib/common"
 import { marked } from "marked"
 import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
 import "./icons"
+import hljs from "../min/highlight.min"
 
 import config from "../config.json"
 import { toggleHiddenIcon } from "./icons"
