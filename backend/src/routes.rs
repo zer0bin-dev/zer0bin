@@ -34,7 +34,7 @@ pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> imp
         Ok(p) => {
             // Only increment views if its not a single view paste
             if p.single_view {
-                let _ = sqlx::query(r#"DELETE FORM pastes WHERE "id" = $1"#)
+                let _ = sqlx::query(r#"DELETE FROM pastes WHERE "id" = $1"#)
                     .bind(id.clone())
                     .execute(&state.pool)
                     .await;
@@ -46,7 +46,7 @@ pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> imp
             }
 
             if state.config.logging.on_get_paste {
-                println!("[GET]  id={} views={}", id, p.views + 1);
+                println!("[GET]  id={} views={} single_view={}", id, p.views + 1, p.single_view);
             }
 
             HttpResponse::Ok().json(ApiResponse {
@@ -96,7 +96,7 @@ pub async fn get_raw_paste(state: web::Data<AppState>, id: web::Path<String>) ->
     match res {
         Ok(p) => {
             if p.single_view {
-                let _ = sqlx::query(r#"DELETE FORM pastes WHERE "id" = $1"#)
+                let _ = sqlx::query(r#"DELETE FROM pastes WHERE "id" = $1"#)
                     .bind(id.clone())
                     .execute(&state.pool)
                     .await;
@@ -105,6 +105,10 @@ pub async fn get_raw_paste(state: web::Data<AppState>, id: web::Path<String>) ->
                     .bind(id.clone())
                     .execute(&state.pool)
                     .await;
+            }
+
+            if state.config.logging.on_get_paste {
+                println!("[GET] raw id={} views={} single_view={}", id, p.views + 1, p.single_view);
             }
 
             HttpResponse::Ok()
@@ -174,7 +178,7 @@ pub async fn new_paste(
     match res {
         Ok(_) => {
             if state.config.logging.on_post_paste {
-                println!("[POST] id={} length={}", id, content.len());
+                println!("[POST] id={} length={} single_view={}", id, content.len(), single_view);
             }
             HttpResponse::Ok().json(ApiResponse {
                 success: true,

@@ -51,7 +51,8 @@ function enable(element: HTMLButtonElement) {
 }
 
 async function postPaste(content: string, callback: Function) {
-	const payload = { content }
+	let single_view = true;
+	const payload = { content, single_view }
 	await fetch(`${apiUrl}/p/n`, {
 		method: "POST",
 		headers: {
