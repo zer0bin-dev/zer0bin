@@ -2,9 +2,12 @@ CREATE TABLE IF NOT EXISTS pastes (
     "id" TEXT PRIMARY KEY,
     "content" TEXT NOT NULL,
     "views" BIGINT DEFAULT 0,
+    "single_view" BOOLEAN DEFAULT false,
     "expires_at" TIMESTAMP WITHOUT TIME ZONE,
     "created_at" TIMESTAMP WITHOUT TIME ZONE DEFAULT(NOW() AT TIME ZONE 'utc')
 );
+
+-- ALTER TABLE pastes ADD COLUMN single_view BOOLEAN DEFAULT false;
 
 CREATE OR REPLACE FUNCTION deleteExpiredPastes() RETURNS trigger AS $pastes_expire$ BEGIN
 DELETE FROM pastes
