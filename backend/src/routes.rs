@@ -32,14 +32,21 @@ pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> imp
 
     match res {
         Ok(p) => {
-            // this may be worth handling at some point..
-            let _ = sqlx::query(r#"UPDATE pastes SET "views" = "views" + 1 WHERE "id" = $1"#)
-                .bind(id.clone())
-                .execute(&state.pool)
-                .await;
+            // Only increment views if its not a single view paste
+            if p.single_view {
+                let _ = sqlx::query(r#"DELETE FROM pastes WHERE "id" = $1"#)
+                    .bind(id.clone())
+                    .execute(&state.pool)
+                    .await;
+            } else {
+                let _ = sqlx::query(r#"UPDATE pastes SET "views" = "views" + 1 WHERE "id" = $1"#)
+                    .bind(id.clone())
+                    .execute(&state.pool)
+                    .await;
+            }
 
             if state.config.logging.on_get_paste {
-                println!("[GET]  id={} views={}", id, p.views + 1);
+                println!("[GET]  id={} views={} single_view={}", id, p.views + 1, p.single_view);
             }
 
             HttpResponse::Ok().json(ApiResponse {
@@ -48,6 +55,7 @@ pub async fn get_paste(state: web::Data<AppState>, id: web::Path<String>) -> imp
                     id: p.id,
                     content: p.content,
                     views: p.views + 1,
+                    single_view: p.single_view,
                     expires_at: p.expires_at,
                 },
             })
@@ -87,13 +95,25 @@ pub async fn get_raw_paste(state: web::Data<AppState>, id: web::Path<String>) ->
 
     match res {
         Ok(p) => {
-            // this may be worth handling at some point..
-            let _ = sqlx::query(r#"UPDATE pastes SET "views" = "views" + 1 WHERE "id" = $1"#)
-                .bind(id.clone())
-                .execute(&state.pool)
-                .await;
+            if p.single_view {
+                let _ = sqlx::query(r#"DELETE FROM pastes WHERE "id" = $1"#)
+                    .bind(id.clone())
+                    .execute(&state.pool)
+                    .await;
+            } else {
+                let _ = sqlx::query(r#"UPDATE pastes SET "views" = "views" + 1 WHERE "id" = $1"#)
+                    .bind(id.clone())
+                    .execute(&state.pool)
+                    .await;
+            }
 
-            HttpResponse::Ok().content_type("text/plain").body(p.content)
+            if state.config.logging.on_get_paste {
+                println!("[GET] raw id={} views={} single_view={}", id, p.views + 1, p.single_view);
+            }
+
+            HttpResponse::Ok()
+                .content_type("text/plain")
+                .body(p.content)
         }
         Err(e) => match e {
             sqlx::Error::RowNotFound => {
@@ -144,11 +164,13 @@ pub async fn new_paste(
     };
 
     let content = data.content.clone();
+    let single_view = data.single_view;
 
     let res =
-        sqlx::query(r#"INSERT INTO pastes("id", "content", "expires_at") VALUES ($1, $2, $3)"#)
+        sqlx::query(r#"INSERT INTO pastes("id", "content", "single_view", "expires_at") VALUES ($1, $2, $3, $4)"#)
             .bind(id.clone())
             .bind(content.clone())
+            .bind(single_view)
             .bind(expires_at)
             .execute(&state.pool)
             .await;
@@ -156,11 +178,15 @@ pub async fn new_paste(
     match res {
         Ok(_) => {
             if state.config.logging.on_post_paste {
-                println!("[POST] id={} length={}", id, content.len());
+                println!("[POST] id={} length={} single_view={}", id, content.len(), single_view);
             }
             HttpResponse::Ok().json(ApiResponse {
                 success: true,
-                data: NewPasteResponse { id, content },
+                data: NewPasteResponse {
+                    id,
+                    content,
+                    single_view,
+                },
             })
         }
         Err(e) => {
