@@ -159,8 +159,8 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 	enable(newButton)
 	enable(copyButton)
 	disable(singleViewButton)
-	hide(editor)
 
+	hide(editor)
 	show(codeViewPre)
 	show(viewCounterLabel)
 	show(viewCounter)
