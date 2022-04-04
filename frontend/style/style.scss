@@ -224,52 +224,52 @@ a {
 .fire {
 	color: $love;
 }
-$dur: 1s;
-$blur: 0.02em;
-$fireRad: 3em;
-$parts: 20;
-$partSize: 5em;
-.fireBody {
-	font-size: 3px;
-	filter: blur($blur);
-	-webkit-filter: blur($blur);
-	margin: 2em auto 0 auto;
-	position: absolute;
-	width: 6em;
-	height: 5em;
-	z-index: 0;
-	opacity: 0.5;
-}
-.particle {
-	animation: rise $dur ease-in infinite;
-	background-image: radial-gradient($love 100%, $love 100%);
-	border-radius: 50%;
-	mix-blend-mode: screen;
-	opacity: 0;
-	position: absolute;
-	bottom: 0;
-	width: $partSize;
-	height: $partSize;
-	@for $p from 1 through $parts {
-		&:nth-of-type(#{$p}) {
-			animation-delay: $dur * random();
-			left: calc((100% - #{$partSize}) * calc(($p - 1) / $parts));
-		}
-	}
-}
-@keyframes rise {
-	from {
-		opacity: 0;
-		transform: translateY(0) scale(1);
-	}
-	25% {
-		opacity: 1;
-	}
-	to {
-		opacity: 0;
-		transform: translateY(-10em) scale(0);
-	}
-}
+// $dur: 1s;
+// $blur: 0.02em;
+// $fireRad: 3em;
+// $parts: 20;
+// $partSize: 5em;
+// .fireBody {
+// 	font-size: 3px;
+// 	filter: blur($blur);
+// 	-webkit-filter: blur($blur);
+// 	margin: 2em auto 0 auto;
+// 	position: absolute;
+// 	width: 6em;
+// 	height: 5em;
+// 	z-index: 0;
+// 	opacity: 0.5;
+// }
+// .particle {
+// 	animation: rise $dur ease-in infinite;
+// 	background-image: radial-gradient($love 100%, $love 100%);
+// 	border-radius: 50%;
+// 	mix-blend-mode: screen;
+// 	opacity: 0;
+// 	position: absolute;
+// 	bottom: 0;
+// 	width: $partSize;
+// 	height: $partSize;
+// 	@for $p from 1 through $parts {
+// 		&:nth-of-type(#{$p}) {
+// 			animation-delay: $dur * random();
+// 			left: calc((100% - #{$partSize}) * calc(($p - 1) / $parts));
+// 		}
+// 	}
+// }
+// @keyframes rise {
+// 	from {
+// 		opacity: 0;
+// 		transform: translateY(0) scale(1);
+// 	}
+// 	25% {
+// 		opacity: 1;
+// 	}
+// 	to {
+// 		opacity: 0;
+// 		transform: translateY(-10em) scale(0);
+// 	}
+// }
 #messages {
 	position: absolute;
 	top: 0;
