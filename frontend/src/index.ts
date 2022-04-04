@@ -152,7 +152,8 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 	}
 
 	if (singleView) {
-		singleViewButton.style.color = "#eb6f92"
+		hide(singleViewButton.firstElementChild as HTMLElement)
+		singleViewButton.lastElementChild.classList.add("fire")
 	}
 
 	disable(saveButton)
@@ -290,10 +291,12 @@ hideButton.addEventListener("click", function () {
 singleViewButton.addEventListener("click", function () {
 	if (singleView) {
 		singleView = false
-		singleViewButton.style.color = "#9ccfd8"
+		hide(singleViewButton.firstElementChild as HTMLElement)
+		singleViewButton.lastElementChild.classList.remove("fire")
 	} else {
 		singleView = true
-		singleViewButton.style.color = "#eb6f92"
+		show(singleViewButton.firstElementChild as HTMLElement)
+		singleViewButton.lastElementChild.classList.add("fire")
 	}
 })
 

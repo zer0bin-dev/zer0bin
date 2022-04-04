@@ -58,7 +58,8 @@ tippy("#save-button", {
 })
 
 tippy("#single-view-button", {
-	content: "Single View",
+	content:
+		"Single view<br><span class='keybind'>Deletes after seen 👻</span>",
 	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",
