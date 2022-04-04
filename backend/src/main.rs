@@ -24,7 +24,7 @@ pub struct AppState {
     pub pool: PgPool,
 }
 
-pub async fn migrations(pool: sqlx::Pool) -> Result<(), sqlx::Error> {
+pub async fn migrations(pool: &PgPool) -> Result<(), sqlx::Error> {
     Migrator::new(Path::new("./migrations"))
         .await?
         .run(pool)
@@ -36,26 +36,33 @@ pub async fn migrations(pool: sqlx::Pool) -> Result<(), sqlx::Error> {
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
     let config = config::load(PathBuf::from("config.json"));
+
     let db_uri = &config.databases.postgres_uri.to_string();
+
     let pool = PgPoolOptions::new()
         .max_connections(100)
         .connect(db_uri)
         .await
         .expect("Failed to connect to database");
-    migrations(pool).await;
+
+    migrations(&pool).await.expect("Failed to run migrations");
+
     let address = format!(
         "{}:{}",
         config.server.backend_host, config.server.backend_port
     );
+
     let paste_governor = GovernorConfigBuilder::default()
         .per_second(config.ratelimits.seconds_in_between_pastes)
         .burst_size(config.ratelimits.allowed_pastes_before_ratelimit)
         .finish()
         .unwrap();
+
     let state = AppState { config, pool };
     // migrate(db_uri, &include_dir!("migrations"))
     //     .await
     //     .expect("Error in migrations!");
+    
     println!("🚀 zer0bin is running on {address}");
 
     HttpServer::new(move || {

@@ -1,1 +1,1 @@
-alter table pastes add column single_view boolean default false;
+ALTER TABLE pastes ADD column single_view BOOLEAN DEFAULT false;
