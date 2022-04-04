@@ -167,16 +167,19 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 		addMessage("This is a single-view paste!")
 	}
 
-	if (navigator.canShare) {
-		show(shareButton)
-
-		shareButton.addEventListener("click", function () {
+	show(shareButton)
+	shareButton.addEventListener("click", function () {
+		const url = window.location.toString()
+		if (navigator.canShare) {
 			navigator.share({
 				title: "zer0bin paste",
-				url: window.location.toString(),
+				url: url,
 			})
-		})
-	}
+		} else {
+			navigator.clipboard.writeText(url)
+			addMessage("Copied URL to clipboard!")
+		}
+	})
 
 	disable(saveButton)
 	disable(markdownButton)
