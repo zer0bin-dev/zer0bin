@@ -26,7 +26,8 @@
 # Features
 
 - ✨ Code highlighting and line numbers (default)
-- 📖 Markdown rendering (add `---` or `md` to the start of your paste)
+- 📖 Markdown rendering (click the <a href=""><img alt="Markdown" src="https://user-images.githubusercontent.com/44733677/161484749-fdf60750-36ae-4d0a-aaa5-cdcae54fc805.svg" height=18></a> button)
+- 🔥 Single-view pastes (click the <a href=""><img alt="Fire" src="https://user-images.githubusercontent.com/44733677/161485115-c5fccb81-fa21-4e67-88fd-9a6f9dff728e.svg" height=18></a> button)
 - ‍🧑‍💻 [CLI Client](https://github.com/zer0bin-dev/zer0)
 - 🚀 Easily selfhostable
 - 👀 View counter
