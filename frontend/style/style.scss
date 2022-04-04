@@ -133,6 +133,7 @@ textarea {
 	background-color: $bg_surface;
 	border-bottom-left-radius: 10px;
 	z-index: 10;
+	transition: opacity 0.2s, visibility 0.2s;
 }
 .buttons {
 	display: flex;
@@ -171,6 +172,7 @@ a {
 	&:disabled {
 		color: $muted;
 	}
+	transition: all 0.2s ease-in;
 }
 .btn[disabled] {
 	color: $muted;

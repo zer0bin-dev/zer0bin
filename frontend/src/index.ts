@@ -43,11 +43,13 @@ const singleViewButton = <HTMLButtonElement>(
 )
 
 function hide(element: HTMLElement) {
-	element.style.display = "none"
+	element.style.visibility = "hidden"
+	element.style.opacity = "0"
 }
 
 function show(element: HTMLElement) {
-	element.style.display = null
+	element.style.visibility = "visible"
+	element.style.opacity = "1"
 }
 
 function disable(element: HTMLButtonElement) {
@@ -125,6 +127,8 @@ function newPaste() {
 	hide(codeViewPre)
 	hide(viewCounterLabel)
 	hide(viewCounter)
+	viewCounterLabel.style.display = "none"
+	viewCounter.style.display = "none"
 }
 
 function addMessage(message: string) {
@@ -170,6 +174,8 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 	show(codeViewPre)
 	show(viewCounterLabel)
 	show(viewCounter)
+	viewCounterLabel.style.display = null
+	viewCounter.style.display = null
 
 	viewCounter.textContent = views
 

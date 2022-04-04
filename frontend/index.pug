@@ -29,7 +29,7 @@ html(lang='en')
 				button#save-button.btn(aria-label='Save')
 				button#markdown-button.btn(aria-label='Markdown')
 				button#single-view-button.btn(aria-label='Single View')
-					//- .fireBody(style='display: none')
+					//- .fireBody(style='visibility: hidden')
 					//- 	- var parts = 20;
 					//- 	- while (parts--) {
 					//- 		.particle
@@ -38,8 +38,8 @@ html(lang='en')
 				button#copy-button.btn(aria-label='Copy')
 				a(href='https://github.com/zer0bin-dev/zer0bin' aria-label='GitHub repo')
 					button#github-button.btn(aria-label='GitHub')
-			span.viewcounter.noselect#viewcounter-label(style='display: none') Views:&nbsp;
-			span.viewcounter.noselect#viewcounter-count(style='display: none')
+			span.viewcounter.noselect#viewcounter-label(style='visibility: hidden; display: none') Views:&nbsp;
+			span.viewcounter.noselect#viewcounter-count(style='visibility: hidden; display: none')
 
 		.hide-button-wrapper
 			button#hide-button.btn(aria-label='Hide')
@@ -47,6 +47,6 @@ html(lang='en')
 		.scrollbar-container
 			.wrapper
 				.line-numbers.noselect
-				pre#code-view-pre(style='display: none')
+				pre#code-view-pre(style='visibility: hidden')
 					code#code-view
-				textarea#text-area(spellcheck='false' autofocus='' name='value' aria-label='Paste input area' disabled='' style='display: none')
+				textarea#text-area(spellcheck='false' autofocus='' name='value' aria-label='Paste input area' disabled='' style='visibility: hidden')
