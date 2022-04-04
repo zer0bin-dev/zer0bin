@@ -48,7 +48,7 @@ renderIcon(hideButton, EyeInvisibleOutlined)
 renderIcon(markdownButton, FileMarkdownOutlined)
 renderIcon(singleViewButton, FireOutlined)
 
-tippy("#save-button", {
+export const saveTippy = tippy("#save-button", {
 	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
 	placement: "bottom",
 	animation: "scale",
