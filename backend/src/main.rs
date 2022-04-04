@@ -2,7 +2,7 @@ mod config;
 mod models;
 mod routes;
 
-use std::{io, path::PathBuf};
+use std::{io, path::Path, path::PathBuf};
 
 use actix_cors::Cors;
 use actix_governor::{Governor, GovernorConfigBuilder};
@@ -12,9 +12,7 @@ use actix_web::{
 };
 use config::Config;
 
-use include_dir::include_dir;
-use sqlx::{postgres::PgPoolOptions, PgPool};
-use sqlx_pg_migrate::migrate;
+use sqlx::{migrate::Migrator, postgres::PgPoolOptions, PgPool};
 
 use crate::routes::{
     get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
@@ -26,6 +24,15 @@ pub struct AppState {
     pub pool: PgPool,
 }
 
+pub async fn migrations(pool: sqlx::Pool) -> Result<(), sqlx::Error> {
+    Migrator::new(Path::new("./migrations"))
+        .await?
+        .run(pool)
+        .await?;
+
+    Ok(())
+}
+
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
     let config = config::load(PathBuf::from("config.json"));
@@ -35,6 +42,7 @@ async fn main() -> io::Result<()> {
         .connect(db_uri)
         .await
         .expect("Failed to connect to database");
+    migrations(pool).await;
     let address = format!(
         "{}:{}",
         config.server.backend_host, config.server.backend_port
@@ -45,9 +53,9 @@ async fn main() -> io::Result<()> {
         .finish()
         .unwrap();
     let state = AppState { config, pool };
-    migrate(db_uri, &include_dir!("migrations"))
-        .await
-        .expect("Error in migrations!");
+    // migrate(db_uri, &include_dir!("migrations"))
+    //     .await
+    //     .expect("Error in migrations!");
     println!("🚀 zer0bin is running on {address}");
 
     HttpServer::new(move || {
