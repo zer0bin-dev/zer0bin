@@ -68,7 +68,7 @@ tippy("#save-button", {
 })
 
 tippy("#markdown-button", {
-	content: "Markdown mode<br><span class='keybind'>Markdown rendering</span>",
+	content: "Markdown mode<br><span class='keybind'>Ctrl + M</span>",
 	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",

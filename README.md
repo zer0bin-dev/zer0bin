@@ -31,7 +31,7 @@
 - ‍🧑‍💻 [CLI Client](https://github.com/zer0bin-dev/zer0)
 - 🚀 Easily selfhostable
 - 👀 View counter
-- ⌨️ Keybinds (<kbd>Ctrl</kbd> + <kbd>S</kbd>: save paste, <kbd>Ctrl</kbd> + <kbd>N</kbd>: new paste, <kbd>Ctrl</kbd> + <kbd>D</kbd>: duplicate paste)
+- ⌨️ Keybinds (<kbd>Ctrl</kbd> + <kbd>S</kbd>: save paste, <kbd>Ctrl</kbd> + <kbd>N</kbd>: new paste, <kbd>Ctrl</kbd> + <kbd>D</kbd>: duplicate paste, <kbd>Ctrl</kbd> + <kbd>M</kbd>: toggle markdown mode)
 - 📱 Mobile-friendly UI
 - 🧈 Super smooth scrolling
 - 🖼️ Badge generation for stats (seen below)

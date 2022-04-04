@@ -237,6 +237,18 @@ async function duplicatePaste() {
 	editor.value = content
 }
 
+function toggleMarkdown() {
+	let val = editor.value
+	markdownButton.lastElementChild.classList.toggle("markdown")
+	if (isMarkdown) {
+		isMarkdown = false
+		val = val.substring(val.indexOf("\n") + 1)
+	} else {
+		isMarkdown = true
+		val = `---\n${val}`
+	}
+}
+
 saveButton.addEventListener("click", async function () {
 	await savePaste()
 })
@@ -251,6 +263,9 @@ document.addEventListener("keydown", (e) => {
 	} else if (e.ctrlKey && e.key === "d") {
 		e.preventDefault()
 		duplicatePaste()
+	} else if (e.ctrlKey && e.key === "m") {
+		e.preventDefault()
+		toggleMarkdown()
 	}
 })
 
@@ -295,15 +310,7 @@ hideButton.addEventListener("click", function () {
 })
 
 markdownButton.addEventListener("click", function () {
-	let val = editor.value
-	markdownButton.lastElementChild.classList.toggle("markdown")
-	if (isMarkdown) {
-		isMarkdown = false
-		val = val.substring(val.indexOf("\n") + 1)
-	} else {
-		isMarkdown = true
-		val = `---\n${val}`
-	}
+	toggleMarkdown()
 })
 
 singleViewButton.addEventListener("click", function () {
