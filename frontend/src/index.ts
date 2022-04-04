@@ -289,26 +289,24 @@ hideButton.addEventListener("click", function () {
 
 markdownButton.addEventListener("click", function () {
 	let val = editor.value
+	markdownButton.lastElementChild.classList.toggle("markdown")
 	if (isMarkdown) {
 		isMarkdown = false
 		val = val.substring(val.indexOf("\n") + 1)
-		markdownButton.lastElementChild.classList.add("markdown")
 	} else {
 		isMarkdown = true
 		val = `---\n${val}`
-		markdownButton.lastElementChild.classList.remove("markdown")
 	}
 })
 
 singleViewButton.addEventListener("click", function () {
+	singleViewButton.lastElementChild.classList.toggle("fire")
 	if (singleView) {
 		singleView = false
 		hide(singleViewButton.firstElementChild as HTMLElement)
-		singleViewButton.lastElementChild.classList.remove("fire")
 	} else {
 		singleView = true
 		show(singleViewButton.firstElementChild as HTMLElement)
-		singleViewButton.lastElementChild.classList.add("fire")
 	}
 })
 
