@@ -1,6 +1,6 @@
 [package]
 name = "backend"
-version = "1.1.0"
+version = "1.1.1"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -16,7 +16,7 @@ actix-governor = "0.3.0"
 
 badge-maker = "0.2.1"
 
-sqlx = { version = "0.5", features = ["runtime-tokio-rustls", "postgres", "chrono"] }
+sqlx = { version = "0.5.11", features = ["runtime-tokio-rustls", "postgres", "chrono"] }
 
 chrono = { version = "0.4.19", features = ["serde"] }
 

@@ -13,6 +13,7 @@ const apiUrl = config.api_url
 const confettiChance = parseInt(config.confetti_chance)
 let rawContent = ""
 let buttonPaneHidden = false
+let isMarkdown = false
 let singleView = false
 
 const jsConfetti = new JSConfetti()
@@ -34,16 +35,21 @@ const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
+const markdownButton = <HTMLButtonElement>(
+	document.getElementById("markdown-button")
+)
 const singleViewButton = <HTMLButtonElement>(
 	document.getElementById("single-view-button")
 )
 
 function hide(element: HTMLElement) {
-	element.style.display = "none"
+	element.style.visibility = "hidden"
+	element.style.opacity = "0"
 }
 
 function show(element: HTMLElement) {
-	element.style.display = null
+	element.style.visibility = "visible"
+	element.style.opacity = "1"
 }
 
 function disable(element: HTMLButtonElement) {
@@ -121,6 +127,8 @@ function newPaste() {
 	hide(codeViewPre)
 	hide(viewCounterLabel)
 	hide(viewCounter)
+	viewCounterLabel.style.display = "none"
+	viewCounter.style.display = "none"
 }
 
 function addMessage(message: string) {
@@ -158,6 +166,7 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 	}
 
 	disable(saveButton)
+	disable(markdownButton)
 	enable(newButton)
 	enable(copyButton)
 	disable(singleViewButton)
@@ -166,6 +175,8 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 	show(codeViewPre)
 	show(viewCounterLabel)
 	show(viewCounter)
+	viewCounterLabel.style.display = null
+	viewCounter.style.display = null
 
 	viewCounter.textContent = views
 
@@ -218,16 +229,24 @@ async function savePaste() {
 }
 
 async function duplicatePaste() {
-	const path = window.location.pathname
-	const split = path.split("/")
-	const id = split[split.length - 1]
-
 	const content = rawContent
 	window.history.pushState(null, "", "/")
 	newPaste()
 
 	rawContent = content
 	editor.value = content
+}
+
+function toggleMarkdown() {
+	let val = editor.value
+	markdownButton.lastElementChild.classList.toggle("markdown")
+	if (isMarkdown) {
+		isMarkdown = false
+		val = val.substring(val.indexOf("\n") + 1)
+	} else {
+		isMarkdown = true
+		val = `---\n${val}`
+	}
 }
 
 saveButton.addEventListener("click", async function () {
@@ -244,6 +263,9 @@ document.addEventListener("keydown", (e) => {
 	} else if (e.ctrlKey && e.key === "d") {
 		e.preventDefault()
 		duplicatePaste()
+	} else if (e.ctrlKey && e.key === "m") {
+		e.preventDefault()
+		toggleMarkdown()
 	}
 })
 
@@ -277,11 +299,9 @@ newButton.addEventListener("click", function () {
 
 hideButton.addEventListener("click", function () {
 	if (!buttonPaneHidden) {
-		// The button pane is currently visible so we hide it
 		buttonPaneHidden = true
 		hide(buttonWrapper)
 	} else {
-		// The button pane isnt visible so we show it
 		buttonPaneHidden = false
 		show(buttonWrapper)
 	}
@@ -289,15 +309,18 @@ hideButton.addEventListener("click", function () {
 	toggleHiddenIcon(buttonPaneHidden)
 })
 
+markdownButton.addEventListener("click", function () {
+	toggleMarkdown()
+})
+
 singleViewButton.addEventListener("click", function () {
+	singleViewButton.lastElementChild.classList.toggle("fire")
 	if (singleView) {
 		singleView = false
 		hide(singleViewButton.firstElementChild as HTMLElement)
-		singleViewButton.lastElementChild.classList.remove("fire")
 	} else {
 		singleView = true
 		show(singleViewButton.firstElementChild as HTMLElement)
-		singleViewButton.lastElementChild.classList.add("fire")
 	}
 })
 

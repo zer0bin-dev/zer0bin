@@ -2,7 +2,7 @@ mod config;
 mod models;
 mod routes;
 
-use std::{io, path::PathBuf};
+use std::{io, path::Path, path::PathBuf};
 
 use actix_cors::Cors;
 use actix_governor::{Governor, GovernorConfigBuilder};
@@ -12,9 +12,11 @@ use actix_web::{
 };
 use config::Config;
 
-use sqlx::{postgres::PgPoolOptions, PgPool};
+use sqlx::{migrate::Migrator, postgres::PgPoolOptions, PgPool};
 
-use crate::routes::{get_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste, get_raw_paste};
+use crate::routes::{
+    get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
+};
 
 #[derive(Clone)]
 pub struct AppState {
@@ -22,14 +24,28 @@ pub struct AppState {
     pub pool: PgPool,
 }
 
+pub async fn migrations(pool: &PgPool) -> Result<(), sqlx::Error> {
+    Migrator::new(Path::new("./migrations"))
+        .await?
+        .run(pool)
+        .await?;
+
+    Ok(())
+}
+
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
     let config = config::load(PathBuf::from("config.json"));
+
+    let db_uri = &config.databases.postgres_uri.to_string();
+
     let pool = PgPoolOptions::new()
         .max_connections(100)
-        .connect(&config.databases.postgres_uri)
+        .connect(db_uri)
         .await
         .expect("Failed to connect to database");
+
+    migrations(&pool).await.expect("Failed to run migrations");
 
     let address = format!(
         "{}:{}",

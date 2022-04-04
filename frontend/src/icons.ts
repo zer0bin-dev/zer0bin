@@ -9,17 +9,22 @@ import {
 	EyeOutlined,
 	EyeInvisibleOutlined,
 	FireOutlined,
+	FileMarkdownOutlined,
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import tippy from "tippy.js"
 import "../style/tooltip.scss"
 import "tippy.js/animations/scale.css"
+import { IconDefinition } from "@ant-design/icons-svg/lib/types"
 
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 const githubButton = <HTMLButtonElement>document.getElementById("github-button")
+const markdownButton = <HTMLButtonElement>(
+	document.getElementById("markdown-button")
+)
 const singleViewButton = <HTMLButtonElement>(
 	document.getElementById("single-view-button")
 )
@@ -29,28 +34,30 @@ const extraSVGAttrs = {
 	height: "1em",
 	fill: "currentColor",
 }
+function renderIcon(elem: HTMLButtonElement, icon: IconDefinition) {
+	elem.innerHTML += renderIconDefinitionToSVGElement(icon, {
+		extraSVGAttrs: extraSVGAttrs,
+	})
+}
 
-saveButton.innerHTML += renderIconDefinitionToSVGElement(SaveOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
-newButton.innerHTML += renderIconDefinitionToSVGElement(FileAddOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
-copyButton.innerHTML += renderIconDefinitionToSVGElement(CopyOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
-githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
-hideButton.innerHTML += renderIconDefinitionToSVGElement(EyeInvisibleOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
-singleViewButton.innerHTML += renderIconDefinitionToSVGElement(FireOutlined, {
-	extraSVGAttrs: extraSVGAttrs,
-})
+renderIcon(saveButton, SaveOutlined)
+renderIcon(newButton, FileAddOutlined)
+renderIcon(copyButton, CopyOutlined)
+renderIcon(githubButton, GithubOutlined)
+renderIcon(hideButton, EyeInvisibleOutlined)
+renderIcon(markdownButton, FileMarkdownOutlined)
+renderIcon(singleViewButton, FireOutlined)
 
 tippy("#save-button", {
 	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
+	placement: "bottom",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#markdown-button", {
+	content: "Markdown mode<br><span class='keybind'>Ctrl + M</span>",
 	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",
