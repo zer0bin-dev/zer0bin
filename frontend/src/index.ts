@@ -166,6 +166,7 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 	}
 
 	disable(saveButton)
+	disable(markdownButton)
 	enable(newButton)
 	enable(copyButton)
 	disable(singleViewButton)
