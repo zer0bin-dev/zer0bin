@@ -12,7 +12,11 @@ use actix_web::{
 };
 use config::Config;
 
-use sqlx::{migrate::Migrator, postgres::PgPoolOptions, PgPool};
+use sqlx::{
+    migrate::Migrator,
+    postgres::{PgPoolOptions, PgRow},
+    PgPool, Row,
+};
 
 use crate::routes::{
     get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
@@ -25,10 +29,22 @@ pub struct AppState {
 }
 
 pub async fn migrations(pool: &PgPool) -> Result<(), sqlx::Error> {
-    Migrator::new(Path::new("./migrations"))
-        .await?
-        .run(pool)
-        .await?;
+    let mut migrator = Migrator::new(Path::new("./migrations")).await?;
+
+    for migration in migrator.iter() {
+        if migration.version == 0 {
+            let row: bool = sqlx::query("SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'pastes')")
+			.try_map(|row: PgRow| row.try_get::<bool, _>("exists"))
+			.fetch_one(pool).await?;
+
+            // The table exists so we dont want to run initial migration
+            if row == true {}
+        }
+
+        println!("Running migration: {:?}", migration);
+    }
+
+    migrator.run(pool).await?;
 
     Ok(())
 }
