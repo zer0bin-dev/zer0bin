@@ -152,8 +152,9 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 	}
 
 	if (singleView) {
-		hide(singleViewButton.firstElementChild as HTMLElement)
+		show(singleViewButton.firstElementChild as HTMLElement)
 		singleViewButton.lastElementChild.classList.add("fire")
+		addMessage("This is a single-view paste!")
 	}
 
 	disable(saveButton)
