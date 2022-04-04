@@ -29,13 +29,14 @@ const singleViewButton = <HTMLButtonElement>(
 	document.getElementById("single-view-button")
 )
 
+const extraSVGAttrs = {
+	width: "1em",
+	height: "1em",
+	fill: "currentColor",
+}
 function renderIcon(elem: HTMLButtonElement, icon: IconDefinition) {
 	elem.innerHTML += renderIconDefinitionToSVGElement(icon, {
-		extraSVGAttrs: {
-			width: "1em",
-			height: "1em",
-			fill: "currentColor",
-		},
+		extraSVGAttrs: extraSVGAttrs,
 	})
 }
 
@@ -91,11 +92,11 @@ tippy("#copy-button", {
 tippy("#github-button", {
 	content: `GitHub<br><span class='keybind'>
 	${renderIconDefinitionToSVGElement(StarOutlined, {
-		extraSVGAttrs: { fill: "currentColor" },
+		extraSVGAttrs: extraSVGAttrs,
 	})} ${renderIconDefinitionToSVGElement(ForkOutlined, {
-		extraSVGAttrs: { fill: "currentColor" },
+		extraSVGAttrs: extraSVGAttrs,
 	})} ${renderIconDefinitionToSVGElement(HeartOutlined, {
-		extraSVGAttrs: { fill: "currentColor" },
+		extraSVGAttrs: extraSVGAttrs,
 	})}</span>`,
 	placement: "bottom",
 	animation: "scale",
@@ -137,20 +138,12 @@ export function toggleHiddenIcon(hidden: boolean) {
 		hideButton.innerHTML = renderIconDefinitionToSVGElement(
 			EyeInvisibleOutlined,
 			{
-				extraSVGAttrs: {
-					width: "1em",
-					height: "1em",
-					fill: "currentColor",
-				},
+				extraSVGAttrs: extraSVGAttrs,
 			}
 		)
 	} else {
 		hideButton.innerHTML = renderIconDefinitionToSVGElement(EyeOutlined, {
-			extraSVGAttrs: {
-				width: "1em",
-				height: "1em",
-				fill: "currentColor",
-			},
+			extraSVGAttrs: extraSVGAttrs,
 		})
 	}
 }
