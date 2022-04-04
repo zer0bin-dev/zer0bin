@@ -12,9 +12,13 @@ use actix_web::{
 };
 use config::Config;
 
+use include_dir::include_dir;
 use sqlx::{postgres::PgPoolOptions, PgPool};
+use sqlx_pg_migrate::migrate;
 
-use crate::routes::{get_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste, get_raw_paste};
+use crate::routes::{
+    get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
+};
 
 #[derive(Clone)]
 pub struct AppState {
@@ -25,25 +29,23 @@ pub struct AppState {
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
     let config = config::load(PathBuf::from("config.json"));
+    let db_uri = &config.databases.postgres_uri.to_string();
     let pool = PgPoolOptions::new()
         .max_connections(100)
-        .connect(&config.databases.postgres_uri)
+        .connect(db_uri)
         .await
         .expect("Failed to connect to database");
-
     let address = format!(
         "{}:{}",
         config.server.backend_host, config.server.backend_port
     );
-
     let paste_governor = GovernorConfigBuilder::default()
         .per_second(config.ratelimits.seconds_in_between_pastes)
         .burst_size(config.ratelimits.allowed_pastes_before_ratelimit)
         .finish()
         .unwrap();
-
     let state = AppState { config, pool };
-
+    migrate(db_uri, &include_dir!("migrations")).await;
     println!("🚀 zer0bin is running on {address}");
 
     HttpServer::new(move || {

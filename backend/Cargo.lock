@@ -276,10 +276,12 @@ dependencies = [
  "actix-web",
  "badge-maker",
  "chrono",
+ "include_dir",
  "nanoid",
  "serde",
  "serde_json",
  "sqlx",
+ "sqlx-pg-migrate",
 ]
 
 [[package]]
@@ -750,6 +752,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "glob"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9b919933a397b79c37e33b77bb2aa3dc8eb6e165ad809e58ff75bc7db2e34574"
+
+[[package]]
 name = "governor"
 version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -869,6 +877,26 @@ dependencies = [
  "matches",
  "unicode-bidi",
  "unicode-normalization",
+]
+
+[[package]]
+name = "include_dir"
+version = "0.7.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "482a2e29200b7eed25d7fdbd14423326760b7f6658d21a4cf12d55a50713c69f"
+dependencies = [
+ "glob",
+ "include_dir_macros",
+]
+
+[[package]]
+name = "include_dir_macros"
+version = "0.7.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5e074c19deab2501407c91ba1860fa3d6820bfde307db6d8cb851b55a10be89b"
+dependencies = [
+ "proc-macro2",
+ "quote",
 ]
 
 [[package]]
@@ -1614,6 +1642,17 @@ dependencies = [
  "sqlx-rt",
  "syn",
  "url",
+]
+
+[[package]]
+name = "sqlx-pg-migrate"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c953f3c114842c806461afc90a68da2fad7072d302cfcf69bdc31c893f6c899b"
+dependencies = [
+ "include_dir",
+ "sqlx",
+ "thiserror",
 ]
 
 [[package]]
