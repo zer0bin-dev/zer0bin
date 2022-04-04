@@ -25,7 +25,7 @@
 		"js-confetti": "^0.10.2",
 		"marked": "^4.0.12",
 		"no-darkreader": "^1.0.1",
-		"parcel": "^2.4.0",
+		"parcel": "^2.4.1",
 		"smooth-scrollbar": "^8.7.4",
 		"tippy.js": "^6.3.7"
 	}
