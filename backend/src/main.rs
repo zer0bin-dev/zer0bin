@@ -45,7 +45,9 @@ async fn main() -> io::Result<()> {
         .finish()
         .unwrap();
     let state = AppState { config, pool };
-    migrate(db_uri, &include_dir!("migrations")).await;
+    migrate(db_uri, &include_dir!("migrations"))
+        .await
+        .expect("Error in migrations!");
     println!("🚀 zer0bin is running on {address}");
 
     HttpServer::new(move || {
