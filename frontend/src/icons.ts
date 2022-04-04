@@ -9,6 +9,7 @@ import {
 	EyeOutlined,
 	EyeInvisibleOutlined,
 	FireOutlined,
+	FileMarkdownOutlined,
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import tippy from "tippy.js"
@@ -20,6 +21,9 @@ const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 const githubButton = <HTMLButtonElement>document.getElementById("github-button")
+const markdownButton = <HTMLButtonElement>(
+	document.getElementById("markdown-button")
+)
 const singleViewButton = <HTMLButtonElement>(
 	document.getElementById("single-view-button")
 )
@@ -45,12 +49,26 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 hideButton.innerHTML += renderIconDefinitionToSVGElement(EyeInvisibleOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
+markdownButton.innerHTML += renderIconDefinitionToSVGElement(
+	FileMarkdownOutlined,
+	{
+		extraSVGAttrs: extraSVGAttrs,
+	}
+)
 singleViewButton.innerHTML += renderIconDefinitionToSVGElement(FireOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
 
 tippy("#save-button", {
 	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
+	placement: "bottom",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#markdown-button", {
+	content: "Markdown mode<br><span class='keybind'>Markdown rendering</span>",
 	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",

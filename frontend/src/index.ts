@@ -13,6 +13,7 @@ const apiUrl = config.api_url
 const confettiChance = parseInt(config.confetti_chance)
 let rawContent = ""
 let buttonPaneHidden = false
+let isMarkdown = false
 let singleView = false
 
 const jsConfetti = new JSConfetti()
@@ -34,6 +35,9 @@ const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
+const markdownButton = <HTMLButtonElement>(
+	document.getElementById("markdown-button")
+)
 const singleViewButton = <HTMLButtonElement>(
 	document.getElementById("single-view-button")
 )
@@ -218,10 +222,6 @@ async function savePaste() {
 }
 
 async function duplicatePaste() {
-	const path = window.location.pathname
-	const split = path.split("/")
-	const id = split[split.length - 1]
-
 	const content = rawContent
 	window.history.pushState(null, "", "/")
 	newPaste()
@@ -277,16 +277,26 @@ newButton.addEventListener("click", function () {
 
 hideButton.addEventListener("click", function () {
 	if (!buttonPaneHidden) {
-		// The button pane is currently visible so we hide it
 		buttonPaneHidden = true
 		hide(buttonWrapper)
 	} else {
-		// The button pane isnt visible so we show it
 		buttonPaneHidden = false
 		show(buttonWrapper)
 	}
 
 	toggleHiddenIcon(buttonPaneHidden)
+})
+
+markdownButton.addEventListener("click", function () {
+	if (isMarkdown) {
+		isMarkdown = false
+		editor.value = editor.value.substring(editor.value.indexOf("\n") + 1)
+		markdownButton.lastElementChild.classList.add("markdown")
+	} else {
+		isMarkdown = true
+		editor.value = `---\n${editor.value}`
+		markdownButton.lastElementChild.classList.remove("markdown")
+	}
 })
 
 singleViewButton.addEventListener("click", function () {
