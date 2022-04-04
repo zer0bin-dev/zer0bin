@@ -7,7 +7,8 @@ import {
 	HeartOutlined,
 	StarOutlined,
 	EyeOutlined,
-	EyeInvisibleOutlined
+	EyeInvisibleOutlined,
+	FireOutlined,
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import tippy from "tippy.js"
@@ -19,6 +20,9 @@ const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 const githubButton = <HTMLButtonElement>document.getElementById("github-button")
+const singleViewButton = <HTMLButtonElement>(
+	document.getElementById("single-view-button")
+)
 
 const extraSVGAttrs = {
 	width: "1em",
@@ -41,9 +45,21 @@ githubButton.innerHTML += renderIconDefinitionToSVGElement(GithubOutlined, {
 hideButton.innerHTML += renderIconDefinitionToSVGElement(EyeInvisibleOutlined, {
 	extraSVGAttrs: extraSVGAttrs,
 })
+singleViewButton.innerHTML += renderIconDefinitionToSVGElement(FireOutlined, {
+	extraSVGAttrs: extraSVGAttrs,
+})
 
 tippy("#save-button", {
 	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
+	placement: "bottom",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#single-view-button", {
+	content:
+		"Single view<br><span class='keybind'>Deletes after seen 👻</span>",
 	placement: "bottom",
 	animation: "scale",
 	theme: "rosepine",
@@ -89,7 +105,6 @@ tippy("#hide-button", {
 	allowHTML: true,
 })
 
-
 const observer = new MutationObserver(callback)
 
 function callback() {
@@ -113,9 +128,12 @@ observer.observe(document.getElementById("code-view-pre"), {
 
 export function toggleHiddenIcon(hidden: boolean) {
 	if (!hidden) {
-		hideButton.innerHTML = renderIconDefinitionToSVGElement(EyeInvisibleOutlined, {
-			extraSVGAttrs: extraSVGAttrs,
-		})
+		hideButton.innerHTML = renderIconDefinitionToSVGElement(
+			EyeInvisibleOutlined,
+			{
+				extraSVGAttrs: extraSVGAttrs,
+			}
+		)
 	} else {
 		hideButton.innerHTML = renderIconDefinitionToSVGElement(EyeOutlined, {
 			extraSVGAttrs: extraSVGAttrs,

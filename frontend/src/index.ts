@@ -13,6 +13,7 @@ const apiUrl = config.api_url
 const confettiChance = parseInt(config.confetti_chance)
 let rawContent = ""
 let buttonPaneHidden = false
+let singleView = false
 
 const jsConfetti = new JSConfetti()
 
@@ -33,6 +34,9 @@ const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
+const singleViewButton = <HTMLButtonElement>(
+	document.getElementById("single-view-button")
+)
 
 function hide(element: HTMLElement) {
 	element.style.display = "none"
@@ -51,7 +55,7 @@ function enable(element: HTMLButtonElement) {
 }
 
 async function postPaste(content: string, callback: Function) {
-	const payload = { content }
+	const payload = { content, single_view: singleView }
 	await fetch(`${apiUrl}/p/n`, {
 		method: "POST",
 		headers: {
@@ -106,6 +110,7 @@ function newPaste() {
 	enable(saveButton)
 	disable(newButton)
 	disable(copyButton)
+	enable(singleViewButton)
 
 	editor.value = ""
 	rawContent = ""
@@ -131,7 +136,7 @@ function addMessage(message: string) {
 	}, 3000)
 }
 
-function viewPaste(content: string, views: string) {
+function viewPaste(content: string, views: string, singleView: boolean) {
 	lineNumbers.innerHTML = ""
 	if (
 		content.startsWith("---") ||
@@ -146,11 +151,17 @@ function viewPaste(content: string, views: string) {
 		codeView.innerHTML = hljs.highlightAuto(content).value
 	}
 
+	if (singleView) {
+		hide(singleViewButton.firstElementChild as HTMLElement)
+		singleViewButton.lastElementChild.classList.add("fire")
+	}
+
 	disable(saveButton)
 	enable(newButton)
 	enable(copyButton)
-	hide(editor)
+	disable(singleViewButton)
 
+	hide(editor)
 	show(codeViewPre)
 	show(viewCounterLabel)
 	show(viewCounter)
@@ -177,7 +188,7 @@ async function savePaste() {
 			window.history.pushState(null, "", `/${res["data"]["id"]}`)
 
 			rawContent = res["data"]["content"]
-			viewPaste(rawContent, "0")
+			viewPaste(rawContent, "0", res["data"]["single_view"])
 
 			const rand = Math.floor(Math.random() * confettiChance * 6)
 
@@ -277,6 +288,18 @@ hideButton.addEventListener("click", function () {
 	toggleHiddenIcon(buttonPaneHidden)
 })
 
+singleViewButton.addEventListener("click", function () {
+	if (singleView) {
+		singleView = false
+		hide(singleViewButton.firstElementChild as HTMLElement)
+		singleViewButton.lastElementChild.classList.remove("fire")
+	} else {
+		singleView = true
+		show(singleViewButton.firstElementChild as HTMLElement)
+		singleViewButton.lastElementChild.classList.add("fire")
+	}
+})
+
 async function handlePopstate() {
 	const path = window.location.pathname
 
@@ -292,7 +315,11 @@ async function handlePopstate() {
 				newPaste()
 			} else {
 				rawContent = res["data"]["content"]
-				viewPaste(rawContent, res["data"]["views"].toString())
+				viewPaste(
+					rawContent,
+					res["data"]["views"].toString(),
+					res["data"]["single_view"]
+				)
 			}
 		})
 	}

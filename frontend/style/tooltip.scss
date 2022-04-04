@@ -12,6 +12,7 @@ $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
 	padding: 10px;
 	font-family: $font-mono;
 	font-size: 13px;
+	border-radius: 10px;
 	> .tippy-backdrop {
 		background-color: $bg;
 	}
