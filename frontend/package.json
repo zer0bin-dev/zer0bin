@@ -9,11 +9,11 @@
 		"build": "parcel build index.pug --public-url /"
 	},
 	"devDependencies": {
-		"@parcel/core": "^2.4.0",
-		"@parcel/compressor-brotli": "^2.4.0",
-		"@parcel/compressor-gzip": "^2.4.0",
-		"@parcel/transformer-sass": "^2.4.0",
-		"@parcel/transformer-pug": "^2.4.0",
+		"@parcel/compressor-brotli": "^2.4.1",
+		"@parcel/compressor-gzip": "^2.4.1",
+		"@parcel/core": "^2.4.1",
+		"@parcel/transformer-pug": "^2.4.1",
+		"@parcel/transformer-sass": "^2.4.1",
 		"@types/core-js": "^2.5.5",
 		"@types/node": "^17.0.21"
 	},

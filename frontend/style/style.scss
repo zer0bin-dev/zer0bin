@@ -224,14 +224,11 @@ a {
 .fire {
 	color: $love;
 }
-$fireColor: $love;
-$fireColorT: $love;
 $dur: 1s;
 $blur: 0.02em;
 $fireRad: 3em;
 $parts: 20;
 $partSize: 5em;
-
 .fireBody {
 	font-size: 3px;
 	filter: blur($blur);
@@ -245,7 +242,7 @@ $partSize: 5em;
 }
 .particle {
 	animation: rise $dur ease-in infinite;
-	background-image: radial-gradient($fireColor 100%, $fireColorT 100%);
+	background-image: radial-gradient($love 100%, $love 100%);
 	border-radius: 50%;
 	mix-blend-mode: screen;
 	opacity: 0;
