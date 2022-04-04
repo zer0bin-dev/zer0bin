@@ -10,6 +10,7 @@ import {
 	EyeInvisibleOutlined,
 	FireOutlined,
 	FileMarkdownOutlined,
+	ShareAltOutlined,
 } from "@ant-design/icons-svg"
 import { renderIconDefinitionToSVGElement } from "@ant-design/icons-svg/es/helpers"
 import tippy from "tippy.js"
@@ -22,9 +23,11 @@ const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 const githubButton = <HTMLButtonElement>document.getElementById("github-button")
+const shareButton = <HTMLButtonElement>document.getElementById("share-button")
 const markdownButton = <HTMLButtonElement>(
 	document.getElementById("markdown-button")
 )
+
 const singleViewButton = <HTMLButtonElement>(
 	document.getElementById("single-view-button")
 )
@@ -47,6 +50,7 @@ renderIcon(githubButton, GithubOutlined)
 renderIcon(hideButton, EyeInvisibleOutlined)
 renderIcon(markdownButton, FileMarkdownOutlined)
 renderIcon(singleViewButton, FireOutlined)
+renderIcon(shareButton, ShareAltOutlined)
 
 tippy("#save-button", {
 	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
@@ -106,6 +110,14 @@ tippy("#github-button", {
 
 tippy("#hide-button", {
 	content: "Hide the button pane",
+	placement: "top",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
+tippy("#share-button", {
+	content: "Share paste",
 	placement: "top",
 	animation: "scale",
 	theme: "rosepine",

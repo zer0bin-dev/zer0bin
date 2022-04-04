@@ -192,6 +192,17 @@ a {
 		}
 	}
 }
+// #share-button {
+// 	position: fixed !important;
+// 	bottom: 0;
+// 	left: 0;
+// 	z-index: 10;
+// 	color: $muted;
+// 	&:hover {
+// 		color: $rose;
+// 	}
+// 	padding: 10px;
+// }
 .keybind {
 	color: $subtle;
 	font-size: 11px;

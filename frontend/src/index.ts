@@ -35,6 +35,7 @@ const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
+const shareButton = <HTMLButtonElement>document.getElementById("share-button")
 const markdownButton = <HTMLButtonElement>(
 	document.getElementById("markdown-button")
 )
@@ -127,6 +128,7 @@ function newPaste() {
 	hide(codeViewPre)
 	hide(viewCounterLabel)
 	hide(viewCounter)
+	hide(shareButton)
 	viewCounterLabel.style.display = "none"
 	viewCounter.style.display = "none"
 }
@@ -163,6 +165,17 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 		show(singleViewButton.firstElementChild as HTMLElement)
 		singleViewButton.lastElementChild.classList.add("fire")
 		addMessage("This is a single-view paste!")
+	}
+
+	if (navigator.canShare) {
+		show(shareButton)
+
+		shareButton.addEventListener("click", function () {
+			navigator.share({
+				title: "zer0bin paste",
+				url: window.location.toString(),
+			})
+		})
 	}
 
 	disable(saveButton)
