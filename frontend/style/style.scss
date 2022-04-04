@@ -253,7 +253,7 @@ $partSize: 5em;
 	@for $p from 1 through $parts {
 		&:nth-of-type(#{$p}) {
 			animation-delay: $dur * random();
-			left: calc((100% - #{$partSize}) * math.div($p - 1, $parts));
+			left: calc((100% - #{$partSize}) * calc(($p - 1) / $parts));
 		}
 	}
 }
