@@ -7,8 +7,6 @@ CREATE TABLE IF NOT EXISTS pastes (
     "created_at" TIMESTAMP WITHOUT TIME ZONE DEFAULT(NOW() AT TIME ZONE 'utc')
 );
 
--- ALTER TABLE pastes ADD COLUMN single_view BOOLEAN DEFAULT false;
-
 CREATE OR REPLACE FUNCTION deleteExpiredPastes() RETURNS trigger AS $pastes_expire$ BEGIN
 DELETE FROM pastes
 WHERE "expires_at" IS NOT NULL
