@@ -288,13 +288,14 @@ hideButton.addEventListener("click", function () {
 })
 
 markdownButton.addEventListener("click", function () {
+	let val = editor.value
 	if (isMarkdown) {
 		isMarkdown = false
-		editor.value = editor.value.substring(editor.value.indexOf("\n") + 1)
+		val = val.substring(val.indexOf("\n") + 1)
 		markdownButton.lastElementChild.classList.add("markdown")
 	} else {
 		isMarkdown = true
-		editor.value = `---\n${editor.value}`
+		val = `---\n${val}`
 		markdownButton.lastElementChild.classList.remove("markdown")
 	}
 })
