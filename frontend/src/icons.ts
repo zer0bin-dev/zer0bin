@@ -93,6 +93,14 @@ tippy("#copy-button", {
 	allowHTML: true,
 })
 
+tippy("#share-button", {
+	content: `Share paste<br><span class='keybind'>Copies URL</span>`,
+	placement: "top",
+	animation: "scale",
+	theme: "rosepine",
+	allowHTML: true,
+})
+
 tippy("#github-button", {
 	content: `GitHub<br><span class='keybind'>
 	${renderIconDefinitionToSVGElement(StarOutlined, {
@@ -110,14 +118,6 @@ tippy("#github-button", {
 
 tippy("#hide-button", {
 	content: "Hide the button pane",
-	placement: "top",
-	animation: "scale",
-	theme: "rosepine",
-	allowHTML: true,
-})
-
-tippy("#share-button", {
-	content: "Share paste",
 	placement: "top",
 	animation: "scale",
 	theme: "rosepine",

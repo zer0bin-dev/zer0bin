@@ -117,6 +117,7 @@ function newPaste() {
 	enable(saveButton)
 	disable(newButton)
 	disable(copyButton)
+	disable(shareButton)
 	enable(singleViewButton)
 
 	editor.value = ""
@@ -128,7 +129,6 @@ function newPaste() {
 	hide(codeViewPre)
 	hide(viewCounterLabel)
 	hide(viewCounter)
-	hide(shareButton)
 	viewCounterLabel.style.display = "none"
 	viewCounter.style.display = "none"
 }
@@ -167,7 +167,7 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 		addMessage("This is a single-view paste!")
 	}
 
-	show(shareButton)
+	enable(shareButton)
 	shareButton.addEventListener("click", function () {
 		const url = window.location.toString()
 		if (navigator.canShare) {
