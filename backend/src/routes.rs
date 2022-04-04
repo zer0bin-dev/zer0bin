@@ -167,11 +167,13 @@ pub async fn download_paste(state: web::Data<AppState>, id: web::Path<String>) -
                 println!("[GET] download id={} views={} single_view={}", id, p.views + 1, p.single_view);
             }
 
+            let markdown = p.content.starts_with("md ") || p.content.starts_with("md\n") || p.content.starts_with("---");
+
             HttpResponse::Ok()
                 .insert_header(header::ContentType::octet_stream())
                 .insert_header(header::ContentDisposition {
                     disposition: header::DispositionType::Attachment,
-                    parameters: vec![header::DispositionParam::Filename(format!("{}.txt", id))]
+                    parameters: vec![header::DispositionParam::Filename(format!("{}.{}", id, if markdown { "md" } else { "txt" }))]
                 })
                 .body(p.content)
         }
