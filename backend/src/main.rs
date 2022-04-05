@@ -41,22 +41,6 @@ pub async fn migrations(pool: &PgPool) -> Result<(), sqlx::Error> {
     3. Run `INSERT INTO pastes SELECT * from old_pastes;` and `DROP TABLE old_pastes;` in PSQL
     */
 
-    // TODO: This is a hacky solution but it works for now
-    // it doesnt work lol
-    // if let Err(e) = migrator.run(pool).await {
-    //     match e {
-    //         Execute(ex) => {
-    //             // If the error comes from a table exists check then we can return Ok
-    //             if ex.as_database_error().unwrap().code().unwrap() == "42710" {
-    //                 return Ok(())
-    //             }
-    //         },
-    //         _ => {
-    //             return Err(e.into());
-    //         }
-    //     }
-    // };
-
     migrator.run(pool).await?;
 
     Ok(())
