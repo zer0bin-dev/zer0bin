@@ -70,6 +70,16 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 ### Looking for API reference, self-hosting instructions, and/or benchmarks?
 
+<!--
+This needs to go to the wiki
+
+To move database over to SQLx managed migrations do the following:
+
+1. Run `ALTER TABLE pastes RENAME TO old_pastes` in PSQL
+2. Start the backend to create the new managed tables
+3. Run `INSERT INTO pastes SELECT * from old_pastes;` and `DROP TABLE old_pastes;` in PSQL
+-->
+
 <a href="https://github.com/zer0bin-dev/zer0bin/wiki">
 		<img alt="Stargazers" src="https://custom-icon-badges.herokuapp.com/badge/read_the-wiki-ebbcba?style=for-the-badge&logo=repo&logoColor=eb6f92&labelColor=191724" height=50></a>
 

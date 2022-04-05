@@ -25,10 +25,9 @@ pub struct AppState {
 }
 
 pub async fn migrations(pool: &PgPool) -> Result<(), sqlx::Error> {
-    Migrator::new(Path::new("./migrations"))
-        .await?
-        .run(pool)
-        .await?;
+    let migrator = Migrator::new(Path::new("./migrations")).await?;
+
+    migrator.run(pool).await?;
 
     Ok(())
 }
