@@ -15,8 +15,9 @@ use config::Config;
 use sqlx::{
     migrate::Migrator,
     postgres::{PgPoolOptions, PgRow},
-    PgPool, Row,
+    PgPool, Row, error::DatabaseError,
 };
+use sqlx::migrate::MigrateError::Execute;
 
 use crate::routes::{
     get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
@@ -29,20 +30,23 @@ pub struct AppState {
 }
 
 pub async fn migrations(pool: &PgPool) -> Result<(), sqlx::Error> {
-    let mut migrator = Migrator::new(Path::new("./migrations")).await?;
+    let migrator = Migrator::new(Path::new("./migrations")).await?;
 
-    for migration in migrator.iter() {
-        if migration.version == 0 {
-            let row: bool = sqlx::query("SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'pastes')")
-			.try_map(|row: PgRow| row.try_get::<bool, _>("exists"))
-			.fetch_one(pool).await?;
-
-            // The table exists so we dont want to run initial migration
-            if row == true {}
-        }
-
-        println!("Running migration: {:?}", migration);
-    }
+    // TODO: This is a hacky solution but it works for now
+    // it doesnt work lol
+    // if let Err(e) = migrator.run(pool).await {
+    //     match e {
+    //         Execute(ex) => {
+    //             // If the error comes from a table exists check then we can return Ok
+    //             if ex.as_database_error().unwrap().code().unwrap() == "42710" {
+    //                 return Ok(())
+    //             }
+    //         },
+    //         _ => {
+    //             return Err(e.into());
+    //         }
+    //     }
+    // };
 
     migrator.run(pool).await?;
 
