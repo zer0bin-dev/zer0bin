@@ -9,9 +9,9 @@ edition = "2021"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
-actix-rt = "2.6.0"
-actix-web = "4.0.0-rc.1"
-actix-cors = "0.6.0"
+actix-rt = "2.7.0"
+actix-web = "4.0.1"
+actix-cors = "0.6.1"
 actix-governor = "0.3.0"
 
 badge-maker = "0.2.1"
