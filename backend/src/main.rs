@@ -12,12 +12,7 @@ use actix_web::{
 };
 use config::Config;
 
-use sqlx::{
-    migrate::Migrator,
-    postgres::{PgPoolOptions, PgRow},
-    PgPool, Row, error::DatabaseError,
-};
-use sqlx::migrate::MigrateError::Execute;
+use sqlx::{migrate::Migrator, postgres::PgPoolOptions, PgPool};
 
 use crate::routes::{
     get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
@@ -31,15 +26,6 @@ pub struct AppState {
 
 pub async fn migrations(pool: &PgPool) -> Result<(), sqlx::Error> {
     let migrator = Migrator::new(Path::new("./migrations")).await?;
-
-    /*
-    
-    To move database over to SQLx managed migrations do the following:
-
-    1. Run `ALTER TABLE pastes RENAME TO old_pastes` in PSQL
-    2. Start the backend to create the new managed tables
-    3. Run `INSERT INTO pastes SELECT * from old_pastes;` and `DROP TABLE old_pastes;` in PSQL
-    */
 
     migrator.run(pool).await?;
 
