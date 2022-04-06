@@ -141,7 +141,7 @@ function callback() {
 	})
 }
 
-observer.observe(document.getElementById("code-view-pre"), {
+observer.observe(document.getElementById("code-view-wrapper"), {
 	attributes: true,
 })
 

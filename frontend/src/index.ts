@@ -21,15 +21,15 @@ const jsConfetti = new JSConfetti()
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
 const wrapper = <HTMLPreElement>document.querySelector(".wrapper")
 const buttonWrapper = <HTMLPreElement>document.querySelector(".button-wrapper")
-const editor = <HTMLTextAreaElement>document.getElementById("text-area")
-const codeViewPre = <HTMLPreElement>document.getElementById("code-view-pre")
+const editor = <HTMLTextAreaElement>document.getElementById("editor")
+const codeViewPre = <HTMLPreElement>document.getElementById("code-view-wrapper")
 const codeView = <HTMLElement>document.getElementById("code-view")
 const messages = <HTMLElement>document.getElementById("messages")
 const viewCounterLabel = <HTMLSpanElement>(
-	document.getElementById("viewcounter-label")
+	document.getElementById("view-counter-label")
 )
 const viewCounter = <HTMLSpanElement>(
-	document.getElementById("viewcounter-count")
+	document.getElementById("view-counter-count")
 )
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
@@ -189,8 +189,10 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 
 	hide(editor)
 	show(codeViewPre)
+ 
 	show(viewCounterLabel)
 	show(viewCounter)
+
 	viewCounterLabel.style.display = null
 	viewCounter.style.display = null
 

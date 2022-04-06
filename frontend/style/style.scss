@@ -25,22 +25,7 @@ $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
 		background-position: 100% 0;
 	}
 }
-.fadeOut {
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0s 3s, opacity 2s linear;
-}
-body {
-	height: 100%;
-	background-color: $bg_base;
-	margin: 0;
-}
-html {
-	height: 100%;
-}
-pre {
-	margin: 0;
-}
+
 @mixin selection {
 	::-moz-selection {
 		@content;
@@ -49,107 +34,177 @@ pre {
 		@content;
 	}
 }
+
 @include selection {
 	color: $text;
 	background: $highlight;
 }
-.noselect {
-	user-select: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-}
-.wrapper .scroll-content {
-	display: flex;
-}
-.scrollbar-container {
-	height: 90%;
-}
-.wrapper {
-	position: absolute;
-	top: 3.2rem;
-	display: flex;
-	padding: 1rem 0.5rem;
-	font-size: 1rem;
-}
-.line-numbers {
-	color: $subtle;
-	font-family: $font-mono;
-	text-align: end;
-	user-select: none;
-	font-size: 15px;
-	padding-right: 11px;
-	line-height: 1.5em;
-}
-#code-view-pre {
-	font-family: $font-mono;
-	padding-top: 0;
-	padding-bottom: 0;
-	font-size: 15px;
-	-webkit-text-size-adjust: none;
-	line-height: 1.5em;
-}
-#code-view {
-	font-family: $font-mono;
-	padding-top: 0;
-	padding-bottom: 0;
-	line-height: 1.5em;
-}
-.viewcounter {
-	font-size: 12px;
-	font-family: $font-mono;
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-#viewcounter-label {
-	color: $subtle;
-}
-#viewcounter-count {
-	color: $rose;
-}
-code {
-	color: $text;
-}
-textarea {
-	background-color: transparent;
-	resize: none;
-	width: 100%;
+
+body {
 	height: 100%;
+	background-color: $bg_base;
+	margin: 0;
+}
+
+html {
+	height: 100%;
+}
+
+pre {
+	margin: 0;
+}
+
+#messages {
+	position: absolute;
+	top: 0;
+	right: 168px;
+	z-index: 1000;
 	padding: 0;
 	margin: 0;
-	border: none;
-	outline: 0;
-	color: $text;
-	font-family: $font-mono;
-	font-size: 15px;
+	list-style: none;
+	width: 400px;
+	li {
+		background-color: $bg_trans;
+		font-size: 13px;
+		font-family: $font-mono;
+		color: $text;
+		padding: 7px;
+	}
 }
+
 .navbar {
 	position: fixed !important;
 	width: 100%;
 	height: 3.2rem;
 	padding: 0.5rem;
 	flex-direction: row;
-    align-items: center;
+	align-items: center;
 	display: flex;
 	background-color: $bg_surface;
 	z-index: 10;
 	transition: opacity 0.2s, visibility 0.2s;
-}
-.buttons {
-	z-index: 10;
-	margin-left: auto;
-	display: flex;
-	padding: 10px;
 
-	> * {
-		+ {
-			* {
-				padding: 0.1rem 0.1rem 0.1rem 0.1rem;
+	.logo {
+		font-size: 1.8rem;
+		font-weight: 700;
+		text-align: left;
+		text-decoration: none;
+		width: 100%;
+		font-family: $font-mono;
+		display: inline-block;
+		background: linear-gradient(
+			to right,
+			$love,
+			$gold,
+			$rose,
+			$pine,
+			$foam,
+			$iris
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		animation: rainbow 120s linear infinite;
+		background-size: 400% 100%;
+		&:hover {
+			animation: rainbow 3s ease infinite !important;
+		}
+	}
+
+	.buttons {
+		z-index: 10;
+		margin-left: auto;
+		display: flex;
+		padding: 10px;
+
+		> * {
+			+ {
+				* {
+					padding: 0.1rem 0.1rem 0.1rem 0.1rem;
+				}
 			}
 		}
 	}
+
+	.view-counter {
+		font-size: 12px;
+		font-family: $font-mono;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	#view-counter-label {
+		color: $subtle;
+	}
+
+	#view-counter-count {
+		color: $rose;
+	}
 }
+
+.scrollbar-container {
+	height: 90%;
+
+	.wrapper {
+		position: absolute;
+		top: 3.2rem;
+		padding: 1.4rem 0.5rem;
+		font-size: 1rem;
+
+		.scroll-content {
+			display: flex;
+		}
+
+		.line-numbers {
+			position: absolute;
+			left: 0;
+			color: $subtle;
+			font-family: $font-mono;
+			text-align: end;
+			user-select: none;
+			font-size: 15px;
+			padding-right: 11px;
+			line-height: 1.5em;
+		}
+
+		#code-view-wrapper {
+			font-family: $font-mono;
+			padding-top: 0;
+			padding-bottom: 0;
+			font-size: 15px;
+			-webkit-text-size-adjust: none;
+			line-height: 1.5em;
+
+			code {
+				color: $text;
+			}
+
+			#code-view {
+				font-family: $font-mono;
+				padding-top: 0;
+				padding-bottom: 0;
+				line-height: 1.5em;
+				color: $text;
+			}
+		}
+
+		textarea {
+			background-color: transparent;
+			resize: none;
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			border: none;
+			outline: 0;
+			color: $text;
+			font-family: $font-mono;
+			font-size: 15px;
+			display: block;
+		}
+	}
+}
+
 a {
 	color: $pine;
 	&:visited {
@@ -161,6 +216,36 @@ a {
 		}
 	}
 }
+
+.bottom-button-wrapper {
+	position: fixed !important;
+	bottom: 0;
+	right: 0;
+	padding: 1rem 1rem 0.5rem 1rem;
+	z-index: 10;
+
+	.btn {
+		color: $muted;
+		&:hover {
+			color: $gold;
+		}
+	}
+}
+
+// #share-button {
+// 	position: fixed !important;
+// 	bottom: 0;
+// 	left: 0;
+// 	z-index: 10;
+// 	color: $muted;
+// 	&:hover {
+// 		color: $rose;
+// 	}
+// 	padding: 10px;
+// }
+
+// Utility classes
+
 .btn {
 	cursor: pointer;
 	background: 0 0;
@@ -178,73 +263,27 @@ a {
 		color: $muted;
 	}
 	transition: all 0.2s ease-in;
-}
-.btn[disabled] {
-	color: $muted;
-	cursor: auto;
-}
-.bottom-button-wrapper {
-	position: fixed !important;
-	bottom: 0;
-	right: 0;
-	padding: 1rem 1rem 0.5rem 1rem;
-	z-index: 10;
 
-	.btn {
+	&[disabled] {
 		color: $muted;
-		&:hover {
-			color: $gold;
-		}
+		cursor: auto;
 	}
 }
-// #share-button {
-// 	position: fixed !important;
-// 	bottom: 0;
-// 	left: 0;
-// 	z-index: 10;
-// 	color: $muted;
-// 	&:hover {
-// 		color: $rose;
-// 	}
-// 	padding: 10px;
-// }
+
 .keybind {
 	color: $subtle;
 	font-size: 11px;
 	font-family: $font-mono;
 }
-.logo {
-	font-size: 1.8rem;
-	font-weight: 700;
-	text-align: left;
-	text-decoration: none;
-	width: 100%;
-	font-family: $font-mono;
-	display: inline-block;
-	background: linear-gradient(
-		to right,
-		$love,
-		$gold,
-		$rose,
-		$pine,
-		$foam,
-		$iris
-	);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	animation: rainbow 120s linear infinite;
-	background-size: 400% 100%;
-	&:hover {
-		animation: rainbow 3s ease infinite !important;
-	}
-}
+
 .markdown {
 	color: $iris;
 }
+
 .fire {
 	color: $love;
 }
+
 // $dur: 1s;
 // $blur: 0.02em;
 // $fireRad: 3em;
@@ -291,20 +330,17 @@ a {
 // 		transform: translateY(-10em) scale(0);
 // 	}
 // }
-#messages {
-	position: absolute;
-	top: 0;
-	right: 168px;
-	z-index: 1000;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	width: 400px;
-	li {
-		background-color: $bg_trans;
-		font-size: 13px;
-		font-family: $font-mono;
-		color: $text;
-		padding: 7px;
-	}
+
+.noselect {
+	user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+.fadeOut {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s 3s, opacity 2s linear;
 }
