@@ -67,12 +67,11 @@ pre {
 	height: 90%;
 }
 .wrapper {
+	position: absolute;
+	top: 3.2rem;
 	display: flex;
 	padding: 1rem 0.5rem;
 	font-size: 1rem;
-}
-.text-area-proper {
-	height: calc(100% - 2rem);
 }
 .line-numbers {
 	color: $subtle;
@@ -125,19 +124,24 @@ textarea {
 	font-family: $font-mono;
 	font-size: 15px;
 }
-.button-wrapper {
+.navbar {
 	position: fixed !important;
 	width: 100%;
+	height: 3.2rem;
 	padding: 0.5rem;
+	flex-direction: row;
+    align-items: center;
+	display: flex;
 	background-color: $bg_surface;
 	z-index: 10;
 	transition: opacity 0.2s, visibility 0.2s;
 }
 .buttons {
 	z-index: 10;
-	position: fixed !important;
-	top: 1rem;
-	left: 9rem;
+	margin-left: auto;
+	display: flex;
+	padding: 10px;
+
 	> * {
 		+ {
 			* {
@@ -302,10 +306,5 @@ a {
 		font-family: $font-mono;
 		color: $text;
 		padding: 7px;
-	}
-}
-@media only screen and (hover: none) and (pointer: coarse) {
-	.button-wrapper {
-		opacity: 0.8;
 	}
 }
