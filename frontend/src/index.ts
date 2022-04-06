@@ -33,7 +33,9 @@ const viewCounter = <HTMLSpanElement>(
 )
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
-const copyButton = <HTMLButtonElement>document.getElementById("duplicate-button")
+const copyButton = <HTMLButtonElement>(
+	document.getElementById("duplicate-button")
+)
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 const shareButton = <HTMLButtonElement>document.getElementById("share-button")
 const markdownButton = <HTMLButtonElement>(
@@ -189,7 +191,7 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 
 	hide(editor)
 	show(codeViewPre)
- 
+
 	show(viewCounterLabel)
 	show(viewCounter)
 
@@ -273,22 +275,30 @@ saveButton.addEventListener("click", async function () {
 
 document.addEventListener("keydown", (e) => {
 	if (e.ctrlKey && e.key === "s") {
-		if(saveButton.disabled) { return; }
-
 		e.preventDefault()
+
+		if (saveButton.disabled) {
+			return
+		}
+
 		savePaste()
 	} else if (e.ctrlKey && e.key === "n") {
-		if(newButton.disabled) { return; }
-
 		e.preventDefault()
+
+		if (newButton.disabled) {
+			return
+		}
+
 		newPaste()
 	} else if (e.ctrlKey && e.key === "d") {
-		if (duplicatePaste.disabled) { return; }
-
 		e.preventDefault()
+
+		if (duplicatePaste.disabled) {
+			return
+		}
+		
 		duplicatePaste()
 	} else if (e.ctrlKey && e.key === "m") {
-
 		e.preventDefault()
 		toggleMarkdown()
 	}
