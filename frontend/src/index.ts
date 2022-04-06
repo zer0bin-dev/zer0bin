@@ -170,7 +170,7 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 		addMessage("This is a single-view paste!")
 	}
 
-	disable(saveButton)
+	enable(saveButton)
 	disable(markdownButton)
 	enable(newButton)
 	enable(copyButton)
