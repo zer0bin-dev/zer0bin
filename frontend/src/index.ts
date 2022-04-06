@@ -17,7 +17,6 @@ let isMarkdown = false
 let singleView = false
 let inView = false
 let viewId = ""
-
 const jsConfetti = new JSConfetti()
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
@@ -37,6 +36,7 @@ const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
 const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
+const shareButton = <HTMLButtonElement>document.getElementById("share-button")
 const markdownButton = <HTMLButtonElement>(
 	document.getElementById("markdown-button")
 )
@@ -118,6 +118,7 @@ function newPaste() {
 	enable(saveButton)
 	disable(newButton)
 	disable(copyButton)
+	disable(shareButton)
 	enable(singleViewButton)
 	saveTippy.setContent("Save paste<br><span class='keybind'>Ctrl + S</span>")
 
@@ -170,7 +171,21 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 		addMessage("This is a single-view paste!")
 	}
 
-	enable(saveButton)
+	enable(shareButton)
+	shareButton.addEventListener("click", function () {
+		const url = window.location.toString()
+		if (navigator.canShare) {
+			navigator.share({
+				title: "zer0bin paste",
+				url: url,
+			})
+		} else {
+			navigator.clipboard.writeText(url)
+			addMessage("Copied URL to clipboard!")
+		}
+	})
+  
+  enable(saveButton)
 	disable(markdownButton)
 	enable(newButton)
 	enable(copyButton)
