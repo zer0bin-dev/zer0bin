@@ -13,6 +13,7 @@ $bg_surface: #1f1d2e;
 $bg_trans: rgba(31, 29, 46, 0.8);
 $font-mono: "Cartograph CF", ui-monospace, SFMono-Regular, Menlo, Monaco,
 	Consolas, "Liberation Mono", "Courier New", monospace;
+$navbar_height: 3.2rem;
 
 @import "./font.scss";
 
@@ -75,7 +76,7 @@ pre {
 .navbar {
 	position: fixed;
 	width: 100%;
-	height: 3.2rem;
+	height: $navbar_height;
 	padding: 0.5rem;
 	flex-direction: row;
 	align-items: center;
@@ -147,7 +148,7 @@ pre {
 
 	.wrapper {
 		position: absolute;
-		top: 3.2rem;
+		top: $navbar_height;
 		padding: 1.4rem 0.5rem;
 		font-size: 1rem;
 
