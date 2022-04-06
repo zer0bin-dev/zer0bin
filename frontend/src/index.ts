@@ -20,7 +20,7 @@ const jsConfetti = new JSConfetti()
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
 const wrapper = <HTMLPreElement>document.querySelector(".wrapper")
-const buttonWrapper = <HTMLPreElement>document.querySelector(".button-wrapper")
+const buttonWrapper = <HTMLPreElement>document.querySelector(".navbar")
 const editor = <HTMLTextAreaElement>document.getElementById("editor")
 const codeViewPre = <HTMLPreElement>document.getElementById("code-view-wrapper")
 const codeView = <HTMLElement>document.getElementById("code-view")

@@ -73,7 +73,7 @@ pre {
 }
 
 .navbar {
-	position: fixed !important;
+	position: fixed;
 	width: 100%;
 	height: 3.2rem;
 	padding: 0.5rem;
@@ -107,7 +107,7 @@ pre {
 		animation: rainbow 120s linear infinite;
 		background-size: 400% 100%;
 		&:hover {
-			animation: rainbow 3s ease infinite !important;
+			animation: rainbow 3s ease infinite;
 		}
 	}
 
@@ -218,7 +218,7 @@ a {
 }
 
 .bottom-button-wrapper {
-	position: fixed !important;
+	position: fixed;
 	bottom: 0;
 	right: 0;
 	padding: 1rem 1rem 0.5rem 1rem;
@@ -233,7 +233,7 @@ a {
 }
 
 // #share-button {
-// 	position: fixed !important;
+// 	position: fixed ;
 // 	bottom: 0;
 // 	left: 0;
 // 	z-index: 10;
