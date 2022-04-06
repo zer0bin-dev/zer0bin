@@ -20,7 +20,7 @@ import { IconDefinition } from "@ant-design/icons-svg/lib/types"
 
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
-const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
+const copyButton = <HTMLButtonElement>document.getElementById("duplicate-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 const githubButton = <HTMLButtonElement>document.getElementById("github-button")
 const shareButton = <HTMLButtonElement>document.getElementById("share-button")
@@ -85,7 +85,7 @@ tippy("#new-button", {
 	allowHTML: true,
 })
 
-tippy("#copy-button", {
+tippy("#duplicate-button", {
 	content: "Duplicate paste<br><span class='keybind'>Ctrl + D</span>",
 	placement: "bottom",
 	animation: "scale",

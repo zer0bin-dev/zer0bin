@@ -33,7 +33,7 @@ const viewCounter = <HTMLSpanElement>(
 )
 const saveButton = <HTMLButtonElement>document.getElementById("save-button")
 const newButton = <HTMLButtonElement>document.getElementById("new-button")
-const copyButton = <HTMLButtonElement>document.getElementById("copy-button")
+const copyButton = <HTMLButtonElement>document.getElementById("duplicate-button")
 const hideButton = <HTMLButtonElement>document.getElementById("hide-button")
 const shareButton = <HTMLButtonElement>document.getElementById("share-button")
 const markdownButton = <HTMLButtonElement>(
@@ -273,15 +273,22 @@ saveButton.addEventListener("click", async function () {
 
 document.addEventListener("keydown", (e) => {
 	if (e.ctrlKey && e.key === "s") {
+		if(saveButton.disabled) { return; }
+
 		e.preventDefault()
 		savePaste()
 	} else if (e.ctrlKey && e.key === "n") {
+		if(newButton.disabled) { return; }
+
 		e.preventDefault()
 		newPaste()
 	} else if (e.ctrlKey && e.key === "d") {
+		if (duplicatePaste.disabled) { return; }
+
 		e.preventDefault()
 		duplicatePaste()
 	} else if (e.ctrlKey && e.key === "m") {
+
 		e.preventDefault()
 		toggleMarkdown()
 	}
