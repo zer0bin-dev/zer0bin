@@ -43,5 +43,6 @@ pub struct LoggingConfig {
 
 pub fn load(path: PathBuf) -> Config {
     let file = File::open(path).expect("Failed to load config");
+
     serde_json::from_reader(file).unwrap()
 }

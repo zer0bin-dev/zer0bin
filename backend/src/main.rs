@@ -18,6 +18,10 @@ use crate::routes::{
     get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
 };
 
+const BANNER: &str = "▀▀█ █▀▀ █▀▀█ █▀▀█ █▀▀▄ ▀ █▀▀▄ 
+▄▀  █▀▀ █▄▄▀ █▄▀█ █▀▀▄ █ █  █ 
+▀▀▀ ▀▀▀ ▀ ▀▀ █▄▄█ ▀▀▀  ▀ ▀  ▀";
+
 #[derive(Clone)]
 pub struct AppState {
     pub config: Config,
@@ -59,7 +63,8 @@ async fn main() -> io::Result<()> {
 
     let state = AppState { config, pool };
 
-    println!("🚀 zer0bin is running on {address}");
+    println!("{BANNER}");
+    println!("🚀 Now running on {address}");
 
     HttpServer::new(move || {
         let cors = Cors::default()
