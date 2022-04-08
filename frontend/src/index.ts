@@ -5,8 +5,10 @@ import JSConfetti from "js-confetti"
 import Scrollbar from "smooth-scrollbar"
 
 import "./icons"
-import hljs from "../min/highlight.min"
+import hljs from "highlight.js/lib/common"
+// import hljs from "../min/highlight.min"
 
+import "../min/rosepine.min.css"
 import config from "../config.json"
 import { toggleHiddenIcon } from "./icons"
 const apiUrl = config.api_url
