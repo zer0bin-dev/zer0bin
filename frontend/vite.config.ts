@@ -12,7 +12,7 @@ export default defineConfig(async ({ mode }) => {
 
 		// lazy hack so vite doesn't emit:
 		// [rollup-plugin-dynamic-import-variables] Unexpected token (46:55)
-		// file: /mnt/storage/Projects/Forks/zer0bin/frontend/src/index.ts:46:55
+		// file: zer0bin/frontend/src/index.ts:46:55
 		// error during build:
 		// SyntaxError: Unexpected token (46:55)
 
