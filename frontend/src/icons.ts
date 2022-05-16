@@ -52,7 +52,7 @@ renderIcon(markdownButton, FileMarkdownOutlined)
 renderIcon(singleViewButton, FireOutlined)
 renderIcon(shareButton, ShareAltOutlined)
 
-tippy("#save-button", {
+export const saveTippy = tippy("#save-button", {
 	content: "Save paste<br><span class='keybind'>Ctrl + S</span>",
 	placement: "bottom",
 	animation: "scale",

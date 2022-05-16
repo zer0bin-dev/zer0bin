@@ -15,7 +15,7 @@ use config::Config;
 use sqlx::{migrate::Migrator, postgres::PgPoolOptions, PgPool};
 
 use crate::routes::{
-    get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
+    download_paste, get_paste, get_raw_paste, get_stats, get_total_pastes_badge, get_version_badge, new_paste,
 };
 
 #[derive(Clone)]
@@ -79,6 +79,7 @@ async fn main() -> io::Result<()> {
                     .wrap(Governor::new(&paste_governor))
                     .service(get_paste)
                     .service(new_paste)
+                    .service(download_paste)
                     .service(get_raw_paste),
             )
             .service(

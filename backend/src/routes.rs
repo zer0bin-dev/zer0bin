@@ -2,6 +2,7 @@ use actix_web::{
     get, post,
     web::{self},
     HttpResponse, Responder,
+    http::header
 };
 
 use badge_maker::{BadgeBuilder, Style};
@@ -137,6 +138,69 @@ pub async fn get_raw_paste(state: web::Data<AppState>, id: web::Path<String>) ->
         },
     }
 }
+
+#[get("/d/{id}")]
+pub async fn download_paste(state: web::Data<AppState>, id: web::Path<String>) -> impl Responder {
+    let id = id.into_inner();
+
+    let res: Result<Paste, sqlx::Error> =
+        sqlx::query_as::<_, Paste>(r#"SELECT * FROM pastes WHERE "id" = $1"#)
+            .bind(id.clone())
+            .fetch_one(&state.pool)
+            .await;
+
+    match res {
+        Ok(p) => {
+            if p.single_view {
+                let _ = sqlx::query(r#"DELETE FROM pastes WHERE "id" = $1"#)
+                    .bind(id.clone())
+                    .execute(&state.pool)
+                    .await;
+            } else {
+                let _ = sqlx::query(r#"UPDATE pastes SET "views" = "views" + 1 WHERE "id" = $1"#)
+                    .bind(id.clone())
+                    .execute(&state.pool)
+                    .await;
+            }
+
+            if state.config.logging.on_get_paste {
+                println!("[GET] download id={} views={} single_view={}", id, p.views + 1, p.single_view);
+            }
+
+            let markdown = p.content.starts_with("md ") || p.content.starts_with("md\n") || p.content.starts_with("---");
+
+            HttpResponse::Ok()
+                .insert_header(header::ContentType::octet_stream())
+                .insert_header(header::ContentDisposition {
+                    disposition: header::DispositionType::Attachment,
+                    parameters: vec![header::DispositionParam::Filename(format!("{}.{}", id, if markdown { "md" } else { "txt" }))]
+                })
+                .body(p.content)
+        }
+        Err(e) => match e {
+            sqlx::Error::RowNotFound => {
+                return HttpResponse::NotFound().json(ApiResponse {
+                    success: false,
+                    data: ApiError {
+                        message: format!("Paste {id} wasn't found."),
+                    },
+                });
+            }
+            _ => {
+                eprintln!("Error occured while getting paste: {:?}", e);
+                
+                HttpResponse::InternalServerError().json(ApiResponse {
+                    success: false,
+                    data: ApiError {
+                        message: "Unknown error occured, please try again.".to_string(),
+                    },
+                })
+            }
+        },
+    }
+}
+
+                
 
 #[post("/n")]
 pub async fn new_paste(

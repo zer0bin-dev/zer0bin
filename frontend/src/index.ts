@@ -10,14 +10,15 @@ import hljs from "highlight.js/lib/common"
 
 import "../min/rosepine.min.css"
 import config from "../config.json"
-import { toggleHiddenIcon } from "./icons"
+import { toggleHiddenIcon, saveTippy } from "./icons"
 const apiUrl = config.api_url
 const confettiChance = parseInt(config.confetti_chance)
 let rawContent = ""
 let buttonPaneHidden = false
 let isMarkdown = false
 let singleView = false
-
+let inView = false
+let viewId = ""
 const jsConfetti = new JSConfetti()
 
 const lineNumbers = <HTMLElement>document.querySelector(".line-numbers")
@@ -121,6 +122,8 @@ function newPaste() {
 	disable(copyButton)
 	disable(shareButton)
 	enable(singleViewButton)
+	saveTippy.setContent("Save paste<br><span class='keybind'>Ctrl + S</span>")
+
 
 	editor.value = ""
 	rawContent = ""
@@ -149,6 +152,7 @@ function addMessage(message: string) {
 }
 
 function viewPaste(content: string, views: string, singleView: boolean) {
+	inView = true
 	lineNumbers.innerHTML = ""
 	if (
 		content.startsWith("---") ||
@@ -182,12 +186,13 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 			addMessage("Copied URL to clipboard!")
 		}
 	})
-
-	disable(saveButton)
+  
+  enable(saveButton)
 	disable(markdownButton)
 	enable(newButton)
 	enable(copyButton)
 	disable(singleViewButton)
+	saveTippy.setContent("Download paste<br><span class='keybind'>Ctrl + S</span>")
 
 	hide(editor)
 	show(codeViewPre)
@@ -206,6 +211,11 @@ function viewPaste(content: string, views: string, singleView: boolean) {
 }
 
 async function savePaste() {
+	if (inView) {
+		window.location = `${apiUrl}/p/d/${viewId}`
+		return
+	}
+
 	if (editor.value === "") {
 		return
 	}
@@ -218,6 +228,7 @@ async function savePaste() {
 			window.history.pushState(null, "", `/${res["data"]["id"]}`)
 
 			rawContent = res["data"]["content"]
+			viewId = res["data"]["id"]
 			viewPaste(rawContent, "0", res["data"]["single_view"])
 
 			const rand = Math.floor(Math.random() * confettiChance * 6)
