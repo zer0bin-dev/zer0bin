@@ -2,7 +2,6 @@ CREATE TABLE IF NOT EXISTS pastes (
     "id" TEXT PRIMARY KEY,
     "content" TEXT NOT NULL,
     "views" BIGINT DEFAULT 0,
-    "single_view" BOOLEAN DEFAULT false,
     "expires_at" TIMESTAMP WITHOUT TIME ZONE,
     "created_at" TIMESTAMP WITHOUT TIME ZONE DEFAULT(NOW() AT TIME ZONE 'utc')
 );
