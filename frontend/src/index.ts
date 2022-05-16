@@ -9,10 +9,8 @@ import hljs from "highlight.js/lib/common"
 // import hljs from "../min/highlight.min"
 
 import "../min/rosepine.min.css"
-import config from "../config.json"
 import { toggleHiddenIcon } from "./icons"
-const apiUrl = config.api_url
-const confettiChance = parseInt(config.confetti_chance)
+
 let rawContent = ""
 let buttonPaneHidden = false
 let isMarkdown = false
@@ -65,7 +63,7 @@ function enable(element: HTMLButtonElement) {
 
 async function postPaste(content: string, callback: Function) {
 	const payload = { content, single_view: singleView }
-	await fetch(`${apiUrl}/p/n`, {
+	await fetch(`${API_URL}/p/n`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -89,7 +87,7 @@ async function postPaste(content: string, callback: Function) {
 }
 
 async function getPaste(id: string, callback: Function) {
-	await fetch(`${apiUrl}/p/${id}`, {
+	await fetch(`${API_URL}/p/${id}`, {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
@@ -220,7 +218,9 @@ async function savePaste() {
 			rawContent = res["data"]["content"]
 			viewPaste(rawContent, "0", res["data"]["single_view"])
 
-			const rand = Math.floor(Math.random() * confettiChance * 6)
+			const rand = Math.floor(
+				Math.random() * parseInt(CONFETTI_CHANCE ?? "10") * 6
+			)
 
 			if (rand < 5) {
 				jsConfetti.addConfetti({
