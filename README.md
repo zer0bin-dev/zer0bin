@@ -48,7 +48,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | ---------------------------------------------- | ---------- | -------------- | -------------------------------------------- | --------------------------------------------- | ------- |
 | [zer0b.in](https://zer0b.in)                   | 90 days    | 50,000 chars   | ![pastes](https://zer0b.in/api/b/t)          | ![version](https://zer0b.in/api/b/v)          | 🇺🇸 USA  |
 | [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | ![pastes](https://stepbro.voring.me/api/b/t) | ![version](https://stepbro.voring.me/api/b/v) | 🇺🇸 USA  |
-| [tinker.nz](https://tinker.nz/)                | 28 days    | 69,420 chars   | ![pastes](https://tinker.nz/api/b/t)         | ![version](https://tinker.nz/api/b/v)         | 🇳🇿 NZ   |
+| [paste.m2.nz](https://paste.m2.nz/)                | 90 days    | 60,000 chars   | ![pastes](https://paste.m2.nz/api/b/t)         | ![version](https://paste.m2.nz/api/b/v)         | 🇳🇿 NZ   |
 | [zbin.possums.xyz](https://zbin.possums.xyz/)                | 180 days    | 75,000 chars   | ![pastes](https://zbin.possums.xyz/api/b/t)         | ![version](https://zbin.possums.xyz/api/b/v)         | 🇺🇸 <img src="https://user-images.githubusercontent.com/44733677/179896889-b2621d29-5338-4f95-baa3-53a54ad6ce78.png" height=20></img> USA, Cloudflare   |
 
 # Technologies used
