@@ -50,6 +50,7 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 | [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | ![pastes](https://stepbro.voring.me/api/b/t) | ![version](https://stepbro.voring.me/api/b/v) | 🇺🇸 USA  |
 | [paste.m2.nz](https://paste.m2.nz/)                | 90 days    | 60,000 chars   | ![pastes](https://paste.m2.nz/api/b/t)         | ![version](https://paste.m2.nz/api/b/v)         | 🇳🇿 NZ   |
 | [zbin.pupbrained.xyz](https://zbin.pupbrained.xyz/)                | 180 days    | 75,000 chars   | ![pastes](https://zbin.pupbrained.xyz/api/b/t)         | ![version](https://zbin.pupbrained.xyz/api/b/v)         | 🇺🇸 <img src="https://user-images.githubusercontent.com/44733677/179896889-b2621d29-5338-4f95-baa3-53a54ad6ce78.png" height=20></img> USA, Cloudflare   |
+| [p.soopy.moe](https://p.soopy.moe/)                | 365 days    | 75,000 chars   | ![pastes](https://p.soopy.moe/api/b/t)         | ![version](https://p.soopy.moe/api/b/v)         | :hong_kong: Hong Kong   |
 
 # Technologies used
 
