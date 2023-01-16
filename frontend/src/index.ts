@@ -272,16 +272,16 @@ saveButton.addEventListener("click", async function () {
 })
 
 document.addEventListener("keydown", (e) => {
-	if (e.ctrlKey && e.key === "s") {
+	if (e.ctrlKey && e.code === "KeyS") {
 		e.preventDefault()
 		savePaste()
-	} else if (e.ctrlKey && e.key === "n") {
+	} else if (e.ctrlKey && e.code === "KeyN") {
 		e.preventDefault()
 		newPaste()
-	} else if (e.ctrlKey && e.key === "d") {
+	} else if (e.ctrlKey && e.code === "KeyD") {
 		e.preventDefault()
 		duplicatePaste()
-	} else if (e.ctrlKey && e.key === "m") {
+	} else if (e.ctrlKey && e.code === "KeyM") {
 		e.preventDefault()
 		toggleMarkdown()
 	}
@@ -290,7 +290,7 @@ document.addEventListener("keydown", (e) => {
 editor.addEventListener(
 	"keydown",
 	function (e: KeyboardEvent) {
-		if (e.key == "Tab") {
+		if (e.code == "Tab") {
 			e.preventDefault()
 
 			let start: number = this.selectionStart
