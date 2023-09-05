@@ -46,10 +46,8 @@ Submit your public instance [here](https://github.com/Domterion/zer0bin/issues/n
 
 | URL                                            | Expiration | Max paste size | Total Pastes                                 | Version                                       | Country |
 | ---------------------------------------------- | ---------- | -------------- | -------------------------------------------- | --------------------------------------------- | ------- |
-| [zer0b.in](https://zer0b.in)                   | 90 days    | 50,000 chars   | ![pastes](https://zer0b.in/api/b/t)          | ![version](https://zer0b.in/api/b/v)          | 🇺🇸 USA  |
-| [stepbro.voring.me](https://stepbro.voring.me) | 365 days   | 69,000 chars   | ![pastes](https://stepbro.voring.me/api/b/t) | ![version](https://stepbro.voring.me/api/b/v) | 🇺🇸 USA  |
-| [zbin.pupbrained.xyz](https://zbin.pupbrained.xyz/)                | 180 days    | 75,000 chars   | ![pastes](https://zbin.pupbrained.xyz/api/b/t)         | ![version](https://zbin.pupbrained.xyz/api/b/v)         | 🇺🇸 <img src="https://user-images.githubusercontent.com/44733677/179896889-b2621d29-5338-4f95-baa3-53a54ad6ce78.png" height=20></img> USA, Cloudflare   |
-| [p.soopy.moe](https://p.soopy.moe/)                | 365 days    | 75,000 chars   | ![pastes](https://p.soopy.moe/api/b/t)         | ![version](https://p.soopy.moe/api/b/v)         | :hong_kong: Hong Kong   |
+| [paste.mint.lgbt](https://paste.mint.lgbt)                   | 30 days    | 50,000 chars   | ![pastes](https://paste.mint.lgbt/api/b/t)          | ![version](https://paste.mint.lgbt/api/b/v)          | 🇨🇱 Chile  |
+
 
 # Technologies used
 
