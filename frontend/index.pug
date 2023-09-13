@@ -31,6 +31,9 @@ html(lang='en')
 			a.logo.noselect(href='/') zer0bin
 			.buttons.noselect
 				button#save-button.btn(aria-label='Save')
+				button#copy-button.btn(aria-label='Copy')
+				button#new-button.btn(aria-label='New paste')
+
 				button#markdown-button.btn(aria-label='Markdown')
 				button#single-view-button.btn(aria-label='Single View')
 					//- .fireBody(style='visibility: hidden')
@@ -38,8 +41,7 @@ html(lang='en')
 					//- 	- while (parts--) {
 					//- 		.particle
 					//- 	- }
-				button#new-button.btn(aria-label='New paste')
-				button#copy-button.btn(aria-label='Copy')
+
 				button#share-button.btn(aria-label='Share')
 				a(href='https://github.com/zer0bin-dev/zer0bin' aria-label='GitHub repo')
 					button#github-button.btn(aria-label='GitHub')
